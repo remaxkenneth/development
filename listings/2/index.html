@@ -9,17 +9,29 @@
 
   <title>Casa Vista | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
+  <meta name="description" content="Casa Vista — 5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $749,000 USD">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#003da5">
+  <link rel="canonical" href="https://remaxkenneth.com/listings/2/index.html">
+
+  <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Casa Vista – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $749,000 USD">
-  <meta property="og:image" content="https://remaxkenneth.vercel.app/images/sunsetcerritos.jpeg">
+  <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://remaxkenneth.vercel.app/listings/2/index.html">
+  <meta property="og:url" content="https://remaxkenneth.com/listings/2/index.html">
+
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Casa Vista – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $749,000 USD">
+  <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <meta name="twitter:url" content="https://remaxkenneth.com/listings/2/index.html">
 
   <style>
     :root {
-      --remax-cream: rgba(255,255,255,0.9);
-      --remax-cream-muted: rgba(255,255,255,0.65);
+      --remax-cream: rgba(255,255,255,0.92);
+      --remax-cream-muted: rgba(255,255,255,0.68);
       --glass-bg: rgba(255,255,255,0.12);
       --glass-border: rgba(255,255,255,0.18);
       --chip-bg: rgba(255,255,255,0.20);
@@ -32,20 +44,23 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(
-          circle at top,
-          #0f172a 0%,
-          #0a0f1f 35%,
-          #05070d 70%,
-          #020409 100%
-        );
       color: var(--remax-cream);
+
+      background-color: #020409;
+      background-image: radial-gradient(
+        circle at top,
+        #0f172a 0%,
+        #0a0f1f 35%,
+        #05070d 70%,
+        #020409 100%
+      );
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% 900px;
     }
 
     a { text-decoration: none; color: inherit; }
 
-    /* ===== HEADER / TOOLBAR ===== */
     header {
       position: sticky;
       top: 0;
@@ -67,6 +82,12 @@
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    .nav-left a {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
     }
 
     .nav-left img { height: 32px; }
@@ -120,13 +141,17 @@
       text-transform: uppercase;
     }
 
-    /* ===== HERO ===== */
     #hero {
       position: relative;
       min-height: 340px;
       display: flex;
       align-items: center;
-      background: url('/images/sunsetcerritos.jpeg') center/cover no-repeat;
+
+      background-color: #020409;
+      background-image: url('/images/sunsetcerritos.jpeg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     #hero::before {
@@ -159,14 +184,12 @@
       line-height: 1.1;
     }
 
-    /* match Listing 1: short + clean */
     .hero-sub {
       margin-top: 12px;
       max-width: 620px;
       color: #e5e7eb;
     }
 
-    /* ===== SECTIONS ===== */
     .section {
       max-width: 1200px;
       width: 92%;
@@ -185,7 +208,6 @@
       padding-top: 56px;
     }
 
-    /* ===== SLIDER ===== */
     .slider {
       position: relative;
       height: 520px;
@@ -218,7 +240,6 @@
     .arrow.left { left: 14px; }
     .arrow.right { right: 14px; }
 
-    /* ===== LOADER ===== */
     .loader {
       position: absolute;
       inset: 0;
@@ -249,7 +270,6 @@
       .slider { height: 320px; }
     }
 
-    /* ===== DETAILS ===== */
     .price {
       font-size: 2.2rem;
       text-align: center;
@@ -279,6 +299,30 @@
       border-radius: 999px;
       padding: 8px 14px;
       font-size: 0.8rem;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 520px) {
+      .stats {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+      }
+
+      .stat-pill {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 10px 10px !important;
+        font-size: 0.70rem !important;
+        letter-spacing: 0.12em !important;
+        min-height: 44px !important;
+      }
     }
 
     .description p {
@@ -291,7 +335,6 @@
       color: var(--remax-cream);
     }
 
-    /* ===== FOOTER ===== */
     footer {
       text-align: center;
       padding: 40px 0;
@@ -306,7 +349,9 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="../../index.html"><img src="../../images/logo.png" alt="RE/MAX"></a>
+      <a href="../../index.html" aria-label="Home">
+        <img src="../../images/logo.png" alt="RE/MAX">
+      </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
 
@@ -325,13 +370,10 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Property Listing</div>
     <h1 class="hero-title">Casa Vista</h1>
-    <p class="hero-sub">
-      5 Bedrooms · 4 Bathrooms · Cerritos / Pacific
-    </p>
+    <p class="hero-sub">5 Bedrooms · 4 Bathrooms · Cerritos / Pacific</p>
   </div>
 </section>
 
-<!-- SLIDER -->
 <section class="section">
   <div class="tile">
     <div class="slider">
@@ -343,13 +385,11 @@
   </div>
 </section>
 
-<!-- DETAILS -->
 <section class="section">
   <div class="tile details">
     <h2 class="price">$749,000 USD</h2>
     <p class="location">Residential Home · Baja California Sur, Mexico</p>
 
-    <!-- 5 pills only -->
     <div class="stats">
       <span class="stat-pill">5 Bedrooms</span>
       <span class="stat-pill">4 Bathrooms</span>
@@ -358,7 +398,6 @@
       <span class="stat-pill">Pool + Fire Pit</span>
     </div>
 
-    <!-- MLS text only (no “Boomer wrote a poem” energy) -->
     <div class="description">
       <p>
         Only 3 minutes from Cerritos beach escape to this private 5-bedroom villa. Set behind a 7-ft security wall with storm shutters and solar power. The property offers peace of mind and eco-friendly comfort.
@@ -380,7 +419,6 @@
 </footer>
 
 <script>
-  /* MENU */
   const menuBtn = document.getElementById("menuButton");
   const menuPanel = document.getElementById("menuPanel");
 
@@ -395,7 +433,6 @@
 
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  /* SLIDER (loads one image at a time + spinner) */
   const images = [
     "/images/2/IMG_7683.jpg",
     "/images/2/IMG_7820.JPG",
@@ -419,7 +456,6 @@
 
   function show(i) {
     loader.classList.add("active");
-
     const temp = new Image();
     temp.onload = () => {
       img.src = temp.src;
@@ -431,28 +467,35 @@
     temp.src = images[i];
   }
 
-  const next = () => { index = (index + 1) % images.length; show(index); };
-  const prev = () => { index = (index - 1 + images.length) % images.length; show(index); };
+  function next() {
+    index = (index + 1) % images.length;
+    show(index);
+  }
+
+  function prev() {
+    index = (index - 1 + images.length) % images.length;
+    show(index);
+  }
 
   document.getElementById("next").addEventListener("click", next);
   document.getElementById("prev").addEventListener("click", prev);
 
-  /* Swipe */
   let startX = 0;
-  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  img.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
   img.addEventListener("touchend", (e) => {
     const diff = startX - e.changedTouches[0].clientX;
     if (diff > 50) next();
     if (diff < -50) prev();
   });
 
-  /* Keyboard */
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowRight") next();
     if (e.key === "ArrowLeft") prev();
   });
 
-  /* First image */
   show(index);
 </script>
 
