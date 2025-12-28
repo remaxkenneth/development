@@ -59,7 +59,6 @@
   --remax-dark-blue: #000E35;
   --card-bg: #ffffff;
 
-  /* glass system */
   --remax-cream: rgba(255,255,255,0.9);
   --remax-cream-muted: rgba(255,255,255,0.65);
   --glass-bg: rgba(255,255,255,0.12);
@@ -75,10 +74,7 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-
-  /* ✅ FIX: kill the blue bleed — consistent dark base everywhere */
-  background: #020409;
-
+  background: #020409; /* consistent dark base */
   color: var(--text-main);
 }
 
@@ -174,7 +170,6 @@ body.menu-open .menu-panel {
   display: flex;
   align-items: center;
 
-  /* ✅ FIX: solid dark fallback before image loads */
   background-color: #020409;
   background-image: url('images/sunsetcerritos.jpeg');
   background-position: center;
@@ -315,7 +310,7 @@ a.tile { display:block; cursor:pointer; }
 }
 
 /* ================= LISTINGS GRID ================= */
-/* ✅ FIX: prevents single card from stretching full width */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 360px));
@@ -347,7 +342,7 @@ a.tile { display:block; cursor:pointer; }
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
-/* ✅ card media (for image + overlay) */
+/* card media with overlay */
 .card-media {
   width: 100%;
   height: 240px;
@@ -371,11 +366,8 @@ a.tile { display:block; cursor:pointer; }
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* darken so the text reads as “intentional”, not “oops” */
   background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.55));
   color: rgba(255,255,255,0.92);
-
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: 0.75rem;
@@ -471,40 +463,31 @@ footer {
   color: #aaa;
 }
 
-/* =========================================
-   FIX: "tiles inside tiles" (cards + buttons)
-   ========================================= */
+/* tile styling overrides */
 .tile .card{
   background: rgba(255,255,255,0.10);
   border: 1px solid rgba(255,255,255,0.18);
   box-shadow: none;
   color: var(--text-main);
 }
-
 .tile .card:hover{
   transform: translateY(-2px);
   box-shadow: 0 18px 40px rgba(0,0,0,0.35);
 }
-
 .tile .card img{
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
-
 .tile .card h3{ color: var(--text-main); }
 .tile .card p{ color: var(--text-muted); }
-
 .tile .btn{
   background: rgba(255,255,255,0.20);
   border: 1px solid rgba(255,255,255,0.18);
   color: var(--text-main);
 }
-
 .tile .btn:hover{
   transform: translateY(-1px);
   background: rgba(255,255,255,0.28);
 }
-
-/* ✅ make card-media match tile style */
 .tile .card-media{
   background: rgba(255,255,255,0.08);
   border-bottom: 1px solid rgba(255,255,255,0.10);
@@ -611,7 +594,7 @@ footer {
   </div>
 </section>
 
-<!-- ✅ UPDATED: UNLISTED PROPERTIES -->
+<!-- ✅ UPDATED: UNLISTED PROPERTIES (line breaks exactly as you asked) -->
 <section class="section" id="unlisted-properties">
   <div class="tile">
     <h2 class="section-title">Unlisted Properties</h2>
@@ -627,8 +610,10 @@ footer {
         <div class="card-content">
           <h3>Rancho Nuevo View Parcel</h3>
           <p>
-            Rare land opportunity near Rancho Nuevo.<br>
-            Over one hectare with ocean and mountain views.<br>
+            Rare land opportunity<br>
+            Near Rancho Nuevo<br>
+            Over one hectare with<br>
+            Ocean and mountain views<br>
             <strong style="color: var(--text-main);">$150,000 USD</strong>
           </p>
         </div>
