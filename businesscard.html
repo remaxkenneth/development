@@ -10,20 +10,20 @@
 
   <title>Contact | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Direct contact for Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for trusted guidance on luxury real estate in Baja California Sur.">
+  <meta name="description" content="Direct contact with Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for Baja real estate guidance in Cerritos, Todos Santos, and Pescadero.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
   <link rel="canonical" href="https://remaxkenneth.com/businesscard.html">
 
   <meta property="og:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="Direct contact for Kenneth Gehlhoff and team. Trusted local guidance for luxury real estate in Baja California Sur.">
+  <meta property="og:description" content="Direct contact with Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for Baja real estate guidance.">
   <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta property="og:url" content="https://remaxkenneth.com/businesscard.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="Direct contact for Kenneth Gehlhoff and team. Trusted local guidance for luxury real estate in Baja California Sur.">
+  <meta name="twitter:description" content="Direct contact with Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for Baja real estate guidance.">
   <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta name="twitter:url" content="https://remaxkenneth.com/businesscard.html">
 
@@ -151,7 +151,7 @@
 
     #hero {
       position: relative;
-      min-height: 320px;
+      min-height: 340px;
       display: flex;
       align-items: center;
 
@@ -191,6 +191,7 @@
       font-size: 2.6rem;
       margin: 14px 0;
       font-weight: 600;
+      line-height: 1.1;
     }
 
     .hero-sub {
@@ -232,15 +233,20 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      align-items: stretch;
     }
 
     .card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
       background: rgba(255,255,255,0.10);
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: 26px;
-      padding: 36px;
+      padding: 28px;
       box-shadow: none;
       text-align: center;
       color: var(--text-main);
@@ -253,25 +259,20 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
-    .card img.logo {
-      width: 110px;
-      margin: 0 auto 22px;
+    .card-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 14px;
     }
 
-    .card img.banner {
-      width: 100%;
+    .logo-top {
+      height: 52px;
+      width: auto;
       max-width: 260px;
-      margin: 18px auto 10px;
-      border-radius: 12px;
-    }
-
-    .card img.banner-david {
-      width: 100%;
-      max-width: 260px;
-      max-height: 40px;
-      margin: 18px auto 10px;
-      border-radius: 12px;
-      object-fit: cover;
+      object-fit: contain;
+      display: block;
     }
 
     .card h3 {
@@ -280,17 +281,34 @@
     }
 
     .card .role {
-      margin-top: 8px;
+      margin: 0;
       font-size: 0.75rem;
       letter-spacing: 0.22em;
       color: var(--text-muted);
       text-transform: uppercase;
     }
 
+    .banner-slot {
+      width: 100%;
+      max-width: 260px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .banner-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
     .contact-actions {
-      margin-top: 22px;
+      margin-top: auto;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 12px;
     }
 
@@ -313,25 +331,6 @@
     .contact-actions a:hover {
       transform: translateY(-1px);
       background: rgba(255,255,255,0.28);
-    }
-
-    @media (min-width: 640px) {
-      .contact-actions { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-    }
-
-    .kenny-card {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .kenny-card img.logo {
-      width: 150px;
-      margin: 0 auto 18px;
-    }
-
-    .kenny-card .contact-actions {
-      margin-top: auto;
-      padding-top: 22px;
     }
 
     footer {
@@ -377,10 +376,13 @@
     <p class="section-sub">Call · WhatsApp · Facebook · Email</p>
 
     <div class="grid">
-      <div class="card kenny-card">
-        <img src="/images/logo.png" class="logo" alt="RE/MAX">
-        <h3>Kenneth Gehlhoff</h3>
-        <div class="role">Realtor</div>
+
+      <div class="card">
+        <div class="card-top">
+          <img src="/images/logo.png" class="logo-top" alt="RE/MAX">
+          <h3>Kenneth Gehlhoff</h3>
+          <div class="role">Realtor</div>
+        </div>
         <div class="contact-actions">
           <a href="tel:+526122311639">Call</a>
           <a href="https://wa.me/526122311639" target="_blank" rel="noopener">WhatsApp</a>
@@ -390,9 +392,13 @@
       </div>
 
       <div class="card">
-        <h3>Richard Gomez</h3>
-        <div class="role">Construction Specialist</div>
-        <img src="/images/bannerr.jpeg" class="banner" alt="Richard banner">
+        <div class="card-top">
+          <h3>Richard Gomez</h3>
+          <div class="role">Construction Specialist</div>
+          <div class="banner-slot">
+            <img src="/images/bannerr.jpeg" alt="Richard banner">
+          </div>
+        </div>
         <div class="contact-actions">
           <a href="tel:+523781497632">Call</a>
           <a href="https://wa.me/523781497632" target="_blank" rel="noopener">WhatsApp</a>
@@ -402,9 +408,13 @@
       </div>
 
       <div class="card">
-        <h3>David Ray</h3>
-        <div class="role">Operations · Marketing</div>
-        <img src="/images/IMG_0830.jpeg" class="banner-david" alt="David banner">
+        <div class="card-top">
+          <h3>David Ray</h3>
+          <div class="role">Operations · Marketing</div>
+          <div class="banner-slot">
+            <img src="/images/IMG_0830.jpeg" alt="David banner">
+          </div>
+        </div>
         <div class="contact-actions">
           <a href="tel:+526121315839">Call</a>
           <a href="https://wa.me/526121315839" target="_blank" rel="noopener">WhatsApp</a>
@@ -412,6 +422,7 @@
           <a href="mailto:Bajaheat24x7@gmail.com">Email</a>
         </div>
       </div>
+
     </div>
   </div>
 </section>
