@@ -9,14 +9,16 @@
 
   <title>Listings | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <!-- OPEN GRAPH / META -->
+  <meta name="description" content="Homes, land, and investments across Baja Sur. Curated listings from Kenneth Gehlhoff – RE/MAX Cabo Sanctuary.">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://remaxkenneth.com/listings.html">
+
   <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
   <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta property="og:url" content="https://remaxkenneth.com/listings.html">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://remaxkenneth.com/listings.html">
 
   <style>
     :root {
@@ -24,7 +26,6 @@
       --remax-red: #e4002b;
       --remax-dark-blue: #000E35;
 
-      /* glass system */
       --remax-cream: rgba(255,255,255,0.92);
       --remax-cream-muted: rgba(255,255,255,0.68);
       --glass-bg: rgba(255,255,255,0.12);
@@ -40,21 +41,23 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(
-          circle at top,
-          #0f172a 0%,
-          #0a0f1f 35%,
-          #05070d 70%,
-          #020409 100%
-        );
       color: var(--text-main);
+
+      background-color: #020409;
+      background-image: radial-gradient(
+        circle at top,
+        #0f172a 0%,
+        #0a0f1f 35%,
+        #05070d 70%,
+        #020409 100%
+      );
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% 900px;
     }
 
     a { text-decoration: none; color: inherit; }
     img { max-width: 100%; display: block; }
-
-    /* ================= HEADER ================= */
 
     header {
       position: sticky;
@@ -79,9 +82,14 @@
       gap: 10px;
     }
 
+    .nav-left a {
+      display: inline-flex;
+      align-items: center;
+      line-height: 0;
+    }
+
     .nav-left img { height: 32px; }
 
-    /* toolbar text BLACK */
     .nav-left span {
       font-size: 1rem;
       font-weight: 700;
@@ -90,7 +98,6 @@
       text-transform: uppercase;
     }
 
-    /* hamburger BLACK */
     .menu-button {
       font-size: 30px;
       cursor: pointer;
@@ -135,14 +142,18 @@
       color: #000;
     }
 
-    /* ================= HERO ================= */
-
     #hero {
       position: relative;
       min-height: 340px;
       display: flex;
       align-items: center;
-      background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
+
+      background-color: #020409;
+      background-image: url('/images/sunsetcerritos.jpeg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+
       color: #fff;
     }
 
@@ -177,11 +188,9 @@
     }
 
     .hero-sub {
-      max-width: 520px;
+      max-width: 560px;
       color: #e5e7eb;
     }
-
-    /* ================= SECTIONS ================= */
 
     .section {
       max-width: 1200px;
@@ -189,39 +198,13 @@
       margin: 70px auto;
     }
 
-    .tile {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 26px;
-      padding: 40px;
-      backdrop-filter: blur(20px);
-    }
-
-    .section-title {
-      font-size: 2rem;
-      color: var(--text-main);
-      text-align: center;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .section-sub {
-      text-align: center;
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
-      color: var(--text-muted);
-      margin: 10px 0 40px;
-      text-transform: uppercase;
-    }
-
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 360px));
       gap: 32px;
+      justify-content: center;
+      align-items: start;
     }
-
-    /* ================= CARDS ================= */
 
     .card {
       background: rgba(255,255,255,0.10);
@@ -259,7 +242,7 @@
     .card p {
       font-size: 0.95rem;
       color: var(--text-muted);
-      line-height: 1.4;
+      line-height: 1.45;
       margin: 0;
     }
 
@@ -277,7 +260,9 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX">
+      <a href="index.html" aria-label="Home">
+        <img src="/images/logo.png" alt="RE/MAX">
+      </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
     <div class="menu-button" id="menuButton">≡</div>
@@ -293,67 +278,56 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Homes · Condos · Land · Investment</div>
-    <h1 class="hero-title">Featured Listings</h1>
-    <p class="hero-sub">Homes, land, and investments across Baja Sur</p>
+    <h1 class="hero-title">Listings</h1>
+    <p class="hero-sub">Curated for lifestyle, location, and value</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="tile">
-    <h2 class="section-title">Available Properties</h2>
-    <p class="section-sub">Curated for lifestyle, location, and value</p>
+  <div class="grid">
+    <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
+      <img src="/images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
+      <div class="card-content">
+        <h3>Casa Sol y Luna</h3>
+        <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilan, Mexico</p>
+      </div>
+    </a>
 
-    <div class="grid">
-      <!-- Listing 1: Casa Sol y Luna -->
-      <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
-        <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Sol y Luna</h3>
-          <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilon, Mexico</p>
-        </div>
-      </a>
+    <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
+      <img src="/images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
+      <div class="card-content">
+        <h3>Casa Vista</h3>
+        <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
+      </div>
+    </a>
 
-      <!-- Listing 2: Casa Vista -->
-      <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
-        <img src="images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Vista</h3>
-          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
-        </div>
-      </a>
+    <a class="card" href="listings/5/index.html" aria-label="Open Casa Costa listing">
+      <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg" alt="Casa Costa" loading="lazy" decoding="async">
+      <div class="card-content">
+        <h3>Casa Costa</h3>
+        <p>House<br>$649,000 USD<br>2 Bedrooms · 2 Bathrooms<br>Cerritos, Mexico</p>
+      </div>
+    </a>
 
-      <!-- Listing 3: Casa Lienzo C. Molusco -->
-      <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Lienzo C. Molusco</h3>
-          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
-        </div>
-      </a>
+    <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
+      <img src="/images/IMG_0797.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
+      <div class="card-content">
+        <h3>Casa Lienzo C. Molusco</h3>
+        <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
+      </div>
+    </a>
+  </div>
 
-      <!-- Listing 4: Central Cerritos Lot -->
-      <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
-        <img src="images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Central Cerritos Lot</h3>
-          <p>Plot of Land<br>$265,000 USD<br>Cerritos, Mexico</p>
-        </div>
-      </a>
+  <div style="height: 46px;"></div>
 
-      <!-- Listing 5: Casa Costa (uses Blob image, links to listing page) -->
-      <a class="card" href="listings/5/index.html" aria-label="Open Casa Costa listing">
-        <img
-          src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg"
-          alt="Casa Costa"
-          loading="lazy"
-          decoding="async"
-        >
-        <div class="card-content">
-          <h3>Casa Costa</h3>
-          <p>House<br>$649,000 USD<br>2 Bedrooms · 2 Bathrooms<br>Cerritos, Mexico</p>
-        </div>
-      </a>
-    </div>
+  <div class="grid">
+    <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
+      <img src="/images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
+      <div class="card-content">
+        <h3>Central Cerritos Lot</h3>
+        <p>Plot of Land<br>$265,000 USD<br>Cerritos, Mexico</p>
+      </div>
+    </a>
   </div>
 </section>
 
