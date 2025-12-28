@@ -267,6 +267,14 @@
       padding-bottom: 14px;
     }
 
+    .logo-top {
+      height: 52px;
+      width: auto;
+      max-width: 260px;
+      object-fit: contain;
+      display: block;
+    }
+
     .card h3 {
       margin: 0;
       color: var(--text-main);
@@ -280,28 +288,19 @@
       text-transform: uppercase;
     }
 
-    .media-slot {
+    .banner-slot {
       width: 100%;
       max-width: 260px;
       height: 52px;
-      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.14);
     }
 
-    .media-slot img {
+    .banner-slot img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .media-slot img.logo-fit {
-      width: 82%;
-      height: 82%;
       object-fit: contain;
       display: block;
     }
@@ -380,11 +379,9 @@
 
       <div class="card">
         <div class="card-top">
+          <img src="/images/logo.png" class="logo-top" alt="RE/MAX">
           <h3>Kenneth Gehlhoff</h3>
           <div class="role">Realtor</div>
-          <div class="media-slot">
-            <img src="/images/logo.png" class="logo-fit" alt="RE/MAX">
-          </div>
         </div>
         <div class="contact-actions">
           <a href="tel:+526122311639">Call</a>
@@ -398,7 +395,7 @@
         <div class="card-top">
           <h3>Richard Gomez</h3>
           <div class="role">Construction Specialist</div>
-          <div class="media-slot">
+          <div class="banner-slot">
             <img src="/images/bannerr.jpeg" alt="Richard banner">
           </div>
         </div>
@@ -414,7 +411,7 @@
         <div class="card-top">
           <h3>David Ray</h3>
           <div class="role">Operations · Marketing</div>
-          <div class="media-slot">
+          <div class="banner-slot">
             <img src="/images/IMG_0830.jpeg" alt="David banner">
           </div>
         </div>
