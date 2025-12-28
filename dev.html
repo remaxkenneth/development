@@ -4,21 +4,28 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Listings | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <title>Contact | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Homes, land, and investments across Baja Sur. Curated listings from Kenneth Gehlhoff – RE/MAX Cabo Sanctuary.">
+  <meta name="description" content="Direct contact for Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for trusted guidance on luxury real estate in Baja California Sur.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-  <link rel="canonical" href="https://remaxkenneth.com/listings.html">
+  <meta name="theme-color" content="#003da5">
+  <link rel="canonical" href="https://remaxkenneth.com/businesscard.html">
 
-  <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
+  <meta property="og:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="Direct contact for Kenneth Gehlhoff and team. Trusted local guidance for luxury real estate in Baja California Sur.">
   <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
-  <meta property="og:url" content="https://remaxkenneth.com/listings.html">
+  <meta property="og:url" content="https://remaxkenneth.com/businesscard.html">
   <meta property="og:type" content="website">
+
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="Direct contact for Kenneth Gehlhoff and team. Trusted local guidance for luxury real estate in Baja California Sur.">
+  <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <meta name="twitter:url" content="https://remaxkenneth.com/businesscard.html">
 
   <style>
     :root {
@@ -144,7 +151,7 @@
 
     #hero {
       position: relative;
-      min-height: 340px;
+      min-height: 320px;
       display: flex;
       align-items: center;
 
@@ -184,11 +191,10 @@
       font-size: 2.6rem;
       margin: 14px 0;
       font-weight: 600;
-      line-height: 1.1;
     }
 
     .hero-sub {
-      max-width: 560px;
+      max-width: 520px;
       color: #e5e7eb;
     }
 
@@ -198,22 +204,48 @@
       margin: 70px auto;
     }
 
+    .tile {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 26px;
+      padding: 40px;
+      backdrop-filter: blur(20px);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      color: var(--text-main);
+      text-align: center;
+      margin: 0 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.22em;
+      color: var(--text-muted);
+      margin: 0 0 34px 0;
+      text-transform: uppercase;
+    }
+
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 360px));
+      grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
       gap: 32px;
-      justify-content: center;
-      align-items: start;
     }
 
     .card {
       background: rgba(255,255,255,0.10);
       border: 1px solid rgba(255,255,255,0.18);
       border-radius: 26px;
-      overflow: hidden;
+      padding: 36px;
       box-shadow: none;
+      text-align: center;
+      color: var(--text-main);
+      backdrop-filter: blur(20px);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
-      display: block;
     }
 
     .card:hover {
@@ -221,29 +253,70 @@
       box-shadow: 0 18px 40px rgba(0,0,0,0.35);
     }
 
-    .card img {
-      width: 100%;
-      height: 240px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 1px solid rgba(255,255,255,0.10);
+    .card img.logo {
+      width: 110px;
+      margin: 0 auto 22px;
     }
 
-    .card-content {
-      padding: 30px 26px;
-      text-align: center;
+    .card img.banner {
+      width: 100%;
+      max-width: 260px;
+      margin: 18px auto 10px;
+      border-radius: 12px;
+    }
+
+    .card img.banner-david {
+      width: 100%;
+      max-width: 260px;
+      max-height: 40px;
+      margin: 18px auto 10px;
+      border-radius: 12px;
+      object-fit: cover;
     }
 
     .card h3 {
-      margin: 0 0 10px;
+      margin: 0;
       color: var(--text-main);
     }
 
-    .card p {
-      font-size: 0.95rem;
+    .card .role {
+      margin-top: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.22em;
       color: var(--text-muted);
-      line-height: 1.45;
-      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .contact-actions {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .contact-actions a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 42px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.20);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: var(--text-main);
+      transition: 0.2s ease;
+    }
+
+    .contact-actions a:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.28);
+    }
+
+    @media (min-width: 640px) {
+      .contact-actions { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
     }
 
     footer {
@@ -277,57 +350,54 @@
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Homes · Condos · Land · Investment</div>
-    <h1 class="hero-title">Listings</h1>
-    <p class="hero-sub">Curated for lifestyle, location, and value</p>
+    <div class="hero-eyebrow">CONTACT · TEAM</div>
+    <h1 class="hero-title">Let’s Connect</h1>
+    <p class="hero-sub">Direct access to the people behind your Baja real estate decisions.</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="grid">
-    <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
-      <img src="/images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
-      <div class="card-content">
-        <h3>Casa Sol y Luna</h3>
-        <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilan, Mexico</p>
-      </div>
-    </a>
+  <div class="tile">
+    <h2 class="section-title">Team Contacts</h2>
+    <p class="section-sub">Call · WhatsApp · Facebook · Email</p>
 
-    <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
-      <img src="/images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
-      <div class="card-content">
-        <h3>Casa Vista</h3>
-        <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
+    <div class="grid">
+      <div class="card">
+        <img src="/images/logo.png" class="logo" alt="RE/MAX">
+        <h3>Kenneth Gehlhoff</h3>
+        <div class="role">Realtor</div>
+        <div class="contact-actions">
+          <a href="tel:+526122311639">Call</a>
+          <a href="https://wa.me/526122311639" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.facebook.com/profile.php?id=61584034062665" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:remaxkenneth@gmail.com">Email</a>
+        </div>
       </div>
-    </a>
 
-    <a class="card" href="listings/5/index.html" aria-label="Open Casa Costa listing">
-      <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg" alt="Casa Costa" loading="lazy" decoding="async">
-      <div class="card-content">
-        <h3>Casa Costa</h3>
-        <p>House<br>$649,000 USD<br>2 Bedrooms · 2 Bathrooms<br>Cerritos, Mexico</p>
+      <div class="card">
+        <h3>Richard Gomez</h3>
+        <div class="role">Construction Specialist</div>
+        <img src="/images/bannerr.jpeg" class="banner" alt="Richard banner">
+        <div class="contact-actions">
+          <a href="tel:+523781497632">Call</a>
+          <a href="https://wa.me/523781497632" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.facebook.com/richard.g.654694?" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:ricardogomez160622@gmail.com">Email</a>
+        </div>
       </div>
-    </a>
 
-    <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-      <img src="/images/IMG_0797.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
-      <div class="card-content">
-        <h3>Casa Lienzo C. Molusco</h3>
-        <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
+      <div class="card">
+        <h3>David Ray</h3>
+        <div class="role">Operations · Marketing</div>
+        <img src="/images/IMG_0830.jpeg" class="banner-david" alt="David banner">
+        <div class="contact-actions">
+          <a href="tel:+526121315839">Call</a>
+          <a href="https://wa.me/526121315839" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="https://www.facebook.com/profile.php?id=61581876812521" target="_blank" rel="noopener">Facebook</a>
+          <a href="mailto:Bajaheat24x7@gmail.com">Email</a>
+        </div>
       </div>
-    </a>
-  </div>
-
-  <div style="height: 46px;"></div>
-
-  <div class="grid">
-    <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
-      <img src="/images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
-      <div class="card-content">
-        <h3>Central Cerritos Lot</h3>
-        <p>Plot of Land<br>$265,000 USD<br>Cerritos, Mexico</p>
-      </div>
-    </a>
+    </div>
   </div>
 </section>
 
