@@ -120,7 +120,6 @@ header {
   position: absolute;
   right: 18px;
   top: 64px;
-
   background: rgba(255,255,255,0.80);
   backdrop-filter: blur(20px);
   border-radius: 22px;
@@ -208,6 +207,9 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
+/* pull first content section up a bit closer to the hero */
+.section:first-of-type { margin-top: 40px; }
+
 .tile {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -253,6 +255,7 @@ a.tile { display: block; cursor: pointer; }
   filter: brightness(0.98);
 }
 
+/* VIDEO: native <video> instead of iframe so autoplay works reliably */
 .video-wrapper {
   width: 100%;
   overflow: hidden;
@@ -263,13 +266,18 @@ a.tile { display: block; cursor: pointer; }
   background: rgba(0,0,0,0.25);
 }
 
-.video-wrapper iframe {
+.video-wrapper video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
+  object-fit: cover;
 }
+
+/* reduce spacing inside the video tile so it sits tighter */
+#about-baja .tile { padding: 34px; }
+#about-baja .section-sub { margin-bottom: 22px; }
 
 .featured-grid {
   display: grid;
@@ -335,12 +343,6 @@ a.tile { display: block; cursor: pointer; }
   object-fit: cover;
   object-position: center;
   transform: scale(1.03);
-}
-
-/* FIX: hide letterbox padding baked into some PNGs (tile only) */
-.card-media.zoom img{
-  transform: scale(1.18);
-  transform-origin: center;
 }
 
 .media-overlay {
@@ -509,6 +511,23 @@ footer {
   </div>
 </section>
 
+<!-- MOVED: VIDEO SECTION ABOVE FEATURED PROPERTY + AUTOPLAY/LOOP -->
+<section class="section" id="about-baja">
+  <div class="tile">
+    <div class="video-wrapper">
+      <video
+        src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/baja.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+      ></video>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROPERTY (now below video) -->
 <section class="section" id="featured">
   <a class="tile" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
     <h2 class="section-title">Featured Property</h2>
@@ -535,20 +554,6 @@ footer {
   </a>
 </section>
 
-<section class="section" id="about-baja">
-  <div class="tile">
-    <h2 class="section-title">The Magic of Baja</h2>
-    <p class="section-sub">Discover The Awe of Cerritos Beach</p>
-
-    <div class="video-wrapper">
-      <iframe
-        src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/baja.mp4"
-        allow="encrypted-media"
-        allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-
 <section class="section" id="featured-listings">
   <div class="tile">
     <h2 class="section-title">Featured Listings</h2>
@@ -564,9 +569,7 @@ footer {
       </a>
 
       <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-        <div class="card-media zoom">
-          <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
-        </div>
+        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
           <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
