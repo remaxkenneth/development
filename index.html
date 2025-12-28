@@ -337,6 +337,12 @@ a.tile { display: block; cursor: pointer; }
   transform: scale(1.03);
 }
 
+/* FIX: hide letterbox padding baked into some PNGs (tile only) */
+.card-media.zoom img{
+  transform: scale(1.18);
+  transform-origin: center;
+}
+
 .media-overlay {
   position: absolute;
   inset: 0;
@@ -558,7 +564,9 @@ footer {
       </a>
 
       <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
+        <div class="card-media zoom">
+          <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
+        </div>
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
           <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
