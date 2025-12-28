@@ -16,7 +16,6 @@
 <meta name="author" content="Kenneth Gehlhoff">
 <meta name="theme-color" content="#003da5">
 
-<!-- (Optional / old-school) Keywords -->
 <meta name="keywords" content="Cerritos real estate, Todos Santos real estate, Pescadero real estate, Baja California Sur real estate, luxury homes Baja, oceanview homes Mexico, beachfront property Baja, investment property Baja, RE/MAX Cabo Sanctuary, Kenneth Gehlhoff">
 
 <!-- ✅ OPEN GRAPH -->
@@ -58,20 +57,16 @@
   --remax-red:  #e4002b;
 
   --remax-dark-blue: #000E35;
-  --bg-light:  #f5f6f7;
-  --card-bg:   #ffffff;
+  --card-bg: #ffffff;
 
-  /* ===== Sol y Luna tile system ===== */
+  /* glass system */
   --remax-cream: rgba(255,255,255,0.9);
   --remax-cream-muted: rgba(255,255,255,0.65);
   --glass-bg: rgba(255,255,255,0.12);
   --glass-border: rgba(255,255,255,0.18);
 
-  /* page text defaults */
   --text-main: var(--remax-cream);
   --text-muted: var(--remax-cream-muted);
-
-  --glass: rgba(255,255,255,0.75);
 }
 
 * { box-sizing: border-box; }
@@ -80,14 +75,10 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background:
-    radial-gradient(
-      circle at top,
-      #0f172a 0%,
-      #0a0f1f 35%,
-      #05070d 70%,
-      #020409 100%
-    );
+
+  /* ✅ FIX: kill the blue bleed — consistent dark base everywhere */
+  background: #020409;
+
   color: var(--text-main);
 }
 
@@ -175,13 +166,6 @@ body.menu-open .menu-panel {
   color: #000;
 }
 
-.menu-panel a span {
-  display: block;
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: #666;
-}
-
 /* ================= HERO ================= */
 
 #hero {
@@ -189,7 +173,14 @@ body.menu-open .menu-panel {
   min-height: 340px;
   display: flex;
   align-items: center;
-  background: url('images/sunsetcerritos.jpeg') center/cover no-repeat;
+
+  /* ✅ FIX: solid dark fallback before image loads */
+  background-color: #020409;
+  background-image: url('images/sunsetcerritos.jpeg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
   color: #fff;
 }
 
@@ -356,19 +347,39 @@ a.tile { display:block; cursor:pointer; }
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
-/* ✅ placeholder media block for cards with no images */
+/* ✅ card media (for image + overlay) */
 .card-media {
   width: 100%;
   height: 240px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.08);
+}
+
+.card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.03);
+}
+
+.media-overlay {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  letter-spacing: 0.18em;
+
+  /* darken so the text reads as “intentional”, not “oops” */
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.55));
+  color: rgba(255,255,255,0.92);
+
   text-transform: uppercase;
-  font-size: 0.7rem;
-  color: rgba(255,255,255,0.75);
-  background: rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.10);
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .card-content {
@@ -493,11 +504,10 @@ footer {
   background: rgba(255,255,255,0.28);
 }
 
-/* ✅ make placeholder media match tile style too */
+/* ✅ make card-media match tile style */
 .tile .card-media{
   background: rgba(255,255,255,0.08);
   border-bottom: 1px solid rgba(255,255,255,0.10);
-  color: rgba(255,255,255,0.75);
 }
 </style>
 </head>
@@ -601,19 +611,25 @@ footer {
   </div>
 </section>
 
+<!-- ✅ UPDATED: UNLISTED PROPERTIES -->
 <section class="section" id="unlisted-properties">
   <div class="tile">
     <h2 class="section-title">Unlisted Properties</h2>
     <p class="section-sub">Not All Clients Want Their Properties Listed</p>
 
     <div class="grid">
-      <a class="card" href="businesscard.html" aria-label="Inquire about unlisted Rancho Nuevo land parcel">
-        <div class="card-media">Photo Coming Soon</div>
+      <a class="card" href="businesscard.html" aria-label="Inquire about Rancho Nuevo View Parcel">
+        <div class="card-media">
+          <img src="images/sunsetcerritos.jpeg" alt="Rancho Nuevo View Parcel">
+          <div class="media-overlay">Photo Coming Soon</div>
+        </div>
+
         <div class="card-content">
           <h3>Rancho Nuevo View Parcel</h3>
           <p>
-            Rare land opportunity near Rancho Nuevo — 1+ hectare with ocean + mountain views.<br>
-            <strong style="color: var(--text-main);">Offered at $150,000 USD.</strong>
+            Rare land opportunity near Rancho Nuevo.<br>
+            Over one hectare with ocean and mountain views.<br>
+            <strong style="color: var(--text-main);">$150,000 USD</strong>
           </p>
         </div>
       </a>
