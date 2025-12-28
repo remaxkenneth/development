@@ -254,9 +254,17 @@
     }
 
     .card img.logo {
-      width: 110px;
-      margin: 0 auto 22px;
+      width: 100%;
+      max-width: 260px;
+      height: 40px;
+      margin: 18px auto 10px;
+      object-fit: contain;
+      border-radius: 12px;
     }
+
+    .kenny-card { padding-top: 26px; }
+    .kenny-card img.logo { margin: 6px auto 10px; }
+    .kenny-gap { height: 22px; }
 
     .card img.banner {
       width: 100%;
@@ -362,10 +370,11 @@
     <p class="section-sub">Call · WhatsApp · Facebook · Email</p>
 
     <div class="grid">
-      <div class="card">
+      <div class="card kenny-card">
         <img src="/images/logo.png" class="logo" alt="RE/MAX">
         <h3>Kenneth Gehlhoff</h3>
         <div class="role">Realtor</div>
+        <div class="kenny-gap" aria-hidden="true"></div>
         <div class="contact-actions">
           <a href="tel:+526122311639">Call</a>
           <a href="https://wa.me/526122311639" target="_blank" rel="noopener">WhatsApp</a>
