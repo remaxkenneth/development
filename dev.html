@@ -98,6 +98,12 @@ header {
   gap: 10px;
 }
 
+.nav-left a {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
 .nav-left img { height: 32px; }
 
 .nav-left span {
@@ -207,7 +213,6 @@ body.menu-open .menu-panel {
   margin: 70px auto;
 }
 
-/* pull first content section up a bit closer to the hero */
 .section:first-of-type { margin-top: 40px; }
 
 .tile {
@@ -255,29 +260,25 @@ a.tile { display: block; cursor: pointer; }
   filter: brightness(0.98);
 }
 
-/* VIDEO: native <video> instead of iframe so autoplay works reliably */
+/* VIDEO */
+#about-baja .tile {
+  padding: 0;
+  overflow: hidden;
+}
+
 .video-wrapper {
   width: 100%;
-  overflow: hidden;
-  border-radius: 14px;
-  position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
   background: rgba(0,0,0,0.25);
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
 .video-wrapper video {
-  position: absolute;
-  inset: 0;
   width: 100%;
   height: 100%;
-  border: 0;
+  display: block;
   object-fit: cover;
 }
-
-/* reduce spacing inside the video tile so it sits tighter */
-#about-baja .tile { padding: 34px; }
-#about-baja .section-sub { margin-bottom: 22px; }
 
 .featured-grid {
   display: grid;
@@ -326,6 +327,13 @@ a.tile { display: block; cursor: pointer; }
   object-position: center center;
   display: block;
   border-bottom: 1px solid rgba(0,0,0,0.06);
+  background: #000; /* hides transparency/letterbox weirdness */
+}
+
+/* Targeted zoom for the Casa Lienzo tile if that image has dead space baked in */
+.grid a[href="listings/3/index.html"] img {
+  transform: scale(1.16);
+  transform-origin: center;
 }
 
 .card-media {
@@ -343,6 +351,7 @@ a.tile { display: block; cursor: pointer; }
   object-fit: cover;
   object-position: center;
   transform: scale(1.03);
+  background: #000;
 }
 
 .media-overlay {
@@ -486,7 +495,9 @@ footer {
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX Logo">
+      <a href="index.html" aria-label="Home">
+        <img src="images/logo.png" alt="RE/MAX Logo">
+      </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
 
@@ -506,12 +517,12 @@ footer {
     <div class="hero-eyebrow">CERRITOS · TODOS SANTOS · PESCADERO</div>
     <h1 class="hero-title">Luxury Oceanview<br>Real Estate</h1>
     <p class="hero-sub">
-      Private villas, income properties, and beachfront homes for discerning buyers.
+      Private villas, income properties, and beachfront homes.
     </p>
   </div>
 </section>
 
-<!-- MOVED: VIDEO SECTION ABOVE FEATURED PROPERTY + AUTOPLAY/LOOP -->
+<!-- VIDEO ABOVE FEATURED PROPERTY -->
 <section class="section" id="about-baja">
   <div class="tile">
     <div class="video-wrapper">
@@ -521,17 +532,17 @@ footer {
         muted
         loop
         playsinline
+        webkit-playsinline
         preload="metadata"
       ></video>
     </div>
   </div>
 </section>
 
-<!-- FEATURED PROPERTY (now below video) -->
+<!-- FEATURED PROPERTY -->
 <section class="section" id="featured">
   <a class="tile" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
-    <h2 class="section-title">Featured Property</h2>
-    <p class="section-sub">Hand-Selected</p>
+    <p class="section-sub">Featured Property</p>
 
     <div class="featured-grid">
       <div class="featured-main">
@@ -556,7 +567,6 @@ footer {
 
 <section class="section" id="featured-listings">
   <div class="tile">
-    <h2 class="section-title">Featured Listings</h2>
     <p class="section-sub">Curated for lifestyle, location, and value</p>
 
     <div class="grid">
@@ -585,7 +595,6 @@ footer {
 
 <section class="section" id="unlisted-properties">
   <div class="tile">
-    <h2 class="section-title">Unlisted Properties</h2>
     <p class="section-sub">Not All Clients Want Their Properties Listed</p>
 
     <div class="grid">
@@ -650,7 +659,7 @@ footer {
 
 <footer>
   Curated locally. Updated often.<br>
-  <span>© 2025 · REMAX Kenneth<br></span>
+  <span>© 2025 · RE/MAX Kenneth<br></span>
   Each office independently owned and operated
 </footer>
 
