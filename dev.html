@@ -9,7 +9,7 @@
 
   <title>Listings | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Explore luxury homes and land opportunities across Cerritos, Todos Santos, and Pescadero. Curated listings from Kenneth Gehlhoff – RE/MAX Cabo Sanctuary.">
+  <meta name="description" content="Homes, land, and investments across Baja Sur. Curated listings from Kenneth Gehlhoff – RE/MAX Cabo Sanctuary.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://remaxkenneth.com/listings.html">
 
@@ -41,16 +41,19 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #020409;
-      background:
-        radial-gradient(
-          circle at top,
-          #0f172a 0%,
-          #0a0f1f 35%,
-          #05070d 70%,
-          #020409 100%
-        );
       color: var(--text-main);
+
+      background-color: #020409;
+      background-image: radial-gradient(
+        circle at top,
+        #0f172a 0%,
+        #0a0f1f 35%,
+        #05070d 70%,
+        #020409 100%
+      );
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% 900px;
     }
 
     a { text-decoration: none; color: inherit; }
@@ -195,43 +198,6 @@
       margin: 70px auto;
     }
 
-    .section-head {
-      text-align: center;
-      margin-bottom: 34px;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      color: var(--text-main);
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .section-sub {
-      font-size: 0.8rem;
-      letter-spacing: 0.22em;
-      color: var(--text-muted);
-      margin: 10px 0 0;
-      text-transform: uppercase;
-    }
-
-    .divider {
-      height: 1px;
-      width: min(720px, 100%);
-      margin: 26px auto 38px;
-      background: rgba(255,255,255,0.14);
-    }
-
-    .category {
-      text-align: center;
-      margin: 0 0 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.26em;
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.82);
-    }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 360px));
@@ -312,19 +278,12 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Homes · Condos · Land · Investment</div>
-    <h1 class="hero-title">Available Properties</h1>
+    <h1 class="hero-title">Properties</h1>
     <p class="hero-sub">Curated for lifestyle, location, and value</p>
   </div>
 </section>
 
 <section class="section">
-  <div class="section-head">
-    <h2 class="section-title">Properties</h2>
-    <p class="section-sub">Cerritos · Todos Santos · Pescadero</p>
-    <div class="divider"></div>
-  </div>
-
-  <div class="category">Homes</div>
   <div class="grid">
     <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
       <img src="images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
@@ -335,7 +294,7 @@
     </a>
 
     <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
-      <img src="images/IMG_0796.jpeg" alt="Casa Vista" loading="lazy" decoding="async">
+      <img src="images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
       <div class="card-content">
         <h3>Casa Vista</h3>
         <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
@@ -359,9 +318,8 @@
     </a>
   </div>
 
-  <div style="height:46px;"></div>
+  <div style="height: 46px;"></div>
 
-  <div class="category">Land</div>
   <div class="grid">
     <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
       <img src="images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
