@@ -254,17 +254,9 @@
     }
 
     .card img.logo {
-      width: 100%;
-      max-width: 260px;
-      height: 40px;
-      margin: 18px auto 10px;
-      object-fit: contain;
-      border-radius: 12px;
+      width: 110px;
+      margin: 0 auto 22px;
     }
-
-    .kenny-card { padding-top: 26px; }
-    .kenny-card img.logo { margin: 6px auto 10px; }
-    .kenny-gap { height: 22px; }
 
     .card img.banner {
       width: 100%;
@@ -327,6 +319,21 @@
       .contact-actions { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
     }
 
+    .kenny-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .kenny-card img.logo {
+      width: 150px;
+      margin: 0 auto 18px;
+    }
+
+    .kenny-card .contact-actions {
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
     footer {
       text-align: center;
       padding: 40px 0;
@@ -374,7 +381,6 @@
         <img src="/images/logo.png" class="logo" alt="RE/MAX">
         <h3>Kenneth Gehlhoff</h3>
         <div class="role">Realtor</div>
-        <div class="kenny-gap" aria-hidden="true"></div>
         <div class="contact-actions">
           <a href="tel:+526122311639">Call</a>
           <a href="https://wa.me/526122311639" target="_blank" rel="noopener">WhatsApp</a>
