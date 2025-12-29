@@ -304,6 +304,15 @@ a.tile { display: block; cursor: pointer; }
   justify-content: center;
 }
 
+/* iPad/tablet: force 2-up tiles instead of stacking */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 22px;
+  }
+}
+
 .card {
   display: block;
   background: var(--card-bg);
@@ -326,14 +335,6 @@ a.tile { display: block; cursor: pointer; }
   object-position: center center;
   display: block;
   border-bottom: 1px solid rgba(0,0,0,0.06);
-}
-
-/* Fix: thumbnail has baked-in white bars — zoom + center crop */
-.card img.thumb-crop-center{
-  object-fit: cover;
-  object-position: 50% 50%;
-  transform: scale(1.22);
-  transform-origin: 50% 50%;
 }
 
 .card-media {
@@ -519,6 +520,7 @@ footer {
   </div>
 </section>
 
+<!-- MOVED: VIDEO SECTION ABOVE FEATURED PROPERTY + AUTOPLAY/LOOP -->
 <section class="section" id="about-baja">
   <div class="tile">
     <div class="video-wrapper">
@@ -534,8 +536,10 @@ footer {
   </div>
 </section>
 
+<!-- FEATURED PROPERTY (now below video) -->
 <section class="section" id="featured">
   <a class="tile" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
+   
     <p class="section-sub">Featured Property</p>
 
     <div class="featured-grid">
@@ -573,7 +577,7 @@ footer {
       </a>
 
       <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco" class="thumb-crop-center">
+        <img src="images/IMG_0797.png" alt="Casa Lienzo C. Molusco">
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
           <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
