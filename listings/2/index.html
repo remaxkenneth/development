@@ -18,14 +18,14 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Casa Vista – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $749,000 USD">
-  <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <meta property="og:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F2%2FIMG_7829.JPG&w=1200&q=82&output=jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remaxkenneth.com/listings/2/index.html">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Casa Vista – RE/MAX Cabo Sanctuary">
   <meta name="twitter:description" content="5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $749,000 USD">
-  <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <meta name="twitter:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F2%2FIMG_7829.JPG&w=1200&q=82&output=jpg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/2/index.html">
 
   <style>
@@ -36,6 +36,9 @@
       --glass-border: rgba(255,255,255,0.18);
       --chip-bg: rgba(255,255,255,0.20);
       --chip-border: rgba(255,255,255,0.18);
+
+      /* fallback hero if optimizer ever fails */
+      --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/2/IMG_0102.jpeg');
     }
 
     * { box-sizing: border-box; }
@@ -148,7 +151,7 @@
       align-items: center;
 
       background-color: #020409;
-      background-image: url('/images/sunsetcerritos.jpeg');
+      background-image: var(--hero-bg);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -204,9 +207,7 @@
       backdrop-filter: blur(20px);
     }
 
-    .tile.details {
-      padding-top: 56px;
-    }
+    .tile.details { padding-top: 56px; }
 
     .slider {
       position: relative;
@@ -331,9 +332,7 @@
       margin: 0 0 14px;
     }
 
-    .description p:first-child {
-      color: var(--remax-cream);
-    }
+    .description p:first-child { color: var(--remax-cream); }
 
     footer {
       text-align: center;
@@ -419,6 +418,7 @@
 </footer>
 
 <script>
+  // MENU
   const menuBtn = document.getElementById("menuButton");
   const menuPanel = document.getElementById("menuPanel");
 
@@ -433,22 +433,39 @@
 
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  const images = [
-    "/images/2/IMG_7683.jpg",
-    "/images/2/IMG_7820.JPG",
-    "/images/2/IMG_7821.JPG",
-    "/images/2/IMG_7825.JPG",
-    "/images/2/IMG_7827.JPG",
-    "/images/2/IMG_7828.JPG",
-    "/images/2/IMG_7829.JPG",
-    "/images/2/IMG_7830.JPG",
-    "/images/2/IMG_7831.JPG",
-    "/images/2/IMG_7832.JPG",
-    "/images/2/IMG_7833.JPG",
-    "/images/2/IMG_7835.JPG",
-    "/images/2/IMG_7838.JPG",
-    "/images/2/IMG_7839.JPG"
+  // IMAGES (Vercel Blob /2/ + wsrv resize + fallback, NO PRELOAD)
+  const ORIGIN_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/2/";
+
+  // from your Vercel Blob /2/ folder screenshot
+  const FILES = [
+    "IMG_7829.JPG",
+    "IMG_7833.JPG",
+    "IMG_7832.JPG",
+    "IMG_7827.JPG",
+    "IMG_7825.JPG",
+    "IMG_0102.jpeg",
+    "IMG_0099.jpeg",
+    "IMG_0090.jpeg",
+    "IMG_0104.jpeg",
+    "IMG_0058.jpeg"
   ];
+
+  const SLIDER_W = 1400; // cap for iPad/retina sanity
+  const HERO_W = 1600;
+
+  function wsrvUrl(filename, w, q = 80) {
+    const origin = encodeURIComponent(ORIGIN_BASE + filename);
+    return `https://wsrv.nl/?url=${origin}&w=${w}&q=${q}&output=jpg`;
+  }
+
+  // set optimized hero bg (keeps the CSS fallback if it fails)
+  (function setHeroBg(){
+    const heroUrl = wsrvUrl("IMG_0102.jpeg", HERO_W, 82);
+    document.documentElement.style.setProperty("--hero-bg", `url('${heroUrl}')`);
+  })();
+
+  const originals = FILES.map((f) => ORIGIN_BASE + f);
+  const optimized = FILES.map((f) => wsrvUrl(f, SLIDER_W, 78));
 
   let index = 0;
   const img = document.getElementById("slideImage");
@@ -456,24 +473,49 @@
 
   function show(i) {
     loader.classList.add("active");
+
+    let done = false;
+    const finish = (src) => {
+      if (done) return;
+      done = true;
+      img.src = src;
+      loader.classList.remove("active");
+    };
+
+    // If wsrv hangs (not erroring), bail out to original after X ms
+    const HANG_TIMEOUT_MS = 6000;
+    const hangTimer = setTimeout(() => {
+      finish(originals[i]);
+    }, HANG_TIMEOUT_MS);
+
     const temp = new Image();
+
     temp.onload = () => {
-      img.src = temp.src;
-      loader.classList.remove("active");
+      clearTimeout(hangTimer);
+      finish(temp.src);
     };
+
     temp.onerror = () => {
-      loader.classList.remove("active");
+      clearTimeout(hangTimer);
+
+      const fallback = new Image();
+      fallback.onload = () => finish(fallback.src);
+      fallback.onerror = () => {
+        loader.classList.remove("active");
+      };
+      fallback.src = originals[i];
     };
-    temp.src = images[i];
+
+    temp.src = optimized[i];
   }
 
   function next() {
-    index = (index + 1) % images.length;
+    index = (index + 1) % optimized.length;
     show(index);
   }
 
   function prev() {
-    index = (index - 1 + images.length) % images.length;
+    index = (index - 1 + optimized.length) % optimized.length;
     show(index);
   }
 
