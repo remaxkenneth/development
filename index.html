@@ -304,6 +304,15 @@ a.tile { display: block; cursor: pointer; }
   justify-content: center;
 }
 
+/* iPad/tablet: force 2-up tiles instead of stacking */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 22px;
+  }
+}
+
 .card {
   display: block;
   background: var(--card-bg);
