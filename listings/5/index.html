@@ -13,16 +13,17 @@
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
 
+  <!-- UPDATED: social preview uses the first slide image -->
   <meta property="og:title" content="Casa Costa – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="2 Bedrooms · 2 Bathrooms · 2,007 m² lot · Steps to South Cerritos Beach · $649,000 USD">
-  <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remaxkenneth.com/listings/5/">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Casa Costa – RE/MAX Cabo Sanctuary">
   <meta name="twitter:description" content="2 Bedrooms · 2 Bathrooms · 2,007 m² lot · Steps to South Cerritos Beach · $649,000 USD">
-  <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/5/">
 
   <link rel="canonical" href="https://remaxkenneth.com/listings/5/">
@@ -144,7 +145,8 @@
       align-items: center;
 
       background-color: #020409;
-      background-image: url('/images/sunsetcerritos.jpeg');
+      /* UPDATED: default hero points to the first slide image */
+      background-image: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg');
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -436,6 +438,8 @@
 
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
+  const heroEl = document.getElementById("hero");
+
   const BASE_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/";
   const BASE_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/5/";
 
@@ -462,9 +466,21 @@
   async function show(i) {
     loader.classList.add("active");
     const file = files[i];
+
     try {
       const finalSrc = await tryLoad(BASE_A + file, BASE_B + file);
       img.src = finalSrc;
+
+      // UPDATED: hero background always matches the CURRENT first slide source (including fallback)
+      if (i === 0) {
+        heroEl.style.backgroundImage = `url('${finalSrc}')`;
+
+        // optional: keep meta tags aligned in-browser (crawlers won’t care, but humans will)
+        const og = document.querySelector('meta[property="og:image"]');
+        const tw = document.querySelector('meta[name="twitter:image"]');
+        if (og) og.setAttribute("content", finalSrc);
+        if (tw) tw.setAttribute("content", finalSrc);
+      }
     } finally {
       loader.classList.remove("active");
     }
