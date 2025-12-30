@@ -18,14 +18,16 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Casa Lienzo C. Molusco – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="3 Bedrooms · 2 Bathrooms · Las Tunas (Pacific) · $395,000 USD">
-  <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <!-- UPDATED: OG uses first slider image -->
+  <meta property="og:image" content="https://remaxkenneth.com/images/3/IMG_0060.png">
   <meta property="og:url" content="https://remaxkenneth.com/listings/3/index.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Casa Lienzo C. Molusco – RE/MAX Cabo Sanctuary">
   <meta name="twitter:description" content="3 Bedrooms · 2 Bathrooms · Las Tunas (Pacific) · $395,000 USD">
-  <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <!-- UPDATED: Twitter uses first slider image -->
+  <meta name="twitter:image" content="https://remaxkenneth.com/images/3/IMG_0060.png">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/3/index.html">
 
   <style>
@@ -148,7 +150,8 @@
       align-items: center;
 
       background-color: #020409;
-      background-image: url('/images/sunsetcerritos.jpeg');
+      /* UPDATED: hero matches first slider image */
+      background-image: url('/images/3/IMG_0060.png');
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -440,6 +443,8 @@
 
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
+  const heroEl = document.getElementById("hero");
+
   const images = [
     "/images/3/IMG_0060.png",
     "/images/3/IMG_0064.jpeg",
@@ -458,13 +463,28 @@
   function show(i) {
     loader.classList.add("active");
     const temp = new Image();
+
     temp.onload = () => {
       img.src = temp.src;
+
+      // UPDATED: hero always matches the FIRST slide image (index 0)
+      if (i === 0) {
+        heroEl.style.backgroundImage = `url('${temp.src}')`;
+
+        // optional: keep meta tags aligned in-browser (crawlers won’t care, but humans will)
+        const og = document.querySelector('meta[property="og:image"]');
+        const tw = document.querySelector('meta[name="twitter:image"]');
+        if (og) og.setAttribute("content", temp.src);
+        if (tw) tw.setAttribute("content", temp.src);
+      }
+
       loader.classList.remove("active");
     };
+
     temp.onerror = () => {
       loader.classList.remove("active");
     };
+
     temp.src = images[i];
   }
 
