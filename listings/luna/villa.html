@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Luna Villa | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+
+  <meta name="description" content="Luna Villa — 3 Bedrooms · 307.9 m² (3,314.5 ft²) · El Pescadero · From $399k">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#003da5">
+
+  <!-- Social preview uses the first slide -->
+  <meta property="og:title" content="Luna Villa – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="3 Bedrooms · 307.9 m² (3,314.5 ft²) · El Pescadero · From $399k">
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%281%29.jpeg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://remaxkenneth.com/listings/luna/villa/">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Luna Villa – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="3 Bedrooms · 307.9 m² (3,314.5 ft²) · El Pescadero · From $399k">
+  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%281%29.jpeg">
+  <meta name="twitter:url" content="https://remaxkenneth.com/listings/luna/villa/">
+
+  <link rel="canonical" href="https://remaxkenneth.com/listings/luna/villa/">
+
+  <style>
+    :root {
+      --remax-cream: rgba(255,255,255,0.92);
+      --remax-cream-muted: rgba(255,255,255,0.68);
+      --glass-bg: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.18);
+      --chip-bg: rgba(255,255,255,0.20);
+      --chip-border: rgba(255,255,255,0.18);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--remax-cream);
+
+      background-color: #020409;
+      background-image: radial-gradient(
+        circle at top,
+        #0f172a 0%,
+        #0a0f1f 35%,
+        #05070d 70%,
+        #020409 100%
+      );
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% 900px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== HEADER / TOOLBAR ===== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(245,246,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 5%;
+      position: relative;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-left a { display: inline-flex; align-items: center; line-height: 0; }
+    .nav-left img { height: 32px; }
+
+    .nav-left span {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    .menu-button {
+      font-size: 30px;
+      cursor: pointer;
+      color: #000;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .menu-panel {
+      position: absolute;
+      right: 18px;
+      top: 64px;
+      background: rgba(255,255,255,0.80);
+      backdrop-filter: blur(20px);
+      border-radius: 22px;
+      padding: 22px;
+      min-width: 190px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(0.95);
+      transition: 0.25s ease;
+      color: #000;
+    }
+
+    body.menu-open .menu-panel {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    .menu-panel a {
+      color: #000;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative;
+      min-height: 340px;
+      display: flex;
+      align-items: center;
+
+      background-color: #020409;
+      background-image: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%281%29.jpeg');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 92%;
+      margin: auto;
+      color: #fff;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      margin: 14px 0 0;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .hero-sub {
+      margin-top: 12px;
+      max-width: 740px;
+      color: #e5e7eb;
+    }
+
+    /* ===== SECTIONS ===== */
+    .section {
+      max-width: 1200px;
+      width: 92%;
+      margin: 70px auto;
+    }
+
+    .tile {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 26px;
+      padding: 40px;
+      backdrop-filter: blur(20px);
+    }
+
+    .tile.details { padding-top: 56px; }
+
+    /* ===== SLIDER ===== */
+    .slider {
+      position: relative;
+      height: 520px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .slider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.45);
+      color: #fff;
+      border: none;
+      font-size: 28px;
+      padding: 10px 14px;
+      cursor: pointer;
+      border-radius: 14px;
+      z-index: 6;
+    }
+
+    .arrow.left { left: 14px; }
+    .arrow.right { right: 14px; }
+
+    /* ===== LOADING OVERLAY ===== */
+    .loader {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.30);
+      z-index: 5;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+    }
+
+    .loader.active { opacity: 1; }
+
+    .spinner {
+      width: 48px;
+      height: 48px;
+      border: 4px solid rgba(255,255,255,0.32);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    @media (max-width: 768px) {
+      .slider { height: 320px; }
+    }
+
+    /* ===== DETAILS ===== */
+    .price {
+      font-size: 2.2rem;
+      text-align: center;
+      margin: 0;
+      font-weight: 500;
+      color: var(--remax-cream);
+    }
+
+    .location {
+      text-align: center;
+      margin: 10px 0 22px;
+      color: var(--remax-cream-muted);
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin: 28px 0 26px;
+    }
+
+    .stat-pill {
+      background: var(--chip-bg);
+      border: 1px solid var(--chip-border);
+      color: var(--remax-cream);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      text-align: center;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 520px) {
+      .stats {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+        align-items: stretch !important;
+      }
+
+      .stat-pill {
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 10px 10px !important;
+        font-size: 0.70rem !important;
+        letter-spacing: 0.12em !important;
+        min-height: 44px !important;
+      }
+    }
+
+    .description p {
+      line-height: 1.7;
+      color: var(--remax-cream-muted);
+      margin: 0 0 14px;
+    }
+
+    .description p:first-child { color: var(--remax-cream); }
+
+    .cta {
+      margin-top: 22px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.10);
+      color: var(--remax-cream);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .btn:hover { background: rgba(255,255,255,0.16); }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <a href="../../index.html" aria-label="Home">
+        <img src="../../images/logo.png" alt="RE/MAX">
+      </a>
+      <span>KENNETH GEHLHOFF</span>
+    </div>
+
+    <div class="menu-button" id="menuButton">≡</div>
+
+    <div class="menu-panel" id="menuPanel">
+      <a href="../../index.html">Home</a>
+      <a href="../../listings.html">Listings</a>
+      <a href="../../events.html">Events</a>
+      <a href="../../businesscard.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Property Listing</div>
+    <h1 class="hero-title">Luna Villa</h1>
+    <p class="hero-sub">3 Bedrooms · 307.9 m² (3,314.5 ft²) · El Pescadero (between Cerritos & Todos Santos)</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="tile">
+    <div class="slider">
+      <div class="loader" id="loader"><div class="spinner"></div></div>
+      <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
+      <img
+        id="slideImage"
+        alt="Luna Villa"
+        loading="eager"
+        decoding="async"
+        src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%281%29.jpeg"
+      >
+      <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="tile details">
+    <h2 class="price">From $399k</h2>
+    <p class="location">Luna · El Pescadero, B.C.S. · Residential Villa</p>
+
+    <div class="stats">
+      <span class="stat-pill">3 Bedrooms</span>
+      <span class="stat-pill">3,314.5 ft²</span>
+      <span class="stat-pill">307.9 m²</span>
+      <span class="stat-pill">Rooftop Pool</span>
+      <span class="stat-pill">BBQ + Pergola</span>
+    </div>
+
+    <div class="description">
+      <p>
+        Luna Villa is built for balance: clean air, slow living, and real connection in El Pescadero—set between
+        Cerritos and Todos Santos.
+      </p>
+      <p>
+        <strong>First floor:</strong> master bedroom with walk-in closet and full bath, plus two guest bedrooms
+        (one with walk-in closet), all with full baths; storage and terrace.
+      </p>
+      <p>
+        <strong>Second floor:</strong> living room, kitchen & dining area, laundry room, rear balcony, terrace,
+        1/2 bathroom, and rooftop access.
+      </p>
+      <p>
+        <strong>Rooftop terrace:</strong> pool, half bath, BBQ area, and dining space with pergola.
+      </p>
+    </div>
+
+    <div class="cta">
+      <a class="btn" href="tel:+526121207461">Call +52 (612) 120 7461</a>
+      <a class="btn" href="mailto:info@lunapescadero.com">Email</a>
+      <a class="btn" href="https://www.lunapescadero.com" target="_blank" rel="noopener">Website</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Curated locally. Updated often.<br>
+  © 2025 · RE/MAX Kenneth<br>
+  Each office independently owned and operated
+</footer>
+
+<script>
+  const menuBtn = document.getElementById("menuButton");
+  const menuPanel = document.getElementById("menuPanel");
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.body.classList.toggle("menu-open");
+  });
+
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+  });
+
+  menuPanel.addEventListener("click", (e) => e.stopPropagation());
+
+  const heroEl = document.getElementById("hero");
+
+  // Working base (your Blob folder)
+  const BASE_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/";
+  // Optional fallback (won't break anything if it doesn't exist)
+  const BASE_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/luna/villa/";
+
+  // Filenames include spaces + parentheses -> MUST encode
+  const files = [
+    "Luna Villa-51 (1).jpeg",
+    "Luna Villa-51 (2).jpeg",
+    "Luna Villa-51 (11).jpeg",
+    "Luna Villa-51 (12).jpeg",
+    "Luna Villa-51 (13).jpeg",
+    "Luna Villa-51 (14).jpeg",
+    "Luna Villa-51 (16).jpeg",
+    "Luna Villa-51 (17).jpeg",
+    "Luna Villa-51 (19).jpeg",
+    "Luna Villa-51 (21).jpeg",
+    "Luna Villa-51 (22).jpeg",
+    "Luna Villa-51 (23).jpeg",
+    "Luna Villa-51 (27).jpeg",
+    "Luna Villa-51 (28).jpeg",
+    "Luna Villa-51 (30).jpeg"
+  ];
+
+  let index = 0;
+  const img = document.getElementById("slideImage");
+  const loader = document.getElementById("loader");
+
+  const buildUrl = (base, filename) => base + encodeURIComponent(filename);
+
+  function tryLoad(url1, url2) {
+    return new Promise((resolve, reject) => {
+      const t = new Image();
+      t.onload = () => resolve(t.src);
+      t.onerror = () => {
+        const t2 = new Image();
+        t2.onload = () => resolve(t2.src);
+        t2.onerror = () => reject(new Error("Both paths failed"));
+        t2.src = url2;
+      };
+      t.src = url1;
+    });
+  }
+
+  async function show(i) {
+    loader.classList.add("active");
+    const file = files[i];
+
+    try {
+      const finalSrc = await tryLoad(
+        buildUrl(BASE_A, file),
+        buildUrl(BASE_B, file)
+      );
+
+      img.src = finalSrc;
+
+      if (i === 0) {
+        heroEl.style.backgroundImage = `url('${finalSrc}')`;
+
+        const og = document.querySelector('meta[property="og:image"]');
+        const tw = document.querySelector('meta[name="twitter:image"]');
+        if (og) og.setAttribute("content", finalSrc);
+        if (tw) tw.setAttribute("content", finalSrc);
+      }
+    } catch (err) {
+      console.warn("Image failed:", file, err);
+    } finally {
+      loader.classList.remove("active");
+    }
+  }
+
+  const next = () => { index = (index + 1) % files.length; show(index); };
+  const prev = () => { index = (index - 1 + files.length) % files.length; show(index); };
+
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
+
+  let startX = 0;
+  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  img.addEventListener("touchend", (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) next();
+    if (diff < -50) prev();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+
+  show(index);
+</script>
+
+</body>
+</html>
