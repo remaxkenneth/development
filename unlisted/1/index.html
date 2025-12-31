@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Rancho Nuevo View Parcel | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+
+  <!-- UNLISTED: keep out of Google unless you explicitly want it indexed -->
+  <meta name="description" content="Rancho Nuevo View Parcel — Over one hectare · Ocean & mountain views · Rancho Nuevo, Baja California Sur.">
+  <meta name="robots" content="noindex,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#003da5">
+  <link rel="canonical" href="https://remaxkenneth.com/unlisted/rancho-nuevo-view-parcel/index.html">
+
+  <!-- OG / Twitter (use auto-generated JPG so shares load fast + compatible) -->
+  <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Rancho Nuevo View Parcel – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="Over one hectare · Ocean & mountain views · Rancho Nuevo">
+  <meta property="og:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2Ful%2FIMG_1066.jpeg&w=1200&q=80&output=jpg">
+  <meta property="og:url" content="https://remaxkenneth.com/unlisted/rancho-nuevo-view-parcel/index.html">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rancho Nuevo View Parcel – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="Over one hectare · Ocean & mountain views · Rancho Nuevo">
+  <meta name="twitter:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2Ful%2FIMG_1066.jpeg&w=1200&q=80&output=jpg">
+  <meta name="twitter:url" content="https://remaxkenneth.com/unlisted/rancho-nuevo-view-parcel/index.html">
+
+  <style>
+    :root{
+      --remax-cream: rgba(255,255,255,0.92);
+      --remax-cream-muted: rgba(255,255,255,0.68);
+      --glass-bg: rgba(255,255,255,0.12);
+      --glass-border: rgba(255,255,255,0.18);
+      --chip-bg: rgba(255,255,255,0.20);
+      --chip-border: rgba(255,255,255,0.18);
+
+      /* JS will replace this with an optimized CDN URL */
+      --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/ul/IMG_1066.jpeg');
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--remax-cream);
+
+      background-color:#020409;
+      background-image: radial-gradient(
+        circle at top,
+        #0f172a 0%,
+        #0a0f1f 35%,
+        #05070d 70%,
+        #020409 100%
+      );
+      background-repeat:no-repeat;
+      background-position: top center;
+      background-size: 100% 900px;
+    }
+
+    a{ text-decoration:none; color:inherit; }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background: rgba(245,246,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid #e5e7eb;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 5%;
+      position:relative;
+    }
+
+    .nav-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .nav-left a{
+      display:inline-flex;
+      align-items:center;
+      line-height:0;
+    }
+
+    .nav-left img{ height:32px; }
+
+    .nav-left span{
+      font-size:1rem;
+      font-weight:700;
+      letter-spacing:0.12em;
+      color:#000;
+      text-transform:uppercase;
+    }
+
+    .menu-button{
+      font-size:30px;
+      cursor:pointer;
+      color:#000;
+      user-select:none;
+      line-height:1;
+    }
+
+    .menu-panel{
+      position:absolute;
+      right:18px;
+      top:64px;
+      background: rgba(255,255,255,0.80);
+      backdrop-filter: blur(20px);
+      border-radius:22px;
+      padding:22px;
+      min-width:190px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      opacity:0;
+      pointer-events:none;
+      transform:scale(0.95);
+      transition:0.25s ease;
+      color:#000;
+    }
+
+    body.menu-open .menu-panel{
+      opacity:1;
+      pointer-events:auto;
+      transform:scale(1);
+    }
+
+    .menu-panel a{
+      color:#000;
+      font-size:14px;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+    }
+
+    #hero{
+      position:relative;
+      min-height:340px;
+      display:flex;
+      align-items:center;
+
+      background-color:#020409;
+      background-image: var(--hero-bg);
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+    }
+
+    #hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:1200px;
+      width:92%;
+      margin:auto;
+      color:#fff;
+    }
+
+    .hero-eyebrow{
+      font-size:0.7rem;
+      letter-spacing:0.35em;
+      text-transform:uppercase;
+      color:#e5e7eb;
+    }
+
+    .hero-title{
+      font-size:2.6rem;
+      margin:14px 0 0;
+      font-weight:600;
+      line-height:1.1;
+    }
+
+    .hero-sub{
+      margin-top:12px;
+      max-width:700px;
+      color:#e5e7eb;
+    }
+
+    .section{
+      max-width:1200px;
+      width:92%;
+      margin:70px auto;
+    }
+
+    .tile{
+      background: var(--glass-bg);
+      border:1px solid var(--glass-border);
+      border-radius:26px;
+      padding:40px;
+      backdrop-filter: blur(20px);
+    }
+
+    .tile.details{ padding-top:56px; }
+
+    .slider{
+      position:relative;
+      height:520px;
+      border-radius:18px;
+      overflow:hidden;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .slider img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background: rgba(0,0,0,0.45);
+      color:#fff;
+      border:none;
+      font-size:28px;
+      padding:10px 14px;
+      cursor:pointer;
+      border-radius:14px;
+      z-index:6;
+    }
+
+    .arrow.left{ left:14px; }
+    .arrow.right{ right:14px; }
+
+    .loader{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: rgba(0,0,0,0.30);
+      z-index:5;
+      opacity:0;
+      pointer-events:none;
+      transition: opacity 0.18s ease;
+    }
+
+    .loader.active{ opacity:1; }
+
+    .spinner{
+      width:48px;
+      height:48px;
+      border:4px solid rgba(255,255,255,0.32);
+      border-top-color:#fff;
+      border-radius:50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin{ to{ transform: rotate(360deg); } }
+
+    @media (max-width:768px){
+      .slider{ height:320px; }
+    }
+
+    .price{
+      font-size:2.2rem;
+      text-align:center;
+      margin:0;
+      font-weight:500;
+      color: var(--remax-cream);
+    }
+
+    .location{
+      text-align:center;
+      margin:10px 0 22px;
+      color: var(--remax-cream-muted);
+    }
+
+    .stats{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      margin:28px 0 34px;
+    }
+
+    .stat-pill{
+      background: var(--chip-bg);
+      border:1px solid var(--chip-border);
+      color: var(--remax-cream);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:0.8rem;
+      text-align:center;
+      white-space:normal;
+      word-break:break-word;
+    }
+
+    @media (max-width:520px){
+      .stats{
+        display:grid !important;
+        grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+        gap:10px !important;
+        align-items:stretch !important;
+      }
+
+      .stat-pill{
+        width:100% !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        padding:10px 10px !important;
+        font-size:0.70rem !important;
+        letter-spacing:0.12em !important;
+        line-height:1.2 !important;
+        min-height:44px !important;
+      }
+    }
+
+    .description p{
+      line-height:1.7;
+      color: var(--remax-cream-muted);
+      margin:0 0 14px;
+    }
+
+    .description p:first-child{ color: var(--remax-cream); }
+
+    footer{
+      text-align:center;
+      padding:40px 0;
+      font-size:0.8rem;
+      color:#aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <a href="../../index.html" aria-label="Home">
+        <img src="../../images/logo.png" alt="RE/MAX">
+      </a>
+      <span>KENNETH GEHLHOFF</span>
+    </div>
+
+    <div class="menu-button" id="menuButton">≡</div>
+
+    <div class="menu-panel" id="menuPanel">
+      <a href="../../index.html">Home</a>
+      <a href="../../listings.html">Listings</a>
+      <a href="../../events.html">Events</a>
+      <a href="../../businesscard.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Unlisted Property</div>
+    <h1 class="hero-title">Rancho Nuevo View Parcel</h1>
+    <p class="hero-sub">Over one hectare · Ocean & mountain views · Rancho Nuevo</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="tile">
+    <div class="slider">
+      <div class="loader" id="loader"><div class="spinner"></div></div>
+      <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
+      <img id="slideImage" alt="Rancho Nuevo View Parcel photo">
+      <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="tile details">
+    <h2 class="price">$150,000 USD</h2>
+    <p class="location">Land Parcel · Baja California Sur, Mexico</p>
+
+    <div class="stats">
+      <span class="stat-pill">Rancho Nuevo</span>
+      <span class="stat-pill">Over 1 Hectare</span>
+      <span class="stat-pill">Ocean Views</span>
+      <span class="stat-pill">Mountain Views</span>
+      <span class="stat-pill">Development Potential</span>
+    </div>
+
+    <div class="description">
+      <p>
+        A clean, buildable view parcel in Rancho Nuevo with big sky, big horizon, and the kind of quiet
+        you can actually hear. Over one hectare with a natural Baja landscape and wide open space.
+      </p>
+      <p>
+        The property offers both ocean and mountain views—ideal for a private retreat, a small compound,
+        or a long-term hold while the area continues to grow.
+      </p>
+      <p>
+        This is an unlisted offering. Details are shared directly with serious buyers—no noise, no tire-kickers.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Curated locally. Updated often.<br>
+  © 2025 · RE/MAX Kenneth<br>
+  Each office independently owned and operated
+</footer>
+
+<script>
+  // MENU
+  const menuBtn = document.getElementById("menuButton");
+  const menuPanel = document.getElementById("menuPanel");
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.body.classList.toggle("menu-open");
+  });
+
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+  });
+
+  menuPanel.addEventListener("click", (e) => e.stopPropagation());
+
+  // IMAGE DELIVERY (AUTO-SIZED, NO PRELOAD)
+  const ORIGIN_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/ul/";
+  const FILES = [
+    "IMG_1066.jpeg",
+    "IMG_1065.jpeg",
+    "IMG_1068.jpeg",
+    "IMG_1069.jpeg"
+  ];
+
+  function pickWidth() {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const target = Math.ceil(Math.max(window.innerWidth, 900) * dpr);
+
+    if (target <= 900) return 900;
+    if (target <= 1400) return 1400;
+    return 2000;
+  }
+
+  function optimizedUrl(filename, w = pickWidth(), format = "webp") {
+    const origin = encodeURIComponent(ORIGIN_BASE + filename);
+    return `https://wsrv.nl/?url=${origin}&w=${w}&q=75&output=${format}`;
+  }
+
+  // Set hero background once (optimized)
+  (function setHeroBg(){
+    const heroW = Math.max(1400, pickWidth());
+    const heroUrl = optimizedUrl("IMG_1066.jpeg", heroW, "jpg");
+    document.documentElement.style.setProperty("--hero-bg", `url('${heroUrl}')`);
+  })();
+
+  // Slider URLs (optimized)
+  let images = FILES.map((f) => optimizedUrl(f));
+
+  let index = 0;
+  const img = document.getElementById("slideImage");
+  const loader = document.getElementById("loader");
+
+  function show(i, direction = 1, attempts = 0) {
+    loader.classList.add("active");
+
+    const temp = new Image();
+    temp.onload = () => {
+      img.src = temp.src;
+      loader.classList.remove("active");
+    };
+
+    temp.onerror = () => {
+      if (attempts < images.length - 1) {
+        const nextIndex = (i + direction + images.length) % images.length;
+        index = nextIndex;
+        show(nextIndex, direction, attempts + 1);
+        return;
+      }
+      loader.classList.remove("active");
+    };
+
+    temp.src = images[i];
+  }
+
+  function next() {
+    index = (index + 1) % images.length;
+    show(index, 1);
+  }
+
+  function prev() {
+    index = (index - 1 + images.length) % images.length;
+    show(index, -1);
+  }
+
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
+
+  let startX = 0;
+  img.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  img.addEventListener("touchend", (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) next();
+    if (diff < -50) prev();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+
+  // If device rotates / resizes, regenerate optimized URLs (still no preloading)
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      images = FILES.map((f) => optimizedUrl(f));
+      const heroW = Math.max(1400, pickWidth());
+      const heroUrl = optimizedUrl("IMG_1066.jpeg", heroW, "jpg");
+      document.documentElement.style.setProperty("--hero-bg", `url('${heroUrl}')`);
+      show(index, 1);
+    }, 250);
+  });
+
+  show(index, 1);
+</script>
+
+</body>
+</html>
