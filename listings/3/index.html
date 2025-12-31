@@ -18,16 +18,16 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Casa Lienzo C. Molusco – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="3 Bedrooms · 2 Bathrooms · Las Tunas (Pacific) · $395,000 USD">
-  <!-- UPDATED: use NEXT slide (index 1) -->
-  <meta property="og:image" content="https://remaxkenneth.com/images/3/IMG_0064.jpeg">
+  <!-- UPDATED: Vercel Blob hero image -->
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/3/IMG_0064.jpeg">
   <meta property="og:url" content="https://remaxkenneth.com/listings/3/index.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Casa Lienzo C. Molusco – RE/MAX Cabo Sanctuary">
   <meta name="twitter:description" content="3 Bedrooms · 2 Bathrooms · Las Tunas (Pacific) · $395,000 USD">
-  <!-- UPDATED: use NEXT slide (index 1) -->
-  <meta name="twitter:image" content="https://remaxkenneth.com/images/3/IMG_0064.jpeg">
+  <!-- UPDATED: Vercel Blob hero image -->
+  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/3/IMG_0064.jpeg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/3/index.html">
 
   <style>
@@ -150,8 +150,8 @@
       align-items: center;
 
       background-color: #020409;
-      /* UPDATED: hero uses NEXT slide (index 1) by default */
-      background-image: url('/images/3/IMG_0064.jpeg');
+      /* UPDATED: hero uses Vercel Blob hero image */
+      background-image: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/3/IMG_0064.jpeg');
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -421,6 +421,9 @@
 </footer>
 
 <script>
+  // ---------------------------
+  // MENU
+  // ---------------------------
   const menuBtn = document.getElementById("menuButton");
   const menuPanel = document.getElementById("menuPanel");
 
@@ -435,36 +438,23 @@
 
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  const heroEl = document.getElementById("hero");
-  const HERO_INDEX = 1; // "next slide"
+  // ---------------------------
+  // IMAGES (Vercel Blob)
+  // ---------------------------
+  const ORIGIN_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/3/";
 
   const images = [
-    "/images/3/IMG_0060.png",
-    "/images/3/IMG_0064.jpeg",
-    "/images/3/IMG_0065.jpeg",
-    "/images/3/IMG_0066.jpeg",
-    "/images/3/IMG_0067.jpeg",
-    "/images/3/IMG_0068.jpeg",
-    "/images/3/IMG_0069.jpeg",
-    "/images/3/IMG_0070.jpeg"
+    ORIGIN_BASE + "IMG_0060.png",
+    ORIGIN_BASE + "IMG_0064.jpeg",
+    ORIGIN_BASE + "IMG_0066.jpeg",
+    ORIGIN_BASE + "IMG_0067.jpeg",
+    ORIGIN_BASE + "IMG_0069.jpeg",
+    ORIGIN_BASE + "IMG_0070.jpeg"
   ];
 
-  let index = 0;
+  let index = 1; // start on hero image (IMG_0064.jpeg)
   const img = document.getElementById("slideImage");
   const loader = document.getElementById("loader");
-
-  // Preload + lock hero to the "next slide" image
-  (function setHeroToNextSlide(){
-    const t = new Image();
-    t.onload = () => {
-      heroEl.style.backgroundImage = `url('${t.src}')`;
-      const og = document.querySelector('meta[property="og:image"]');
-      const tw = document.querySelector('meta[name="twitter:image"]');
-      if (og) og.setAttribute("content", "https://remaxkenneth.com" + images[HERO_INDEX]);
-      if (tw) tw.setAttribute("content", "https://remaxkenneth.com" + images[HERO_INDEX]);
-    };
-    t.src = images[HERO_INDEX];
-  })();
 
   function show(i) {
     loader.classList.add("active");
