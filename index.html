@@ -487,6 +487,24 @@ footer {
   background: rgba(255,255,255,0.08);
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
+
+/* NEW: full-width CTA banner tile */
+.cta-tile {
+  padding: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.06);
+}
+.cta-tile a { display:block; }
+.cta-tile img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* small helper to keep spacing consistent */
+.grid-cta-wrap { margin-top: 28px; }
 </style>
 </head>
 
@@ -520,7 +538,6 @@ footer {
   </div>
 </section>
 
-<!-- MOVED: VIDEO SECTION ABOVE FEATURED PROPERTY + AUTOPLAY/LOOP -->
 <section class="section" id="about-baja">
   <div class="tile">
     <div class="video-wrapper">
@@ -536,10 +553,8 @@ footer {
   </div>
 </section>
 
-<!-- FEATURED PROPERTY (now below video) -->
 <section class="section" id="featured">
   <a class="tile" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
-   
     <p class="section-sub">Featured Property</p>
 
     <div class="featured-grid">
@@ -576,18 +591,27 @@ footer {
         </div>
       </a>
 
-      <!-- Casa Lienzo C. Molusco  -->
-<a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-  <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/3/IMG_0060.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
-  <div class="card-content">
-    <h3>Casa Lienzo C. Molusco</h3>
-    <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
-  </div>
-</a>
+      <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/3/IMG_0060.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Casa Lienzo C. Molusco</h3>
+          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
+        </div>
+      </a>
 
-    <div style="text-align:center; margin-top:30px;">
-      <a href="listings.html" class="btn">View All Listings</a>
+      <!-- other listing cards... -->
     </div>
+
+    <!-- REPLACED: removed the small 'View All Listings' pill/button and added full-width CTA tile below -->
+    <div class="grid-cta-wrap">
+      <div class="cta-tile">
+        <a href="listings.html" aria-label="View all listings">
+          <!-- put your image at images/clickme.jpeg in the repo -->
+          <img src="images/clickme.jpeg" alt="Click to see more listings">
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -596,7 +620,6 @@ footer {
     <p class="section-sub">Not All Clients Want Their Properties Listed</p>
 
     <div class="grid">
-      <!-- UPDATED HREF: unlisted tile now goes to the standalone unlisted page -->
       <a class="card" href="unlisted/1/index.html" aria-label="Open Rancho Nuevo View Parcel (Unlisted)">
         <div class="card-media">
           <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/ul/IMG_1066.jpeg" alt="Rancho Nuevo View Parcel">
