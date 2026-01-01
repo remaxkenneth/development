@@ -144,7 +144,9 @@
       align-items: center;
 
       background-color: #020409;
-      background-image: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%281%29.jpeg');
+      /* IMPORTANT: no hard-coded hero image here to avoid double-download.
+         JS sets hero background to the first loaded slide, resized per device. */
+      background-image: radial-gradient(circle at top, rgba(15,23,42,0.6) 0%, rgba(2,4,9,1) 65%);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -372,10 +374,10 @@
 
 <section class="section">
   <div class="tile">
-    <div class="slider">
+    <div class="slider" id="slider">
       <div class="loader" id="loader"><div class="spinner"></div></div>
       <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
-      <img id="slideImage" alt="Luna Villa">
+      <img id="slideImage" alt="Luna Villa" loading="eager" decoding="async" fetchpriority="high">
       <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
     </div>
   </div>
@@ -415,6 +417,7 @@
 </footer>
 
 <script>
+  // ===== MENU =====
   const menuBtn = document.getElementById("menuButton");
   const menuPanel = document.getElementById("menuPanel");
 
@@ -422,14 +425,18 @@
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
   });
-
-  document.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-  });
-
+  document.addEventListener("click", () => document.body.classList.remove("menu-open"));
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
+  // ===== IMAGE DELIVERY (FAST) =====
+  // We keep your originals in Vercel Blob untouched.
+  // We SERVE a resized version per device via wsrv.nl (on-the-fly).
+  // No preloading, no manual resizing, and avoids downloading a 5MB monster on a phone.
+
   const heroEl = document.getElementById("hero");
+  const sliderEl = document.getElementById("slider");
+  const img = document.getElementById("slideImage");
+  const loader = document.getElementById("loader");
 
   const BASE_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/";
   const BASE_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/luna/villa/";
@@ -453,12 +460,36 @@
   ];
 
   let index = 0;
-  const img = document.getElementById("slideImage");
-  const loader = document.getElementById("loader");
+  let targetW = 1400; // updated on load/resize
 
-  const buildUrl = (base, filename) => base + encodeURIComponent(filename);
+  const buildOriginUrl = (base, filename) => base + encodeURIComponent(filename);
+
+  // conservative: don’t request absurd widths; still sharp on retina
+  function computeTargetWidth() {
+    const rectW = Math.max(1, Math.floor(sliderEl.clientWidth || 1200));
+    const dpr = Math.min(2, (window.devicePixelRatio || 1)); // cap DPR to keep payload sane
+    const w = Math.ceil(rectW * dpr);
+    targetW = Math.min(2200, Math.max(900, w)); // clamp
+  }
+
+  // WebP support check (so Safari/iOS doesn’t get weird on old versions)
+  let supportsWebP = true;
+  (function webpTest() {
+    try {
+      const c = document.createElement("canvas");
+      supportsWebP = c.toDataURL("image/webp").indexOf("data:image/webp") === 0;
+    } catch (e) {
+      supportsWebP = false;
+    }
+  })();
+
+  function wsrvUrl(originUrl, width) {
+    const base = "https://wsrv.nl/?url=" + encodeURIComponent(originUrl) + "&w=" + width + "&q=78";
+    return supportsWebP ? (base + "&output=webp") : base;
+  }
 
   function tryLoad(src1, src2) {
+    // returns the first URL that actually loads (no guessing)
     return new Promise((resolve, reject) => {
       const t = new Image();
       t.onload = () => resolve(t.src);
@@ -472,16 +503,41 @@
     });
   }
 
+  async function setImageAndWait(finalSrc) {
+    // keep the loader up until the image is ACTUALLY ready to render
+    await new Promise((resolve, reject) => {
+      img.onload = () => resolve();
+      img.onerror = (e) => reject(e);
+      img.src = finalSrc;
+    });
+
+    // decode() makes the swap feel instant on slower devices
+    if (img.decode) {
+      try { await img.decode(); } catch (_) {}
+    }
+  }
+
   async function show(i) {
     loader.classList.add("active");
     const file = files[i];
 
-    try {
-      const finalSrc = await tryLoad(buildUrl(BASE_A, file), buildUrl(BASE_B, file));
-      img.src = finalSrc;
+    // original (full) origin URLs
+    const originA = buildOriginUrl(BASE_A, file);
+    const originB = buildOriginUrl(BASE_B, file);
 
+    // fast delivery URLs (resized)
+    const srcA = wsrvUrl(originA, targetW);
+    const srcB = wsrvUrl(originB, targetW);
+
+    try {
+      const finalSrc = await tryLoad(srcA, srcB);
+      await setImageAndWait(finalSrc);
+
+      // set hero background only once, using a slightly larger width than slider for crispness
       if (i === 0) {
-        heroEl.style.backgroundImage = `url('${finalSrc}')`;
+        const heroW = Math.min(2400, Math.round(targetW * 1.2));
+        const heroOrigin = originA; // first file should exist here; if not, slider already fell back
+        heroEl.style.backgroundImage = `url('${wsrvUrl(heroOrigin, heroW)}')`;
       }
     } finally {
       loader.classList.remove("active");
@@ -507,6 +563,18 @@
     if (e.key === "ArrowLeft") prev();
   });
 
+  // recompute width on resize/orientation change (no preloading, just smarter requests)
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      computeTargetWidth();
+      show(index);
+    }, 180);
+  }, { passive: true });
+
+  // INIT
+  computeTargetWidth();
   show(index);
 </script>
 
