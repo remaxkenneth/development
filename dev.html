@@ -465,7 +465,6 @@ footer {
   box-shadow: 0 18px 40px rgba(0,0,0,0.35);
 }
 
-/* keep other images consistent, but we’ll kill the “white bar” on lienzo specifically */
 .tile .card img{
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
@@ -489,71 +488,40 @@ footer {
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 
-/* CTA tile: smaller + glassy, no side-crop on mobile */
-.cta-tile {
-  padding: 14px;
+/* === ONLY CHANGE: CTA image link should never clip on mobile ===
+   - keep it centered
+   - preserve its aspect ratio (no forced height)
+   - cap width on desktop/tablet so it doesn’t look goofy
+*/
+.grid-cta-wrap{
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-tile{
+  width: min(100%, 860px);       /* responsive, never wider than 860 */
+  border-radius: 20px;
   overflow: hidden;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.07);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 22px 60px rgba(0,0,0,0.40);
-  max-width: 900px;
-  margin: 0 auto;
+  background: transparent;       /* no “plate” behind image */
+  border: 0;
+  box-shadow: none;
 }
 
-.cta-tile a { display:block; padding: 0; }
-.cta-tile img {
+.cta-tile a{ display:block; }
+
+.cta-tile img{
   width: 100%;
-  height: auto;
+  height: auto;                 /* ✅ no cropping */
   display: block;
-  border-radius: 14px;
+  border-radius: 20px;          /* keep the soft corners */
 }
 
-/* spacing under the grid */
-.grid-cta-wrap { margin-top: 28px; }
-
-/* Lienzo: remove the “white bar” (border) and allow extra zoom on phone */
-.lienzo-card img { border-bottom: none !important; }
-
-/* PHONE: make cards fill the tile (bigger), fix CTA side-crop, zoom lienzo to hide bottom strip */
-@media (max-width: 520px) {
-  .tile { padding: 28px; }
-
-  .grid{
-    grid-template-columns: 1fr;
-    justify-content: stretch;
-    gap: 20px;
-  }
-
-  .card{
-    width: 100%;
-    max-width: 560px;
-    margin: 0 auto;
-  }
-
-  .card img,
-  .card-media{
-    height: 270px;
-  }
-
-  /* Lienzo photo: zoom a bit more + shift so the bottom white strip disappears */
-  .lienzo-card img{
-    transform: scale(1.20);
-    transform-origin: center;
-    object-position: 50% 58%;
-  }
-
-  /* CTA: keep it readable size, no side cropping; only trim a touch top/bottom */
-  .cta-tile{
-    max-width: 560px;
-    padding: 12px;
-  }
-
-  .cta-tile img{
-    border-radius: 0;
-    clip-path: inset(3.5% 0 3.5% 0 round 14px);
-  }
+/* optional: tiny breathing room on phones */
+@media (max-width: 600px){
+  .grid-cta-wrap{ margin-top: 18px; }
+  .cta-tile{ width: 100%; }
+  .cta-tile img{ border-radius: 18px; }
 }
 </style>
 </head>
@@ -641,7 +609,6 @@ footer {
         </div>
       </a>
 
-      <!-- ADDED class="lienzo-card" so we can zoom it ONLY on phones -->
       <a class="card lienzo-card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/3/IMG_0060.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
         <div class="card-content">
@@ -653,7 +620,7 @@ footer {
       <!-- other listing cards... -->
     </div>
 
-    <!-- LISTINGS CTA (this one) -->
+    <!-- CTA image that links to listings -->
     <div class="grid-cta-wrap">
       <div class="cta-tile">
         <a href="listings.html" aria-label="View all listings">
