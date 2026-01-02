@@ -519,6 +519,13 @@ footer {
   display: block;
 }
 
+/* iPad landscape / tablet range: make CTA match the 2-card visual width */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .cta-tile{
+    width: min(100%, 760px);
+  }
+}
+
 /* =========================
    RESPONSIVE FIX (portrait/phone)
    ========================= */
@@ -555,6 +562,15 @@ footer {
   .grid { gap: 22px; }
   .card img { height: 250px; }
   .card-media { height: 250px; }
+}
+
+/* Phone only: zoom Casa Lienzo image in a bit */
+@media (max-width: 600px) {
+  .lienzo-card img{
+    transform: scale(1.12);
+    transform-origin: 50% 50%;
+    object-position: 50% 60%;
+  }
 }
 </style>
 </head>
@@ -642,7 +658,7 @@ footer {
         </div>
       </a>
 
-      <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
+      <a class="card lienzo-card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/3/IMG_0060.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
