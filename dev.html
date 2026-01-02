@@ -514,7 +514,7 @@ footer {
 
 .cta-tile img{
   width: 100%;
-  height: 205px;          /* less crop than before */
+  height: 205px;
   object-fit: cover;
   object-position: 50% 50%;
   display: block;
@@ -529,7 +529,7 @@ footer {
   }
 }
 
-/* PHONE: make listing cards fill width + feel bigger */
+/* PHONE: make listing cards fill width + feel bigger + CTA shows full image (no side crop) */
 @media (max-width: 600px) {
   .section { width: 94%; margin: 54px auto; }
   .tile { padding: 26px 20px; border-radius: 22px; }
@@ -547,15 +547,29 @@ footer {
 
   .grid-cta-wrap { margin-top: 18px; }
   .cta-tile { width: 100%; }
-  .cta-tile img { height: 170px; }
+
+  .cta-tile a{
+    padding: 10px;
+    display: block;
+  }
+
+  .cta-tile img{
+    width: 100%;
+    height: auto;
+    max-height: 190px;
+    object-fit: contain;              /* key: no cropping on phone */
+    background: rgba(0,0,0,0.10);
+    border-radius: 14px;
+    display: block;
+  }
 }
 
-/* Phone only: zoom Casa Lienzo image a bit */
+/* Phone only: zoom Casa Lienzo image more + hide bottom strip */
 @media (max-width: 600px) {
   .lienzo-card img{
-    transform: scale(1.12);
+    transform: scale(1.18);
     transform-origin: 50% 50%;
-    object-position: 50% 60%;
+    object-position: 50% 62%;
   }
 }
 </style>
