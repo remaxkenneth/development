@@ -526,18 +526,11 @@ footer {
   }
 }
 
-/* =========================
-   RESPONSIVE FIX (portrait/phone)
-   ========================= */
-
 /* PHONE / SMALL PORTRAIT: make listing tiles feel bigger + fill width */
 @media (max-width: 600px) {
   .section { width: 94%; margin: 54px auto; }
-
-  /* padding was eating the screen */
   .tile { padding: 26px 20px; border-radius: 22px; }
 
-  /* full-width cards */
   .grid {
     grid-template-columns: 1fr;
     justify-content: stretch;
@@ -546,12 +539,10 @@ footer {
 
   .card { width: 100%; max-width: none; border-radius: 22px; }
 
-  /* make cards feel bigger on mobile */
   .card img { height: 260px; }
   .card-media { height: 260px; }
   .card-content { padding: 26px 18px; }
 
-  /* CTA stays clean */
   .grid-cta-wrap { margin-top: 18px; }
   .cta-tile { width: 100%; }
 }
@@ -672,7 +663,7 @@ footer {
     <!-- CTA tile -->
     <div class="grid-cta-wrap">
       <div class="cta-tile">
-        <a href="listings.html" aria-label="View all listings">
+        <a href="/listings.html" aria-label="View all listings">
           <img src="images/clickme.jpeg" alt="Click to see more listings">
         </a>
       </div>
