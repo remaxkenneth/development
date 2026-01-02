@@ -518,6 +518,44 @@ footer {
   height: auto;   /* NO cropping */
   display: block;
 }
+
+/* =========================
+   RESPONSIVE FIX (portrait/phone)
+   ========================= */
+
+/* PHONE / SMALL PORTRAIT: make listing tiles feel bigger + fill width */
+@media (max-width: 600px) {
+  .section { width: 94%; margin: 54px auto; }
+
+  /* padding was eating the screen */
+  .tile { padding: 26px 20px; border-radius: 22px; }
+
+  /* full-width cards */
+  .grid {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+    gap: 18px;
+  }
+
+  .card { width: 100%; max-width: none; border-radius: 22px; }
+
+  /* make cards feel bigger on mobile */
+  .card img { height: 260px; }
+  .card-media { height: 260px; }
+  .card-content { padding: 26px 18px; }
+
+  /* CTA stays clean */
+  .grid-cta-wrap { margin-top: 18px; }
+  .cta-tile { width: 100%; }
+}
+
+/* MID-SIZE PORTRAIT TABLETS: slightly tighter gaps so cards look larger */
+@media (min-width: 601px) and (max-width: 820px) {
+  .tile { padding: 32px 26px; }
+  .grid { gap: 22px; }
+  .card img { height: 250px; }
+  .card-media { height: 250px; }
+}
 </style>
 </head>
 
