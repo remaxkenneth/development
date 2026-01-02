@@ -488,9 +488,11 @@ footer {
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 
-/* CTA TILE (fix: no gray side gutters + no side crop on phones) */
+/* CTA TILE (glassy + sized + LIGHT crop, NO gray side space) */
 .grid-cta-wrap{
   margin-top: 28px;
+  display: flex;
+  justify-content: center;
 }
 
 .cta-tile{
@@ -505,25 +507,64 @@ footer {
     0 18px 45px rgba(0,0,0,0.28),
     inset 0 1px 0 rgba(255,255,255,0.10);
 
-  width: 100%;            /* <-- fills the tile, kills gray bars */
+  width: min(100%, 760px);  /* keep your original tile sizing */
 }
 
 .cta-tile a { display:block; }
 
+/* FIX: fill width (no gray left/right), only a SMALL top/bottom crop */
 .cta-tile img{
   width: 100%;
-  height: clamp(160px, 18vw, 200px);  /* light top/bottom crop, not massive */
-  object-fit: cover;
-  object-position: 50% 50%;
+  height: 205px;              /* same as your base */
+  object-fit: cover;          /* fills the tile = no side gutters */
+  object-position: 50% 48%;   /* tiny upward bias so the center icon has breathing room */
   display: block;
+  transform: scale(1.02);     /* micro-zoom to shave any built-in side padding */
+  transform-origin: 50% 50%;
 }
 
-/* PHONE: show full banner (no side cut-off), still responsive */
-@media (max-width: 600px) {
+@media (min-width: 700px) and (max-width: 1024px) {
+  .cta-tile{
+    width: min(100%, 720px);
+  }
   .cta-tile img{
-    height: auto;          /* keeps full width visible */
-    object-fit: contain;   /* no side cropping on narrow screens */
-    background: transparent;
+    height: 200px;
+    transform: scale(1.02);
+  }
+}
+
+/* PHONE: keep it filling edge-to-edge, still only light crop */
+@media (max-width: 600px) {
+  .section { width: 94%; margin: 54px auto; }
+  .tile { padding: 26px 20px; border-radius: 22px; }
+
+  .grid {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+    gap: 18px;
+  }
+
+  .card { width: 100%; max-width: none; border-radius: 22px; }
+  .card img { height: 260px; }
+  .card-media { height: 260px; }
+  .card-content { padding: 26px 18px; }
+
+  .grid-cta-wrap { margin-top: 18px; }
+  .cta-tile { width: 100%; }
+  .cta-tile img{
+    height: 170px;            /* your original phone height */
+    object-fit: cover;        /* NO gray sides */
+    object-position: 50% 48%;
+    transform: scale(1.02);   /* still subtle */
+  }
+}
+
+/* Phone only: zoom Casa Lienzo image a bit */
+@media (max-width: 600px) {
+  .lienzo-card img{
+    transform: scale(1.12);
+    transform-origin: 50% 50%;
+    object-position: 50% 60%;
   }
 }
 </style>
@@ -612,7 +653,7 @@ footer {
         </div>
       </a>
 
-      <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
+      <a class="card lienzo-card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/3/IMG_0060.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
