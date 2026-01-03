@@ -53,19 +53,13 @@
   --remax-dark-blue:#000E35;
 
   --text-main:rgba(255,255,255,0.92);
-  --text-muted:rgba(255,255,255,0.72);
+  --text-muted:rgba(255,255,255,0.70);
 
-  /* upgraded glass for EVERYTHING (same vibe you liked on the bottom tile) */
-  --glass-a: rgba(0,0,0,0.58);
-  --glass-b: rgba(255,255,255,0.10);
-  --glass-border: rgba(255,255,255,0.20);
-  --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
+  --glass-a: rgba(255,255,255,0.10);
+  --glass-b: rgba(255,255,255,0.028);
+  --glass-border: rgba(255,255,255,0.14);
+  --glass-shadow: 0 18px 45px rgba(0,0,0,0.30);
   --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
-
-  /* slightly stronger only for the bottom Contact tile */
-  --glass-strong-a: rgba(0,0,0,0.68);
-  --glass-strong-b: rgba(255,255,255,0.12);
-  --glass-strong-border: rgba(255,255,255,0.24);
 }
 
 *{box-sizing:border-box;}
@@ -80,7 +74,7 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
-/* LUX BACKGROUND TEXTURE (subtle linen + soft spotlight) */
+/* DIAMOND PLATE */
 body::before{
   content:"";
   position:fixed;
@@ -89,17 +83,16 @@ body::before{
   pointer-events:none;
 
   background-image:
-    url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'240'%20height%3D'240'%3E%3Cfilter%20id%3D'n'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'0.8'%20numOctaves%3D'2'%20stitchTiles%3D'stitch'/%3E%3C/filter%3E%3Crect%20width%3D'240'%20height%3D'240'%20filter%3D'url(%23n)'%20opacity%3D'0.10'/%3E%3C/svg%3E"),
-    repeating-linear-gradient(0deg, rgba(255,255,255,0.030) 0px, rgba(255,255,255,0.030) 1px, rgba(0,0,0,0) 7px),
-    repeating-linear-gradient(90deg, rgba(255,255,255,0.020) 0px, rgba(255,255,255,0.020) 1px, rgba(0,0,0,0) 9px),
-    radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
-    radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), rgba(0,0,0,0) 62%),
-    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'120'%20height%3D'120'%20viewBox%3D'0%200%20120%20120'%3E%3Cdefs%3E%3Cpattern%20id%3D'd'%20width%3D'30'%20height%3D'30'%20patternUnits%3D'userSpaceOnUse'%3E%3Cpolygon%20points%3D'15%2C0%2030%2C15%2015%2C30%200%2C15'%20fill%3D'%23ffffff'%20fill-opacity%3D'0.05'%20stroke%3D'%23000000'%20stroke-opacity%3D'0.35'%20stroke-width%3D'1'/%3E%3Cpolygon%20points%3D'15%2C0%2030%2C15%2015%2C15'%20fill%3D'%23ffffff'%20fill-opacity%3D'0.07'/%3E%3Cpolygon%20points%3D'15%2C30%200%2C15%2015%2C15'%20fill%3D'%23000000'%20fill-opacity%3D'0.18'/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width%3D'120'%20height%3D'120'%20fill%3D'%23020409'/%3E%3Crect%20width%3D'120'%20height%3D'120'%20fill%3D'url(%23d)'/%3E%3C/svg%3E"),
+    radial-gradient(1200px 700px at 18% -10%, rgba(255,255,255,0.24), rgba(0,0,0,0) 62%),
+    radial-gradient(900px 600px at 92% 115%, rgba(255,255,255,0.18), rgba(0,0,0,0) 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(255,255,255,0.08));
 
-  background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
-  background-size: 280px 280px, auto, auto, auto, auto, auto;
-  background-position: 0 0, 0 0, 0 0, center, center, center;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 72px 72px, auto, auto, auto;
+  background-position: 0 0, center, center, center;
 
+  filter: contrast(1.35) brightness(0.92);
   opacity:0.95;
 }
 
@@ -182,13 +175,13 @@ body.menu-open .menu-panel{
   color:#000;
 }
 
-/* GLASS (now consistent everywhere) */
+/* GLASS */
 .tile,
 .card,
 .hero-cta{
   background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
   border:1px solid var(--glass-border);
-  backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(22px) saturate(140%);
   box-shadow:var(--glass-shadow), var(--glass-inset);
 }
 
@@ -211,7 +204,7 @@ body.menu-open .menu-panel{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(130deg, rgba(0,14,53,0.70), rgba(0,0,0,0.26));
+  background:linear-gradient(130deg, rgba(0,14,53,0.68), rgba(0,0,0,0.28));
 }
 
 .hero-inner{
@@ -226,7 +219,7 @@ body.menu-open .menu-panel{
 .hero-eyebrow{
   letter-spacing:0.35em;
   font-size:0.7rem;
-  opacity:0.92;
+  opacity:0.9;
   text-transform:uppercase;
   color:#e5e7eb;
 }
@@ -243,11 +236,11 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA (tablet/desktop) */
+/* HERO CTA (default: tablet/desktop) */
 .hero-cta{
   position:absolute;
-  top:48px;
-  right:14px;
+  top: calc(env(safe-area-inset-top, 0px) + 6px); /* bumped UP */
+  right: calc(env(safe-area-inset-right, 0px) + 12px);
   z-index:3;
 
   width:min(340px, 90vw);
@@ -258,11 +251,18 @@ body.menu-open .menu-panel{
   border-radius:20px;
   padding:12px 12px;
 
-  border-color:rgba(255,255,255,0.18);
-  box-shadow:0 18px 50px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.10);
+  border-color:rgba(255,255,255,0.10);
+  box-shadow:0 18px 50px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.10);
 
   transform:scale(0.86);
   transform-origin:top right;
+}
+
+/* iPad landscape: push it even closer to the top-right corner */
+@media (min-width: 700px) and (max-width: 1024px) and (orientation: landscape){
+  .hero-cta{
+    top: calc(env(safe-area-inset-top, 0px) + 2px); /* this is the “scooted down” fix */
+  }
 }
 
 .cta-avatar{
@@ -270,7 +270,7 @@ body.menu-open .menu-panel{
   height:66px;
   border-radius:999px;
   overflow:hidden;
-  border:1px solid rgba(255,255,255,0.18);
+  border:1px solid rgba(255,255,255,0.14);
   background:rgba(0,0,0,0.25);
   flex:0 0 auto;
 }
@@ -287,7 +287,7 @@ body.menu-open .menu-panel{
   font-size:0.62rem;
   letter-spacing:0.26em;
   text-transform:uppercase;
-  color:rgba(255,255,255,0.82);
+  color:rgba(255,255,255,0.78);
   margin-bottom:4px;
   font-weight:800;
 }
@@ -318,9 +318,9 @@ body.menu-open .menu-panel{
 }
 
 .btn.primary{
-  background:rgba(255,255,255,0.92);
+  background:rgba(255,255,255,0.90);
   color:#111;
-  border:1px solid rgba(255,255,255,0.86);
+  border:1px solid rgba(255,255,255,0.82);
 }
 .btn.primary:hover{transform:translateY(-1px); filter:brightness(0.98);}
 .btn.primary:active{transform:translateY(0) scale(0.98); filter:brightness(1.02);}
@@ -429,7 +429,7 @@ a.tile{display:block; cursor:pointer;}
   object-fit:cover;
   object-position:center center;
   display:block;
-  border-bottom:1px solid rgba(255,255,255,0.14);
+  border-bottom:1px solid rgba(255,255,255,0.10);
 }
 
 .card-content{
@@ -446,7 +446,7 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE (keep your original banner tile exactly) */
+/* CTA TILE */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
@@ -478,21 +478,6 @@ a.tile{display:block; cursor:pointer;}
   .cta-tile{width:min(100%, 720px);}
 }
 
-/* Bottom CTA tile: just a notch MORE solid than the rest */
-#contactTile{
-  background: linear-gradient(135deg, var(--glass-strong-a), var(--glass-strong-b));
-  border: 1px solid var(--glass-strong-border);
-  backdrop-filter: blur(22px) saturate(140%);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.10);
-}
-
-.tile#contactTile img.footer-logo{
-  max-width:200px;
-  width:100%;
-  display:block;
-  margin:0 auto 18px;
-}
-
 /* AGENT */
 .agent-grid{
   display:grid;
@@ -513,7 +498,7 @@ a.tile{display:block; cursor:pointer;}
   border-radius:50%;
   overflow:hidden;
   position:relative;
-  border:1px solid rgba(255,255,255,0.18);
+  border:1px solid rgba(255,255,255,0.16);
   background:rgba(0,0,0,0.25);
 }
 .agent-avatar img{
@@ -524,6 +509,13 @@ a.tile{display:block; cursor:pointer;}
   transform:scale(1.28);
   transform-origin:center;
   object-position:58% 55%;
+}
+
+.tile#contactTile img.footer-logo{
+  max-width:200px;
+  width:100%;
+  display:block;
+  margin:0 auto 18px;
 }
 
 footer{
@@ -569,11 +561,11 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile: move UP one "line" from the last version */
+  /* HERO CTA on mobile */
   .hero-cta{
-    top:72px; /* was 90px */
+    top:50%;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
-    transform:none;
+    transform:translateY(-50%);
 
     width:112px;
     aspect-ratio:1 / 1;
@@ -584,8 +576,11 @@ footer{
     gap:8px;
 
     padding:10px;
+
+    background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.018));
+    border-color: rgba(255,255,255,0.10);
     backdrop-filter: blur(16px) saturate(150%);
-    box-shadow: 0 14px 34px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.08);
   }
 
   .cta-avatar{width:50px; height:50px;}
@@ -646,7 +641,7 @@ footer{
     top:12%;
     bottom:12%;
     width:1px;
-    background:rgba(255,255,255,0.10);
+    background:rgba(255,255,255,0.08);
     transform:translateX(-0.5px);
     pointer-events:none;
   }
