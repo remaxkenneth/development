@@ -9,7 +9,7 @@
 
 <title>Kenneth Gehlhoff | RE/MAX Cabo Sanctuary | Luxury Real Estate in Cerritos, Todos Santos & Pescadero</title>
 
-<meta name="description" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary. Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero, Baja California Sur. Private villas, beachfront homes, and income properties for discerning buyers.">
+<meta name="description" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary. Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero, Baja California Sur. Private villas, income properties, and beachfront homes for discerning buyers.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://remaxkenneth.com/">
 <meta name="author" content="Kenneth Gehlhoff">
@@ -55,7 +55,7 @@
   --text-main:rgba(255,255,255,0.92);
   --text-muted:rgba(255,255,255,0.70);
 
-  /* more transparent glass so background shows through */
+  /* transparent glass so background shows through */
   --glass-a: rgba(255,255,255,0.10);
   --glass-b: rgba(255,255,255,0.028);
   --glass-border: rgba(255,255,255,0.14);
@@ -75,7 +75,7 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
-/* DIAMOND PLATE (stronger contrast + visible “metal” feel) */
+/* DIAMOND PLATE (actual diamond shapes, not just crisscross lines) */
 body::before{
   content:"";
   position:fixed;
@@ -83,38 +83,17 @@ body::before{
   z-index:0;
   pointer-events:none;
 
-  background-color:#020409;
   background-image:
-    radial-gradient(1100px 700px at 18% -10%, rgba(255,255,255,0.26), rgba(0,0,0,0) 62%),
-    radial-gradient(900px 600px at 92% 115%, rgba(255,255,255,0.20), rgba(0,0,0,0) 62%),
-    linear-gradient(180deg, rgba(255,255,255,0.14), rgba(0,0,0,0) 34%, rgba(0,0,0,0) 66%, rgba(255,255,255,0.12)),
+    url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'120'%20height%3D'120'%20viewBox%3D'0%200%20120%20120'%3E%3Cdefs%3E%3Cpattern%20id%3D'd'%20width%3D'30'%20height%3D'30'%20patternUnits%3D'userSpaceOnUse'%3E%3Cpolygon%20points%3D'15%2C0%2030%2C15%2015%2C30%200%2C15'%20fill%3D'%23ffffff'%20fill-opacity%3D'0.05'%20stroke%3D'%23000000'%20stroke-opacity%3D'0.35'%20stroke-width%3D'1'/%3E%3Cpolygon%20points%3D'15%2C0%2030%2C15%2015%2C15'%20fill%3D'%23ffffff'%20fill-opacity%3D'0.07'/%3E%3Cpolygon%20points%3D'15%2C30%200%2C15%2015%2C15'%20fill%3D'%23000000'%20fill-opacity%3D'0.18'/%3E%3C/pattern%3E%3C/defs%3E%3Crect%20width%3D'120'%20height%3D'120'%20fill%3D'%23020409'/%3E%3Crect%20width%3D'120'%20height%3D'120'%20fill%3D'url(%23d)'/%3E%3C/svg%3E"),
+    radial-gradient(1200px 700px at 18% -10%, rgba(255,255,255,0.24), rgba(0,0,0,0) 62%),
+    radial-gradient(900px 600px at 92% 115%, rgba(255,255,255,0.18), rgba(0,0,0,0) 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(255,255,255,0.08));
 
-    /* bright edges */
-    repeating-linear-gradient(45deg,
-      rgba(255,255,255,0.18) 0px,
-      rgba(255,255,255,0.18) 2px,
-      rgba(0,0,0,0) 2px,
-      rgba(0,0,0,0) 18px),
-    repeating-linear-gradient(135deg,
-      rgba(255,255,255,0.16) 0px,
-      rgba(255,255,255,0.16) 2px,
-      rgba(0,0,0,0) 2px,
-      rgba(0,0,0,0) 18px),
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 72px 72px, auto, auto, auto;
+  background-position: 0 0, center, center, center;
 
-    /* dark grooves */
-    repeating-linear-gradient(45deg,
-      rgba(0,0,0,0.62) 0px,
-      rgba(0,0,0,0.62) 1px,
-      rgba(0,0,0,0) 1px,
-      rgba(0,0,0,0) 18px),
-    repeating-linear-gradient(135deg,
-      rgba(0,0,0,0.58) 0px,
-      rgba(0,0,0,0.58) 1px,
-      rgba(0,0,0,0) 1px,
-      rgba(0,0,0,0) 18px);
-
-  background-blend-mode: normal;
-  filter: contrast(1.45) brightness(0.95);
+  filter: contrast(1.35) brightness(0.92);
   opacity:0.95;
 }
 
@@ -576,23 +555,22 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile: small square in corner, MORE see-through */
+  /* HERO CTA on mobile: right side, vertically centered in the hero */
   .hero-cta{
-    top:calc(env(safe-area-inset-top, 0px) + 6px);
+    top:50%;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
+    transform:translateY(-50%);
 
-    width:112px;           /* ~half the visual footprint */
+    width:112px;
     aspect-ratio:1 / 1;
-    transform:none;
 
     flex-direction:column;
     align-items:center;
     justify-content:center;
     gap:8px;
 
-    padding:10px 10px 10px;
+    padding:10px;
 
-    /* extra transparency on mobile */
     background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.018));
     border-color: rgba(255,255,255,0.10);
     backdrop-filter: blur(16px) saturate(150%);
