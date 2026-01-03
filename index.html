@@ -394,14 +394,6 @@ a.tile { display: block; cursor: pointer; }
   align-items: center;
 }
 
-@media (min-width: 900px) {
-  .agent-grid {
-    grid-template-columns: 1fr 1fr;
-    text-align: left;
-    gap: 40px;
-  }
-}
-
 .agent-photo {
   width: fit-content;
   padding: 16px;
@@ -413,10 +405,6 @@ a.tile { display: block; cursor: pointer; }
     0 22px 60px rgba(0,0,0,0.45),
     inset 0 1px 0 rgba(255,255,255,0.08);
   margin: 0 auto;
-}
-
-@media (min-width: 900px) {
-  .agent-photo { margin: 0; }
 }
 
 .agent-avatar {
@@ -436,7 +424,7 @@ a.tile { display: block; cursor: pointer; }
   object-fit: cover;
   transform: scale(1.28);
   transform-origin: center;
-  object-position: 50% 55%;
+  object-position: 58% 55%; /* centered crop */
 }
 
 .tile#contactTile img.footer-logo {
@@ -514,16 +502,14 @@ footer {
 
 .cta-tile img{
   width: 100%;
-  height: clamp(118px, 16vw, 205px); /* keeps full sides on mobile, light top/bottom crop on big screens */
+  height: clamp(118px, 16vw, 205px);
   object-fit: cover;
   object-position: 50% 50%;
   display: block;
 }
 
 @media (min-width: 700px) and (max-width: 1024px) {
-  .cta-tile{
-    width: min(100%, 720px);
-  }
+  .cta-tile{ width: min(100%, 720px); }
 }
 
 /* PHONE: make listing cards fill width + feel bigger */
@@ -546,15 +532,66 @@ footer {
   .cta-tile { width: 100%; }
 }
 
-/* Phone only: kill the white bar under Casa Lienzo (crop/zoom + remove border + overlap 1px) */
+/* Phone only: kill the white bar under Casa Lienzo */
 @media (max-width: 600px) {
   .lienzo-card img{
     transform: scale(1.22);
     transform-origin: 50% 50%;
     object-position: 50% 44%;
     border-bottom: 0 !important;
-    margin-bottom: -2px;   /* covers any 1–2px seam on mobile */
+    margin-bottom: -2px;
     will-change: transform;
+  }
+}
+
+/* ====== UPDATED AGENT LAYOUT: true centered halves + premium spacing ====== */
+@media (min-width: 900px) {
+  #agent .tile{
+    padding: 48px 56px;
+  }
+
+  #agent .agent-grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    justify-items: center;   /* centers photo card in left half */
+    text-align: center;      /* centers text in right half */
+    position: relative;
+  }
+
+  /* subtle separator (classy, not loud) */
+  #agent .agent-grid::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    top:12%;
+    bottom:12%;
+    width:1px;
+    background: rgba(255,255,255,0.08);
+    transform: translateX(-0.5px);
+    pointer-events:none;
+  }
+
+  #agent .agent-photo{
+    margin: 0;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  #agent .agent-grid > div:last-child{
+    justify-self: center;
+    max-width: 560px;
+  }
+
+  #agent .section-title{
+    text-align: center !important;
+  }
+
+  #agent p{
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 </style>
@@ -704,7 +741,7 @@ footer {
     <div class="agent-grid">
       <div class="agent-photo">
         <div class="agent-avatar">
-          <img src="images/kenny.jpeg" alt="Kenneth Gehlhoff">
+          <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff">
         </div>
       </div>
 
