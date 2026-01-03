@@ -151,9 +151,10 @@ body.menu-open .menu-panel {
   color: #000;
 }
 
+/* HERO */
 #hero {
   position: relative;
-  min-height: 340px;
+  min-height: 380px;
   display: flex;
   align-items: center;
 
@@ -170,7 +171,7 @@ body.menu-open .menu-panel {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(130deg, rgba(0,14,53,0.65), rgba(0,0,0,0.25));
+  background: linear-gradient(130deg, rgba(0,14,53,0.68), rgba(0,0,0,0.28));
 }
 
 .hero-inner {
@@ -179,35 +180,127 @@ body.menu-open .menu-panel {
   max-width: 1200px;
   width: 92%;
   margin: auto;
+  display: flex;
+  justify-content: center;
 }
 
-.hero-eyebrow {
-  letter-spacing: 0.35em;
-  font-size: 0.7rem;
-  opacity: 0.9;
+/* HERO CTA CARD (top priority action) */
+.hero-cta {
+  width: min(720px, 100%);
+  display: flex;
+  gap: 18px;
+  align-items: center;
+
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 26px;
+  padding: 18px 18px;
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 22px 60px rgba(0,0,0,0.45),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+.cta-avatar {
+  width: 86px;
+  height: 86px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.25);
+  flex: 0 0 auto;
+}
+
+.cta-avatar img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.12);
+  object-position: 58% 48%;
+}
+
+.cta-copy { min-width: 0; }
+.cta-kicker{
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: #e5e7eb;
+  color: rgba(255,255,255,0.78);
+  margin-bottom: 6px;
+  font-weight: 800;
 }
-
-.hero-title {
-  font-size: 2.6rem;
-  margin: 14px 0;
-  font-weight: 600;
-  line-height: 1.1;
+.cta-name{
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 6px 0;
 }
-
-.hero-sub {
+.cta-line{
+  color: rgba(255,255,255,0.78);
+  line-height: 1.35;
+  margin: 0;
   max-width: 520px;
-  color: #e5e7eb;
 }
 
+.hero-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+/* base button (already used elsewhere) */
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: 0.2s ease;
+  user-select: none;
+}
+
+/* hero button variants */
+.btn.primary{
+  background: rgba(255,255,255,0.90);
+  color: #111;
+  border: 1px solid rgba(255,255,255,0.86);
+}
+.btn.primary:hover{
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+.btn.ghost{
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.92);
+}
+.btn.ghost:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.22);
+}
+
+@media (min-width: 900px){
+  .hero-inner{
+    justify-content: flex-start;
+  }
+  .hero-cta{
+    padding: 22px 22px;
+    gap: 22px;
+  }
+  .cta-avatar{
+    width: 96px;
+    height: 96px;
+  }
+}
+
+/* INTRO SECTION (moved hero text out of the photo) */
 .section {
   max-width: 1100px;
   width: 92%;
   margin: 70px auto;
 }
-
-/* pull first content section up a bit closer to the hero */
 .section:first-of-type { margin-top: 40px; }
 
 .tile {
@@ -238,24 +331,7 @@ a.tile { display: block; cursor: pointer; }
   margin: 0 0 34px 0;
 }
 
-.btn {
-  display: inline-block;
-  padding: 12px 22px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.85);
-  color: #111;
-  font-size: 0.7rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  transition: 0.2s ease;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  filter: brightness(0.98);
-}
-
-/* VIDEO: native <video> instead of iframe so autoplay works reliably */
+/* VIDEO */
 .video-wrapper {
   width: 100%;
   overflow: hidden;
@@ -275,7 +351,6 @@ a.tile { display: block; cursor: pointer; }
   object-fit: cover;
 }
 
-/* reduce spacing inside the video tile so it sits tighter */
 #about-baja .tile { padding: 34px; }
 #about-baja .section-sub { margin-bottom: 22px; }
 
@@ -354,20 +429,6 @@ a.tile { display: block; cursor: pointer; }
   transform: scale(1.03);
 }
 
-.media-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.55));
-  color: rgba(255,255,255,0.92);
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
 .card-content {
   padding: 30px 26px;
   text-align: center;
@@ -386,6 +447,60 @@ a.tile { display: block; cursor: pointer; }
   line-height: 1.4;
 }
 
+/* tile cards inside glass tiles */
+.tile .card{
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: none;
+  color: var(--text-main);
+}
+.tile .card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+.tile .card img{
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+.tile .card h3{ color: var(--text-main); }
+.tile .card p{ color: var(--text-muted); }
+
+/* CTA TILE (glassy) */
+.grid-cta-wrap{
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+
+.cta-tile{
+  padding: 0;
+  overflow: hidden;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.16);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+
+  width: min(100%, 760px);
+}
+
+.cta-tile a { display:block; }
+
+.cta-tile img{
+  width: 100%;
+  height: clamp(118px, 16vw, 205px);
+  object-fit: cover;
+  object-position: 50% 50%;
+  display: block;
+}
+
+@media (min-width: 700px) and (max-width: 1024px) {
+  .cta-tile{ width: min(100%, 720px); }
+}
+
+/* AGENT SECTION */
 .agent-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -424,7 +539,7 @@ a.tile { display: block; cursor: pointer; }
   object-fit: cover;
   transform: scale(1.28);
   transform-origin: center;
-  object-position: 58% 55%; /* centered crop */
+  object-position: 58% 55%;
 }
 
 .tile#contactTile img.footer-logo {
@@ -439,77 +554,6 @@ footer {
   padding: 40px 0;
   font-size: 0.8rem;
   color: #aaa;
-}
-
-.tile .card{
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: none;
-  color: var(--text-main);
-}
-
-.tile .card:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-}
-
-.tile .card img{
-  border-bottom: 1px solid rgba(255,255,255,0.10);
-}
-
-.tile .card h3{ color: var(--text-main); }
-.tile .card p{ color: var(--text-muted); }
-
-.tile .btn{
-  background: rgba(255,255,255,0.20);
-  border: 1px solid rgba(255,255,255,0.18);
-  color: var(--text-main);
-}
-
-.tile .btn:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,0.28);
-}
-
-.tile .card-media{
-  background: rgba(255,255,255,0.08);
-  border-bottom: 1px solid rgba(255,255,255,0.10);
-}
-
-/* CTA TILE (glassy + sized + light crop) */
-.grid-cta-wrap{
-  margin-top: 28px;
-  display: flex;
-  justify-content: center;
-}
-
-.cta-tile{
-  padding: 0;
-  overflow: hidden;
-  border-radius: 20px;
-
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.16);
-  backdrop-filter: blur(20px);
-  box-shadow:
-    0 18px 45px rgba(0,0,0,0.28),
-    inset 0 1px 0 rgba(255,255,255,0.10);
-
-  width: min(100%, 760px);
-}
-
-.cta-tile a { display:block; }
-
-.cta-tile img{
-  width: 100%;
-  height: clamp(118px, 16vw, 205px);
-  object-fit: cover;
-  object-position: 50% 50%;
-  display: block;
-}
-
-@media (min-width: 700px) and (max-width: 1024px) {
-  .cta-tile{ width: min(100%, 720px); }
 }
 
 /* PHONE: make listing cards fill width + feel bigger */
@@ -530,16 +574,41 @@ footer {
 
   .grid-cta-wrap { margin-top: 18px; }
   .cta-tile { width: 100%; }
+
+  /* FEATURED PROPERTY (mobile): match video aspect ratio (16:9) */
+  .featured-main{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.25);
+  }
+  .featured-main img{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+  }
+
+  /* HERO CTA tighter on phone */
+  .hero-cta{
+    padding: 16px;
+    border-radius: 22px;
+  }
+  .cta-name{ font-size: 1.15rem; }
 }
 
-/* Phone only: kill the white bar under Casa Lienzo */
+/* Phone only: kill the white bar under Casa Lienzo (more aggressive crop) */
 @media (max-width: 600px) {
   .lienzo-card img{
-    transform: scale(1.22);
+    transform: scale(1.28);
     transform-origin: 50% 50%;
-    object-position: 50% 44%;
+    object-position: 50% 38%;
     border-bottom: 0 !important;
-    margin-bottom: -2px;
+    margin-bottom: -4px;
     will-change: transform;
   }
 }
@@ -554,12 +623,11 @@ footer {
     grid-template-columns: 1fr 1fr;
     gap: 64px;
     align-items: center;
-    justify-items: center;   /* centers photo card in left half */
-    text-align: center;      /* centers text in right half */
+    justify-items: center;
+    text-align: center;
     position: relative;
   }
 
-  /* subtle separator (classy, not loud) */
   #agent .agent-grid::after{
     content:"";
     position:absolute;
@@ -617,11 +685,34 @@ footer {
   </div>
 </header>
 
-<section id="hero">
+<!-- HERO: CTA only (no big text on the photo) -->
+<section id="hero" aria-label="Contact Kenneth Gehlhoff">
   <div class="hero-inner">
-    <div class="hero-eyebrow">CERRITOS · TODOS SANTOS · PESCADERO</div>
-    <h1 class="hero-title">Luxury Oceanview<br>Real Estate</h1>
-    <p class="hero-sub">
+    <div class="hero-cta">
+      <div class="cta-avatar">
+        <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff">
+      </div>
+
+      <div class="cta-copy">
+        <div class="cta-kicker">RE/MAX CABO SANCTUARY</div>
+        <div class="cta-name">Kenneth Gehlhoff</div>
+        <p class="cta-line">Luxury real estate in Cerritos, Todos Santos & Pescadero.</p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="businesscard.html" aria-label="Contact Kenneth now">Contact Now</a>
+          <a class="btn ghost" href="listings.html" aria-label="View listings">View Listings</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOVED HERO TEXT OUT of the hero image -->
+<section class="section" id="intro">
+  <div class="tile" style="text-align:center;">
+    <p class="section-sub" style="margin-bottom:14px;">CERRITOS · TODOS SANTOS · PESCADERO</p>
+    <h2 class="section-title" style="margin-top:0;">Luxury Oceanview Real Estate</h2>
+    <p style="color:var(--text-muted); max-width:760px; margin:14px auto 0; line-height:1.6;">
       Private villas, income properties, and beachfront homes.
     </p>
   </div>
