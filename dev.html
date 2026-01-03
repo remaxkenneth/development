@@ -52,14 +52,15 @@
   --remax-red:  #e4002b;
   --remax-dark-blue: #000E35;
 
-  --remax-cream: rgba(255,255,255,0.92);
-  --remax-cream-muted: rgba(255,255,255,0.68);
+  --text-main: rgba(255,255,255,0.92);
+  --text-muted: rgba(255,255,255,0.70);
 
-  --glass-bg: rgba(255,255,255,0.12);
-  --glass-border: rgba(255,255,255,0.18);
-
-  --text-main: var(--remax-cream);
-  --text-muted: var(--remax-cream-muted);
+  /* stronger glass */
+  --glass-fill-a: rgba(255,255,255,0.16);
+  --glass-fill-b: rgba(255,255,255,0.07);
+  --glass-border: rgba(255,255,255,0.16);
+  --glass-shadow: 0 18px 45px rgba(0,0,0,0.30);
+  --glass-inset: inset 0 1px 0 rgba(255,255,255,0.12);
 }
 
 * { box-sizing: border-box; }
@@ -71,9 +72,10 @@ body {
   color: var(--text-main);
   background: #020409;
   position: relative;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* diamond-plate-ish metallic black background */
+/* more visible “sprayed black diamond plate” texture */
 body::before{
   content:"";
   position: fixed;
@@ -83,31 +85,37 @@ body::before{
 
   background-color: #020409;
   background-image:
-    radial-gradient(1200px 700px at 15% -10%, rgba(255,255,255,0.12), rgba(0,0,0,0) 60%),
-    radial-gradient(1100px 650px at 85% 110%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
-    linear-gradient(135deg, rgba(255,255,255,0.06) 25%, transparent 25%),
-    linear-gradient(225deg, rgba(255,255,255,0.06) 25%, transparent 25%),
-    linear-gradient(45deg,  rgba(255,255,255,0.05) 25%, transparent 25%),
-    linear-gradient(315deg, rgba(255,255,255,0.05) 25%, transparent 25%),
-    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
-  background-size:
-    auto,
-    auto,
-    22px 22px,
-    22px 22px,
-    22px 22px,
-    22px 22px,
-    auto;
-  background-position:
-    center,
-    center,
-    11px 0,
-    11px 0,
-    0 0,
-    0 0,
-    center;
+    /* metallic sheen */
+    radial-gradient(1100px 700px at 18% -10%, rgba(255,255,255,0.18), rgba(0,0,0,0) 60%),
+    radial-gradient(900px 600px at 92% 115%, rgba(255,255,255,0.14), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(255,255,255,0.08)),
+
+    /* diamond plate lattice (subtle but visible) */
+    repeating-linear-gradient(45deg,
+      rgba(255,255,255,0.07) 0px,
+      rgba(255,255,255,0.07) 2px,
+      rgba(0,0,0,0) 2px,
+      rgba(0,0,0,0) 18px),
+    repeating-linear-gradient(135deg,
+      rgba(255,255,255,0.06) 0px,
+      rgba(255,255,255,0.06) 2px,
+      rgba(0,0,0,0) 2px,
+      rgba(0,0,0,0) 18px),
+
+    /* darker “pressed” grooves */
+    repeating-linear-gradient(45deg,
+      rgba(0,0,0,0.35) 0px,
+      rgba(0,0,0,0.35) 1px,
+      rgba(0,0,0,0) 1px,
+      rgba(0,0,0,0) 18px),
+    repeating-linear-gradient(135deg,
+      rgba(0,0,0,0.30) 0px,
+      rgba(0,0,0,0.30) 1px,
+      rgba(0,0,0,0) 1px,
+      rgba(0,0,0,0) 18px);
+
   background-blend-mode: overlay;
-  opacity: 0.95;
+  opacity: 0.92;
 }
 
 body > * { position: relative; z-index: 1; }
@@ -137,7 +145,6 @@ header {
   align-items: center;
   gap: 10px;
 }
-
 .nav-left img { height: 32px; }
 
 .nav-left span {
@@ -197,13 +204,11 @@ body.menu-open .menu-panel {
   min-height: 360px;
   display: flex;
   align-items: center;
-
   background-color: #020409;
   background-image: url('images/sunsetcerritos.jpeg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-
   color: #fff;
 }
 
@@ -243,36 +248,63 @@ body.menu-open .menu-panel {
   color: #e5e7eb;
 }
 
-/* HERO CTA (small, top-right, glassy) */
+/* GLASS SYSTEM (apply to all tiles/cards/cta) */
+.tile,
+.card,
+.hero-cta {
+  background: linear-gradient(135deg, var(--glass-fill-a), var(--glass-fill-b));
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--glass-shadow), var(--glass-inset);
+}
+
+/* Tiles */
+.section {
+  max-width: 1100px;
+  width: 92%;
+  margin: 70px auto;
+}
+.section:first-of-type { margin-top: 40px; }
+
+.tile {
+  border-radius: 26px;
+  padding: 40px;
+}
+
+a.tile { display: block; cursor: pointer; }
+
+.tile:active {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+/* HERO CTA (higher up + thinner edge + minimal border) */
 .hero-cta{
   position: absolute;
-  top: 10px;        /* close to toolbar so it can overlap */
-  right: 0;
-  width: min(390px, 92vw);
+  top: 4px;          /* higher */
+  right: 8px;        /* thin hero edge around it */
+  width: min(340px, 90vw);
 
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: center;
 
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 22px;
-  padding: 14px 14px;
-  backdrop-filter: blur(18px);
-  box-shadow:
-    0 22px 60px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.10);
+  border-radius: 20px;
+  padding: 12px 12px;
 
-  transform: scale(0.92);
+  border-color: rgba(255,255,255,0.11);  /* less “line” */
+  box-shadow: 0 18px 50px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.10);
+
+  transform: scale(0.86);               /* more pinched */
   transform-origin: top right;
 }
 
 .cta-avatar {
-  width: 72px;
-  height: 72px;
+  width: 66px;
+  height: 66px;
   border-radius: 999px;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.14);
   background: rgba(0,0,0,0.25);
   flex: 0 0 auto;
 }
@@ -286,24 +318,21 @@ body.menu-open .menu-panel {
 }
 
 .cta-copy { min-width: 0; }
+
 .cta-kicker{
-  font-size: 0.64rem;
+  font-size: 0.62rem;
   letter-spacing: 0.26em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.78);
-  margin-bottom: 5px;
+  margin-bottom: 4px;
   font-weight: 800;
 }
+
 .cta-name{
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 800;
-  margin: 0 0 6px 0;
-}
-.cta-line{
-  color: rgba(255,255,255,0.72);
-  line-height: 1.25;
   margin: 0;
 }
 
@@ -314,6 +343,7 @@ body.menu-open .menu-panel {
   margin-top: 10px;
 }
 
+/* Buttons (glassy touch feedback) */
 .btn {
   display: inline-block;
   padding: 10px 14px;
@@ -321,46 +351,19 @@ body.menu-open .menu-panel {
   font-size: 0.65rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  transition: 0.2s ease;
+  transition: transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
   user-select: none;
 }
 
 .btn.primary{
   background: rgba(255,255,255,0.90);
   color: #111;
-  border: 1px solid rgba(255,255,255,0.86);
+  border: 1px solid rgba(255,255,255,0.82);
 }
-.btn.primary:hover{
-  transform: translateY(-1px);
-  filter: brightness(0.98);
-}
-.btn.ghost{
-  background: rgba(255,255,255,0.16);
-  border: 1px solid rgba(255,255,255,0.22);
-  color: rgba(255,255,255,0.92);
-}
-.btn.ghost:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,0.22);
-}
+.btn.primary:hover{ transform: translateY(-1px); filter: brightness(0.98); }
+.btn.primary:active{ transform: translateY(0px) scale(0.98); filter: brightness(1.02); }
 
-.section {
-  max-width: 1100px;
-  width: 92%;
-  margin: 70px auto;
-}
-.section:first-of-type { margin-top: 40px; }
-
-.tile {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: 26px;
-  padding: 40px;
-  backdrop-filter: blur(20px);
-}
-
-a.tile { display: block; cursor: pointer; }
-
+/* Section titles */
 .section-title {
   text-align: center;
   font-size: 2rem;
@@ -421,6 +424,7 @@ a.tile { display: block; cursor: pointer; }
   border-radius: 14px;
 }
 
+/* Grid/cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 360px));
@@ -437,22 +441,22 @@ a.tile { display: block; cursor: pointer; }
   }
 }
 
-/* GLASS CARDS (everywhere) */
 .card {
   display: block;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 26px;
   overflow: hidden;
-  backdrop-filter: blur(18px);
-  box-shadow: 0 18px 45px rgba(0,0,0,0.28);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
   color: var(--text-main);
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 26px 60px rgba(0,0,0,0.40);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.40), var(--glass-inset);
+}
+
+.card:active {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
 }
 
 .card img {
@@ -499,7 +503,7 @@ a.tile { display: block; cursor: pointer; }
   line-height: 1.4;
 }
 
-/* CTA TILE (glassy) */
+/* CTA image tile */
 .grid-cta-wrap{
   margin-top: 28px;
   display: flex;
@@ -510,14 +514,6 @@ a.tile { display: block; cursor: pointer; }
   padding: 0;
   overflow: hidden;
   border-radius: 20px;
-
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.16);
-  backdrop-filter: blur(20px);
-  box-shadow:
-    0 18px 45px rgba(0,0,0,0.28),
-    inset 0 1px 0 rgba(255,255,255,0.10);
-
   width: min(100%, 760px);
 }
 
@@ -547,13 +543,7 @@ a.tile { display: block; cursor: pointer; }
 .agent-photo {
   width: fit-content;
   padding: 16px;
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 22px;
-  backdrop-filter: blur(20px);
-  box-shadow:
-    0 22px 60px rgba(0,0,0,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.08);
   margin: 0 auto;
 }
 
@@ -563,7 +553,7 @@ a.tile { display: block; cursor: pointer; }
   border-radius: 50%;
   overflow: hidden;
   position: relative;
-  border: 1px solid rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.16);
   background: rgba(0,0,0,0.25);
 }
 
@@ -628,18 +618,16 @@ footer {
     border-radius: 0;
   }
 
-  /* HERO CTA tighter on phone */
-  .hero-inner{ padding: 44px 0 38px; }
+  /* CTA stays tight */
   .hero-cta{
-    top: 8px;
-    transform: scale(0.92);
-    width: min(360px, 92vw);
+    top: 2px;
+    right: 6px;
+    transform: scale(0.88);
+    width: min(350px, 92vw);
   }
-  .cta-avatar{ width: 66px; height: 66px; }
-  .cta-name{ font-size: 1.0rem; }
 }
 
-/* Phone only: kill the white bar under Casa Lienzo (more aggressive crop) */
+/* Phone only: kill the white bar under Casa Lienzo */
 @media (max-width: 600px) {
   .lienzo-card img{
     transform: scale(1.30);
@@ -721,14 +709,14 @@ footer {
 
 <section id="hero">
   <div class="hero-inner">
-    <!-- Hero text back where it was -->
+    <!-- Hero text (unchanged) -->
     <div class="hero-eyebrow">CERRITOS · TODOS SANTOS · PESCADERO</div>
     <h1 class="hero-title">Luxury Oceanview<br>Real Estate</h1>
     <p class="hero-sub">
       Private villas, income properties, and beachfront homes.
     </p>
 
-    <!-- CTA pinched in the top-right corner -->
+    <!-- CTA tile: higher/top-right + ONLY Contact Now -->
     <div class="hero-cta" aria-label="Quick contact card">
       <div class="cta-avatar">
         <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff">
@@ -740,7 +728,6 @@ footer {
 
         <div class="hero-actions">
           <a class="btn primary" href="businesscard.html" aria-label="Contact Kenneth now">Contact Now</a>
-          <a class="btn ghost" href="listings.html" aria-label="View listings">View Listings</a>
         </div>
       </div>
     </div>
@@ -812,7 +799,7 @@ footer {
     </div>
 
     <div class="grid-cta-wrap">
-      <div class="cta-tile">
+      <div class="cta-tile tile">
         <a href="listings.html" aria-label="View all listings">
           <img src="images/clickme.jpeg" alt="Click to see more listings">
         </a>
@@ -859,7 +846,7 @@ footer {
 <section class="section" id="agent">
   <div class="tile">
     <div class="agent-grid">
-      <div class="agent-photo">
+      <div class="agent-photo tile" style="padding:16px;">
         <div class="agent-avatar">
           <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff">
         </div>
