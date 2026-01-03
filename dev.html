@@ -51,10 +51,10 @@
   --remax-blue: #003da5;
   --remax-red:  #e4002b;
   --remax-dark-blue: #000E35;
-  --card-bg: #ffffff;
 
-  --remax-cream: rgba(255,255,255,0.9);
-  --remax-cream-muted: rgba(255,255,255,0.65);
+  --remax-cream: rgba(255,255,255,0.92);
+  --remax-cream-muted: rgba(255,255,255,0.68);
+
   --glass-bg: rgba(255,255,255,0.12);
   --glass-border: rgba(255,255,255,0.18);
 
@@ -68,9 +68,49 @@ html, body { height: 100%; }
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: #020409;
   color: var(--text-main);
+  background: #020409;
+  position: relative;
 }
+
+/* diamond-plate-ish metallic black background */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background-color: #020409;
+  background-image:
+    radial-gradient(1200px 700px at 15% -10%, rgba(255,255,255,0.12), rgba(0,0,0,0) 60%),
+    radial-gradient(1100px 650px at 85% 110%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
+    linear-gradient(135deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255,255,255,0.06) 25%, transparent 25%),
+    linear-gradient(45deg,  rgba(255,255,255,0.05) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(255,255,255,0.05) 25%, transparent 25%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
+  background-size:
+    auto,
+    auto,
+    22px 22px,
+    22px 22px,
+    22px 22px,
+    22px 22px,
+    auto;
+  background-position:
+    center,
+    center,
+    11px 0,
+    11px 0,
+    0 0,
+    0 0,
+    center;
+  background-blend-mode: overlay;
+  opacity: 0.95;
+}
+
+body > * { position: relative; z-index: 1; }
 
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
@@ -154,7 +194,7 @@ body.menu-open .menu-panel {
 /* HERO */
 #hero {
   position: relative;
-  min-height: 380px;
+  min-height: 360px;
   display: flex;
   align-items: center;
 
@@ -180,30 +220,56 @@ body.menu-open .menu-panel {
   max-width: 1200px;
   width: 92%;
   margin: auto;
-  display: flex;
-  justify-content: center;
+  padding: 48px 0;
 }
 
-/* HERO CTA CARD (top priority action) */
-.hero-cta {
-  width: min(720px, 100%);
+.hero-eyebrow {
+  letter-spacing: 0.35em;
+  font-size: 0.7rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  color: #e5e7eb;
+}
+
+.hero-title {
+  font-size: 2.6rem;
+  margin: 14px 0;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.hero-sub {
+  max-width: 520px;
+  color: #e5e7eb;
+}
+
+/* HERO CTA (small, top-right, glassy) */
+.hero-cta{
+  position: absolute;
+  top: 10px;        /* close to toolbar so it can overlap */
+  right: 0;
+  width: min(390px, 92vw);
+
   display: flex;
-  gap: 18px;
+  gap: 14px;
   align-items: center;
 
   background: rgba(255,255,255,0.10);
   border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 26px;
-  padding: 18px 18px;
+  border-radius: 22px;
+  padding: 14px 14px;
   backdrop-filter: blur(18px);
   box-shadow:
     0 22px 60px rgba(0,0,0,0.45),
     inset 0 1px 0 rgba(255,255,255,0.10);
+
+  transform: scale(0.92);
+  transform-origin: top right;
 }
 
 .cta-avatar {
-  width: 86px;
-  height: 86px;
+  width: 72px;
+  height: 72px;
   border-radius: 999px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.18);
@@ -221,47 +287,44 @@ body.menu-open .menu-panel {
 
 .cta-copy { min-width: 0; }
 .cta-kicker{
-  font-size: 0.68rem;
-  letter-spacing: 0.28em;
+  font-size: 0.64rem;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.78);
-  margin-bottom: 6px;
+  margin-bottom: 5px;
   font-weight: 800;
 }
 .cta-name{
-  font-size: 1.35rem;
+  font-size: 1.05rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0 0 6px 0;
 }
 .cta-line{
-  color: rgba(255,255,255,0.78);
-  line-height: 1.35;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.25;
   margin: 0;
-  max-width: 520px;
 }
 
 .hero-actions{
   display: flex;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
-  margin-top: 14px;
+  margin-top: 10px;
 }
 
-/* base button (already used elsewhere) */
 .btn {
   display: inline-block;
-  padding: 12px 18px;
+  padding: 10px 14px;
   border-radius: 999px;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   transition: 0.2s ease;
   user-select: none;
 }
 
-/* hero button variants */
 .btn.primary{
   background: rgba(255,255,255,0.90);
   color: #111;
@@ -281,21 +344,6 @@ body.menu-open .menu-panel {
   background: rgba(255,255,255,0.22);
 }
 
-@media (min-width: 900px){
-  .hero-inner{
-    justify-content: flex-start;
-  }
-  .hero-cta{
-    padding: 22px 22px;
-    gap: 22px;
-  }
-  .cta-avatar{
-    width: 96px;
-    height: 96px;
-  }
-}
-
-/* INTRO SECTION (moved hero text out of the photo) */
 .section {
   max-width: 1100px;
   width: 92%;
@@ -354,6 +402,7 @@ a.tile { display: block; cursor: pointer; }
 #about-baja .tile { padding: 34px; }
 #about-baja .section-sub { margin-bottom: 22px; }
 
+/* FEATURED */
 .featured-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -388,19 +437,22 @@ a.tile { display: block; cursor: pointer; }
   }
 }
 
+/* GLASS CARDS (everywhere) */
 .card {
   display: block;
-  background: var(--card-bg);
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 26px;
   overflow: hidden;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.08);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.28);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: #111;
+  color: var(--text-main);
 }
 
 .card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 26px 60px rgba(0,0,0,0.14);
+  box-shadow: 0 26px 60px rgba(0,0,0,0.40);
 }
 
 .card img {
@@ -409,7 +461,7 @@ a.tile { display: block; cursor: pointer; }
   object-fit: cover;
   object-position: center center;
   display: block;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 
 .card-media {
@@ -436,33 +488,16 @@ a.tile { display: block; cursor: pointer; }
 
 .card h3 {
   margin: 0 0 10px;
-  color: var(--remax-dark-blue);
+  color: var(--text-main);
 }
 
 .card p {
   font-size: 0.95rem;
-  color: #444;
+  color: var(--text-muted);
   max-width: 90%;
   margin: 0 auto;
   line-height: 1.4;
 }
-
-/* tile cards inside glass tiles */
-.tile .card{
-  background: rgba(255,255,255,0.10);
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: none;
-  color: var(--text-main);
-}
-.tile .card:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-}
-.tile .card img{
-  border-bottom: 1px solid rgba(255,255,255,0.10);
-}
-.tile .card h3{ color: var(--text-main); }
-.tile .card p{ color: var(--text-muted); }
 
 /* CTA TILE (glassy) */
 .grid-cta-wrap{
@@ -556,7 +591,7 @@ footer {
   color: #aaa;
 }
 
-/* PHONE: make listing cards fill width + feel bigger */
+/* PHONE */
 @media (max-width: 600px) {
   .section { width: 94%; margin: 54px auto; }
   .tile { padding: 26px 20px; border-radius: 22px; }
@@ -594,30 +629,31 @@ footer {
   }
 
   /* HERO CTA tighter on phone */
+  .hero-inner{ padding: 44px 0 38px; }
   .hero-cta{
-    padding: 16px;
-    border-radius: 22px;
+    top: 8px;
+    transform: scale(0.92);
+    width: min(360px, 92vw);
   }
-  .cta-name{ font-size: 1.15rem; }
+  .cta-avatar{ width: 66px; height: 66px; }
+  .cta-name{ font-size: 1.0rem; }
 }
 
 /* Phone only: kill the white bar under Casa Lienzo (more aggressive crop) */
 @media (max-width: 600px) {
   .lienzo-card img{
-    transform: scale(1.28);
+    transform: scale(1.30);
     transform-origin: 50% 50%;
-    object-position: 50% 38%;
+    object-position: 50% 36%;
     border-bottom: 0 !important;
     margin-bottom: -4px;
     will-change: transform;
   }
 }
 
-/* ====== UPDATED AGENT LAYOUT: true centered halves + premium spacing ====== */
+/* AGENT: centered halves + premium spacing */
 @media (min-width: 900px) {
-  #agent .tile{
-    padding: 48px 56px;
-  }
+  #agent .tile{ padding: 48px 56px; }
 
   #agent .agent-grid{
     grid-template-columns: 1fr 1fr;
@@ -652,9 +688,7 @@ footer {
     max-width: 560px;
   }
 
-  #agent .section-title{
-    text-align: center !important;
-  }
+  #agent .section-title{ text-align: center !important; }
 
   #agent p{
     max-width: 520px;
@@ -685,10 +719,17 @@ footer {
   </div>
 </header>
 
-<!-- HERO: CTA only (no big text on the photo) -->
-<section id="hero" aria-label="Contact Kenneth Gehlhoff">
+<section id="hero">
   <div class="hero-inner">
-    <div class="hero-cta">
+    <!-- Hero text back where it was -->
+    <div class="hero-eyebrow">CERRITOS · TODOS SANTOS · PESCADERO</div>
+    <h1 class="hero-title">Luxury Oceanview<br>Real Estate</h1>
+    <p class="hero-sub">
+      Private villas, income properties, and beachfront homes.
+    </p>
+
+    <!-- CTA pinched in the top-right corner -->
+    <div class="hero-cta" aria-label="Quick contact card">
       <div class="cta-avatar">
         <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff">
       </div>
@@ -696,7 +737,6 @@ footer {
       <div class="cta-copy">
         <div class="cta-kicker">RE/MAX CABO SANCTUARY</div>
         <div class="cta-name">Kenneth Gehlhoff</div>
-        <p class="cta-line">Luxury real estate in Cerritos, Todos Santos & Pescadero.</p>
 
         <div class="hero-actions">
           <a class="btn primary" href="businesscard.html" aria-label="Contact Kenneth now">Contact Now</a>
@@ -704,17 +744,6 @@ footer {
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- MOVED HERO TEXT OUT of the hero image -->
-<section class="section" id="intro">
-  <div class="tile" style="text-align:center;">
-    <p class="section-sub" style="margin-bottom:14px;">CERRITOS · TODOS SANTOS · PESCADERO</p>
-    <h2 class="section-title" style="margin-top:0;">Luxury Oceanview Real Estate</h2>
-    <p style="color:var(--text-muted); max-width:760px; margin:14px auto 0; line-height:1.6;">
-      Private villas, income properties, and beachfront homes.
-    </p>
   </div>
 </section>
 
