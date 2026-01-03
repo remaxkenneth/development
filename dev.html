@@ -55,7 +55,6 @@
   --text-main: rgba(255,255,255,0.92);
   --text-muted: rgba(255,255,255,0.70);
 
-  /* stronger glass */
   --glass-fill-a: rgba(255,255,255,0.16);
   --glass-fill-b: rgba(255,255,255,0.07);
   --glass-border: rgba(255,255,255,0.16);
@@ -75,7 +74,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* more visible “sprayed black diamond plate” texture */
+/* sprayed black “diamond plate” texture */
 body::before{
   content:"";
   position: fixed;
@@ -85,12 +84,9 @@ body::before{
 
   background-color: #020409;
   background-image:
-    /* metallic sheen */
     radial-gradient(1100px 700px at 18% -10%, rgba(255,255,255,0.18), rgba(0,0,0,0) 60%),
     radial-gradient(900px 600px at 92% 115%, rgba(255,255,255,0.14), rgba(0,0,0,0) 60%),
     linear-gradient(180deg, rgba(255,255,255,0.10), rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(255,255,255,0.08)),
-
-    /* diamond plate lattice (subtle but visible) */
     repeating-linear-gradient(45deg,
       rgba(255,255,255,0.07) 0px,
       rgba(255,255,255,0.07) 2px,
@@ -101,8 +97,6 @@ body::before{
       rgba(255,255,255,0.06) 2px,
       rgba(0,0,0,0) 2px,
       rgba(0,0,0,0) 18px),
-
-    /* darker “pressed” grooves */
     repeating-linear-gradient(45deg,
       rgba(0,0,0,0.35) 0px,
       rgba(0,0,0,0.35) 1px,
@@ -210,6 +204,7 @@ body.menu-open .menu-panel {
   background-size: cover;
   background-repeat: no-repeat;
   color: #fff;
+  overflow: hidden; /* keeps CTA clean in corner */
 }
 
 #hero::before {
@@ -248,7 +243,7 @@ body.menu-open .menu-panel {
   color: #e5e7eb;
 }
 
-/* GLASS SYSTEM (apply to all tiles/cards/cta) */
+/* GLASS SYSTEM */
 .tile,
 .card,
 .hero-cta {
@@ -258,33 +253,14 @@ body.menu-open .menu-panel {
   box-shadow: var(--glass-shadow), var(--glass-inset);
 }
 
-/* Tiles */
-.section {
-  max-width: 1100px;
-  width: 92%;
-  margin: 70px auto;
-}
-.section:first-of-type { margin-top: 40px; }
-
-.tile {
-  border-radius: 26px;
-  padding: 40px;
-}
-
-a.tile { display: block; cursor: pointer; }
-
-.tile:active {
-  transform: translateY(-1px);
-  filter: brightness(1.04);
-}
-
-/* HERO CTA (higher up + thinner edge + minimal border) */
+/* HERO CTA — pinned to the actual hero corner (NOT the centered hero-inner) */
 .hero-cta{
   position: absolute;
-  top: 4px;          /* higher */
-  right: 8px;        /* thin hero edge around it */
-  width: min(340px, 90vw);
+  top: 8px;          /* tight to top */
+  right: 10px;       /* tight to right */
+  z-index: 3;
 
+  width: min(340px, 90vw);
   display: flex;
   gap: 12px;
   align-items: center;
@@ -292,10 +268,10 @@ a.tile { display: block; cursor: pointer; }
   border-radius: 20px;
   padding: 12px 12px;
 
-  border-color: rgba(255,255,255,0.11);  /* less “line” */
+  border-color: rgba(255,255,255,0.10); /* barely-there outline */
   box-shadow: 0 18px 50px rgba(0,0,0,0.40), inset 0 1px 0 rgba(255,255,255,0.10);
 
-  transform: scale(0.86);               /* more pinched */
+  transform: scale(0.86);
   transform-origin: top right;
 }
 
@@ -343,7 +319,7 @@ a.tile { display: block; cursor: pointer; }
   margin-top: 10px;
 }
 
-/* Buttons (glassy touch feedback) */
+/* Buttons */
 .btn {
   display: inline-block;
   padding: 10px 14px;
@@ -363,7 +339,21 @@ a.tile { display: block; cursor: pointer; }
 .btn.primary:hover{ transform: translateY(-1px); filter: brightness(0.98); }
 .btn.primary:active{ transform: translateY(0px) scale(0.98); filter: brightness(1.02); }
 
-/* Section titles */
+/* Sections / Tiles */
+.section {
+  max-width: 1100px;
+  width: 92%;
+  margin: 70px auto;
+}
+.section:first-of-type { margin-top: 40px; }
+
+.tile {
+  border-radius: 26px;
+  padding: 40px;
+}
+a.tile { display: block; cursor: pointer; }
+.tile:active { transform: translateY(-1px); filter: brightness(1.04); }
+
 .section-title {
   text-align: center;
   font-size: 2rem;
@@ -392,7 +382,6 @@ a.tile { display: block; cursor: pointer; }
   height: 0;
   background: rgba(0,0,0,0.25);
 }
-
 .video-wrapper video {
   position: absolute;
   inset: 0;
@@ -401,9 +390,7 @@ a.tile { display: block; cursor: pointer; }
   border: 0;
   object-fit: cover;
 }
-
 #about-baja .tile { padding: 34px; }
-#about-baja .section-sub { margin-bottom: 22px; }
 
 /* FEATURED */
 .featured-grid {
@@ -412,11 +399,9 @@ a.tile { display: block; cursor: pointer; }
   gap: 40px;
   align-items: start;
 }
-
 @media (min-width: 900px) {
   .featured-grid { grid-template-columns: 3fr 2fr; }
 }
-
 .featured-main img {
   width: 100%;
   height: 340px;
@@ -431,8 +416,6 @@ a.tile { display: block; cursor: pointer; }
   gap: 32px;
   justify-content: center;
 }
-
-/* iPad/tablet: force 2-up tiles instead of stacking */
 @media (min-width: 700px) and (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -448,16 +431,11 @@ a.tile { display: block; cursor: pointer; }
   transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
   color: var(--text-main);
 }
-
 .card:hover {
   transform: translateY(-2px);
   box-shadow: 0 26px 60px rgba(0,0,0,0.40), var(--glass-inset);
 }
-
-.card:active {
-  transform: translateY(-1px);
-  filter: brightness(1.04);
-}
+.card:active { transform: translateY(-1px); filter: brightness(1.04); }
 
 .card img {
   width: 100%;
@@ -476,7 +454,6 @@ a.tile { display: block; cursor: pointer; }
   border-bottom: 1px solid rgba(255,255,255,0.10);
   background: rgba(255,255,255,0.08);
 }
-
 .card-media img {
   width: 100%;
   height: 100%;
@@ -489,12 +466,7 @@ a.tile { display: block; cursor: pointer; }
   padding: 30px 26px;
   text-align: center;
 }
-
-.card h3 {
-  margin: 0 0 10px;
-  color: var(--text-main);
-}
-
+.card h3 { margin: 0 0 10px; color: var(--text-main); }
 .card p {
   font-size: 0.95rem;
   color: var(--text-muted);
@@ -509,16 +481,13 @@ a.tile { display: block; cursor: pointer; }
   display: flex;
   justify-content: center;
 }
-
 .cta-tile{
   padding: 0;
   overflow: hidden;
   border-radius: 20px;
   width: min(100%, 760px);
 }
-
 .cta-tile a { display:block; }
-
 .cta-tile img{
   width: 100%;
   height: clamp(118px, 16vw, 205px);
@@ -527,11 +496,7 @@ a.tile { display: block; cursor: pointer; }
   display: block;
 }
 
-@media (min-width: 700px) and (max-width: 1024px) {
-  .cta-tile{ width: min(100%, 720px); }
-}
-
-/* AGENT SECTION */
+/* AGENT */
 .agent-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -539,14 +504,12 @@ a.tile { display: block; cursor: pointer; }
   text-align: center;
   align-items: center;
 }
-
 .agent-photo {
   width: fit-content;
   padding: 16px;
   border-radius: 22px;
   margin: 0 auto;
 }
-
 .agent-avatar {
   width: 260px;
   height: 260px;
@@ -556,7 +519,6 @@ a.tile { display: block; cursor: pointer; }
   border: 1px solid rgba(255,255,255,0.16);
   background: rgba(0,0,0,0.25);
 }
-
 .agent-avatar img {
   width: 100%;
   height: 100%;
@@ -586,21 +548,12 @@ footer {
   .section { width: 94%; margin: 54px auto; }
   .tile { padding: 26px 20px; border-radius: 22px; }
 
-  .grid {
-    grid-template-columns: 1fr;
-    justify-content: stretch;
-    gap: 18px;
-  }
-
-  .card { width: 100%; max-width: none; border-radius: 22px; }
-  .card img { height: 260px; }
-  .card-media { height: 260px; }
+  .grid { grid-template-columns: 1fr; gap: 18px; }
+  .card { border-radius: 22px; }
+  .card img, .card-media { height: 260px; }
   .card-content { padding: 26px 18px; }
 
-  .grid-cta-wrap { margin-top: 18px; }
-  .cta-tile { width: 100%; }
-
-  /* FEATURED PROPERTY (mobile): match video aspect ratio (16:9) */
+  /* Featured property same aspect as video */
   .featured-main{
     position: relative;
     width: 100%;
@@ -618,10 +571,9 @@ footer {
     border-radius: 0;
   }
 
-  /* CTA stays tight */
   .hero-cta{
-    top: 2px;
-    right: 6px;
+    top: 6px;
+    right: 8px;
     transform: scale(0.88);
     width: min(350px, 92vw);
   }
@@ -639,7 +591,7 @@ footer {
   }
 }
 
-/* AGENT: centered halves + premium spacing */
+/* AGENT: centered halves */
 @media (min-width: 900px) {
   #agent .tile{ padding: 48px 56px; }
 
@@ -664,19 +616,9 @@ footer {
     pointer-events:none;
   }
 
-  #agent .agent-photo{
-    margin: 0;
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-  }
-
   #agent .agent-grid > div:last-child{
-    justify-self: center;
     max-width: 560px;
   }
-
-  #agent .section-title{ text-align: center !important; }
 
   #agent p{
     max-width: 520px;
@@ -709,26 +651,25 @@ footer {
 
 <section id="hero">
   <div class="hero-inner">
-    <!-- Hero text (unchanged) -->
     <div class="hero-eyebrow">CERRITOS · TODOS SANTOS · PESCADERO</div>
     <h1 class="hero-title">Luxury Oceanview<br>Real Estate</h1>
     <p class="hero-sub">
       Private villas, income properties, and beachfront homes.
     </p>
+  </div>
 
-    <!-- CTA tile: higher/top-right + ONLY Contact Now -->
-    <div class="hero-cta" aria-label="Quick contact card">
-      <div class="cta-avatar">
-        <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff">
-      </div>
+  <!-- THIS is now pinned to the hero corner (no more “hanging” mid-hero) -->
+  <div class="hero-cta" aria-label="Quick contact card">
+    <div class="cta-avatar">
+      <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff">
+    </div>
 
-      <div class="cta-copy">
-        <div class="cta-kicker">RE/MAX CABO SANCTUARY</div>
-        <div class="cta-name">Kenneth Gehlhoff</div>
+    <div class="cta-copy">
+      <div class="cta-kicker">RE/MAX CABO SANCTUARY</div>
+      <div class="cta-name">Kenneth Gehlhoff</div>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="businesscard.html" aria-label="Contact Kenneth now">Contact Now</a>
-        </div>
+      <div class="hero-actions">
+        <a class="btn primary" href="businesscard.html" aria-label="Contact Kenneth now">Contact Now</a>
       </div>
     </div>
   </div>
