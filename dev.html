@@ -55,7 +55,7 @@
   --text-main:rgba(255,255,255,0.92);
   --text-muted:rgba(255,255,255,0.72);
 
-  /* upgraded glass for EVERYTHING (same vibe you liked on the bottom tile) */
+  /* upgraded glass for EVERYTHING */
   --glass-a: rgba(0,0,0,0.58);
   --glass-b: rgba(255,255,255,0.10);
   --glass-border: rgba(255,255,255,0.20);
@@ -80,7 +80,7 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
-/* LUX BACKGROUND TEXTURE (subtle linen + soft spotlight) */
+/* LUX BACKGROUND TEXTURE */
 body::before{
   content:"";
   position:fixed;
@@ -182,7 +182,7 @@ body.menu-open .menu-panel{
   color:#000;
 }
 
-/* GLASS (now consistent everywhere) */
+/* GLASS */
 .tile,
 .card,
 .hero-cta{
@@ -243,7 +243,7 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA (tablet/desktop) */
+/* HERO CTA (tablet/desktop default) */
 .hero-cta{
   position:absolute;
   top:48px;
@@ -263,6 +263,14 @@ body.menu-open .menu-panel{
 
   transform:scale(0.86);
   transform-origin:top right;
+}
+
+/* ✅ iPad landscape: TOP-RIGHT, closer like before, with breathing room */
+@media (min-width: 700px) and (max-width: 1024px) and (orientation: landscape){
+  .hero-cta{
+    top:14px;   /* pull it up */
+    right:18px; /* keep a little space from the edge/hamburger */
+  }
 }
 
 .cta-avatar{
@@ -446,7 +454,7 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE (keep your original banner tile exactly) */
+/* CTA TILE */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
@@ -478,7 +486,7 @@ a.tile{display:block; cursor:pointer;}
   .cta-tile{width:min(100%, 720px);}
 }
 
-/* Bottom CTA tile: just a notch MORE solid than the rest */
+/* Bottom CTA: stronger */
 #contactTile{
   background: linear-gradient(135deg, var(--glass-strong-a), var(--glass-strong-b));
   border: 1px solid var(--glass-strong-border);
@@ -551,7 +559,6 @@ footer{
   .grid-cta-wrap{margin-top:18px;}
   .cta-tile{width:100%;}
 
-  /* Featured property: match video 16:9 */
   .featured-main{
     position:relative;
     width:100%;
@@ -569,9 +576,8 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile: move UP one "line" from the last version */
   .hero-cta{
-    top:72px; /* was 90px */
+    top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
     transform:none;
 
@@ -609,7 +615,7 @@ footer{
   }
 }
 
-/* Casa Lienzo: remove seam on mobile */
+/* Casa Lienzo seam fix */
 @media (max-width:600px){
   .lienzo-card{overflow:hidden;}
   .lienzo-card img{
