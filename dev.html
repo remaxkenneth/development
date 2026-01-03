@@ -55,12 +55,14 @@
   --text-main:rgba(255,255,255,0.92);
   --text-muted:rgba(255,255,255,0.72);
 
+  /* upgraded glass for EVERYTHING (same vibe you liked on the bottom tile) */
   --glass-a: rgba(0,0,0,0.58);
   --glass-b: rgba(255,255,255,0.10);
   --glass-border: rgba(255,255,255,0.20);
   --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
   --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
 
+  /* slightly stronger only for the bottom Contact tile */
   --glass-strong-a: rgba(0,0,0,0.68);
   --glass-strong-b: rgba(255,255,255,0.12);
   --glass-strong-border: rgba(255,255,255,0.24);
@@ -78,7 +80,7 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
-/* LUX BACKGROUND TEXTURE */
+/* LUX BACKGROUND TEXTURE (subtle linen + soft spotlight) */
 body::before{
   content:"";
   position:fixed;
@@ -180,7 +182,7 @@ body.menu-open .menu-panel{
   color:#000;
 }
 
-/* GLASS */
+/* GLASS (now consistent everywhere) */
 .tile,
 .card,
 .hero-cta{
@@ -241,7 +243,7 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA (default tablet/desktop) */
+/* HERO CTA (tablet/desktop default) */
 .hero-cta{
   position:absolute;
   top:48px;
@@ -263,11 +265,11 @@ body.menu-open .menu-panel{
   transform-origin:top right;
 }
 
-/* ✅ iPad landscape: push UP + further RIGHT with safe-area breathing room */
-@media (min-width: 700px) and (max-width: 1024px) and (orientation: landscape){
+/* iPad landscape: push the hero-cta UP + a touch more into the corner (breathing room, no hanging) */
+@media (min-width:768px) and (max-width:1024px) and (orientation:landscape){
   .hero-cta{
-    top:14px;
-    right:calc(env(safe-area-inset-right, 0px) + 22px); /* more right-side breathing room */
+    top:24px;
+    right:calc(env(safe-area-inset-right, 0px) + 12px);
   }
 }
 
@@ -452,7 +454,7 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE */
+/* CTA TILE (keep your original banner tile exactly) */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
@@ -484,7 +486,7 @@ a.tile{display:block; cursor:pointer;}
   .cta-tile{width:min(100%, 720px);}
 }
 
-/* Bottom CTA: stronger */
+/* Bottom CTA tile: just a notch MORE solid than the rest */
 #contactTile{
   background: linear-gradient(135deg, var(--glass-strong-a), var(--glass-strong-b));
   border: 1px solid var(--glass-strong-border);
@@ -557,6 +559,7 @@ footer{
   .grid-cta-wrap{margin-top:18px;}
   .cta-tile{width:100%;}
 
+  /* Featured property: match video 16:9 */
   .featured-main{
     position:relative;
     width:100%;
@@ -574,6 +577,7 @@ footer{
     border-radius:0;
   }
 
+  /* HERO CTA on mobile */
   .hero-cta{
     top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
@@ -613,20 +617,19 @@ footer{
   }
 }
 
-/* Casa Lienzo seam fix */
+/* Casa Lienzo (mobile): stop overlap + crop more to kill the white strip */
 @media (max-width:600px){
   .lienzo-card{overflow:hidden;}
   .lienzo-card img{
-    transform:scale(1.38);
-    transform-origin:50% 50%;
-    object-position:50% 40%;
+    transform:scale(1.46);
+    transform-origin:50% 45%;
+    object-position:50% 45%;
     border-bottom:0 !important;
-    margin-bottom:-14px;
     will-change:transform;
   }
   .lienzo-card .card-content{
-    margin-top:-14px;
-    padding-top:22px;
+    margin-top:0 !important;
+    padding-top:26px;
   }
 }
 
