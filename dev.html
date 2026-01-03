@@ -55,12 +55,12 @@
   --text-main:rgba(255,255,255,0.92);
   --text-muted:rgba(255,255,255,0.70);
 
-  /* glass */
-  --glass-a: rgba(255,255,255,0.14);
-  --glass-b: rgba(255,255,255,0.05);
-  --glass-border: rgba(255,255,255,0.16);
+  /* more transparent glass so background shows through */
+  --glass-a: rgba(255,255,255,0.10);
+  --glass-b: rgba(255,255,255,0.028);
+  --glass-border: rgba(255,255,255,0.14);
   --glass-shadow: 0 18px 45px rgba(0,0,0,0.30);
-  --glass-inset: inset 0 1px 0 rgba(255,255,255,0.12);
+  --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
 }
 
 *{box-sizing:border-box;}
@@ -75,7 +75,7 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
-/* DIAMOND PLATE (stronger + shows through glass) */
+/* DIAMOND PLATE (stronger contrast + visible “metal” feel) */
 body::before{
   content:"";
   position:fixed;
@@ -85,34 +85,37 @@ body::before{
 
   background-color:#020409;
   background-image:
-    radial-gradient(1100px 700px at 18% -10%, rgba(255,255,255,0.22), rgba(0,0,0,0) 60%),
-    radial-gradient(900px 600px at 92% 115%, rgba(255,255,255,0.18), rgba(0,0,0,0) 60%),
-    linear-gradient(180deg, rgba(255,255,255,0.14), rgba(0,0,0,0) 35%, rgba(0,0,0,0) 65%, rgba(255,255,255,0.10)),
+    radial-gradient(1100px 700px at 18% -10%, rgba(255,255,255,0.26), rgba(0,0,0,0) 62%),
+    radial-gradient(900px 600px at 92% 115%, rgba(255,255,255,0.20), rgba(0,0,0,0) 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.14), rgba(0,0,0,0) 34%, rgba(0,0,0,0) 66%, rgba(255,255,255,0.12)),
 
+    /* bright edges */
     repeating-linear-gradient(45deg,
-      rgba(255,255,255,0.14) 0px,
-      rgba(255,255,255,0.14) 2px,
+      rgba(255,255,255,0.18) 0px,
+      rgba(255,255,255,0.18) 2px,
       rgba(0,0,0,0) 2px,
       rgba(0,0,0,0) 18px),
     repeating-linear-gradient(135deg,
-      rgba(255,255,255,0.12) 0px,
-      rgba(255,255,255,0.12) 2px,
+      rgba(255,255,255,0.16) 0px,
+      rgba(255,255,255,0.16) 2px,
       rgba(0,0,0,0) 2px,
       rgba(0,0,0,0) 18px),
 
+    /* dark grooves */
     repeating-linear-gradient(45deg,
-      rgba(0,0,0,0.55) 0px,
-      rgba(0,0,0,0.55) 1px,
+      rgba(0,0,0,0.62) 0px,
+      rgba(0,0,0,0.62) 1px,
       rgba(0,0,0,0) 1px,
       rgba(0,0,0,0) 18px),
     repeating-linear-gradient(135deg,
-      rgba(0,0,0,0.50) 0px,
-      rgba(0,0,0,0.50) 1px,
+      rgba(0,0,0,0.58) 0px,
+      rgba(0,0,0,0.58) 1px,
       rgba(0,0,0,0) 1px,
       rgba(0,0,0,0) 18px);
 
-  background-blend-mode:overlay;
-  opacity:1;
+  background-blend-mode: normal;
+  filter: contrast(1.45) brightness(0.95);
+  opacity:0.95;
 }
 
 body > *{position:relative; z-index:1;}
@@ -200,7 +203,7 @@ body.menu-open .menu-panel{
 .hero-cta{
   background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
   border:1px solid var(--glass-border);
-  backdrop-filter:blur(20px);
+  backdrop-filter: blur(22px) saturate(140%);
   box-shadow:var(--glass-shadow), var(--glass-inset);
 }
 
@@ -255,7 +258,7 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA (tablet/desktop stays banner, pinned to hero corner) */
+/* HERO CTA (tablet/desktop) */
 .hero-cta{
   position:absolute;
   top:10px;
@@ -414,8 +417,6 @@ a.tile{display:block; cursor:pointer;}
   gap:32px;
   justify-content:center;
 }
-
-/* iPad/tablet: force 2-up */
 @media (min-width:700px) and (max-width:1024px){
   .grid{
     grid-template-columns:repeat(2, minmax(0, 1fr));
@@ -449,7 +450,7 @@ a.tile{display:block; cursor:pointer;}
 .card-content{
   padding:30px 26px;
   text-align:center;
-  background:transparent; /* prevents “old style” gray blocks */
+  background:transparent;
 }
 .card h3{margin:0 0 10px; color:var(--text-main);}
 .card p{
@@ -460,13 +461,12 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE — restored to your original “perfect” style */
+/* CTA TILE (your original style) */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
   justify-content:center;
 }
-
 .cta-tile{
   padding:0;
   overflow:hidden;
@@ -481,7 +481,6 @@ a.tile{display:block; cursor:pointer;}
 
   width:min(100%, 760px);
 }
-
 .cta-tile a{display:block;}
 .cta-tile img{
   width:100%;
@@ -490,7 +489,6 @@ a.tile{display:block; cursor:pointer;}
   object-position:50% 50%;
   display:block;
 }
-
 @media (min-width:700px) and (max-width:1024px){
   .cta-tile{width:min(100%, 720px);}
 }
@@ -503,14 +501,12 @@ a.tile{display:block; cursor:pointer;}
   text-align:center;
   align-items:center;
 }
-
 .agent-photo{
   width:fit-content;
   padding:16px;
   border-radius:22px;
   margin:0 auto;
 }
-
 .agent-avatar{
   width:260px;
   height:260px;
@@ -520,7 +516,6 @@ a.tile{display:block; cursor:pointer;}
   border:1px solid rgba(255,255,255,0.16);
   background:rgba(0,0,0,0.25);
 }
-
 .agent-avatar img{
   width:100%;
   height:100%;
@@ -563,7 +558,7 @@ footer{
   .grid-cta-wrap{margin-top:18px;}
   .cta-tile{width:100%;}
 
-  /* Featured property: same 16:9 feel as video */
+  /* Featured property: match video 16:9 */
   .featured-main{
     position:relative;
     width:100%;
@@ -581,40 +576,51 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile: square card (keeps tablet layout untouched) */
+  /* HERO CTA on mobile: small square in corner, MORE see-through */
   .hero-cta{
-    top:calc(env(safe-area-inset-top, 0px) + 8px);
-    right:calc(env(safe-area-inset-right, 0px) + 8px);
+    top:calc(env(safe-area-inset-top, 0px) + 6px);
+    right:calc(env(safe-area-inset-right, 0px) + 6px);
 
-    width:168px;
+    width:112px;           /* ~half the visual footprint */
     aspect-ratio:1 / 1;
     transform:none;
 
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    gap:10px;
+    gap:8px;
 
-    padding:12px 12px 14px;
+    padding:10px 10px 10px;
+
+    /* extra transparency on mobile */
+    background: linear-gradient(135deg, rgba(255,255,255,0.07), rgba(255,255,255,0.018));
+    border-color: rgba(255,255,255,0.10);
+    backdrop-filter: blur(16px) saturate(150%);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.32), inset 0 1px 0 rgba(255,255,255,0.08);
   }
 
-  .cta-avatar{width:72px; height:72px;}
+  .cta-avatar{width:50px; height:50px;}
+  .cta-avatar img{transform:scale(1.14);}
+
   .cta-copy{text-align:center;}
-  .cta-kicker{font-size:0.56rem; letter-spacing:0.22em;}
-  .cta-name{font-size:0.90rem; letter-spacing:0.07em;}
+  .cta-kicker{font-size:0.46rem; letter-spacing:0.18em; margin-bottom:2px;}
+  .cta-name{font-size:0.66rem; letter-spacing:0.06em;}
 
   .hero-actions{
     width:100%;
     justify-content:center;
-    margin-top:6px;
+    margin-top:4px;
   }
   .hero-actions .btn{
     width:100%;
     text-align:center;
+    padding:8px 10px;
+    font-size:0.54rem;
+    letter-spacing:0.14em;
   }
 }
 
-/* Casa Lienzo: nuke the white seam on mobile */
+/* Casa Lienzo: remove seam on mobile */
 @media (max-width:600px){
   .lienzo-card{overflow:hidden;}
   .lienzo-card img{
