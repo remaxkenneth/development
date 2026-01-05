@@ -277,9 +277,7 @@ body.menu-open .menu-panel{
   height:100%;
   object-fit:cover;
   transform:scale(1.12);
-
-  /* FORCE a visible shift: move Kenny LEFT in the circle by pushing the crop RIGHT */
-  object-position:82% 48% !important;
+  object-position:58% 48%;
 }
 
 .cta-copy{min-width:0;}
@@ -526,16 +524,15 @@ a.tile{display:block; cursor:pointer;}
   border:1px solid rgba(255,255,255,0.18);
   background:rgba(0,0,0,0.25);
 }
+
+/* FIX: stop the insane zoom */
 .agent-avatar img{
   width:100%;
   height:100%;
   display:block;
   object-fit:cover;
-  transform:scale(1.28);
-  transform-origin:center;
-
-  /* FORCE same shift here too */
-  object-position:82% 55% !important;
+  transform:none;              /* was scale(1.28) */
+  object-position:50% 50%;     /* neutral center */
 }
 
 footer{
