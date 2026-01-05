@@ -241,7 +241,7 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA */
+/* HERO CTA (NO PHOTO + CENTERED TEXT) */
 .hero-cta{
   position:absolute;
   top:48px;
@@ -250,11 +250,15 @@ body.menu-open .menu-panel{
 
   width:min(340px, 90vw);
   display:flex;
-  gap:12px;
-  align-items:center;
+  flex-direction:column;     /* was row */
+  gap:10px;
+  align-items:center;        /* center contents */
+  justify-content:center;
+
+  text-align:center;         /* center all text */
 
   border-radius:20px;
-  padding:12px 12px;
+  padding:14px 14px;
 
   border-color:rgba(255,255,255,0.18);
   box-shadow:0 18px 50px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.10);
@@ -263,30 +267,19 @@ body.menu-open .menu-panel{
   transform-origin:top right;
 }
 
-.cta-avatar{
-  width:66px;
-  height:66px;
-  border-radius:999px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.18);
-  background:rgba(0,0,0,0.25);
-  flex:0 0 auto;
-}
-.cta-avatar img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transform:scale(1.12);
-  object-position:46% 48%;
-}
+/* removed avatar entirely */
+.cta-avatar{display:none !important;}
 
-.cta-copy{min-width:0;}
+.cta-copy{
+  min-width:0;
+  width:100%;
+}
 .cta-kicker{
   font-size:0.62rem;
   letter-spacing:0.26em;
   text-transform:uppercase;
   color:rgba(255,255,255,0.82);
-  margin-bottom:4px;
+  margin-bottom:6px;
   font-weight:800;
 }
 .cta-name{
@@ -301,7 +294,8 @@ body.menu-open .menu-panel{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  margin-top:10px;
+  justify-content:center;
+  margin-top:8px;
 }
 
 .btn{
@@ -505,17 +499,12 @@ a.tile{display:block; cursor:pointer;}
   text-align:center;
   align-items:center;
 }
-
-/* ✅ MOVE THE WHOLE PHOTO BLOCK LEFT (ALL SIZES) */
 .agent-photo{
   width:fit-content;
   padding:16px;
   border-radius:22px;
-  margin:0;                 /* kill centering */
-  margin-right:auto;        /* anchor left */
-  transform:translateX(-20px); /* push left more */
+  margin:0 auto;
 }
-
 .agent-avatar{
   width:260px;
   height:260px;
@@ -525,8 +514,6 @@ a.tile{display:block; cursor:pointer;}
   border:1px solid rgba(255,255,255,0.18);
   background:rgba(0,0,0,0.25);
 }
-
-/* ✅ ALSO SHIFT THE IMAGE CROP LEFT HARDER */
 .agent-avatar img{
   width:100%;
   height:100%;
@@ -534,7 +521,7 @@ a.tile{display:block; cursor:pointer;}
   object-fit:cover;
   transform:scale(1.28);
   transform-origin:center;
-  object-position:30% 55%;  /* was 42% — stronger left shift */
+  object-position:58% 55%;
 }
 
 footer{
@@ -578,30 +565,26 @@ footer{
     border-radius:0;
   }
 
+  /* HERO CTA on mobile (still no photo, centered) */
   .hero-cta{
     top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
     transform:none;
 
-    width:112px;
-    aspect-ratio:1 / 1;
-
+    width:min(220px, 86vw);
     flex-direction:column;
     align-items:center;
     justify-content:center;
     gap:8px;
 
-    padding:10px;
+    padding:12px;
+    text-align:center;
     backdrop-filter: blur(16px) saturate(150%);
     box-shadow: 0 14px 34px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
   }
 
-  .cta-avatar{width:50px; height:50px;}
-  .cta-avatar img{transform:scale(1.14);}
-
-  .cta-copy{text-align:center;}
-  .cta-kicker{font-size:0.46rem; letter-spacing:0.18em; margin-bottom:2px;}
-  .cta-name{font-size:0.66rem; letter-spacing:0.06em;}
+  .cta-kicker{font-size:0.50rem; letter-spacing:0.18em; margin-bottom:2px;}
+  .cta-name{font-size:0.74rem; letter-spacing:0.06em;}
 
   .hero-actions{
     width:100%;
@@ -615,9 +598,6 @@ footer{
     font-size:0.54rem;
     letter-spacing:0.14em;
   }
-
-  /* keep it left but a bit less aggressive on phones */
-  .agent-photo{ transform:translateX(-12px); }
 }
 
 /* AGENT: centered halves */
@@ -628,7 +608,7 @@ footer{
     grid-template-columns:1fr 1fr;
     gap:64px;
     align-items:center;
-    justify-items:center; /* still fine */
+    justify-items:center;
     text-align:center;
     position:relative;
   }
@@ -650,12 +630,6 @@ footer{
     max-width:520px;
     margin-left:auto;
     margin-right:auto;
-  }
-
-  /* ✅ FORCE LEFT PLACEMENT IN GRID + PUSH MORE */
-  #agent .agent-photo{
-    justify-self:start;
-    transform:translateX(-34px);
   }
 }
 </style>
@@ -690,11 +664,8 @@ footer{
     </p>
   </div>
 
+  <!-- HERO CTA (photo removed, text centered) -->
   <div class="hero-cta" aria-label="Quick contact card">
-    <div class="cta-avatar">
-      <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff">
-    </div>
-
     <div class="cta-copy">
       <div class="cta-kicker">RE/MAX CABO SANCTUARY</div>
       <div class="cta-name">Kenneth Gehlhoff</div>
