@@ -446,7 +446,7 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE (keep your original banner tile exactly) */
+/* CTA TILE (split background: left pure black, right pure white) */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
@@ -457,7 +457,7 @@ a.tile{display:block; cursor:pointer;}
   overflow:hidden;
   border-radius:20px;
 
-  background:rgba(255,255,255,0.08);
+  background: linear-gradient(90deg, #000 0 50%, #fff 50% 100%);
   border:1px solid rgba(255,255,255,0.16);
   backdrop-filter:blur(20px);
   box-shadow:
@@ -466,14 +466,11 @@ a.tile{display:block; cursor:pointer;}
 
   width:min(100%, 760px);
 }
-
-/* UPDATED: center the image and prevent cropping */
 .cta-tile a{
   display:flex;
   align-items:center;
   justify-content:center;
 }
-
 .cta-tile img{
   width:100%;
   height:clamp(118px, 16vw, 205px);
@@ -481,7 +478,6 @@ a.tile{display:block; cursor:pointer;}
   object-position:center;
   display:block;
 }
-
 @media (min-width:700px) and (max-width:1024px){
   .cta-tile{width:min(100%, 720px);}
 }
