@@ -1,9 +1,3 @@
-Yeah — right now your CTA image is being forced into a fixed height (height: clamp(...)) and object-fit: cover, which means it’ll crop the text on different screens. You want it to scale naturally so the whole banner/title always shows.
-
-Fix: make the CTA image responsive with height:auto (no forced height), and stop cropping.
-
-Here’s your full updated code with the only real change being the .cta-tile img CSS (I left the rest alone):
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
