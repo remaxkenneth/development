@@ -241,7 +241,7 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA */
+/* HERO CTA (DESKTOP/TABLET) — image on top, centered, no zoom */
 .hero-cta{
   position:absolute;
   top:48px;
@@ -250,22 +250,25 @@ body.menu-open .menu-panel{
 
   width:min(340px, 90vw);
   display:flex;
-  gap:12px;
-  align-items:center;
+  flex-direction:column;   /* was row */
+  gap:10px;
+  align-items:center;      /* center everything */
 
   border-radius:20px;
-  padding:12px 12px;
+  padding:14px 14px;
 
   border-color:rgba(255,255,255,0.18);
   box-shadow:0 18px 50px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.10);
 
   transform:scale(0.86);
   transform-origin:top right;
+
+  text-align:center;       /* center text */
 }
 
 .cta-avatar{
-  width:66px;
-  height:66px;
+  width:74px;
+  height:74px;
   border-radius:999px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.18);
@@ -276,11 +279,11 @@ body.menu-open .menu-panel{
   width:100%;
   height:100%;
   object-fit:cover;
-  transform:scale(1.12);
-  object-position:58% 48%;
+  transform:none;          /* FIX: stop zoom */
+  object-position:50% 50%; /* neutral center */
 }
 
-.cta-copy{min-width:0;}
+.cta-copy{min-width:0; text-align:center;}
 .cta-kicker{
   font-size:0.62rem;
   letter-spacing:0.26em;
@@ -301,7 +304,9 @@ body.menu-open .menu-panel{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  margin-top:10px;
+  margin-top:8px;
+  justify-content:center;  /* center button row */
+  width:100%;
 }
 
 .btn{
@@ -525,14 +530,14 @@ a.tile{display:block; cursor:pointer;}
   background:rgba(0,0,0,0.25);
 }
 
-/* FIX: stop the insane zoom */
+/* already fixed: no zoom */
 .agent-avatar img{
   width:100%;
   height:100%;
   display:block;
   object-fit:cover;
-  transform:none;              /* was scale(1.28) */
-  object-position:50% 50%;     /* neutral center */
+  transform:none;
+  object-position:50% 50%;
 }
 
 footer{
@@ -577,13 +582,13 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile */
+  /* HERO CTA on mobile (still stacked + centered) */
   .hero-cta{
     top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
     transform:none;
 
-    width:112px;
+    width:126px;
     aspect-ratio:1 / 1;
 
     flex-direction:column;
@@ -592,12 +597,14 @@ footer{
     gap:8px;
 
     padding:10px;
+    text-align:center;
+
     backdrop-filter: blur(16px) saturate(150%);
     box-shadow: 0 14px 34px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
   }
 
-  .cta-avatar{width:50px; height:50px;}
-  .cta-avatar img{transform:scale(1.14);}
+  .cta-avatar{width:52px; height:52px;}
+  .cta-avatar img{transform:none; object-position:50% 50%;}
 
   .cta-copy{text-align:center;}
   .cta-kicker{font-size:0.46rem; letter-spacing:0.18em; margin-bottom:2px;}
