@@ -609,13 +609,13 @@ footer{
   }
 }
 
-/* Casa Lienzo: remove seam on mobile (AND keep text above image) */
+/* Casa Lienzo: seam fix + force text tile above image on iPhone (WebKit) */
 @media (max-width:600px){
   .lienzo-card{
     position:relative;
     overflow:hidden;
+    isolation:isolate;
   }
-
   .lienzo-card img{
     position:relative;
     z-index:0;
@@ -623,16 +623,13 @@ footer{
     transform:scale(1.38);
     transform-origin:50% 50%;
     object-position:50% 40%;
-
     border-bottom:0 !important;
     margin-bottom:-14px;
     will-change:transform;
   }
-
   .lienzo-card .card-content{
     position:relative;
-    z-index:2;
-
+    z-index:10;
     margin-top:-14px;
     padding-top:22px;
   }
