@@ -647,6 +647,13 @@ footer{
     margin-left:auto;
     margin-right:auto;
   }
+
+  /* ✅ Scoot agent photo slightly LEFT on iPad/desktop */
+  #agent .agent-photo{
+    margin-left:0;
+    margin-right:auto;
+    transform:translateX(-18px);
+  }
 }
 </style>
 </head>
@@ -690,7 +697,6 @@ footer{
       <div class="cta-name">Kenneth Gehlhoff</div>
 
       <div class="hero-actions">
-        <!-- UPDATED: WhatsApp Business link -->
         <a class="btn primary"
            href="https://wa.me/5216121278834"
            target="_blank"
