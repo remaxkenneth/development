@@ -473,12 +473,12 @@ a.tile{display:block; cursor:pointer;}
 }
 .cta-tile a{display:block;}
 
-/* ✅ FIX: let the CTA banner image scale naturally so the title/text never gets cropped */
+/* CTA image auto-resizes to fit its own text/title (no cropping) */
 .cta-tile img{
   width:100%;
-  height:auto;              /* <-- no forced clamp height */
+  height:auto;
   display:block;
-  object-fit:contain;       /* harmless w/ height:auto, but keeps things sane if height is ever set */
+  object-fit:contain;
   background:rgba(0,0,0,0.15);
 }
 
@@ -690,7 +690,14 @@ footer{
       <div class="cta-name">Kenneth Gehlhoff</div>
 
       <div class="hero-actions">
-        <a class="btn primary" href="businesscard.html" aria-label="Contact Kenneth now">Contact Now</a>
+        <!-- UPDATED: WhatsApp Business link -->
+        <a class="btn primary"
+           href="https://wa.me/5216121278834"
+           target="_blank"
+           rel="noopener"
+           aria-label="Contact Kenneth on WhatsApp">
+          Contact Now
+        </a>
       </div>
     </div>
   </div>
