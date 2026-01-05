@@ -277,7 +277,9 @@ body.menu-open .menu-panel{
   height:100%;
   object-fit:cover;
   transform:scale(1.12);
-  object-position:42% 48%; /* MOVED LEFT */
+
+  /* FORCE a visible shift: move Kenny LEFT in the circle by pushing the crop RIGHT */
+  object-position:82% 48% !important;
 }
 
 .cta-copy{min-width:0;}
@@ -531,7 +533,9 @@ a.tile{display:block; cursor:pointer;}
   object-fit:cover;
   transform:scale(1.28);
   transform-origin:center;
-  object-position:42% 55%; /* MOVED LEFT */
+
+  /* FORCE same shift here too */
+  object-position:82% 55% !important;
 }
 
 footer{
