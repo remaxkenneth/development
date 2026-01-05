@@ -431,8 +431,6 @@ a.tile{display:block; cursor:pointer;}
   display:block;
   border-bottom:1px solid rgba(255,255,255,0.14);
 }
-
-/* fallback if aspect-ratio isn't supported */
 @supports not (aspect-ratio: 1 / 1){
   .card img{height:240px;}
 }
@@ -472,8 +470,6 @@ a.tile{display:block; cursor:pointer;}
   width:min(100%, 760px);
 }
 .cta-tile a{display:block;}
-
-/* CTA image auto-resizes to fit its own text/title (no cropping) */
 .cta-tile img{
   width:100%;
   height:auto;
@@ -509,12 +505,17 @@ a.tile{display:block; cursor:pointer;}
   text-align:center;
   align-items:center;
 }
+
+/* ✅ MOVE THE WHOLE PHOTO BLOCK LEFT (ALL SIZES) */
 .agent-photo{
   width:fit-content;
   padding:16px;
   border-radius:22px;
-  margin:0 auto;
+  margin:0;                 /* kill centering */
+  margin-right:auto;        /* anchor left */
+  transform:translateX(-20px); /* push left more */
 }
+
 .agent-avatar{
   width:260px;
   height:260px;
@@ -524,6 +525,8 @@ a.tile{display:block; cursor:pointer;}
   border:1px solid rgba(255,255,255,0.18);
   background:rgba(0,0,0,0.25);
 }
+
+/* ✅ ALSO SHIFT THE IMAGE CROP LEFT HARDER */
 .agent-avatar img{
   width:100%;
   height:100%;
@@ -531,7 +534,7 @@ a.tile{display:block; cursor:pointer;}
   object-fit:cover;
   transform:scale(1.28);
   transform-origin:center;
-  object-position:42% 55%;
+  object-position:30% 55%;  /* was 42% — stronger left shift */
 }
 
 footer{
@@ -558,7 +561,6 @@ footer{
   .grid-cta-wrap{margin-top:18px;}
   .cta-tile{width:100%;}
 
-  /* Featured property: match video 16:9 */
   .featured-main{
     position:relative;
     width:100%;
@@ -576,7 +578,6 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile */
   .hero-cta{
     top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
@@ -614,6 +615,9 @@ footer{
     font-size:0.54rem;
     letter-spacing:0.14em;
   }
+
+  /* keep it left but a bit less aggressive on phones */
+  .agent-photo{ transform:translateX(-12px); }
 }
 
 /* AGENT: centered halves */
@@ -624,7 +628,7 @@ footer{
     grid-template-columns:1fr 1fr;
     gap:64px;
     align-items:center;
-    justify-items:center;
+    justify-items:center; /* still fine */
     text-align:center;
     position:relative;
   }
@@ -646,6 +650,12 @@ footer{
     max-width:520px;
     margin-left:auto;
     margin-right:auto;
+  }
+
+  /* ✅ FORCE LEFT PLACEMENT IN GRID + PUSH MORE */
+  #agent .agent-photo{
+    justify-self:start;
+    transform:translateX(-34px);
   }
 }
 </style>
