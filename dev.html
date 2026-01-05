@@ -55,12 +55,14 @@
   --text-main:rgba(255,255,255,0.92);
   --text-muted:rgba(255,255,255,0.72);
 
+  /* upgraded glass for EVERYTHING (same vibe you liked on the bottom tile) */
   --glass-a: rgba(0,0,0,0.58);
   --glass-b: rgba(255,255,255,0.10);
   --glass-border: rgba(255,255,255,0.20);
   --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
   --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
 
+  /* slightly stronger only for the bottom Contact tile */
   --glass-strong-a: rgba(0,0,0,0.68);
   --glass-strong-b: rgba(255,255,255,0.12);
   --glass-strong-border: rgba(255,255,255,0.24);
@@ -78,6 +80,7 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
+/* LUX BACKGROUND TEXTURE (subtle linen + soft spotlight) */
 body::before{
   content:"";
   position:fixed;
@@ -105,6 +108,7 @@ body > *{position:relative; z-index:1;}
 a{text-decoration:none; color:inherit;}
 img{max-width:100%; display:block;}
 
+/* HEADER */
 header{
   position:sticky;
   top:0;
@@ -178,6 +182,7 @@ body.menu-open .menu-panel{
   color:#000;
 }
 
+/* GLASS (now consistent everywhere) */
 .tile,
 .card,
 .hero-cta{
@@ -187,6 +192,7 @@ body.menu-open .menu-panel{
   box-shadow:var(--glass-shadow), var(--glass-inset);
 }
 
+/* HERO */
 #hero{
   position:relative;
   min-height:360px;
@@ -237,6 +243,7 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
+/* HERO CTA (tablet/desktop) */
 .hero-cta{
   position:absolute;
   top:48px;
@@ -318,6 +325,7 @@ body.menu-open .menu-panel{
 .btn.primary:hover{transform:translateY(-1px); filter:brightness(0.98);}
 .btn.primary:active{transform:translateY(0) scale(0.98); filter:brightness(1.02);}
 
+/* SECTIONS */
 .section{
   max-width:1100px;
   width:92%;
@@ -350,6 +358,7 @@ a.tile{display:block; cursor:pointer;}
   margin:0 0 34px 0;
 }
 
+/* VIDEO */
 .video-wrapper{
   width:100%;
   overflow:hidden;
@@ -369,6 +378,7 @@ a.tile{display:block; cursor:pointer;}
 }
 #about-baja .tile{padding:34px;}
 
+/* FEATURED */
 .featured-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -385,6 +395,7 @@ a.tile{display:block; cursor:pointer;}
   border-radius:14px;
 }
 
+/* GRID/CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(280px, 360px));
@@ -435,6 +446,7 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
+/* CTA TILE (keep your original banner tile exactly) */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
@@ -466,6 +478,7 @@ a.tile{display:block; cursor:pointer;}
   .cta-tile{width:min(100%, 720px);}
 }
 
+/* Bottom CTA tile: just a notch MORE solid than the rest */
 #contactTile{
   background: linear-gradient(135deg, var(--glass-strong-a), var(--glass-strong-b));
   border: 1px solid var(--glass-strong-border);
@@ -480,6 +493,7 @@ a.tile{display:block; cursor:pointer;}
   margin:0 auto 18px;
 }
 
+/* AGENT */
 .agent-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -519,6 +533,7 @@ footer{
   color:#aaa;
 }
 
+/* PHONE */
 @media (max-width:600px){
   .section{width:94%; margin:54px auto;}
   .tile{padding:26px 20px; border-radius:22px;}
@@ -536,6 +551,7 @@ footer{
   .grid-cta-wrap{margin-top:18px;}
   .cta-tile{width:100%;}
 
+  /* Featured property: match video 16:9 */
   .featured-main{
     position:relative;
     width:100%;
@@ -553,8 +569,9 @@ footer{
     border-radius:0;
   }
 
+  /* HERO CTA on mobile: move UP one "line" from the last version */
   .hero-cta{
-    top:72px;
+    top:72px; /* was 90px */
     right:calc(env(safe-area-inset-right, 0px) + 6px);
     transform:none;
 
@@ -592,31 +609,36 @@ footer{
   }
 }
 
-/* ONLY FIX: Casa Lienzo card stacking on mobile */
+/* Casa Lienzo: remove seam on mobile (AND keep text above image) */
 @media (max-width:600px){
   .lienzo-card{
+    position:relative;
     overflow:hidden;
   }
+
   .lienzo-card img{
-    height:260px;              /* keep same as other mobile cards */
-    width:100%;
-    display:block;
-    margin:0;                  /* kills overlap */
-    border-bottom:1px solid rgba(255,255,255,0.14); /* restore normal separation */
-    object-fit:cover;
-    object-position:50% 42%;
-    transform:scale(1.14);     /* slight zoom, no weird stacking */
+    position:relative;
+    z-index:0;
+
+    transform:scale(1.38);
     transform-origin:50% 50%;
+    object-position:50% 40%;
+
+    border-bottom:0 !important;
+    margin-bottom:-14px;
     will-change:transform;
   }
+
   .lienzo-card .card-content{
-    margin:0;                  /* kills overlap */
-    padding-top:26px;          /* normal spacing */
     position:relative;
-    z-index:1;
+    z-index:2;
+
+    margin-top:-14px;
+    padding-top:22px;
   }
 }
 
+/* AGENT: centered halves */
 @media (min-width:900px){
   #agent .tile{padding:48px 56px;}
 
