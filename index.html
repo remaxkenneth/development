@@ -472,13 +472,16 @@ a.tile{display:block; cursor:pointer;}
   width:min(100%, 760px);
 }
 .cta-tile a{display:block;}
+
+/* ✅ FIX: let the CTA banner image scale naturally so the title/text never gets cropped */
 .cta-tile img{
   width:100%;
-  height:clamp(118px, 16vw, 205px);
-  object-fit:cover;
-  object-position:50% 50%;
+  height:auto;              /* <-- no forced clamp height */
   display:block;
+  object-fit:contain;       /* harmless w/ height:auto, but keeps things sane if height is ever set */
+  background:rgba(0,0,0,0.15);
 }
+
 @media (min-width:700px) and (max-width:1024px){
   .cta-tile{width:min(100%, 720px);}
 }
@@ -739,7 +742,7 @@ footer{
 
     <div class="grid">
       <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
-        <img src="images/IMG_0822.png" alt="Casa Vista">
+        <img src="images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Vista</h3>
           <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
@@ -760,7 +763,7 @@ footer{
     <div class="grid-cta-wrap">
       <div class="cta-tile">
         <a href="listings.html" aria-label="View all listings">
-          <img src="images/clickme.jpeg" alt="Click to see more listings">
+          <img src="images/clickme.jpeg" alt="Click to see more listings" loading="lazy" decoding="async">
         </a>
       </div>
     </div>
@@ -774,7 +777,7 @@ footer{
 
     <div class="grid">
       <a class="card" href="unlisted/1/index.html" aria-label="Open Rancho Nuevo View Parcel (Unlisted)">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/ul/IMG_1066.jpeg" alt="Rancho Nuevo View Parcel">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/ul/IMG_1066.jpeg" alt="Rancho Nuevo View Parcel" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Rancho Nuevo View Parcel</h3>
           <p>
@@ -804,7 +807,7 @@ footer{
     <div class="agent-grid">
       <div class="agent-photo tile" style="padding:16px;">
         <div class="agent-avatar">
-          <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff">
+          <img src="images/kenneth.jpeg" alt="Kenneth Gehlhoff" loading="lazy" decoding="async">
         </div>
       </div>
 
