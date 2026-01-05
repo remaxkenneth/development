@@ -243,7 +243,7 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA (tablet/desktop default) */
+/* HERO CTA (tablet/desktop) */
 .hero-cta{
   position:absolute;
   top:48px;
@@ -263,14 +263,6 @@ body.menu-open .menu-panel{
 
   transform:scale(0.86);
   transform-origin:top right;
-}
-
-/* iPad landscape: push the hero-cta UP + a touch more into the corner (breathing room, no hanging) */
-@media (min-width:768px) and (max-width:1024px) and (orientation:landscape){
-  .hero-cta{
-    top:24px;
-    right:calc(env(safe-area-inset-right, 0px) + 12px);
-  }
 }
 
 .cta-avatar{
@@ -474,14 +466,22 @@ a.tile{display:block; cursor:pointer;}
 
   width:min(100%, 760px);
 }
-.cta-tile a{display:block;}
+
+/* UPDATED: center the image and prevent cropping */
+.cta-tile a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
 .cta-tile img{
   width:100%;
   height:clamp(118px, 16vw, 205px);
-  object-fit:cover;
-  object-position:50% 50%;
+  object-fit:contain;
+  object-position:center;
   display:block;
 }
+
 @media (min-width:700px) and (max-width:1024px){
   .cta-tile{width:min(100%, 720px);}
 }
@@ -577,9 +577,9 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile */
+  /* HERO CTA on mobile: move UP one "line" from the last version */
   .hero-cta{
-    top:72px;
+    top:72px; /* was 90px */
     right:calc(env(safe-area-inset-right, 0px) + 6px);
     transform:none;
 
@@ -617,19 +617,20 @@ footer{
   }
 }
 
-/* Casa Lienzo (mobile): stop overlap + crop more to kill the white strip */
+/* Casa Lienzo: remove seam on mobile */
 @media (max-width:600px){
   .lienzo-card{overflow:hidden;}
   .lienzo-card img{
-    transform:scale(1.46);
-    transform-origin:50% 45%;
-    object-position:50% 45%;
+    transform:scale(1.38);
+    transform-origin:50% 50%;
+    object-position:50% 40%;
     border-bottom:0 !important;
+    margin-bottom:-14px;
     will-change:transform;
   }
   .lienzo-card .card-content{
-    margin-top:0 !important;
-    padding-top:26px;
+    margin-top:-14px;
+    padding-top:22px;
   }
 }
 
