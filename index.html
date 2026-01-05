@@ -55,14 +55,12 @@
   --text-main:rgba(255,255,255,0.92);
   --text-muted:rgba(255,255,255,0.72);
 
-  /* upgraded glass for EVERYTHING (same vibe you liked on the bottom tile) */
   --glass-a: rgba(0,0,0,0.58);
   --glass-b: rgba(255,255,255,0.10);
   --glass-border: rgba(255,255,255,0.20);
   --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
   --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
 
-  /* slightly stronger only for the bottom Contact tile */
   --glass-strong-a: rgba(0,0,0,0.68);
   --glass-strong-b: rgba(255,255,255,0.12);
   --glass-strong-border: rgba(255,255,255,0.24);
@@ -80,7 +78,7 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
-/* LUX BACKGROUND TEXTURE (subtle linen + soft spotlight) */
+/* LUX BACKGROUND TEXTURE */
 body::before{
   content:"";
   position:fixed;
@@ -182,7 +180,7 @@ body.menu-open .menu-panel{
   color:#000;
 }
 
-/* GLASS (now consistent everywhere) */
+/* GLASS */
 .tile,
 .card,
 .hero-cta{
@@ -243,7 +241,7 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA (tablet/desktop) */
+/* HERO CTA */
 .hero-cta{
   position:absolute;
   top:48px;
@@ -423,13 +421,20 @@ a.tile{display:block; cursor:pointer;}
 }
 .card:active{transform:translateY(-1px); filter:brightness(1.04);}
 
+/* LANDSCAPE LOOK FOR ALL CARD IMAGES (16:9 like video/featured) */
 .card img{
   width:100%;
-  height:240px;
+  aspect-ratio:16 / 9;
+  height:auto;
   object-fit:cover;
   object-position:center center;
   display:block;
   border-bottom:1px solid rgba(255,255,255,0.14);
+}
+
+/* fallback if aspect-ratio isn't supported */
+@supports not (aspect-ratio: 1 / 1){
+  .card img{height:240px;}
 }
 
 .card-content{
@@ -446,7 +451,7 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE (keep your original banner tile exactly) */
+/* CTA TILE */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
@@ -478,7 +483,7 @@ a.tile{display:block; cursor:pointer;}
   .cta-tile{width:min(100%, 720px);}
 }
 
-/* Bottom CTA tile: just a notch MORE solid than the rest */
+/* Bottom CTA tile */
 #contactTile{
   background: linear-gradient(135deg, var(--glass-strong-a), var(--glass-strong-b));
   border: 1px solid var(--glass-strong-border);
@@ -545,7 +550,6 @@ footer{
   }
 
   .card{border-radius:22px;}
-  .card img{height:260px;}
   .card-content{padding:26px 18px;}
 
   .grid-cta-wrap{margin-top:18px;}
@@ -569,9 +573,9 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile: move UP one "line" from the last version */
+  /* HERO CTA on mobile */
   .hero-cta{
-    top:72px; /* was 90px */
+    top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
     transform:none;
 
@@ -742,9 +746,8 @@ footer{
         </div>
       </a>
 
-      <!-- CHANGED: Casa Lorenzo/Lienzo card rebuilt to match Casa Vista settings (no special class, no special behavior) -->
       <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/3/IMG_0060.png" alt="Casa Lienzo C. Molusco">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/3/IMG_0060.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
           <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
