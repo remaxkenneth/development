@@ -28,316 +28,380 @@
   <link rel="canonical" href="https://remaxkenneth.com/listings/luna/villa/index.html">
 
   <style>
-    :root {
-      --remax-cream: rgba(255,255,255,0.92);
-      --remax-cream-muted: rgba(255,255,255,0.68);
-      --glass-bg: rgba(255,255,255,0.12);
-      --glass-border: rgba(255,255,255,0.18);
-      --chip-bg: rgba(255,255,255,0.20);
-      --chip-border: rgba(255,255,255,0.18);
+    :root{
+      --remax-blue:#003da5;
+      --remax-red:#e4002b;
+      --remax-dark-blue:#000E35;
+
+      --text-main:rgba(255,255,255,0.92);
+      --text-muted:rgba(255,255,255,0.72);
+
+      --glass-a: rgba(0,0,0,0.58);
+      --glass-b: rgba(255,255,255,0.10);
+      --glass-border: rgba(255,255,255,0.20);
+      --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
+      --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
+
+      --chip-bg: rgba(255,255,255,0.18);
+      --chip-border: rgba(255,255,255,0.22);
+
+      /* JS sets this after it finds the first image; keep a harmless fallback */
+      --hero-bg: radial-gradient(circle at top, rgba(15,23,42,0.6) 0%, rgba(2,4,9,1) 65%);
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--remax-cream);
-
-      background-color: #020409;
-      background-image: radial-gradient(
-        circle at top,
-        #0f172a 0%,
-        #0a0f1f 35%,
-        #05070d 70%,
-        #020409 100%
-      );
-      background-repeat: no-repeat;
-      background-position: top center;
-      background-size: 100% 900px;
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:#020409;
+      color:var(--text-main);
+      position:relative;
+      -webkit-tap-highlight-color:transparent;
     }
 
-    a { text-decoration: none; color: inherit; }
+    /* LUX BACKGROUND TEXTURE (match index) */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
 
-    /* ===== HEADER / TOOLBAR ===== */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(245,246,247,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid #e5e7eb;
+      background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'240'%20height%3D'240'%3E%3Cfilter%20id%3D'n'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'0.8'%20numOctaves%3D'2'%20stitchTiles%3D'stitch'/%3E%3C/filter%3E%3Crect%20width%3D'240'%20height%3D'240'%20filter%3D'url(%23n)'%20opacity%3D'0.10'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.030) 0px, rgba(255,255,255,0.030) 1px, rgba(0,0,0,0) 7px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.020) 0px, rgba(255,255,255,0.020) 1px, rgba(0,0,0,0) 9px),
+        radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
+        radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), rgba(0,0,0,0) 62%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
+
+      background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
+      background-size: 280px 280px, auto, auto, auto, auto, auto;
+      background-position: 0 0, 0 0, 0 0, center, center, center;
+      opacity:0.95;
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 14px 5%;
-      position: relative;
+    body > *{position:relative; z-index:1;}
+
+    a{text-decoration:none; color:inherit;}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(245,246,247,0.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid #e5e7eb;
     }
 
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 5%;
+      position:relative;
     }
 
-    .nav-left a { display: inline-flex; align-items: center; line-height: 0; }
-    .nav-left img { height: 32px; }
-
-    .nav-left span {
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      color: #000;
-      text-transform: uppercase;
+    .nav-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
     }
 
-    .menu-button {
-      font-size: 30px;
-      cursor: pointer;
-      color: #000;
-      user-select: none;
-      line-height: 1;
+    .nav-left a{
+      display:inline-flex;
+      align-items:center;
+      line-height:0;
     }
 
-    .menu-panel {
-      position: absolute;
-      right: 18px;
-      top: 64px;
-      background: rgba(255,255,255,0.80);
-      backdrop-filter: blur(20px);
-      border-radius: 22px;
-      padding: 22px;
-      min-width: 190px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      opacity: 0;
-      pointer-events: none;
-      transform: scale(0.95);
-      transition: 0.25s ease;
-      color: #000;
+    .nav-left img{height:32px;}
+
+    .nav-left span{
+      font-size:1rem;
+      font-weight:700;
+      letter-spacing:0.12em;
+      color:#000;
+      text-transform:uppercase;
     }
 
-    body.menu-open .menu-panel {
-      opacity: 1;
-      pointer-events: auto;
-      transform: scale(1);
+    .menu-button{
+      font-size:30px;
+      cursor:pointer;
+      color:#000;
+      user-select:none;
+      line-height:1;
     }
 
-    .menu-panel a {
-      color: #000;
-      font-size: 14px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+    .menu-panel{
+      position:absolute;
+      right:18px;
+      top:64px;
+      background:rgba(255,255,255,0.80);
+      backdrop-filter:blur(20px);
+      border-radius:22px;
+      padding:22px;
+      min-width:190px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+
+      opacity:0;
+      pointer-events:none;
+      transform:scale(0.95);
+      transition:0.25s ease;
+      color:#000;
     }
 
-    /* ===== HERO ===== */
-    #hero {
-      position: relative;
-      min-height: 340px;
-      display: flex;
-      align-items: center;
-
-      background-color: #020409;
-      /* IMPORTANT: no hard-coded hero image here to avoid double-download.
-         JS sets hero background to the first loaded slide, resized per device. */
-      background-image: radial-gradient(circle at top, rgba(15,23,42,0.6) 0%, rgba(2,4,9,1) 65%);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
+    body.menu-open .menu-panel{
+      opacity:1;
+      pointer-events:auto;
+      transform:scale(1);
     }
 
-    #hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
+    .menu-panel a{
+      color:#000;
+      font-size:14px;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
     }
 
-    .hero-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 1200px;
-      width: 92%;
-      margin: auto;
-      color: #fff;
+    /* HERO (match index vibe) */
+    #hero{
+      position:relative;
+      min-height:360px;
+      display:flex;
+      align-items:center;
+
+      background-color:#020409;
+      background-image:var(--hero-bg);
+      background-position:50% 55%;
+      background-size:cover;
+      background-repeat:no-repeat;
+
+      color:#fff;
+      overflow:hidden;
     }
 
-    .hero-eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: #e5e7eb;
+    #hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(130deg, rgba(0,14,53,0.70), rgba(0,0,0,0.30));
     }
 
-    .hero-title {
-      font-size: 2.6rem;
-      margin: 14px 0 0;
-      font-weight: 600;
-      line-height: 1.1;
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:1200px;
+      width:92%;
+      margin:auto;
+      padding:48px 0;
+      color:#fff;
     }
 
-    .hero-sub {
-      margin-top: 12px;
-      max-width: 720px;
-      color: #e5e7eb;
+    .hero-eyebrow{
+      font-size:0.7rem;
+      letter-spacing:0.35em;
+      text-transform:uppercase;
+      color:#e5e7eb;
+      opacity:0.92;
     }
 
-    /* ===== SECTIONS ===== */
-    .section {
-      max-width: 1200px;
-      width: 92%;
-      margin: 70px auto;
+    .hero-title{
+      font-size:2.6rem;
+      margin:14px 0 0;
+      font-weight:600;
+      line-height:1.1;
     }
 
-    .tile {
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
-      border-radius: 26px;
-      padding: 40px;
-      backdrop-filter: blur(20px);
+    .hero-sub{
+      margin-top:12px;
+      max-width:720px;
+      color:#e5e7eb;
     }
 
-    .tile.details { padding-top: 56px; }
+    .section{
+      max-width:1100px;
+      width:92%;
+      margin:70px auto;
+    }
+    .section:first-of-type{margin-top:40px;}
 
-    /* ===== SLIDER ===== */
-    .slider {
-      position: relative;
-      height: 520px;
-      border-radius: 18px;
-      overflow: hidden;
-      background: rgba(0,0,0,0.35);
+    /* GLASS (match index) */
+    .tile{
+      background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
+      border:1px solid var(--glass-border);
+      backdrop-filter: blur(20px) saturate(140%);
+      box-shadow:var(--glass-shadow), var(--glass-inset);
+      border-radius:26px;
+      padding:40px;
     }
 
-    .slider img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
+    .tile.details{ padding-top:56px; }
+
+    /* SLIDER */
+    .slider{
+      position:relative;
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.14);
+      height:520px;
     }
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.45);
-      color: #fff;
-      border: none;
-      font-size: 28px;
-      padding: 10px 14px;
-      cursor: pointer;
-      border-radius: 14px;
-      z-index: 6;
+    .slider img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
 
-    .arrow.left { left: 14px; }
-    .arrow.right { right: 14px; }
-
-    /* ===== LOADING OVERLAY ===== */
-    .loader {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.30);
-      z-index: 5;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.18s ease;
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,0.45);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.14);
+      font-size:28px;
+      padding:10px 14px;
+      cursor:pointer;
+      border-radius:14px;
+      z-index:6;
+      transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+      user-select:none;
     }
+    .arrow:hover{transform:translateY(-50%) translateY(-1px); filter:brightness(1.05); background:rgba(0,0,0,0.52);}
+    .arrow:active{transform:translateY(-50%) scale(0.98);}
 
-    .loader.active { opacity: 1; }
+    .arrow.left{ left:14px; }
+    .arrow.right{ right:14px; }
 
-    .spinner {
-      width: 48px;
-      height: 48px;
-      border: 4px solid rgba(255,255,255,0.32);
-      border-top-color: #fff;
-      border-radius: 50%;
+    .loader{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,0.30);
+      z-index:5;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.18s ease;
+    }
+    .loader.active{ opacity:1; }
+
+    .spinner{
+      width:48px;
+      height:48px;
+      border:4px solid rgba(255,255,255,0.32);
+      border-top-color:#fff;
+      border-radius:50%;
       animation: spin 0.9s linear infinite;
     }
 
-    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes spin{ to{ transform: rotate(360deg); } }
 
-    @media (max-width: 768px) {
-      .slider { height: 320px; }
-    }
-
-    /* ===== DETAILS ===== */
-    .price {
-      font-size: 2.2rem;
-      text-align: center;
-      margin: 0;
-      font-weight: 500;
-      color: var(--remax-cream);
-    }
-
-    .location {
-      text-align: center;
-      margin: 10px 0 22px;
-      color: var(--remax-cream-muted);
-    }
-
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin: 28px 0 34px;
-    }
-
-    .stat-pill {
-      background: var(--chip-bg);
-      border: 1px solid var(--chip-border);
-      color: var(--remax-cream);
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 0.8rem;
-      text-align: center;
-      white-space: normal;
-      word-break: break-word;
-      line-height: 1.2;
-    }
-
-    @media (max-width: 520px) {
-      .stats {
-        display: grid !important;
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 10px !important;
-        align-items: stretch !important;
+    /* MOBILE: slider becomes 16:9 tile, not thin */
+    @media (max-width:768px){
+      .slider{
+        height:auto;
+        aspect-ratio:16 / 9;
       }
-
-      .stat-pill {
-        width: 100% !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        padding: 10px 10px !important;
-        font-size: 0.70rem !important;
-        letter-spacing: 0.12em !important;
-        min-height: 44px !important;
+      .slider img{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
       }
     }
 
-    .description p {
-      line-height: 1.7;
-      color: var(--remax-cream-muted);
-      margin: 0 0 14px;
+    .price{
+      font-size:2.2rem;
+      text-align:center;
+      margin:0;
+      font-weight:500;
+      color:var(--text-main);
     }
 
-    .description p:first-child { color: var(--remax-cream); }
+    .location{
+      text-align:center;
+      margin:10px 0 22px;
+      color:var(--text-muted);
+      text-transform:uppercase;
+      letter-spacing:0.10em;
+      font-size:0.85rem;
+    }
 
-    footer {
-      text-align: center;
-      padding: 40px 0;
-      font-size: 0.8rem;
-      color: #aaa;
+    .stats{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      margin:28px 0 34px;
+    }
+
+    .stat-pill{
+      background:var(--chip-bg);
+      border:1px solid var(--chip-border);
+      color:var(--text-main);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:0.8rem;
+      text-align:center;
+      white-space:normal;
+      word-break:break-word;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+      line-height:1.2;
+    }
+
+    @media (max-width:520px){
+      .stats{
+        display:grid !important;
+        grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+        gap:10px !important;
+        align-items:stretch !important;
+      }
+      .stat-pill{
+        width:100% !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        padding:10px 10px !important;
+        font-size:0.70rem !important;
+        letter-spacing:0.12em !important;
+        min-height:44px !important;
+      }
+      /* last pill becomes a full-width bar */
+      .stats .stat-pill:last-child{
+        grid-column:1 / -1 !important;
+      }
+    }
+
+    .description p{
+      line-height:1.7;
+      color:var(--text-muted);
+      margin:0 0 14px;
+    }
+    .description p:first-child{ color:var(--text-main); }
+
+    footer{
+      text-align:center;
+      padding:40px 0;
+      font-size:0.8rem;
+      color:#aaa;
+    }
+
+    /* PHONE spacing match */
+    @media (max-width:600px){
+      .section{width:94%; margin:54px auto;}
+      .tile{padding:26px 20px; border-radius:22px;}
+      #hero{background-position:50% 60%;}
     }
   </style>
 </head>
@@ -428,20 +492,16 @@
   document.addEventListener("click", () => document.body.classList.remove("menu-open"));
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  // ===== IMAGE DELIVERY (FAST) =====
-  // We keep your originals in Vercel Blob untouched.
-  // We SERVE a resized version per device via wsrv.nl (on-the-fly).
-  // No preloading, no manual resizing, and avoids downloading a 5MB monster on a phone.
-
+  // ===== IMAGE DELIVERY (AUTO-SIZED, NO PRELOAD) + dual-base fallback =====
   const heroEl = document.getElementById("hero");
   const sliderEl = document.getElementById("slider");
   const img = document.getElementById("slideImage");
   const loader = document.getElementById("loader");
 
-  const BASE_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/";
-  const BASE_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/luna/villa/";
+  const ORIGIN_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/";
+  const ORIGIN_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/luna/villa/";
 
-  const files = [
+  const FILES = [
     "Luna Villa-51 (28).jpeg",
     "Luna Villa-51 (30).jpeg",
     "Luna Villa-51 (1).jpeg",
@@ -456,96 +516,100 @@
     "Luna Villa-51 (21).jpeg",
     "Luna Villa-51 (22).jpeg",
     "Luna Villa-51 (23).jpeg",
-    "Luna Villa-51 (27).jpeg",
+    "Luna Villa-51 (27).jpeg"
   ];
 
-  let index = 0;
-  let targetW = 1400; // updated on load/resize
-
-  const buildOriginUrl = (base, filename) => base + encodeURIComponent(filename);
-
-  // conservative: don’t request absurd widths; still sharp on retina
-  function computeTargetWidth() {
+  function pickWidth() {
     const rectW = Math.max(1, Math.floor(sliderEl.clientWidth || 1200));
-    const dpr = Math.min(2, (window.devicePixelRatio || 1)); // cap DPR to keep payload sane
+    const dpr = Math.min(2, (window.devicePixelRatio || 1));
     const w = Math.ceil(rectW * dpr);
-    targetW = Math.min(2200, Math.max(900, w)); // clamp
+    return Math.min(2200, Math.max(900, w));
   }
 
-  // WebP support check (so Safari/iOS doesn’t get weird on old versions)
-  let supportsWebP = true;
-  (function webpTest() {
-    try {
-      const c = document.createElement("canvas");
-      supportsWebP = c.toDataURL("image/webp").indexOf("data:image/webp") === 0;
-    } catch (e) {
-      supportsWebP = false;
-    }
-  })();
-
-  function wsrvUrl(originUrl, width) {
-    const base = "https://wsrv.nl/?url=" + encodeURIComponent(originUrl) + "&w=" + width + "&q=78";
-    return supportsWebP ? (base + "&output=webp") : base;
+  function wsrvFromBase(base, filename, w, q = 78, format = "webp") {
+    const origin = encodeURIComponent(base + filename);
+    return `https://wsrv.nl/?url=${origin}&w=${w}&q=${q}&output=${format}`;
   }
 
-  function tryLoad(src1, src2) {
-    // returns the first URL that actually loads (no guessing)
-    return new Promise((resolve, reject) => {
-      const t = new Image();
-      t.onload = () => resolve(t.src);
-      t.onerror = () => {
-        const t2 = new Image();
-        t2.onload = () => resolve(t2.src);
-        t2.onerror = () => reject(new Error("Both paths failed"));
-        t2.src = src2;
-      };
-      t.src = src1;
-    });
+  function rawFromBase(base, filename) {
+    return base + filename;
   }
 
-  async function setImageAndWait(finalSrc) {
-    // keep the loader up until the image is ACTUALLY ready to render
-    await new Promise((resolve, reject) => {
-      img.onload = () => resolve();
-      img.onerror = (e) => reject(e);
-      img.src = finalSrc;
-    });
-
-    // decode() makes the swap feel instant on slower devices
-    if (img.decode) {
-      try { await img.decode(); } catch (_) {}
-    }
+  function dualAsset(filename, w, format = "webp") {
+    return {
+      optA: wsrvFromBase(ORIGIN_A, filename, w, 78, format),
+      optB: wsrvFromBase(ORIGIN_B, filename, w, 78, format),
+      rawA: rawFromBase(ORIGIN_A, filename),
+      rawB: rawFromBase(ORIGIN_B, filename),
+    };
   }
 
-  async function show(i) {
+  let index = 0;
+
+  function show(i) {
     loader.classList.add("active");
-    const file = files[i];
 
-    // original (full) origin URLs
-    const originA = buildOriginUrl(BASE_A, file);
-    const originB = buildOriginUrl(BASE_B, file);
+    const w = pickWidth();
+    const filename = FILES[i];
+    const asset = dualAsset(filename, w, "webp");
 
-    // fast delivery URLs (resized)
-    const srcA = wsrvUrl(originA, targetW);
-    const srcB = wsrvUrl(originB, targetW);
-
-    try {
-      const finalSrc = await tryLoad(srcA, srcB);
-      await setImageAndWait(finalSrc);
-
-      // set hero background only once, using a slightly larger width than slider for crispness
-      if (i === 0) {
-        const heroW = Math.min(2400, Math.round(targetW * 1.2));
-        const heroOrigin = originA; // first file should exist here; if not, slider already fell back
-        heroEl.style.backgroundImage = `url('${wsrvUrl(heroOrigin, heroW)}')`;
-      }
-    } finally {
+    let done = false;
+    const finish = (src) => {
+      if (done) return;
+      done = true;
+      img.src = src;
       loader.classList.remove("active");
+    };
+
+    const HANG_TIMEOUT_MS = 6000;
+    const hangTimer = setTimeout(() => finish(asset.rawA), HANG_TIMEOUT_MS);
+
+    const t1 = new Image();
+    t1.onload = () => { clearTimeout(hangTimer); finish(t1.src); };
+    t1.onerror = () => {
+      const t2 = new Image();
+      t2.onload = () => { clearTimeout(hangTimer); finish(t2.src); };
+      t2.onerror = () => {
+        // raw fallback chain
+        const r1 = new Image();
+        r1.onload = () => { clearTimeout(hangTimer); finish(r1.src); };
+        r1.onerror = () => {
+          const r2 = new Image();
+          r2.onload = () => { clearTimeout(hangTimer); finish(r2.src); };
+          r2.onerror = () => { clearTimeout(hangTimer); loader.classList.remove("active"); };
+          r2.src = asset.rawB;
+        };
+        r1.src = asset.rawA;
+      };
+      t2.src = asset.optB;
+    };
+    t1.src = asset.optA;
+
+    // set hero bg from first slide (same “no double-download” approach)
+    if (i === 0) {
+      const heroW = Math.min(2400, Math.round(w * 1.2));
+      const heroAsset = dualAsset(filename, heroW, "jpg"); // jpg for share/compat
+      const h1 = new Image();
+      h1.onload = () => { heroEl.style.backgroundImage = `url('${h1.src}')`; };
+      h1.onerror = () => {
+        const h2 = new Image();
+        h2.onload = () => { heroEl.style.backgroundImage = `url('${h2.src}')`; };
+        h2.onerror = () => { heroEl.style.backgroundImage = `url('${heroAsset.rawA}')`; };
+        h2.src = heroAsset.optB;
+      };
+      h1.src = heroAsset.optA;
     }
   }
 
-  const next = () => { index = (index + 1) % files.length; show(index); };
-  const prev = () => { index = (index - 1 + files.length) % files.length; show(index); };
+  function next() {
+    index = (index + 1) % FILES.length;
+    show(index);
+  }
+
+  function prev() {
+    index = (index - 1 + FILES.length) % FILES.length;
+    show(index);
+  }
 
   document.getElementById("next").addEventListener("click", next);
   document.getElementById("prev").addEventListener("click", prev);
@@ -563,18 +627,13 @@
     if (e.key === "ArrowLeft") prev();
   });
 
-  // recompute width on resize/orientation change (no preloading, just smarter requests)
+  // rotate/resize: smarter requests (no preloading)
   let resizeTimer = null;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-      computeTargetWidth();
-      show(index);
-    }, 180);
+    resizeTimer = setTimeout(() => show(index), 180);
   }, { passive: true });
 
-  // INIT
-  computeTargetWidth();
   show(index);
 </script>
 
