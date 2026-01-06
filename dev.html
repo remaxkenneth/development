@@ -258,13 +258,12 @@
       margin:0 0 34px 0;
     }
 
-    /* GRID: top row 3 columns so Kenny can be same width as others */
+    /* GRID: Kenny centered top; Richard + David below */
     .grid{
       display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
+      grid-template-columns:repeat(2, minmax(0, 1fr));
       gap:28px;
       align-items:stretch;
-      justify-items:stretch;
     }
 
     .card{
@@ -288,16 +287,13 @@
     }
     .card:active{transform:translateY(-1px); filter:brightness(1.04);}
 
-    /* Kenny: reverse gradient (white-to-black) + place in center column only */
+    /* Kenny: reverse gradient + SAME WIDTH as the other cards (one column) */
     .card.kenny{
       background:linear-gradient(135deg, var(--glass-b), var(--glass-a));
-      grid-column:2 / 3;      /* center column */
-      justify-self:stretch;   /* same width as others */
+      grid-column:1 / -1;     /* put on its own row */
+      width:min(360px, 100%); /* match the typical card width */
+      justify-self:center;    /* centered */
     }
-
-    /* Richard + David on row 2, side-by-side */
-    .card.richard{grid-column:1 / 2;}
-    .card.david{grid-column:3 / 4;}
 
     .card-top{
       display:flex;
@@ -363,24 +359,13 @@
       color:#aaa;
     }
 
-    /* TABLET: 2 columns; keep Kenny full-width top, then Richard/David */
-    @media (max-width:900px){
-      .grid{
-        grid-template-columns:repeat(2, minmax(0, 1fr));
-      }
-      .card.kenny{
-        grid-column:1 / -1;   /* full width */
-      }
-      .card.richard{grid-column:auto;}
-      .card.david{grid-column:auto;}
-    }
-
     /* PHONE */
     @media (max-width:600px){
       .section{width:94%; margin:54px auto;}
       .tile{padding:26px 20px; border-radius:22px;}
       .grid{grid-template-columns:1fr; gap:18px;}
       .card{border-radius:22px;}
+      .card.kenny{width:100%; justify-self:stretch;}
       #hero{background-position:50% 60%;}
     }
   </style>
@@ -421,7 +406,7 @@
 
     <div class="grid">
 
-      <!-- Kenny (same width as others, centered column) -->
+      <!-- Kenny (same width as Richard/David cards) -->
       <div class="card kenny">
         <div class="card-top">
           <img src="/images/logo.png" class="logo-top" alt="RE/MAX">
@@ -437,7 +422,7 @@
       </div>
 
       <!-- Richard -->
-      <div class="card richard">
+      <div class="card">
         <div class="card-top">
           <h3>Richard Gomez</h3>
           <div class="role">Construction Specialist</div>
@@ -451,7 +436,7 @@
       </div>
 
       <!-- David -->
-      <div class="card david">
+      <div class="card">
         <div class="card-top">
           <h3>David Ray</h3>
           <div class="role">Operations · Marketing</div>
