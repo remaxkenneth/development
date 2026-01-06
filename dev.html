@@ -4,32 +4,33 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Listings | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <title>Events | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Homes, land, and investments across Baja Sur. Curated listings from Kenneth Gehlhoff – RE/MAX Cabo Sanctuary.">
+  <meta name="description" content="Live music, markets, and community events in Cerritos and Todos Santos. Experience Baja beyond the listings.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
-  <link rel="canonical" href="https://remaxkenneth.com/listings.html">
+  <link rel="canonical" href="https://remaxkenneth.com/events.html">
 
   <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
+  <meta property="og:title" content="Baja Events & Community – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="Live music, markets, and community events in Cerritos and Todos Santos. Experience Baja beyond the listings.">
   <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:url" content="https://remaxkenneth.com/listings.html">
+  <meta property="og:url" content="https://remaxkenneth.com/events.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="Homes, land, and investments across Baja Sur.">
+  <meta name="twitter:title" content="Baja Events & Community – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="Live music, markets, and community events in Cerritos and Todos Santos. Experience Baja beyond the listings.">
   <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
-  <meta name="twitter:url" content="https://remaxkenneth.com/listings.html">
+  <meta name="twitter:url" content="https://remaxkenneth.com/events.html">
 
   <style>
     :root{
@@ -114,12 +115,15 @@
       align-items:center;
       gap:10px;
     }
+
     .nav-left a{
       display:inline-flex;
       align-items:center;
       line-height:0;
     }
+
     .nav-left img{height:32px;}
+
     .nav-left span{
       font-size:1rem;
       font-weight:700;
@@ -226,11 +230,11 @@
     }
 
     .hero-sub{
-      max-width:560px;
+      max-width:520px;
       color:#e5e7eb;
     }
 
-    /* SECTIONS */
+    /* SECTIONS (match index) */
     .section{
       max-width:1100px;
       width:92%;
@@ -267,7 +271,7 @@
       grid-template-columns:repeat(auto-fill, minmax(280px, 360px));
       gap:32px;
       justify-content:center;
-      align-items:start;
+      align-items:stretch;
     }
     @media (min-width:700px) and (max-width:1024px){
       .grid{
@@ -277,20 +281,29 @@
       }
     }
 
-    .card{
+    .card-link{
       display:block;
+      height:100%;
+    }
+
+    .card{
+      height:100%;
+      display:flex;
+      flex-direction:column;
       border-radius:26px;
       overflow:hidden;
       transition:transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
       color:var(--text-main);
+      box-shadow:var(--glass-shadow), var(--glass-inset);
     }
-    .card:hover{
+
+    .card-link:hover .card{
       transform:translateY(-2px);
       box-shadow:0 26px 60px rgba(0,0,0,0.40), var(--glass-inset);
     }
-    .card:active{transform:translateY(-1px); filter:brightness(1.04);}
+    .card-link:active .card{transform:translateY(-1px); filter:brightness(1.04);}
 
-    /* LANDSCAPE LOOK FOR ALL CARD IMAGES (16:9 like index) */
+    /* 16:9 images like index */
     .card img{
       width:100%;
       aspect-ratio:16 / 9;
@@ -307,17 +320,44 @@
     .card-content{
       padding:30px 26px;
       text-align:center;
-      background:transparent;
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height:210px;
     }
 
-    .card h3{margin:0 0 10px; color:var(--text-main);}
+    .card h3{margin:0; color:var(--text-main);}
     .card p{
       font-size:0.95rem;
       color:var(--text-muted);
-      max-width:90%;
-      margin:0 auto;
-      line-height:1.4;
+      margin:0;
+      line-height:1.5;
     }
+
+    /* button matches index pill vibe */
+    .card-btn{
+      display:inline-block;
+      margin-top:auto;
+      padding:12px 22px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.18);
+      border:1px solid rgba(255,255,255,0.22);
+      color:var(--text-main);
+      font-size:0.70rem;
+      letter-spacing:0.18em;
+      text-transform:uppercase;
+      transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+      align-self:center;
+      user-select:none;
+    }
+
+    .card-link:hover .card-btn{
+      background:rgba(255,255,255,0.26);
+      transform:translateY(-1px);
+      filter:brightness(1.02);
+    }
+    .card-link:active .card-btn{transform:translateY(0) scale(0.99);}
 
     footer{
       text-align:center;
@@ -326,7 +366,7 @@
       color:#aaa;
     }
 
-    /* PHONE (match spacing behavior) */
+    /* PHONE */
     @media (max-width:600px){
       .section{width:94%; margin:54px auto;}
       .tile{padding:26px 20px; border-radius:22px;}
@@ -355,9 +395,7 @@
       </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
-
     <div class="menu-button" id="menuButton">≡</div>
-
     <div class="menu-panel" id="menuPanel">
       <a href="index.html">Home</a>
       <a href="listings.html">Listings</a>
@@ -369,68 +407,57 @@
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Homes · Land · Investment</div>
-    <h1 class="hero-title">Listings</h1>
-    <p class="hero-sub">Curated for lifestyle, location, and value</p>
+    <div class="hero-eyebrow">Community · Events · Local News</div>
+    <h1 class="hero-title">The Rhythm of Baja Sur</h1>
+    <p class="hero-sub">Surf at first light. Markets before noon. Music after sunset.</p>
   </div>
 </section>
 
-<section class="section" aria-label="Listings grid">
+<section class="section">
   <div class="tile">
-    <p class="section-sub">Curated for lifestyle, location, and value</p>
+    <h2 class="section-title">What’s Happening This Week</h2>
+    <p class="section-sub">A look at the moments worth leaving the house for.</p>
 
     <div class="grid">
-      <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
-        <img src="/images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Sol y Luna</h3>
-          <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilan, Mexico</p>
+      <a href="https://www.bandsintown.com/c/todos-santos-mexico"
+         target="_blank" rel="noopener"
+         class="card-link"
+         aria-label="Open Bandsintown music calendar for Todos Santos">
+        <div class="card">
+          <img src="/images/IMG_0756.jpeg" alt="Evenings in Baja" loading="lazy" decoding="async">
+          <div class="card-content">
+            <h3>Evenings in Baja</h3>
+            <p>Enjoy a night out at concerts and local events.</p>
+            <span class="card-btn">Music Calendar</span>
+          </div>
         </div>
       </a>
 
-      <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
-        <img src="/images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Vista</h3>
-          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
+      <a href="https://gringogazette.com/event/"
+         target="_blank" rel="noopener"
+         class="card-link"
+         aria-label="Open Gringo Gazette event calendar">
+        <div class="card">
+          <img src="/images/IMG_0757.jpeg" alt="No Bad Days" loading="lazy" decoding="async">
+          <div class="card-content">
+            <h3>No Bad Days</h3>
+            <p>See what everyone is talking about.</p>
+            <span class="card-btn">Event Calendar</span>
+          </div>
         </div>
       </a>
 
-      <a class="card" href="listings/5/index.html" aria-label="Open Casa Costa listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg" alt="Casa Costa" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Costa</h3>
-          <p>House<br>$649,000 USD<br>2 Bedrooms · 2 Bathrooms<br>Cerritos, Mexico</p>
-        </div>
-      </a>
-
-      <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
-        <img src="/images/IMG_0797.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Lienzo C. Molusco</h3>
-          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
-        </div>
-      </a>
-
-      <!-- NEW TILE: LUNA VILLA -->
-      <a class="card" href="listings/luna/villa/index.html" aria-label="Open Luna Villa listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg" alt="Luna Villa" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Luna Villa</h3>
-          <p>House<br>$399+ USD<br>3 Bedrooms · 2 Bath<br>El Pescadero, Mexico</p>
-        </div>
-      </a>
-      <!-- /NEW TILE -->
-    </div>
-
-    <div style="height: 46px;"></div>
-
-    <div class="grid">
-      <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
-        <img src="/images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Central Cerritos Lot</h3>
-          <p>Plot of Land<br>$265,000 USD<br>Cerritos, Mexico</p>
+      <a href="https://setuesbcs.gob.mx/eventos-admin/calendario.php"
+         target="_blank" rel="noopener"
+         class="card-link"
+         aria-label="Open official BCS tourism events calendar">
+        <div class="card">
+          <img src="/images/IMG_0758.jpeg" alt="Official Events" loading="lazy" decoding="async">
+          <div class="card-content">
+            <h3>Official Events</h3>
+            <p>State and regional tourism events across BCS.</p>
+            <span class="card-btn">Official Calendar</span>
+          </div>
         </div>
       </a>
     </div>
