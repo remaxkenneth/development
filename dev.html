@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
-
+  <link rel="icon" type="image/png" sizes="32x32" href="../../favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Contact | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <title>Casa Sol y Luna | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Direct contact with Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for Baja real estate guidance in Cerritos, Todos Santos, and Pescadero.">
+  <meta name="description" content="Casa Sol y Luna — 5 Bedrooms · 5 Bathrooms · 1,801 m² lot · Gavilan above Cerritos / El Pescadero.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
-  <link rel="canonical" href="https://remaxkenneth.com/businesscard.html">
+  <link rel="canonical" href="https://remaxkenneth.com/listings/1/index.html">
 
+  <!-- OG / Twitter (use auto-generated JPG so shares load fast + compatible) -->
   <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="Direct contact with Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for Baja real estate guidance.">
-  <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:url" content="https://remaxkenneth.com/businesscard.html">
+  <meta property="og:title" content="Casa Sol y Luna – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="5 Bedrooms · 5 Bathrooms · 1,801 m² lot · Gavilan above Cerritos / El Pescadero">
+  <meta property="og:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F1%2FIMG_8494.JPG&w=1200&q=80&output=jpg">
+  <meta property="og:url" content="https://remaxkenneth.com/listings/1/index.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="Direct contact with Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for Baja real estate guidance.">
-  <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
-  <meta name="twitter:url" content="https://remaxkenneth.com/businesscard.html">
+  <meta name="twitter:title" content="Casa Sol y Luna – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="5 Bedrooms · 5 Bathrooms · 1,801 m² lot · Gavilan above Cerritos / El Pescadero">
+  <meta name="twitter:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F1%2FIMG_8494.JPG&w=1200&q=80&output=jpg">
+  <meta name="twitter:url" content="https://remaxkenneth.com/listings/1/index.html">
 
   <style>
     :root{
@@ -47,10 +44,11 @@
       --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
       --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
 
-      --btn-a: rgba(255,255,255,0.22);
-      --btn-b: rgba(255,255,255,0.10);
-      --btn-border: rgba(255,255,255,0.22);
-      --btn-glow: rgba(255,255,255,0.22);
+      --chip-bg: rgba(255,255,255,0.18);
+      --chip-border: rgba(255,255,255,0.22);
+
+      /* JS will replace this with an optimized CDN URL */
+      --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/1/IMG_8494.JPG');
     }
 
     *{box-sizing:border-box;}
@@ -65,7 +63,7 @@
       -webkit-tap-highlight-color:transparent;
     }
 
-    /* LUX BACKGROUND TEXTURE */
+    /* LUX BACKGROUND TEXTURE (match index) */
     body::before{
       content:"";
       position:fixed;
@@ -88,26 +86,10 @@
       opacity:0.95;
     }
 
-    /* subtle vignette to kill “app UI” feel */
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:0;
-      background:
-        radial-gradient(1200px 900px at 50% 35%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%),
-        radial-gradient(900px 700px at 15% 90%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%),
-        radial-gradient(900px 700px at 85% 90%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%);
-      opacity:0.75;
-    }
-
     body > *{position:relative; z-index:1;}
 
     a{text-decoration:none; color:inherit;}
-    img{max-width:100%; display:block;}
 
-    /* HEADER */
     header{
       position:sticky;
       top:0;
@@ -183,13 +165,13 @@
     }
 
     .menu-panel a{
+      color:#000;
       font-size:14px;
       letter-spacing:0.1em;
       text-transform:uppercase;
-      color:#000;
     }
 
-    /* HERO */
+    /* HERO (match index vibe) */
     #hero{
       position:relative;
       min-height:360px;
@@ -197,7 +179,7 @@
       align-items:center;
 
       background-color:#020409;
-      background-image:url('/images/sunsetcerritos.jpeg');
+      background-image:var(--hero-bg);
       background-position:50% 55%;
       background-size:cover;
       background-repeat:no-repeat;
@@ -210,7 +192,7 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(130deg, rgba(0,14,53,0.70), rgba(0,0,0,0.26));
+      background:linear-gradient(130deg, rgba(0,14,53,0.70), rgba(0,0,0,0.30));
     }
 
     .hero-inner{
@@ -220,29 +202,30 @@
       width:92%;
       margin:auto;
       padding:48px 0;
+      color:#fff;
     }
 
     .hero-eyebrow{
-      letter-spacing:0.35em;
       font-size:0.7rem;
-      opacity:0.92;
+      letter-spacing:0.35em;
       text-transform:uppercase;
       color:#e5e7eb;
+      opacity:0.92;
     }
 
     .hero-title{
       font-size:2.6rem;
-      margin:14px 0;
+      margin:14px 0 0;
       font-weight:600;
       line-height:1.1;
     }
 
     .hero-sub{
-      max-width:560px;
+      margin-top:12px;
+      max-width:620px;
       color:#e5e7eb;
     }
 
-    /* SECTIONS */
     .section{
       max-width:1100px;
       width:92%;
@@ -250,6 +233,7 @@
     }
     .section:first-of-type{margin-top:40px;}
 
+    /* GLASS (match index) */
     .tile{
       background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
       border:1px solid var(--glass-border);
@@ -259,161 +243,141 @@
       padding:40px;
     }
 
-    .section-title{
-      text-align:center;
-      font-size:2rem;
-      color:var(--text-main);
-      margin:0 0 10px 0;
-      text-transform:uppercase;
-      letter-spacing:0.02em;
-    }
+    .tile.details{ padding-top:56px; }
 
-    .section-sub{
-      text-align:center;
-      color:var(--text-muted);
-      text-transform:uppercase;
-      font-size:0.8rem;
-      letter-spacing:0.22em;
-      margin:0 0 34px 0;
-    }
-
-    /* Layout: Kenny centered top row; Richard + David below */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0, 1fr));
-      gap:28px;
-      align-items:stretch;
-    }
-
-    .card{
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
-      border:1px solid var(--glass-border);
-      backdrop-filter: blur(20px) saturate(140%);
-      box-shadow:
-        var(--glass-shadow),
-        var(--glass-inset),
-        inset 0 -24px 40px rgba(0,0,0,0.22); /* subtle “physical object” depth */
-      border-radius:26px;
-      padding:28px;
-      text-align:center;
-      color:var(--text-main);
-      transition:transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease, border-color 0.18s ease;
+    .slider{
       position:relative;
+      height:520px;
+      border-radius:18px;
       overflow:hidden;
+      background:rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.14);
     }
 
-    .card:hover{
-      transform:translateY(-2px);
-      box-shadow:
-        0 26px 60px rgba(0,0,0,0.44),
-        var(--glass-inset),
-        inset 0 -24px 40px rgba(0,0,0,0.20);
-    }
-    .card:active{transform:translateY(-1px); filter:brightness(1.03);}
-
-    /* Kenny: reverse gradient + subtle “alpha” glow (not bigger, just more certain) */
-    .card.kenny{
-      background:linear-gradient(135deg, var(--glass-b), var(--glass-a));
-      border-color:rgba(255,255,255,0.28);
-      box-shadow:
-        0 22px 60px rgba(0,0,0,0.50),
-        0 0 0 1px rgba(255,255,255,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.14),
-        inset 0 -24px 40px rgba(0,0,0,0.22);
-    }
-
-    /* SAME WIDTH as Richard/David cards (one column), centered on its own row */
-    .card.kenny{
-      grid-column:1 / -1;
-      width:min(520px, 100%);
-      justify-self:center;
-    }
-
-    /* Rhythm: tighter name/role, more air before buttons */
-    .card-top{
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      gap:8px;
-      padding-bottom:10px;
-    }
-
-    .logo-top{
-      height:52px;
-      width:auto;
-      max-width:260px;
-      object-fit:contain;
+    .slider img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
       display:block;
-      margin-bottom:2px;
-      opacity:0.95;
     }
 
-    .card h3{
-      margin:0;
-      color:var(--text-main);
-      letter-spacing:0.01em;
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,0.45);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.14);
+      font-size:28px;
+      padding:10px 14px;
+      cursor:pointer;
+      border-radius:14px;
+      z-index:6;
+      transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+      user-select:none;
     }
+    .arrow:hover{transform:translateY(-50%) translateY(-1px); filter:brightness(1.05); background:rgba(0,0,0,0.52);}
+    .arrow:active{transform:translateY(-50%) scale(0.98);}
 
-    .card .role{
-      margin:0;
-      font-size:0.75rem;
-      letter-spacing:0.24em;
-      color:var(--text-muted);
-      text-transform:uppercase;
-    }
+    .arrow.left{ left:14px; }
+    .arrow.right{ right:14px; }
 
-    .contact-actions{
-      margin-top:18px; /* more air here = feels expensive */
-      display:grid;
-      grid-template-columns:1fr;
-      gap:12px;
-    }
-
-    /* Buttons: gradient + glow on hover, micro-tap feedback */
-    .contact-actions a{
+    .loader{
+      position:absolute;
+      inset:0;
       display:flex;
       align-items:center;
       justify-content:center;
-      height:44px;
-      border-radius:999px;
+      background:rgba(0,0,0,0.30);
+      z-index:5;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.18s ease;
+    }
+    .loader.active{ opacity:1; }
 
-      background:linear-gradient(180deg, var(--btn-a), var(--btn-b));
-      border:1px solid var(--btn-border);
+    .spinner{
+      width:48px;
+      height:48px;
+      border:4px solid rgba(255,255,255,0.32);
+      border-top-color:#fff;
+      border-radius:50%;
+      animation: spin 0.9s linear infinite;
+    }
 
-      font-size:0.70rem;
-      letter-spacing:0.16em;
-      text-transform:uppercase;
-      white-space:nowrap;
+    @keyframes spin{ to{ transform: rotate(360deg); } }
+
+    @media (max-width:768px){
+      .slider{ height:320px; }
+    }
+
+    .price{
+      font-size:2.2rem;
+      text-align:center;
+      margin:0;
+      font-weight:500;
       color:var(--text-main);
-
-      transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-      user-select:none;
     }
 
-    .contact-actions a:hover{
-      transform:translateY(-1px);
-      filter:brightness(1.06);
-      border-color:rgba(255,255,255,0.30);
-      box-shadow:
-        0 14px 30px rgba(0,0,0,0.28),
-        0 0 0 1px rgba(255,255,255,0.06),
-        0 0 24px rgba(255,255,255,0.06);
-      background:linear-gradient(180deg, rgba(255,255,255,0.26), rgba(255,255,255,0.12));
+    .location{
+      text-align:center;
+      margin:10px 0 22px;
+      color:var(--text-muted);
+      text-transform:uppercase;
+      letter-spacing:0.10em;
+      font-size:0.85rem;
     }
 
-    .contact-actions a:active{
-      transform:translateY(0) scale(0.985); /* tactile */
-      filter:brightness(1.02);
+    .stats{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      margin:28px 0 34px;
     }
 
-    /* Make Kenny's actions a hair stronger without changing layout */
-    .card.kenny .contact-actions a{
-      border-color:rgba(255,255,255,0.26);
-      background:linear-gradient(180deg, rgba(255,255,255,0.28), rgba(255,255,255,0.12));
+    .stat-pill{
+      background:var(--chip-bg);
+      border:1px solid var(--chip-border);
+      color:var(--text-main);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:0.8rem;
+      text-align:center;
+      white-space:normal;
+      word-break:break-word;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
     }
+
+    @media (max-width:520px){
+      .stats{
+        display:grid !important;
+        grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+        gap:10px !important;
+        align-items:stretch !important;
+      }
+
+      .stat-pill{
+        width:100% !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        padding:10px 10px !important;
+        font-size:0.70rem !important;
+        letter-spacing:0.12em !important;
+        line-height:1.2 !important;
+        min-height:44px !important;
+      }
+    }
+
+    .description p{
+      line-height:1.7;
+      color:var(--text-muted);
+      margin:0 0 14px;
+    }
+    .description p:first-child{ color:var(--text-main); }
 
     footer{
       text-align:center;
@@ -422,18 +386,10 @@
       color:#aaa;
     }
 
-    /* TABLET */
-    @media (max-width:900px){
-      .card.kenny{width:min(560px, 100%);}
-    }
-
-    /* PHONE */
+    /* PHONE spacing match */
     @media (max-width:600px){
       .section{width:94%; margin:54px auto;}
       .tile{padding:26px 20px; border-radius:22px;}
-      .grid{grid-template-columns:1fr; gap:18px;}
-      .card{border-radius:22px;}
-      .card.kenny{width:100%; justify-self:stretch;}
       #hero{background-position:50% 60%;}
     }
   </style>
@@ -444,79 +400,70 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="index.html" aria-label="Home">
-        <img src="/images/logo.png" alt="RE/MAX">
+      <a href="../../index.html" aria-label="Home">
+        <img src="../../images/logo.png" alt="RE/MAX">
       </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
+
     <div class="menu-button" id="menuButton">≡</div>
+
     <div class="menu-panel" id="menuPanel">
-      <a href="index.html">Home</a>
-      <a href="listings.html">Listings</a>
-      <a href="events.html">Events</a>
-      <a href="businesscard.html">Contact</a>
+      <a href="../../index.html">Home</a>
+      <a href="../../listings.html">Listings</a>
+      <a href="../../events.html">Events</a>
+      <a href="../../businesscard.html">Contact</a>
     </div>
   </div>
 </header>
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">CONTACT · TEAM</div>
-    <h1 class="hero-title">Direct. Local. Trusted.</h1>
-    <p class="hero-sub">Tap once. You’re talking to the right person.</p>
+    <div class="hero-eyebrow">Property Listing</div>
+    <h1 class="hero-title">Casa Sol y Luna</h1>
+    <p class="hero-sub">5 Bedrooms · 5 Bathrooms · Gavilan above Cerritos / El Pescadero</p>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
-    <h2 class="section-title">Team Contacts</h2>
-    <p class="section-sub">Call · WhatsApp · Facebook · Email</p>
+    <div class="slider">
+      <div class="loader" id="loader"><div class="spinner"></div></div>
+      <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
+      <img id="slideImage" alt="Casa Sol y Luna photo">
+      <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
+    </div>
+  </div>
+</section>
 
-    <div class="grid">
+<section class="section">
+  <div class="tile details">
+    <h2 class="price">$1,300,000 USD</h2>
+    <p class="location">Residential Home · Baja California Sur, Mexico</p>
 
-      <!-- Kenny (centered, same vibe, just more “alpha”) -->
-      <div class="card kenny">
-        <div class="card-top">
-          <img src="/images/logo.png" class="logo-top" alt="RE/MAX">
-          <h3>Kenneth Gehlhoff</h3>
-          <div class="role">Realtor</div>
-        </div>
-        <div class="contact-actions">
-          <a href="tel:+526122311639">Call Now</a>
-          <a href="https://wa.me/526122311639" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="https://www.facebook.com/profile.php?id=61584034062665" target="_blank" rel="noopener">Facebook</a>
-          <a href="mailto:remaxkenneth@gmail.com">Email</a>
-        </div>
-      </div>
+    <div class="stats">
+      <span class="stat-pill">5 Bedrooms</span>
+      <span class="stat-pill">5 Bathrooms</span>
+      <span class="stat-pill">1,801 m² Lot</span>
+      <span class="stat-pill">Three Independent Casitas</span>
+      <span class="stat-pill">Pool</span>
+    </div>
 
-      <!-- Richard -->
-      <div class="card">
-        <div class="card-top">
-          <h3>Richard Gomez</h3>
-          <div class="role">Construction Specialist</div>
-        </div>
-        <div class="contact-actions">
-          <a href="tel:+523781497632">Call</a>
-          <a href="https://wa.me/523781497632" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="https://www.facebook.com/richard.g.654694?" target="_blank" rel="noopener">Facebook</a>
-          <a href="mailto:ricardogomez160622@gmail.com">Email</a>
-        </div>
-      </div>
-
-      <!-- David -->
-      <div class="card">
-        <div class="card-top">
-          <h3>David Ray</h3>
-          <div class="role">Operations · Marketing</div>
-        </div>
-        <div class="contact-actions">
-          <a href="tel:+526121315839">Call</a>
-          <a href="https://wa.me/526121315839" target="_blank" rel="noopener">WhatsApp</a>
-          <a href="https://www.facebook.com/profile.php?id=61581876812521" target="_blank" rel="noopener">Facebook</a>
-          <a href="mailto:Bajaheat24x7@gmail.com">Email</a>
-        </div>
-      </div>
-
+    <div class="description">
+      <p>
+        Where the desert meets the sea, and the sun meets the moon. Casa Sol y Luna is a unique
+        Baja property sitting on a 1,800 m² lot above Playa Los Cerritos between two iconic surf
+        breaks where sunsets paint the sky year-round.
+      </p>
+      <p>
+        Featuring three independent casitas surrounded by native gardens, the property includes
+        a pool and multiple outdoor living areas designed to take full advantage of Baja’s
+        climate and natural setting.
+      </p>
+      <p>
+        Located minutes from Cerritos Beach and close to Todos Santos and El Pescadero, Casa Sol
+        y Luna offers privacy, elevation, and a relaxed coastal lifestyle.
+      </p>
     </div>
   </div>
 </section>
@@ -528,11 +475,11 @@
 </footer>
 
 <script>
-(function(){
-  const btn = document.getElementById("menuButton");
-  const panel = document.getElementById("menuPanel");
+  // MENU
+  const menuBtn = document.getElementById("menuButton");
+  const menuPanel = document.getElementById("menuPanel");
 
-  btn.addEventListener("click", e => {
+  menuBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
   });
@@ -541,8 +488,132 @@
     document.body.classList.remove("menu-open");
   });
 
-  panel.addEventListener("click", e => e.stopPropagation());
-})();
+  menuPanel.addEventListener("click", (e) => e.stopPropagation());
+
+  // IMAGE DELIVERY (AUTO-SIZED, NO PRELOAD)
+  const ORIGIN_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/1/";
+  const FILES = [
+    "IMG_8494.JPG",
+    "IMG_8518.JPG",
+    "IMG_8517.JPG",
+    "IMG_8515.JPG",
+    "IMG_8514.JPG",
+    "IMG_8513.JPG",
+    "IMG_8512.JPG",
+    "IMG_8511.JPG",
+    "IMG_8509.JPG",
+    "IMG_8506.JPG",
+    "IMG_8505.JPG",
+    "IMG_8501.JPG",
+    "IMG_8499.JPG",
+    "IMG_8498.JPG",
+    "IMG_8497.JPG",
+    "IMG_8496.JPG",
+    "IMG_8495.JPG",
+    "IMG_8493.JPG",
+    "IMG_8492.JPG",
+    "IMG_8491.JPG",
+    "IMG_8490.JPG",
+    "IMG_8485.JPG",
+    "IMG_8482.JPG",
+    "IMG_8480.JPG",
+    "IMG_8479.JPG",
+    "IMG_8477.JPG"
+  ];
+
+  function pickWidth() {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const target = Math.ceil(Math.max(window.innerWidth, 900) * dpr);
+
+    if (target <= 900) return 900;
+    if (target <= 1400) return 1400;
+    return 2000;
+  }
+
+  function optimizedUrl(filename, w = pickWidth(), format = "webp") {
+    const origin = encodeURIComponent(ORIGIN_BASE + filename);
+    return `https://wsrv.nl/?url=${origin}&w=${w}&q=75&output=${format}`;
+  }
+
+  // Set hero background once (optimized)
+  (function setHeroBg(){
+    const heroW = Math.max(1400, pickWidth());
+    const heroUrl = optimizedUrl("IMG_8494.JPG", heroW, "jpg");
+    document.documentElement.style.setProperty("--hero-bg", `url('${heroUrl}')`);
+  })();
+
+  // Slider URLs (optimized)
+  let images = FILES.map((f) => optimizedUrl(f));
+
+  let index = 0;
+  const img = document.getElementById("slideImage");
+  const loader = document.getElementById("loader");
+
+  function show(i, direction = 1, attempts = 0) {
+    loader.classList.add("active");
+
+    const temp = new Image();
+    temp.onload = () => {
+      img.src = temp.src;
+      loader.classList.remove("active");
+    };
+
+    temp.onerror = () => {
+      if (attempts < images.length - 1) {
+        const nextIndex = (i + direction + images.length) % images.length;
+        index = nextIndex;
+        show(nextIndex, direction, attempts + 1);
+        return;
+      }
+      loader.classList.remove("active");
+    };
+
+    temp.src = images[i];
+  }
+
+  function next() {
+    index = (index + 1) % images.length;
+    show(index, 1);
+  }
+
+  function prev() {
+    index = (index - 1 + images.length) % images.length;
+    show(index, -1);
+  }
+
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
+
+  let startX = 0;
+  img.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  img.addEventListener("touchend", (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) next();
+    if (diff < -50) prev();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+
+  // If device rotates / resizes, regenerate optimized URLs (still no preloading)
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      images = FILES.map((f) => optimizedUrl(f));
+      const heroW = Math.max(1400, pickWidth());
+      const heroUrl = optimizedUrl("IMG_8494.JPG", heroW, "jpg");
+      document.documentElement.style.setProperty("--hero-bg", `url('${heroUrl}')`);
+      show(index, 1);
+    }, 250);
+  });
+
+  show(index, 1);
 </script>
 
 </body>
