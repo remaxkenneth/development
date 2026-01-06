@@ -190,15 +190,15 @@ body.menu-open .menu-panel{
   box-shadow:var(--glass-shadow), var(--glass-inset);
 }
 
-/* HERO */
+/* HERO (thinner + centered crop) */
 #hero{
   position:relative;
-  min-height:360px;
+  min-height:280px;                 /* thinner banner */
   display:flex;
   align-items:center;
   background-color:#020409;
   background-image:url('images/sunsetcerritos.jpeg');
-  background-position: 50% 100%; /* CHANGED: anchored to bottom for waves */
+  background-position:50% 50%;      /* centered so crop is even */
   background-size:cover;
   background-repeat:no-repeat;
   color:#fff;
@@ -218,7 +218,7 @@ body.menu-open .menu-panel{
   max-width:1200px;
   width:92%;
   margin:auto;
-  padding:48px 0;
+  padding:34px 0;                   /* reduced to keep hero thinner */
 }
 
 .hero-eyebrow{
@@ -241,34 +241,34 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA (DESKTOP/TABLET) — square, centered, no wonky empty sides */
+/* HERO CTA — reduced ~1/3+ */
 .hero-cta{
   position:absolute;
-  top:48px;
+  top:42px;
   right:14px;
   z-index:3;
 
-  width:240px;
-  aspect-ratio: 1 / 1;          /* CHANGED: square */
+  width:160px;                 /* was 240 */
+  aspect-ratio:1 / 1;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  gap:10px;
+  gap:8px;
 
-  border-radius:22px;
-  padding:14px;
+  border-radius:18px;
+  padding:10px;
 
   border:1px solid rgba(255,255,255,0.18);
   box-shadow:0 18px 50px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.10);
 
-  transform:none;               /* CHANGED: kill scale */
+  transform:none;
   text-align:center;
 }
 
 .cta-avatar{
-  width:74px;
-  height:74px;
+  width:56px;
+  height:56px;
   border-radius:999px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.18);
@@ -285,16 +285,16 @@ body.menu-open .menu-panel{
 
 .cta-copy{min-width:0; text-align:center;}
 .cta-kicker{
-  font-size:0.62rem;
-  letter-spacing:0.26em;
+  font-size:0.48rem;
+  letter-spacing:0.18em;
   text-transform:uppercase;
   color:rgba(255,255,255,0.82);
-  margin-bottom:4px;
+  margin-bottom:3px;
   font-weight:800;
 }
 .cta-name{
-  font-size:1.02rem;
-  letter-spacing:0.08em;
+  font-size:0.78rem;
+  letter-spacing:0.06em;
   text-transform:uppercase;
   font-weight:800;
   margin:0;
@@ -304,14 +304,9 @@ body.menu-open .menu-panel{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  margin-top:6px;
+  margin-top:4px;
   justify-content:center;
   width:100%;
-}
-
-.hero-actions .btn{
-  width:100%;                   /* CHANGED: button fills square nicely */
-  text-align:center;
 }
 
 .btn{
@@ -332,6 +327,14 @@ body.menu-open .menu-panel{
 }
 .btn.primary:hover{transform:translateY(-1px); filter:brightness(0.98);}
 .btn.primary:active{transform:translateY(0) scale(0.98); filter:brightness(1.02);}
+
+.hero-actions .btn{
+  width:100%;
+  text-align:center;
+  padding:7px 10px;            /* smaller button */
+  font-size:0.52rem;
+  letter-spacing:0.12em;
+}
 
 /* SECTIONS */
 .section{
@@ -461,7 +464,7 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE */
+/* CTA TILE (thin banner, centered, no "zoom") */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
@@ -480,19 +483,18 @@ a.tile{display:block; cursor:pointer;}
     inset 0 1px 0 rgba(255,255,255,0.10);
 
   width:min(100%, 760px);
-
-  height:150px; /* CHANGED: thinner banner */
+  height:140px;                 /* thinner banner */
 }
 .cta-tile a{
-  display:block;
+  display:flex;
   height:100%;
+  align-items:center;           /* centered crop (top/bottom clipping only) */
+  justify-content:center;
 }
 .cta-tile img{
   width:100%;
-  height:100%;
+  height:auto;                  /* no zoom */
   display:block;
-  object-fit:cover;          /* CHANGED: crop top/bottom */
-  object-position:center;    /* adjust center 45%/55% if needed */
 }
 
 @media (min-width:700px) and (max-width:1024px){
@@ -590,10 +592,11 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile (still square + centered) */
+  /* HERO CTA on mobile */
   .hero-cta{
     top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
+    transform:none;
 
     width:126px;
     aspect-ratio:1 / 1;
