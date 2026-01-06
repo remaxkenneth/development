@@ -190,15 +190,15 @@ body.menu-open .menu-panel{
   box-shadow:var(--glass-shadow), var(--glass-inset);
 }
 
-/* HERO (BANNERISH) */
+/* HERO */
 #hero{
   position:relative;
-  min-height:280px;                 /* banner height */
+  min-height:360px;
   display:flex;
   align-items:center;
   background-color:#020409;
   background-image:url('images/sunsetcerritos.jpeg');
-  background-position:center 58%;    /* keeps dome/steeple sexy */
+  background-position: 50% 100%; /* CHANGED: anchored to bottom for waves */
   background-size:cover;
   background-repeat:no-repeat;
   color:#fff;
@@ -218,7 +218,7 @@ body.menu-open .menu-panel{
   max-width:1200px;
   width:92%;
   margin:auto;
-  padding:34px 0;                   /* tighter to feel like banner */
+  padding:48px 0;
 }
 
 .hero-eyebrow{
@@ -241,31 +241,34 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA */
+/* HERO CTA (DESKTOP/TABLET) — square, centered, no wonky empty sides */
 .hero-cta{
   position:absolute;
-  top:40px;
+  top:48px;
   right:14px;
   z-index:3;
 
-  width:min(340px, 90vw);
+  width:240px;
+  aspect-ratio: 1 / 1;          /* CHANGED: square */
   display:flex;
-  gap:12px;
+  flex-direction:column;
   align-items:center;
+  justify-content:center;
+  gap:10px;
 
-  border-radius:20px;
-  padding:12px 12px;
+  border-radius:22px;
+  padding:14px;
 
-  border-color:rgba(255,255,255,0.18);
+  border:1px solid rgba(255,255,255,0.18);
   box-shadow:0 18px 50px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.10);
 
-  transform:scale(0.86);
-  transform-origin:top right;
+  transform:none;               /* CHANGED: kill scale */
+  text-align:center;
 }
 
 .cta-avatar{
-  width:66px;
-  height:66px;
+  width:74px;
+  height:74px;
   border-radius:999px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.18);
@@ -280,7 +283,7 @@ body.menu-open .menu-panel{
   object-position:50% 50%;
 }
 
-.cta-copy{min-width:0;}
+.cta-copy{min-width:0; text-align:center;}
 .cta-kicker{
   font-size:0.62rem;
   letter-spacing:0.26em;
@@ -301,7 +304,14 @@ body.menu-open .menu-panel{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
-  margin-top:10px;
+  margin-top:6px;
+  justify-content:center;
+  width:100%;
+}
+
+.hero-actions .btn{
+  width:100%;                   /* CHANGED: button fills square nicely */
+  text-align:center;
 }
 
 .btn{
@@ -470,16 +480,19 @@ a.tile{display:block; cursor:pointer;}
     inset 0 1px 0 rgba(255,255,255,0.10);
 
   width:min(100%, 760px);
-}
-.cta-tile a{display:block;}
 
-/* CTA image auto-resizes to fit its own text/title (no cropping) */
+  height:150px; /* CHANGED: thinner banner */
+}
+.cta-tile a{
+  display:block;
+  height:100%;
+}
 .cta-tile img{
   width:100%;
-  height:auto;
+  height:100%;
   display:block;
-  object-fit:contain;
-  background:rgba(0,0,0,0.15);
+  object-fit:cover;          /* CHANGED: crop top/bottom */
+  object-position:center;    /* adjust center 45%/55% if needed */
 }
 
 @media (min-width:700px) and (max-width:1024px){
@@ -524,13 +537,14 @@ a.tile{display:block; cursor:pointer;}
   border:1px solid rgba(255,255,255,0.18);
   background:rgba(0,0,0,0.25);
 }
+
+/* already fixed: no zoom */
 .agent-avatar img{
   width:100%;
   height:100%;
   display:block;
   object-fit:cover;
   transform:none;
-  transform-origin:center;
   object-position:50% 50%;
 }
 
@@ -545,13 +559,6 @@ footer{
 @media (max-width:600px){
   .section{width:94%; margin:54px auto;}
   .tile{padding:26px 20px; border-radius:22px;}
-
-  /* hero banner on phone */
-  #hero{
-    min-height:240px;
-    background-position:center 60%;
-  }
-  .hero-inner{padding:28px 0;}
 
   .grid{
     grid-template-columns:1fr;
@@ -583,13 +590,12 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile */
+  /* HERO CTA on mobile (still square + centered) */
   .hero-cta{
-    top:64px;
+    top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
-    transform:none;
 
-    width:112px;
+    width:126px;
     aspect-ratio:1 / 1;
 
     flex-direction:column;
@@ -598,12 +604,14 @@ footer{
     gap:8px;
 
     padding:10px;
+    text-align:center;
+
     backdrop-filter: blur(16px) saturate(150%);
     box-shadow: 0 14px 34px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
   }
 
-  .cta-avatar{width:50px; height:50px;}
-  .cta-avatar img{transform:none;}
+  .cta-avatar{width:52px; height:52px;}
+  .cta-avatar img{transform:none; object-position:50% 50%;}
 
   .cta-copy{text-align:center;}
   .cta-kicker{font-size:0.46rem; letter-spacing:0.18em; margin-bottom:2px;}
