@@ -190,17 +190,20 @@ body.menu-open .menu-panel{
   box-shadow:var(--glass-shadow), var(--glass-inset);
 }
 
-/* HERO (tile masks image: centered + thinner) */
+/* HERO */
 #hero{
   position:relative;
-  min-height:280px;                 /* thinner banner */
+  min-height:360px;
   display:flex;
   align-items:center;
   background-color:#020409;
   background-image:url('images/sunsetcerritos.jpeg');
-  background-position:50% 50%;      /* equal crop top/bottom */
+
+  /* FIX: stop bottom getting eaten; even-ish top/bottom crop */
+  background-position:50% 55%;
   background-size:cover;
   background-repeat:no-repeat;
+
   color:#fff;
   overflow:hidden;
 }
@@ -218,7 +221,7 @@ body.menu-open .menu-panel{
   max-width:1200px;
   width:92%;
   margin:auto;
-  padding:34px 0;                   /* keeps hero from feeling tall */
+  padding:48px 0;
 }
 
 .hero-eyebrow{
@@ -241,37 +244,39 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA — reduced ~1/3+ */
+/* HERO CTA (DESKTOP/TABLET) — smaller, tighter, less empty side space */
 .hero-cta{
   position:absolute;
-  top:42px;
+  top:48px;
   right:14px;
   z-index:3;
 
-  width:160px;
-  aspect-ratio:1 / 1;
+  width:240px;            /* tighter footprint */
+  max-width:90vw;
+
   display:flex;
   flex-direction:column;
-  align-items:center;
-  justify-content:center;
   gap:8px;
+  align-items:center;
 
   border-radius:18px;
-  padding:10px;
+  padding:10px 10px;      /* less dead space */
 
-  border:1px solid rgba(255,255,255,0.18);
+  border-color:rgba(255,255,255,0.18);
   box-shadow:0 18px 50px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.10);
 
+  transform:none;         /* stop “scaled big card” look */
   text-align:center;
 }
 
 .cta-avatar{
-  width:56px;
+  width:56px;             /* smaller */
   height:56px;
   border-radius:999px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.18);
   background:rgba(0,0,0,0.25);
+  flex:0 0 auto;
 }
 .cta-avatar img{
   width:100%;
@@ -281,41 +286,41 @@ body.menu-open .menu-panel{
   object-position:50% 50%;
 }
 
-.cta-copy{text-align:center;}
+.cta-copy{min-width:0; text-align:center; width:100%;}
 .cta-kicker{
-  font-size:0.48rem;
-  letter-spacing:0.18em;
+  font-size:0.56rem;      /* tighter */
+  letter-spacing:0.22em;
   text-transform:uppercase;
   color:rgba(255,255,255,0.82);
   margin-bottom:3px;
   font-weight:800;
 }
 .cta-name{
-  font-size:0.78rem;
-  letter-spacing:0.06em;
+  font-size:0.90rem;      /* tighter */
+  letter-spacing:0.07em;
   text-transform:uppercase;
   font-weight:800;
   margin:0;
 }
 
 .hero-actions{
-  width:100%;
   display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:6px;
   justify-content:center;
-  margin-top:4px;
+  width:100%;
 }
 
 .btn{
   display:inline-block;
-  padding:7px 10px;
+  padding:9px 12px;       /* slightly smaller */
   border-radius:999px;
-  font-size:0.52rem;
-  letter-spacing:0.12em;
+  font-size:0.60rem;      /* slightly smaller */
+  letter-spacing:0.16em;
   text-transform:uppercase;
   transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
   user-select:none;
-  width:100%;
-  text-align:center;
 }
 
 .btn.primary{
@@ -454,16 +459,15 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE (tile masks image: centered + thinner, image not resized via object-fit) */
+/* CTA TILE */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
   justify-content:center;
 }
-
 .cta-tile{
   padding:0;
-  overflow:hidden;           /* the "crop" is just the tile masking */
+  overflow:hidden;
   border-radius:20px;
 
   background:rgba(255,255,255,0.08);
@@ -474,25 +478,16 @@ a.tile{display:block; cursor:pointer;}
     inset 0 1px 0 rgba(255,255,255,0.10);
 
   width:min(100%, 760px);
-  height:160px;              /* thinner banner */
-  position:relative;
 }
+.cta-tile a{display:block;}
 
-.cta-tile a{
-  display:block;
-  height:100%;
-  position:relative;
-}
-
-/* keep image natural proportions; tile just clips */
+/* CTA image auto-resizes to fit its own text/title (no cropping) */
 .cta-tile img{
-  position:absolute;
-  left:0;
-  top:50%;
-  transform:translateY(-50%); /* equal crop top/bottom */
   width:100%;
   height:auto;
   display:block;
+  object-fit:contain;
+  background:rgba(0,0,0,0.15);
 }
 
 @media (min-width:700px) and (max-width:1024px){
@@ -538,6 +533,7 @@ a.tile{display:block; cursor:pointer;}
   background:rgba(0,0,0,0.25);
 }
 
+/* already fixed: no zoom */
 .agent-avatar img{
   width:100%;
   height:100%;
@@ -569,10 +565,7 @@ footer{
   .card-content{padding:26px 18px;}
 
   .grid-cta-wrap{margin-top:18px;}
-  .cta-tile{
-    width:100%;
-    height:150px;            /* slightly shorter on phone */
-  }
+  .cta-tile{width:100%;}
 
   /* Featured property: match video 16:9 */
   .featured-main{
@@ -592,25 +585,51 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile */
+  /* HERO: nudge a hair more down on phones */
+  #hero{
+    background-position:50% 60%;
+  }
+
+  /* HERO CTA on mobile (still stacked + centered) */
   .hero-cta{
     top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
+    transform:none;
 
-    width:126px;
+    width:118px;
     aspect-ratio:1 / 1;
 
-    padding:10px;
-    gap:8px;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+
+    padding:9px;
+    text-align:center;
 
     backdrop-filter: blur(16px) saturate(150%);
     box-shadow: 0 14px 34px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
   }
 
-  .cta-avatar{width:52px; height:52px;}
-  .cta-kicker{font-size:0.46rem; letter-spacing:0.18em; margin-bottom:2px;}
-  .cta-name{font-size:0.66rem; letter-spacing:0.06em;}
-  .btn{padding:8px 10px; font-size:0.54rem; letter-spacing:0.14em;}
+  .cta-avatar{width:48px; height:48px;}
+  .cta-avatar img{transform:none; object-position:50% 50%;}
+
+  .cta-copy{text-align:center;}
+  .cta-kicker{font-size:0.44rem; letter-spacing:0.18em; margin-bottom:2px;}
+  .cta-name{font-size:0.62rem; letter-spacing:0.06em;}
+
+  .hero-actions{
+    width:100%;
+    justify-content:center;
+    margin-top:3px;
+  }
+  .hero-actions .btn{
+    width:100%;
+    text-align:center;
+    padding:7px 8px;
+    font-size:0.52rem;
+    letter-spacing:0.14em;
+  }
 }
 
 /* AGENT: centered halves */
