@@ -64,6 +64,10 @@
   --glass-strong-a: rgba(0,0,0,0.68);
   --glass-strong-b: rgba(255,255,255,0.12);
   --glass-strong-border: rgba(255,255,255,0.24);
+
+  /* tune knobs */
+  --hero-focus-y: 85%;        /* CHANGED: bias down so bottom (waves) stays visible */
+  --cta-banner-h: 165px;      /* CHANGED: thinner, but not chopping your design */
 }
 
 *{box-sizing:border-box;}
@@ -190,15 +194,15 @@ body.menu-open .menu-panel{
   box-shadow:var(--glass-shadow), var(--glass-inset);
 }
 
-/* HERO (thinner + centered crop) */
+/* HERO (thinner + bottom preserved) */
 #hero{
   position:relative;
-  min-height:280px;                 /* thinner banner */
+  min-height:280px;
   display:flex;
   align-items:center;
   background-color:#020409;
   background-image:url('images/sunsetcerritos.jpeg');
-  background-position:50% 50%;      /* centered so crop is even */
+  background-position: 50% var(--hero-focus-y);  /* FIXED: keeps bottom visible */
   background-size:cover;
   background-repeat:no-repeat;
   color:#fff;
@@ -218,7 +222,7 @@ body.menu-open .menu-panel{
   max-width:1200px;
   width:92%;
   margin:auto;
-  padding:34px 0;                   /* reduced to keep hero thinner */
+  padding:34px 0;
 }
 
 .hero-eyebrow{
@@ -248,7 +252,7 @@ body.menu-open .menu-panel{
   right:14px;
   z-index:3;
 
-  width:160px;                 /* was 240 */
+  width:160px;
   aspect-ratio:1 / 1;
   display:flex;
   flex-direction:column;
@@ -262,7 +266,6 @@ body.menu-open .menu-panel{
   border:1px solid rgba(255,255,255,0.18);
   box-shadow:0 18px 50px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.10);
 
-  transform:none;
   text-align:center;
 }
 
@@ -273,7 +276,6 @@ body.menu-open .menu-panel{
   overflow:hidden;
   border:1px solid rgba(255,255,255,0.18);
   background:rgba(0,0,0,0.25);
-  flex:0 0 auto;
 }
 .cta-avatar img{
   width:100%;
@@ -283,7 +285,7 @@ body.menu-open .menu-panel{
   object-position:50% 50%;
 }
 
-.cta-copy{min-width:0; text-align:center;}
+.cta-copy{text-align:center;}
 .cta-kicker{
   font-size:0.48rem;
   letter-spacing:0.18em;
@@ -301,23 +303,23 @@ body.menu-open .menu-panel{
 }
 
 .hero-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:4px;
-  justify-content:center;
   width:100%;
+  display:flex;
+  justify-content:center;
+  margin-top:4px;
 }
 
 .btn{
   display:inline-block;
-  padding:10px 14px;
+  padding:7px 10px;
   border-radius:999px;
-  font-size:0.65rem;
-  letter-spacing:0.18em;
+  font-size:0.52rem;
+  letter-spacing:0.12em;
   text-transform:uppercase;
   transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
   user-select:none;
+  width:100%;
+  text-align:center;
 }
 
 .btn.primary{
@@ -327,14 +329,6 @@ body.menu-open .menu-panel{
 }
 .btn.primary:hover{transform:translateY(-1px); filter:brightness(0.98);}
 .btn.primary:active{transform:translateY(0) scale(0.98); filter:brightness(1.02);}
-
-.hero-actions .btn{
-  width:100%;
-  text-align:center;
-  padding:7px 10px;            /* smaller button */
-  font-size:0.52rem;
-  letter-spacing:0.12em;
-}
 
 /* SECTIONS */
 .section{
@@ -434,7 +428,7 @@ a.tile{display:block; cursor:pointer;}
 }
 .card:active{transform:translateY(-1px); filter:brightness(1.04);}
 
-/* LANDSCAPE LOOK FOR ALL CARD IMAGES (16:9 like video/featured) */
+/* LANDSCAPE LOOK FOR ALL CARD IMAGES */
 .card img{
   width:100%;
   aspect-ratio:16 / 9;
@@ -444,8 +438,6 @@ a.tile{display:block; cursor:pointer;}
   display:block;
   border-bottom:1px solid rgba(255,255,255,0.14);
 }
-
-/* fallback if aspect-ratio isn't supported */
 @supports not (aspect-ratio: 1 / 1){
   .card img{height:240px;}
 }
@@ -464,12 +456,13 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE (thin banner, centered, no "zoom") */
+/* CTA TILE (thin banner, centered, NO "cover" zoom look) */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
   justify-content:center;
 }
+
 .cta-tile{
   padding:0;
   overflow:hidden;
@@ -483,17 +476,24 @@ a.tile{display:block; cursor:pointer;}
     inset 0 1px 0 rgba(255,255,255,0.10);
 
   width:min(100%, 760px);
-  height:140px;                 /* thinner banner */
+  height:var(--cta-banner-h);
+  position:relative;
 }
+
 .cta-tile a{
-  display:flex;
+  display:block;
   height:100%;
-  align-items:center;           /* centered crop (top/bottom clipping only) */
-  justify-content:center;
+  position:relative;
 }
+
+/* Keep full width, keep natural proportions, crop only by container height */
 .cta-tile img{
+  position:absolute;
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
   width:100%;
-  height:auto;                  /* no zoom */
+  height:auto;
   display:block;
 }
 
@@ -539,8 +539,6 @@ a.tile{display:block; cursor:pointer;}
   border:1px solid rgba(255,255,255,0.18);
   background:rgba(0,0,0,0.25);
 }
-
-/* already fixed: no zoom */
 .agent-avatar img{
   width:100%;
   height:100%;
@@ -559,6 +557,11 @@ footer{
 
 /* PHONE */
 @media (max-width:600px){
+  :root{
+    --hero-focus-y: 88%;
+    --cta-banner-h: 150px;
+  }
+
   .section{width:94%; margin:54px auto;}
   .tile{padding:26px 20px; border-radius:22px;}
 
@@ -574,7 +577,6 @@ footer{
   .grid-cta-wrap{margin-top:18px;}
   .cta-tile{width:100%;}
 
-  /* Featured property: match video 16:9 */
   .featured-main{
     position:relative;
     width:100%;
@@ -592,46 +594,21 @@ footer{
     border-radius:0;
   }
 
-  /* HERO CTA on mobile */
   .hero-cta{
     top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
-    transform:none;
-
     width:126px;
     aspect-ratio:1 / 1;
-
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-
     padding:10px;
-    text-align:center;
-
+    gap:8px;
     backdrop-filter: blur(16px) saturate(150%);
     box-shadow: 0 14px 34px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.08);
   }
 
   .cta-avatar{width:52px; height:52px;}
-  .cta-avatar img{transform:none; object-position:50% 50%;}
-
-  .cta-copy{text-align:center;}
   .cta-kicker{font-size:0.46rem; letter-spacing:0.18em; margin-bottom:2px;}
   .cta-name{font-size:0.66rem; letter-spacing:0.06em;}
-
-  .hero-actions{
-    width:100%;
-    justify-content:center;
-    margin-top:4px;
-  }
-  .hero-actions .btn{
-    width:100%;
-    text-align:center;
-    padding:8px 10px;
-    font-size:0.54rem;
-    letter-spacing:0.14em;
-  }
+  .btn{padding:8px 10px; font-size:0.54rem; letter-spacing:0.14em;}
 }
 
 /* AGENT: centered halves */
