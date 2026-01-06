@@ -9,13 +9,13 @@
 
   <title>Rancho Nuevo Parcel | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <!-- UNLISTED: keep out of Google unless you explicitly want it indexed -->
+  <!-- UNLISTED -->
   <meta name="description" content="Rancho Nuevo View Parcel — Over one hectare · Ocean & mountain views · Rancho Nuevo, Baja California Sur.">
   <meta name="robots" content="noindex,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
   <link rel="canonical" href="https://remaxkenneth.com/unlisted/rancho-nuevo-view-parcel/index.html">
 
-  <!-- OG / Twitter (use auto-generated JPG so shares load fast + compatible) -->
+  <!-- OG / Twitter -->
   <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Rancho Nuevo View Parcel – RE/MAX Cabo Sanctuary">
@@ -32,15 +32,24 @@
 
   <style>
     :root{
-      --remax-cream: rgba(255,255,255,0.92);
-      --remax-cream-muted: rgba(255,255,255,0.68);
-      --glass-bg: rgba(255,255,255,0.12);
-      --glass-border: rgba(255,255,255,0.18);
-      --chip-bg: rgba(255,255,255,0.20);
-      --chip-border: rgba(255,255,255,0.18);
+      --remax-blue:#003da5;
+      --remax-red:#e4002b;
+      --remax-dark-blue:#000E35;
 
-      /* JS will replace this with an optimized CDN URL */
-      --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/ul/IMG_1066.jpeg');
+      --text-main:rgba(255,255,255,0.92);
+      --text-muted:rgba(255,255,255,0.72);
+
+      --glass-a: rgba(0,0,0,0.58);
+      --glass-b: rgba(255,255,255,0.10);
+      --glass-border: rgba(255,255,255,0.20);
+      --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
+      --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
+
+      --chip-bg: rgba(255,255,255,0.18);
+      --chip-border: rgba(255,255,255,0.22);
+
+      /* JS will replace this with optimized URL; keep safe fallback */
+      --hero-bg: radial-gradient(circle at top, rgba(15,23,42,0.6) 0%, rgba(2,4,9,1) 65%);
     }
 
     *{ box-sizing:border-box; }
@@ -49,20 +58,35 @@
     body{
       margin:0;
       font-family: Arial, Helvetica, sans-serif;
-      color: var(--remax-cream);
-
-      background-color:#020409;
-      background-image: radial-gradient(
-        circle at top,
-        #0f172a 0%,
-        #0a0f1f 35%,
-        #05070d 70%,
-        #020409 100%
-      );
-      background-repeat:no-repeat;
-      background-position: top center;
-      background-size: 100% 900px;
+      color: var(--text-main);
+      background:#020409;
+      position:relative;
+      -webkit-tap-highlight-color:transparent;
     }
+
+    /* LUX TEXTURE */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+
+      background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'240'%20height%3D'240'%3E%3Cfilter%20id%3D'n'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'0.8'%20numOctaves%3D'2'%20stitchTiles%3D'stitch'/%3E%3C/filter%3E%3Crect%20width%3D'240'%20height%3D'240'%20filter%3D'url(%23n)'%20opacity%3D'0.10'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.030) 0px, rgba(255,255,255,0.030) 1px, rgba(0,0,0,0) 7px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.020) 0px, rgba(255,255,255,0.020) 1px, rgba(0,0,0,0) 9px),
+        radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
+        radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), rgba(0,0,0,0) 62%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
+
+      background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
+      background-size: 280px 280px, auto, auto, auto, auto, auto;
+      background-position: 0 0, 0 0, 0 0, center, center, center;
+      opacity:0.95;
+    }
+
+    body > *{ position:relative; z-index:1; }
 
     a{ text-decoration:none; color:inherit; }
 
@@ -89,12 +113,7 @@
       gap:10px;
     }
 
-    .nav-left a{
-      display:inline-flex;
-      align-items:center;
-      line-height:0;
-    }
-
+    .nav-left a{ display:inline-flex; align-items:center; line-height:0; }
     .nav-left img{ height:32px; }
 
     .nav-left span{
@@ -126,6 +145,7 @@
       display:flex;
       flex-direction:column;
       gap:16px;
+
       opacity:0;
       pointer-events:none;
       transform:scale(0.95);
@@ -148,22 +168,23 @@
 
     #hero{
       position:relative;
-      min-height:340px;
+      min-height:360px;
       display:flex;
       align-items:center;
 
       background-color:#020409;
       background-image: var(--hero-bg);
-      background-position:center;
+      background-position:50% 55%;
       background-size:cover;
       background-repeat:no-repeat;
+      overflow:hidden;
     }
 
     #hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background: rgba(0,0,0,0.55);
+      background:linear-gradient(130deg, rgba(0,14,53,0.70), rgba(0,0,0,0.30));
     }
 
     .hero-inner{
@@ -172,6 +193,7 @@
       max-width:1200px;
       width:92%;
       margin:auto;
+      padding:48px 0;
       color:#fff;
     }
 
@@ -180,6 +202,7 @@
       letter-spacing:0.35em;
       text-transform:uppercase;
       color:#e5e7eb;
+      opacity:0.92;
     }
 
     .hero-title{
@@ -191,22 +214,24 @@
 
     .hero-sub{
       margin-top:12px;
-      max-width:700px;
+      max-width:720px;
       color:#e5e7eb;
     }
 
     .section{
-      max-width:1200px;
+      max-width:1100px;
       width:92%;
       margin:70px auto;
     }
+    .section:first-of-type{ margin-top:40px; }
 
     .tile{
-      background: var(--glass-bg);
+      background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
       border:1px solid var(--glass-border);
+      backdrop-filter: blur(20px) saturate(140%);
+      box-shadow:var(--glass-shadow), var(--glass-inset);
       border-radius:26px;
       padding:40px;
-      backdrop-filter: blur(20px);
     }
 
     .tile.details{ padding-top:56px; }
@@ -217,6 +242,7 @@
       border-radius:18px;
       overflow:hidden;
       background: rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.14);
     }
 
     .slider img{
@@ -232,13 +258,17 @@
       transform:translateY(-50%);
       background: rgba(0,0,0,0.45);
       color:#fff;
-      border:none;
+      border:1px solid rgba(255,255,255,0.14);
       font-size:28px;
       padding:10px 14px;
       cursor:pointer;
       border-radius:14px;
       z-index:6;
+      user-select:none;
+      transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
     }
+    .arrow:hover{ transform:translateY(-50%) translateY(-1px); filter:brightness(1.05); background:rgba(0,0,0,0.52); }
+    .arrow:active{ transform:translateY(-50%) scale(0.98); }
 
     .arrow.left{ left:14px; }
     .arrow.right{ right:14px; }
@@ -255,7 +285,6 @@
       pointer-events:none;
       transition: opacity 0.18s ease;
     }
-
     .loader.active{ opacity:1; }
 
     .spinner{
@@ -269,8 +298,18 @@
 
     @keyframes spin{ to{ transform: rotate(360deg); } }
 
+    /* MOBILE: make slider 16:9 */
     @media (max-width:768px){
-      .slider{ height:320px; }
+      .slider{
+        height:auto;
+        aspect-ratio:16 / 9;
+      }
+      .slider img{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+      }
     }
 
     .price{
@@ -278,13 +317,16 @@
       text-align:center;
       margin:0;
       font-weight:500;
-      color: var(--remax-cream);
+      color: var(--text-main);
     }
 
     .location{
       text-align:center;
       margin:10px 0 22px;
-      color: var(--remax-cream-muted);
+      color: var(--text-muted);
+      text-transform:uppercase;
+      letter-spacing:0.10em;
+      font-size:0.85rem;
     }
 
     .stats{
@@ -298,13 +340,17 @@
     .stat-pill{
       background: var(--chip-bg);
       border:1px solid var(--chip-border);
-      color: var(--remax-cream);
+      color: var(--text-main);
       border-radius:999px;
       padding:8px 14px;
       font-size:0.8rem;
       text-align:center;
       white-space:normal;
       word-break:break-word;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+      line-height:1.2;
     }
 
     @media (max-width:520px){
@@ -314,7 +360,6 @@
         gap:10px !important;
         align-items:stretch !important;
       }
-
       .stat-pill{
         width:100% !important;
         display:flex !important;
@@ -323,24 +368,29 @@
         padding:10px 10px !important;
         font-size:0.70rem !important;
         letter-spacing:0.12em !important;
-        line-height:1.2 !important;
         min-height:44px !important;
       }
+      .stats .stat-pill:last-child{ grid-column:1 / -1 !important; }
     }
 
     .description p{
       line-height:1.7;
-      color: var(--remax-cream-muted);
+      color: var(--text-muted);
       margin:0 0 14px;
     }
-
-    .description p:first-child{ color: var(--remax-cream); }
+    .description p:first-child{ color: var(--text-main); }
 
     footer{
       text-align:center;
       padding:40px 0;
       font-size:0.8rem;
       color:#aaa;
+    }
+
+    @media (max-width:600px){
+      .section{ width:94%; margin:54px auto; }
+      .tile{ padding:26px 20px; border-radius:22px; }
+      #hero{ background-position:50% 60%; }
     }
   </style>
 </head>
@@ -377,10 +427,10 @@
 
 <section class="section">
   <div class="tile">
-    <div class="slider">
+    <div class="slider" id="slider">
       <div class="loader" id="loader"><div class="spinner"></div></div>
       <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
-      <img id="slideImage" alt="Rancho Nuevo View Parcel photo">
+      <img id="slideImage" alt="Rancho Nuevo View Parcel photo" loading="eager" decoding="async" fetchpriority="high">
       <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
     </div>
   </div>
@@ -422,7 +472,7 @@
 </footer>
 
 <script>
-  // MENU
+  // ===== MENU =====
   const menuBtn = document.getElementById("menuButton");
   const menuPanel = document.getElementById("menuPanel");
 
@@ -430,15 +480,18 @@
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
   });
-
-  document.addEventListener("click", () => {
-    document.body.classList.remove("menu-open");
-  });
-
+  document.addEventListener("click", () => document.body.classList.remove("menu-open"));
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  // IMAGE DELIVERY (AUTO-SIZED, NO PRELOAD)
+  // ===== IMAGE DELIVERY (AUTO-SIZED, NO PRELOAD) =====
+  const heroRoot = document.documentElement;
+  const sliderEl = document.getElementById("slider");
+  const img = document.getElementById("slideImage");
+  const loader = document.getElementById("loader");
+
   const ORIGIN_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/ul/";
+
+  // if any of these don't exist, it will just skip/fallback
   const FILES = [
     "IMG_1066.jpeg",
     "IMG_1065.jpeg",
@@ -446,74 +499,84 @@
     "IMG_1069.jpeg"
   ];
 
-  function pickWidth() {
-    const dpr = Math.min(2, window.devicePixelRatio || 1);
-    const target = Math.ceil(Math.max(window.innerWidth, 900) * dpr);
-
-    if (target <= 900) return 900;
-    if (target <= 1400) return 1400;
-    return 2000;
+  function computeTargetWidth() {
+    const rectW = Math.max(1, Math.floor(sliderEl.clientWidth || 1200));
+    const dpr = Math.min(2, (window.devicePixelRatio || 1));
+    const w = Math.ceil(rectW * dpr);
+    return Math.min(2200, Math.max(900, w));
   }
 
-  function optimizedUrl(filename, w = pickWidth(), format = "webp") {
+  function wsrvUrl(filename, width, q = 78, output = "webp") {
     const origin = encodeURIComponent(ORIGIN_BASE + filename);
-    return `https://wsrv.nl/?url=${origin}&w=${w}&q=75&output=${format}`;
+    return `https://wsrv.nl/?url=${origin}&w=${width}&q=${q}&output=${output}`;
   }
 
-  // Set hero background once (optimized)
-  (function setHeroBg(){
-    const heroW = Math.max(1400, pickWidth());
-    const heroUrl = optimizedUrl("IMG_1066.jpeg", heroW, "jpg");
-    document.documentElement.style.setProperty("--hero-bg", `url('${heroUrl}')`);
+  function rawUrl(filename) {
+    return ORIGIN_BASE + filename;
+  }
+
+  // set hero bg once (optimized, jpg)
+  (function setHeroBg() {
+    const w = Math.min(2400, Math.round(computeTargetWidth() * 1.2));
+    const heroUrl = wsrvUrl("IMG_1066.jpeg", w, 82, "jpg");
+    heroRoot.style.setProperty("--hero-bg", `url('${heroUrl}')`);
   })();
 
-  // Slider URLs (optimized)
-  let images = FILES.map((f) => optimizedUrl(f));
-
   let index = 0;
-  const img = document.getElementById("slideImage");
-  const loader = document.getElementById("loader");
 
-  function show(i, direction = 1, attempts = 0) {
+  function show(i) {
     loader.classList.add("active");
 
-    const temp = new Image();
-    temp.onload = () => {
-      img.src = temp.src;
+    const w = computeTargetWidth();
+    const opt = wsrvUrl(FILES[i], w, 78, "webp");
+    const fallbackOptJpg = wsrvUrl(FILES[i], w, 78, "jpg");
+    const raw = rawUrl(FILES[i]);
+
+    let done = false;
+    const finish = (src) => {
+      if (done) return;
+      done = true;
+      img.src = src;
       loader.classList.remove("active");
     };
 
-    temp.onerror = () => {
-      if (attempts < images.length - 1) {
-        const nextIndex = (i + direction + images.length) % images.length;
-        index = nextIndex;
-        show(nextIndex, direction, attempts + 1);
-        return;
-      }
-      loader.classList.remove("active");
-    };
+    // if wsrv hangs, bail to raw
+    const HANG_TIMEOUT_MS = 6000;
+    const hangTimer = setTimeout(() => finish(raw), HANG_TIMEOUT_MS);
 
-    temp.src = images[i];
+    const t = new Image();
+    t.onload = () => { clearTimeout(hangTimer); finish(t.src); };
+    t.onerror = () => {
+      // try jpg via wsrv (some iOS builds hate webp sometimes)
+      const t2 = new Image();
+      t2.onload = () => { clearTimeout(hangTimer); finish(t2.src); };
+      t2.onerror = () => {
+        // raw fallback
+        const r = new Image();
+        r.onload = () => { clearTimeout(hangTimer); finish(r.src); };
+        r.onerror = () => { clearTimeout(hangTimer); loader.classList.remove("active"); };
+        r.src = raw;
+      };
+      t2.src = fallbackOptJpg;
+    };
+    t.src = opt;
   }
 
   function next() {
-    index = (index + 1) % images.length;
-    show(index, 1);
+    index = (index + 1) % FILES.length;
+    show(index);
   }
 
   function prev() {
-    index = (index - 1 + images.length) % images.length;
-    show(index, -1);
+    index = (index - 1 + FILES.length) % FILES.length;
+    show(index);
   }
 
   document.getElementById("next").addEventListener("click", next);
   document.getElementById("prev").addEventListener("click", prev);
 
   let startX = 0;
-  img.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  }, { passive: true });
-
+  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
   img.addEventListener("touchend", (e) => {
     const diff = startX - e.changedTouches[0].clientX;
     if (diff > 50) next();
@@ -525,20 +588,19 @@
     if (e.key === "ArrowLeft") prev();
   });
 
-  // If device rotates / resizes, regenerate optimized URLs (still no preloading)
+  // resize/orientation change: smarter requests (still no preloading)
   let resizeTimer = null;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      images = FILES.map((f) => optimizedUrl(f));
-      const heroW = Math.max(1400, pickWidth());
-      const heroUrl = optimizedUrl("IMG_1066.jpeg", heroW, "jpg");
-      document.documentElement.style.setProperty("--hero-bg", `url('${heroUrl}')`);
-      show(index, 1);
-    }, 250);
-  });
+      const w = Math.min(2400, Math.round(computeTargetWidth() * 1.2));
+      const heroUrl = wsrvUrl("IMG_1066.jpeg", w, 82, "jpg");
+      heroRoot.style.setProperty("--hero-bg", `url('${heroUrl}')`);
+      show(index);
+    }, 180);
+  }, { passive: true });
 
-  show(index, 1);
+  show(index);
 </script>
 
 </body>
