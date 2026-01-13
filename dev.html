@@ -319,35 +319,6 @@
       line-height:1.4;
     }
 
-    /* SECTION DIVIDER BETWEEN HOUSES + LOTS */
-    .divider{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      margin:12px 0 34px;
-      opacity:0.95;
-    }
-
-    .divider-line{
-      flex:1;
-      height:1px;
-      background:linear-gradient(
-        90deg,
-        rgba(255,255,255,0),
-        rgba(255,255,255,0.28),
-        rgba(255,255,255,0)
-      );
-    }
-
-    .divider-label{
-      font-size:0.75rem;
-      letter-spacing:0.28em;
-      text-transform:uppercase;
-      color:var(--text-muted);
-      white-space:nowrap;
-      text-align:center;
-    }
-
     footer{
       text-align:center;
       padding:40px 0;
@@ -370,15 +341,6 @@
       .card-content{padding:26px 18px;}
 
       #hero{background-position:50% 60%;}
-
-      .divider{
-        margin:10px 0 26px;
-        gap:10px;
-      }
-      .divider-label{
-        letter-spacing:0.22em;
-        font-size:0.72rem;
-      }
     }
   </style>
 </head>
@@ -417,7 +379,6 @@
   <div class="tile">
     <p class="section-sub">Curated for lifestyle, location, and value</p>
 
-    <!-- HOUSES -->
     <div class="grid">
       <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
         <img src="/images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
@@ -451,6 +412,16 @@
         </div>
       </a>
 
+      <!-- NEW TILE: PESCADERO RESORT -->
+      <a class="card" href="listings/pescadero-resort/index.html" aria-label="Open Pescadero Resort listing">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg" alt="Pescadero Resort" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Pescadero Resort</h3>
+          <p>Resort / Income Property<br>$1,650,000 USD<br>5 Bedrooms · 5,918 Sq Ft<br>El Pescadero, Mexico</p>
+        </div>
+      </a>
+      <!-- /NEW TILE -->
+
       <!-- NEW TILE: LUNA VILLA -->
       <a class="card" href="listings/luna/villa/index.html" aria-label="Open Luna Villa listing">
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg" alt="Luna Villa" loading="lazy" decoding="async">
@@ -458,19 +429,12 @@
           <h3>Luna Villa</h3>
           <p>House<br>$399+ USD<br>3 Bedrooms · 2 Bath<br>El Pescadero, Mexico</p>
         </div>
-      <br>
       </a>
       <!-- /NEW TILE -->
     </div>
 
-    <!-- DIVIDER -->
-    <div class="divider" aria-hidden="true">
-      <div class="divider-line"></div>
-      <div class="divider-label">Land & Lots</div>
-      <div class="divider-line"></div>
-    </div>
+    <div style="height: 46px;"></div>
 
-    <!-- LOTS -->
     <div class="grid">
       <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
         <img src="/images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
@@ -480,7 +444,6 @@
         </div>
       </a>
     </div>
-
   </div>
 </section>
 
