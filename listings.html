@@ -243,15 +243,6 @@
       padding:40px;
     }
 
-    .section-title{
-      text-align:center;
-      font-size:2rem;
-      color:var(--text-main);
-      margin:0 0 10px 0;
-      text-transform:uppercase;
-      letter-spacing:0.02em;
-    }
-
     .section-sub{
       text-align:center;
       color:var(--text-muted);
@@ -259,6 +250,18 @@
       font-size:0.8rem;
       letter-spacing:0.22em;
       margin:0 0 34px 0;
+    }
+
+    /* DIVIDER BETWEEN SECTIONS */
+    .divider{
+      height:1px;
+      width:min(860px, 92%);
+      margin:34px auto;
+      background:linear-gradient(90deg,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0.22),
+        rgba(255,255,255,0)
+      );
     }
 
     /* GRID/CARDS (match index) */
@@ -379,12 +382,21 @@
   <div class="tile">
     <p class="section-sub">Curated for lifestyle, location, and value</p>
 
+    <!-- SORTED HIGH -> LOW (HOUSES/RESORT) -->
     <div class="grid">
+      <a class="card" href="listings/pescadero-resort/index.html" aria-label="Open Pescadero Resort listing">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg" alt="Pescadero Resort" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Pescadero Resort</h3>
+          <p>Resort<br>$1,650,000 USD<br>5 Bedrooms · 5 Bathrooms<br>El Pescadero</p>
+        </div>
+      </a>
+
       <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
         <img src="/images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Sol y Luna</h3>
-          <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>Gavilan, Mexico</p>
+          <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>El Pescadero · Gavilan</p>
         </div>
       </a>
 
@@ -392,7 +404,7 @@
         <img src="/images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Vista</h3>
-          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
+          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>El Pescadero · Cerritos</p>
         </div>
       </a>
 
@@ -400,7 +412,15 @@
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg" alt="Casa Costa" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Costa</h3>
-          <p>House<br>$649,000 USD<br>2 Bedrooms · 2 Bathrooms<br>Cerritos, Mexico</p>
+          <p>House<br>$649,000 USD<br>2 Bedrooms · 2 Bathrooms<br>El Pescadero · Cerritos</p>
+        </div>
+      </a>
+
+      <a class="card" href="listings/luna/villa/index.html" aria-label="Open Luna Villa listing">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg" alt="Luna Villa" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Luna Villa</h3>
+          <p>House<br>$399+ USD<br>3 Bedrooms · 2 Bath<br>El Pescadero</p>
         </div>
       </a>
 
@@ -408,29 +428,20 @@
         <img src="/images/IMG_0797.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Lienzo C. Molusco</h3>
-          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Las Tunas, Mexico</p>
+          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Todos Santos · Las Tunas</p>
         </div>
       </a>
-
-      <!-- NEW TILE: LUNA VILLA -->
-      <a class="card" href="listings/luna/villa/index.html" aria-label="Open Luna Villa listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg" alt="Luna Villa" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Luna Villa</h3>
-          <p>House<br>$399+ USD<br>3 Bedrooms · 2 Bath<br>El Pescadero, Mexico</p>
-        </div>
-      </a>
-      <!-- /NEW TILE -->
     </div>
 
-    <div style="height: 46px;"></div>
+    <div class="divider" role="separator" aria-hidden="true"></div>
 
+    <!-- LAND (SORTED HIGH -> LOW) -->
     <div class="grid">
       <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
         <img src="/images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Central Cerritos Lot</h3>
-          <p>Plot of Land<br>$265,000 USD<br>Cerritos, Mexico</p>
+          <p>Plot of Land<br>$265,000 USD<br>El Pescadero · Cerritos</p>
         </div>
       </a>
     </div>
@@ -448,7 +459,7 @@
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
 
-  btn.addEventListener("click", e => {
+  btn.addEventListener("click", (e) => {
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
   });
@@ -457,7 +468,7 @@
     document.body.classList.remove("menu-open");
   });
 
-  panel.addEventListener("click", e => e.stopPropagation());
+  panel.addEventListener("click", (e) => e.stopPropagation());
 })();
 </script>
 
