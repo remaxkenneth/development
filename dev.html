@@ -252,6 +252,18 @@
       margin:0 0 34px 0;
     }
 
+    /* DIVIDER BETWEEN SECTIONS */
+    .divider{
+      height:1px;
+      width:min(860px, 92%);
+      margin:34px auto;
+      background:linear-gradient(90deg,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0.22),
+        rgba(255,255,255,0)
+      );
+    }
+
     /* GRID/CARDS (match index) */
     .grid{
       display:grid;
@@ -424,7 +436,8 @@
       <!-- /TILE -->
     </div>
 
-    <div style="height: 46px;"></div>
+    <div class="divider" role="separator" aria-hidden="true"></div>
+    <p class="section-sub" style="margin-top:0;">Land</p>
 
     <div class="grid">
       <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
