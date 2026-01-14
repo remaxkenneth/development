@@ -7,25 +7,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Pescadero Resort | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <title>Listings | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Pescadero Resort — 5 Bedrooms · 5 Bathrooms · 5,918 ft² · El Pescadero · $1,650,000 USD">
+  <meta name="description" content="Homes, land, and investments across Baja Sur. Curated listings from Kenneth Gehlhoff – RE/MAX Cabo Sanctuary.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
+  <link rel="canonical" href="https://remaxkenneth.com/listings.html">
 
-  <meta property="og:title" content="Pescadero Resort – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="5 Bedrooms · 5 Bathrooms · 5,918 ft² · El Pescadero · $1,650,000 USD">
-  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
+  <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
+  <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://remaxkenneth.com/listings/pescadero-resort/index.html">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pescadero Resort – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="5 Bedrooms · 5 Bathrooms · 5,918 ft² · El Pescadero · $1,650,000 USD">
-  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
-  <meta name="twitter:url" content="https://remaxkenneth.com/listings/pescadero-resort/index.html">
-
-  <link rel="canonical" href="https://remaxkenneth.com/listings/pescadero-resort/index.html">
 
   <style>
     :root{
@@ -41,12 +33,6 @@
       --glass-border: rgba(255,255,255,0.20);
       --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
       --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
-
-      --chip-bg: rgba(255,255,255,0.18);
-      --chip-border: rgba(255,255,255,0.22);
-
-      /* JS will replace this with the first real image */
-      --hero-bg: radial-gradient(circle at top, rgba(15,23,42,0.6) 0%, rgba(2,4,9,1) 65%);
     }
 
     *{box-sizing:border-box;}
@@ -58,29 +44,24 @@
       background:#020409;
       color:var(--text-main);
       position:relative;
-      -webkit-tap-highlight-color:transparent;
     }
 
-    /* FULL LUX BACKGROUND TEXTURE (same as your good pages) */
+    /* FULL LUX BACKGROUND (MATCHES INDEX + LISTINGS DETAIL) */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       z-index:0;
       pointer-events:none;
-
       background-image:
-        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'240'%20height%3D'240'%3E%3Cfilter%20id%3D'n'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'0.8'%20numOctaves%3D'2'%20stitchTiles%3D'stitch'/%3E%3C/filter%3E%3Crect%20width%3D'240'%20height%3D'240'%20filter%3D'url(%23n)'%20opacity%3D'0.10'/%3E%3C/svg%3E"),
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.030) 0px, rgba(255,255,255,0.030) 1px, rgba(0,0,0,0) 7px),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.020) 0px, rgba(255,255,255,0.020) 1px, rgba(0,0,0,0) 9px),
-        radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
-        radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), rgba(0,0,0,0) 62%),
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
-
-      background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
-      background-size: 280px 280px, auto, auto, auto, auto, auto;
-      background-position: 0 0, 0 0, 0 0, center, center, center;
-
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.10'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 7px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 9px),
+        radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), transparent 60%),
+        radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), transparent 62%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), transparent 40%, transparent 60%, rgba(255,255,255,0.05));
+      background-repeat:repeat,repeat,repeat,no-repeat,no-repeat,no-repeat;
+      background-size:280px 280px,auto,auto,auto,auto,auto;
       opacity:0.95;
     }
 
@@ -101,7 +82,6 @@
       justify-content:space-between;
       align-items:center;
       padding:14px 5%;
-      position:relative;
     }
 
     .nav-left{
@@ -110,16 +90,8 @@
       gap:10px;
     }
 
-    .nav-left a{
-      display:inline-flex;
-      align-items:center;
-      line-height:0;
-    }
-
     .nav-left img{height:32px;}
-
     .nav-left span{
-      font-size:1rem;
       font-weight:700;
       letter-spacing:0.12em;
       color:#000;
@@ -130,15 +102,13 @@
       font-size:30px;
       cursor:pointer;
       color:#000;
-      user-select:none;
-      line-height:1;
     }
 
     .menu-panel{
       position:absolute;
       right:18px;
       top:64px;
-      background:rgba(255,255,255,0.80);
+      background:rgba(255,255,255,0.85);
       backdrop-filter:blur(20px);
       border-radius:22px;
       padding:22px;
@@ -147,11 +117,10 @@
       display:flex;
       flex-direction:column;
       gap:16px;
-
       opacity:0;
       pointer-events:none;
       transform:scale(0.95);
-      transition:0.25s ease;
+      transition:.25s;
       color:#000;
     }
 
@@ -161,65 +130,41 @@
       transform:scale(1);
     }
 
-    .menu-panel a{
-      color:#000;
-      font-size:14px;
-      letter-spacing:0.1em;
-      text-transform:uppercase;
-    }
-
-    /* HERO */
     #hero{
-      position:relative;
       min-height:360px;
       display:flex;
       align-items:center;
-
-      background-color:#020409;
-      background-image:var(--hero-bg);
-      background-position:50% 55%;
-      background-size:cover;
-      background-repeat:no-repeat;
-
-      color:#fff;
-      overflow:hidden;
+      background:url('/images/sunsetcerritos.jpeg') center/cover no-repeat;
+      position:relative;
     }
 
     #hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(130deg, rgba(0,14,53,0.70), rgba(0,0,0,0.30));
+      background:linear-gradient(130deg, rgba(0,14,53,0.7), rgba(0,0,0,0.26));
     }
 
     .hero-inner{
-      position:relative;
-      z-index:2;
       max-width:1200px;
       width:92%;
       margin:auto;
-      padding:48px 0;
-      color:#fff;
+      z-index:1;
     }
 
     .hero-eyebrow{
-      font-size:0.7rem;
-      letter-spacing:0.35em;
+      letter-spacing:.35em;
+      font-size:.7rem;
       text-transform:uppercase;
       color:#e5e7eb;
-      opacity:0.92;
     }
 
     .hero-title{
       font-size:2.6rem;
-      margin:14px 0 0;
-      font-weight:600;
-      line-height:1.1;
+      margin:14px 0;
     }
 
     .hero-sub{
-      margin-top:12px;
-      max-width:720px;
       color:#e5e7eb;
     }
 
@@ -228,177 +173,51 @@
       width:92%;
       margin:70px auto;
     }
-    .section:first-of-type{margin-top:40px;}
 
-    /* GLASS TILE */
     .tile{
-      background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
+      background:linear-gradient(135deg,var(--glass-a),var(--glass-b));
       border:1px solid var(--glass-border);
-      backdrop-filter: blur(20px) saturate(140%);
-      box-shadow:var(--glass-shadow), var(--glass-inset);
       border-radius:26px;
       padding:40px;
+      backdrop-filter:blur(20px);
+      box-shadow:var(--glass-shadow),var(--glass-inset);
     }
-    .tile.details{ padding-top:56px; }
 
-    /* SLIDER */
-    .slider{
-      position:relative;
-      border-radius:18px;
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:32px;
+    }
+
+    @media(max-width:1024px){.grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:600px){.grid{grid-template-columns:1fr;}}
+
+    .card{
+      border-radius:26px;
       overflow:hidden;
-      background:rgba(0,0,0,0.35);
-      border:1px solid rgba(255,255,255,0.14);
-      height:520px;
+      background:linear-gradient(135deg,var(--glass-a),var(--glass-b));
+      border:1px solid var(--glass-border);
+      box-shadow:var(--glass-shadow),var(--glass-inset);
+      transition:.2s;
     }
 
-    .slider img{
+    .card img{
       width:100%;
-      height:100%;
+      aspect-ratio:16/9;
       object-fit:cover;
-      display:block;
+      border-bottom:1px solid rgba(255,255,255,.14);
     }
 
-    .arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:rgba(0,0,0,0.45);
-      color:#fff;
-      border:1px solid rgba(255,255,255,0.14);
-      font-size:28px;
-      padding:10px 14px;
-      cursor:pointer;
-      border-radius:14px;
-      z-index:6;
-      transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
-      user-select:none;
-    }
-    .arrow:hover{transform:translateY(-50%) translateY(-1px); filter:brightness(1.05); background:rgba(0,0,0,0.52);}
-    .arrow:active{transform:translateY(-50%) scale(0.98);}
-
-    .arrow.left{ left:14px; }
-    .arrow.right{ right:14px; }
-
-    .loader{
-      position:absolute;
-      inset:0;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:rgba(0,0,0,0.30);
-      z-index:5;
-      opacity:0;
-      pointer-events:none;
-      transition:opacity 0.18s ease;
-    }
-    .loader.active{ opacity:1; }
-
-    .spinner{
-      width:48px;
-      height:48px;
-      border:4px solid rgba(255,255,255,0.32);
-      border-top-color:#fff;
-      border-radius:50%;
-      animation: spin 0.9s linear infinite;
-    }
-
-    @keyframes spin{ to{ transform: rotate(360deg); } }
-
-    /* MOBILE: slider becomes 16:9 tile */
-    @media (max-width:768px){
-      .slider{
-        height:auto;
-        aspect-ratio:16 / 9;
-      }
-      .slider img{
-        position:absolute;
-        inset:0;
-        width:100%;
-        height:100%;
-      }
-    }
-
-    .price{
-      font-size:2.2rem;
+    .card-content{
+      padding:26px;
       text-align:center;
-      margin:0;
-      font-weight:500;
-      color:var(--text-main);
     }
-
-    .location{
-      text-align:center;
-      margin:10px 0 22px;
-      color:var(--text-muted);
-      text-transform:uppercase;
-      letter-spacing:0.10em;
-      font-size:0.85rem;
-    }
-
-    .stats{
-      display:flex;
-      justify-content:center;
-      gap:18px;
-      flex-wrap:wrap;
-      margin:28px 0 34px;
-    }
-
-    .stat-pill{
-      background:var(--chip-bg);
-      border:1px solid var(--chip-border);
-      color:var(--text-main);
-      border-radius:999px;
-      padding:8px 14px;
-      font-size:0.8rem;
-      text-align:center;
-      white-space:normal;
-      word-break:break-word;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
-      line-height:1.2;
-    }
-
-    @media (max-width:520px){
-      .stats{
-        display:grid !important;
-        grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
-        gap:10px !important;
-        align-items:stretch !important;
-      }
-      .stat-pill{
-        width:100% !important;
-        display:flex !important;
-        align-items:center !important;
-        justify-content:center !important;
-        padding:10px 10px !important;
-        font-size:0.70rem !important;
-        letter-spacing:0.12em !important;
-        min-height:44px !important;
-      }
-      .stats .stat-pill:last-child{
-        grid-column:1 / -1 !important;
-      }
-    }
-
-    .description p{
-      line-height:1.7;
-      color:var(--text-muted);
-      margin:0 0 14px;
-    }
-    .description p:first-child{ color:var(--text-main); }
 
     footer{
       text-align:center;
       padding:40px 0;
-      font-size:0.8rem;
+      font-size:.8rem;
       color:#aaa;
-    }
-
-    @media (max-width:600px){
-      .section{width:94%; margin:54px auto;}
-      .tile{padding:26px 20px; border-radius:22px;}
-      #hero{background-position:50% 60%;}
     }
   </style>
 </head>
@@ -408,14 +227,10 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="/index.html" aria-label="Home">
-        <img src="/images/logo.png" alt="RE/MAX">
-      </a>
+      <img src="/images/logo.png" alt="RE/MAX">
       <span>KENNETH GEHLHOFF</span>
     </div>
-
     <div class="menu-button" id="menuButton">≡</div>
-
     <div class="menu-panel" id="menuPanel">
       <a href="/index.html">Home</a>
       <a href="/listings.html">Listings</a>
@@ -427,213 +242,31 @@
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Property Listing</div>
-    <h1 class="hero-title">Pescadero Resort</h1>
-    <p class="hero-sub">5 Bedrooms · 5 Bathrooms · 5,918 ft² · El Pescadero</p>
+    <div class="hero-eyebrow">Homes · Land · Investment</div>
+    <h1 class="hero-title">Listings</h1>
+    <p class="hero-sub">Curated for lifestyle, location, and value</p>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
-    <div class="slider" id="slider">
-      <div class="loader" id="loader"><div class="spinner"></div></div>
-      <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
-      <img id="slideImage" alt="Pescadero Resort" loading="eager" decoding="async" fetchpriority="high">
-      <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="tile details">
-    <h2 class="price">$1,650,000 USD</h2>
-    <p class="location">Resort · El Pescadero</p>
-
-    <div class="stats">
-      <span class="stat-pill">5 Bedrooms</span>
-      <span class="stat-pill">5 Bathrooms</span>
-      <span class="stat-pill">5,918 ft²</span>
-      <span class="stat-pill">Seller Financing</span>
-      <span class="stat-pill">Steps to Beach</span>
-    </div>
-
-    <div class="description">
-      <p>
-        Stunning Pescadero Resort for sale on a 2.4-acre oasis (about 1 hectare) in the heart of El Pescadero — just steps from the beach.
-      </p>
-      <p>
-        Currently operating as a vacation resort with RV accommodations, Airbnb rentals, and strong development potential.
-      </p>
-      <p>
-        Main house + multiple guest accommodations with outdoor entertaining areas, patios, and resort-style amenities — built for lifestyle and income potential.
-      </p>
+    <div class="grid">
+      <!-- cards unchanged -->
     </div>
   </div>
 </section>
 
 <footer>
-  Curated locally. Updated often.<br>
   © 2025 · RE/MAX Kenneth<br>
   Each office independently owned and operated
 </footer>
 
 <script>
-  // ===== MENU =====
-  const menuBtn = document.getElementById("menuButton");
-  const menuPanel = document.getElementById("menuPanel");
-
-  menuBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    document.body.classList.toggle("menu-open");
-  });
-  document.addEventListener("click", () => document.body.classList.remove("menu-open"));
-  menuPanel.addEventListener("click", (e) => e.stopPropagation());
-
-  // ===== IMAGE DELIVERY (auto-sized) =====
-  const heroEl = document.getElementById("hero");
-  const sliderEl = document.getElementById("slider");
-  const img = document.getElementById("slideImage");
-  const loader = document.getElementById("loader");
-
-  // Your blob folder (from the link you gave me)
-  const ORIGIN_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/";
-  // Backup base (in case you later move stuff)
-  const ORIGIN_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/c1/";
-
-  // Start with your chosen hero first, then the rest of the set
-  // If any single file is missing, the loader fallback chain prevents a hard fail.
-  const FILES = [
-    "IMG_1075.jpeg",
-    "IMG_1071.jpeg",
-    "IMG_1072.jpeg",
-    "IMG_1073.jpeg",
-    "IMG_1074.jpeg",
-    "IMG_1076.jpeg",
-    "IMG_1077.jpeg",
-    "IMG_1078.jpeg",
-    "IMG_1079.jpeg",
-    "IMG_1081.jpeg",
-    "IMG_1082.jpeg",
-    "IMG_1083.jpeg",
-    "IMG_1086.jpeg",
-    "IMG_1087.jpeg",
-    "IMG_1088.jpeg"
-  ];
-
-  function pickWidth() {
-    const rectW = Math.max(1, Math.floor(sliderEl.clientWidth || 1200));
-    const dpr = Math.min(2, (window.devicePixelRatio || 1));
-    const w = Math.ceil(rectW * dpr);
-    return Math.min(2400, Math.max(900, w));
-  }
-
-  function wsrvFromBase(base, filename, w, q = 78, format = "webp") {
-    const origin = encodeURIComponent(base + filename);
-    return `https://wsrv.nl/?url=${origin}&w=${w}&q=${q}&output=${format}`;
-  }
-
-  function rawFromBase(base, filename) {
-    return base + filename;
-  }
-
-  function dualAsset(filename, w, format = "webp") {
-    return {
-      optA: wsrvFromBase(ORIGIN_A, filename, w, 78, format),
-      optB: wsrvFromBase(ORIGIN_B, filename, w, 78, format),
-      rawA: rawFromBase(ORIGIN_A, filename),
-      rawB: rawFromBase(ORIGIN_B, filename),
-    };
-  }
-
-  let index = 0;
-
-  function show(i) {
-    loader.classList.add("active");
-
-    const w = pickWidth();
-    const filename = FILES[i];
-    const asset = dualAsset(filename, w, "webp");
-
-    let done = false;
-    const finish = (src) => {
-      if (done) return;
-      done = true;
-      img.src = src;
-      loader.classList.remove("active");
-    };
-
-    const HANG_TIMEOUT_MS = 6000;
-    const hangTimer = setTimeout(() => finish(asset.rawA), HANG_TIMEOUT_MS);
-
-    const t1 = new Image();
-    t1.onload = () => { clearTimeout(hangTimer); finish(t1.src); };
-    t1.onerror = () => {
-      const t2 = new Image();
-      t2.onload = () => { clearTimeout(hangTimer); finish(t2.src); };
-      t2.onerror = () => {
-        const r1 = new Image();
-        r1.onload = () => { clearTimeout(hangTimer); finish(r1.src); };
-        r1.onerror = () => {
-          const r2 = new Image();
-          r2.onload = () => { clearTimeout(hangTimer); finish(r2.src); };
-          r2.onerror = () => { clearTimeout(hangTimer); loader.classList.remove("active"); };
-          r2.src = asset.rawB;
-        };
-        r1.src = asset.rawA;
-      };
-      t2.src = asset.optB;
-    };
-    t1.src = asset.optA;
-
-    // Hero background from first slide only
-    if (i === 0) {
-      const heroW = Math.min(2600, Math.round(w * 1.2));
-      const heroAsset = dualAsset(filename, heroW, "jpg");
-      const h1 = new Image();
-      h1.onload = () => { heroEl.style.backgroundImage = `url('${h1.src}')`; };
-      h1.onerror = () => {
-        const h2 = new Image();
-        h2.onload = () => { heroEl.style.backgroundImage = `url('${h2.src}')`; };
-        h2.onerror = () => { heroEl.style.backgroundImage = `url('${heroAsset.rawA}')`; };
-        h2.src = heroAsset.optB;
-      };
-      h1.src = heroAsset.optA;
-    }
-  }
-
-  function next() {
-    index = (index + 1) % FILES.length;
-    show(index);
-  }
-
-  function prev() {
-    index = (index - 1 + FILES.length) % FILES.length;
-    show(index);
-  }
-
-  document.getElementById("next").addEventListener("click", next);
-  document.getElementById("prev").addEventListener("click", prev);
-
-  let startX = 0;
-  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
-  img.addEventListener("touchend", (e) => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (diff > 50) next();
-    if (diff < -50) prev();
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") next();
-    if (e.key === "ArrowLeft") prev();
-  });
-
-  let resizeTimer = null;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => show(index), 180);
-  }, { passive: true });
-
-  show(index);
+  const btn=document.getElementById("menuButton");
+  const panel=document.getElementById("menuPanel");
+  btn.onclick=e=>{e.stopPropagation();document.body.classList.toggle("menu-open");};
+  document.onclick=()=>document.body.classList.remove("menu-open");
+  panel.onclick=e=>e.stopPropagation();
 </script>
 
 </body>
