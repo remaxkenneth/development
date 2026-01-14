@@ -7,37 +7,85 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Pescadero Resort | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <title>Listings | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Pescadero Resort — 5 Bedrooms · 5 Bathrooms · El Pescadero · $1,650,000 USD">
+  <meta name="description" content="Homes, land, and investments across Baja Sur. Curated listings from Kenneth Gehlhoff – RE/MAX Cabo Sanctuary.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
+  <link rel="canonical" href="https://remaxkenneth.com/listings.html">
 
   <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Pescadero Resort – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="5 Bedrooms · 5 Bathrooms · El Pescadero · $1,650,000 USD">
-  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
+  <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
+  <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:url" content="https://remaxkenneth.com/listings.html">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://remaxkenneth.com/listings/pescadero-resort/index.html">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pescadero Resort – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="5 Bedrooms · 5 Bathrooms · El Pescadero · $1,650,000 USD">
-  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
-
-  <link rel="canonical" href="https://remaxkenneth.com/listings/pescadero-resort/index.html">
+  <meta name="twitter:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="Homes, land, and investments across Baja Sur.">
+  <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
+  <meta name="twitter:url" content="https://remaxkenneth.com/listings.html">
 
   <style>
+    :root{
+      --remax-blue:#003da5;
+      --remax-red:#e4002b;
+      --remax-dark-blue:#000E35;
+
+      --text-main:rgba(255,255,255,0.92);
+      --text-muted:rgba(255,255,255,0.72);
+
+      --glass-a: rgba(0,0,0,0.58);
+      --glass-b: rgba(255,255,255,0.10);
+      --glass-border: rgba(255,255,255,0.20);
+      --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
+      --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
+    }
+
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+
     body{
       margin:0;
       font-family:Arial,Helvetica,sans-serif;
       background:#020409;
-      color:rgba(255,255,255,0.92);
+      color:var(--text-main);
+      position:relative;
+      -webkit-tap-highlight-color:transparent;
     }
 
-    a{text-decoration:none;color:inherit;}
+    /* FULL LUX BACKGROUND TEXTURE (this is what your other good pages use) */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
 
+      background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'240'%20height%3D'240'%3E%3Cfilter%20id%3D'n'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'0.8'%20numOctaves%3D'2'%20stitchTiles%3D'stitch'/%3E%3C/filter%3E%3Crect%20width%3D'240'%20height%3D'240'%20filter%3D'url(%23n)'%20opacity%3D'0.10'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.030) 0px, rgba(255,255,255,0.030) 1px, rgba(0,0,0,0) 7px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.020) 0px, rgba(255,255,255,0.020) 1px, rgba(0,0,0,0) 9px),
+        radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
+        radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), rgba(0,0,0,0) 62%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
+
+      background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
+      background-size: 280px 280px, auto, auto, auto, auto, auto;
+      background-position: 0 0, 0 0, 0 0, center, center, center;
+      opacity:0.95;
+    }
+
+    body > *{position:relative; z-index:1;}
+    a{text-decoration:none; color:inherit;}
+    img{max-width:100%; display:block;}
+
+    /* header */
     header{
       position:sticky;
       top:0;
@@ -61,8 +109,15 @@
       gap:10px;
     }
 
+    .nav-left a{
+      display:inline-flex;
+      align-items:center;
+      line-height:0;
+    }
     .nav-left img{height:32px;}
+
     .nav-left span{
+      font-size:1rem;
       font-weight:700;
       letter-spacing:0.12em;
       color:#000;
@@ -73,6 +128,8 @@
       font-size:30px;
       cursor:pointer;
       color:#000;
+      user-select:none;
+      line-height:1;
     }
 
     .menu-panel{
@@ -83,41 +140,52 @@
       backdrop-filter:blur(20px);
       border-radius:22px;
       padding:22px;
+      min-width:190px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
       display:flex;
       flex-direction:column;
       gap:16px;
+
       opacity:0;
       pointer-events:none;
-      transition:.25s ease;
+      transform:scale(0.95);
+      transition:0.25s ease;
+      color:#000;
     }
 
     body.menu-open .menu-panel{
       opacity:1;
       pointer-events:auto;
+      transform:scale(1);
     }
 
     .menu-panel a{
-      color:#000;
       font-size:14px;
-      letter-spacing:.1em;
+      letter-spacing:0.1em;
       text-transform:uppercase;
+      color:#000;
     }
 
+    /* hero */
     #hero{
+      position:relative;
       min-height:360px;
       display:flex;
       align-items:center;
-      background:#000;
+      background-color:#020409;
+      background-image:url('/images/sunsetcerritos.jpeg');
+      background-position:50% 55%;
       background-size:cover;
-      background-position:center;
-      position:relative;
+      background-repeat:no-repeat;
+      color:#fff;
+      overflow:hidden;
     }
 
     #hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(130deg, rgba(0,14,53,.7), rgba(0,0,0,.3));
+      background:linear-gradient(130deg, rgba(0,14,53,0.70), rgba(0,0,0,0.26));
     }
 
     .hero-inner{
@@ -126,104 +194,130 @@
       max-width:1200px;
       width:92%;
       margin:auto;
-      color:#fff;
+      padding:48px 0;
     }
 
     .hero-eyebrow{
-      font-size:.7rem;
-      letter-spacing:.35em;
+      letter-spacing:0.35em;
+      font-size:0.7rem;
+      opacity:0.92;
       text-transform:uppercase;
-      opacity:.9;
+      color:#e5e7eb;
     }
 
     .hero-title{
       font-size:2.6rem;
-      margin:12px 0 0;
+      margin:14px 0;
+      font-weight:600;
+      line-height:1.1;
     }
 
     .hero-sub{
-      margin-top:10px;
+      max-width:560px;
       color:#e5e7eb;
     }
 
+    /* section */
     .section{
       max-width:1100px;
       width:92%;
       margin:70px auto;
     }
+    .section:first-of-type{margin-top:40px;}
 
     .tile{
-      background:rgba(0,0,0,.55);
-      border:1px solid rgba(255,255,255,.2);
       border-radius:26px;
       padding:40px;
+      background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
+      border:1px solid var(--glass-border);
+      box-shadow:var(--glass-shadow), var(--glass-inset);
+      backdrop-filter: blur(20px) saturate(140%);
     }
 
-    .slider{
-      position:relative;
-      height:520px;
-      border-radius:18px;
+    .section-sub{
+      text-align:center;
+      color:var(--text-muted);
+      text-transform:uppercase;
+      font-size:0.8rem;
+      letter-spacing:0.22em;
+      margin:0 0 34px 0;
+    }
+
+    .divider{
+      height:1px;
+      width:min(860px, 92%);
+      margin:34px auto;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    }
+
+    /* GRID: desktop 3 cols, tablet 2 cols, phone 1 col */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:32px;
+      justify-content:stretch;
+      align-items:start;
+    }
+    @media (max-width:1024px){
+      .grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:22px; }
+    }
+    @media (max-width:600px){
+      .grid{ grid-template-columns:1fr; gap:18px; }
+      .section{width:94%; margin:54px auto;}
+      .tile{padding:26px 20px; border-radius:22px;}
+      #hero{background-position:50% 60%;}
+    }
+
+    /* cards */
+    .card{
+      display:block;
+      border-radius:26px;
       overflow:hidden;
+      background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
+      border:1px solid var(--glass-border);
+      box-shadow:var(--glass-shadow), var(--glass-inset);
+      backdrop-filter: blur(20px) saturate(140%);
+      transition:transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      color:var(--text-main);
     }
+    .card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 26px 60px rgba(0,0,0,0.40), var(--glass-inset);
+    }
+    .card:active{transform:translateY(-1px); filter:brightness(1.04);}
 
-    .slider img{
+    .card img{
       width:100%;
-      height:100%;
+      aspect-ratio:16 / 9;
+      height:auto;
       object-fit:cover;
+      object-position:center center;
+      display:block;
+      border-bottom:1px solid rgba(255,255,255,0.14);
+    }
+    @supports not (aspect-ratio: 1 / 1){
+      .card img{height:240px;}
     }
 
-    .arrow{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      font-size:28px;
-      background:rgba(0,0,0,.5);
-      color:#fff;
-      border:none;
-      padding:10px 14px;
-      cursor:pointer;
-      border-radius:12px;
-    }
-
-    .arrow.left{left:14px;}
-    .arrow.right{right:14px;}
-
-    .price{
+    .card-content{
+      padding:30px 26px;
       text-align:center;
-      font-size:2.2rem;
-      margin:0;
+      background:transparent;
     }
 
-    .location{
-      text-align:center;
-      margin:10px 0 22px;
-      text-transform:uppercase;
-      letter-spacing:.1em;
-      font-size:.85rem;
-      color:rgba(255,255,255,.7);
-    }
-
-    .stats{
-      display:flex;
-      justify-content:center;
-      gap:16px;
-      flex-wrap:wrap;
-      margin-bottom:30px;
-    }
-
-    .stat{
-      border:1px solid rgba(255,255,255,.25);
-      border-radius:999px;
-      padding:8px 14px;
-      font-size:.8rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
+    .card h3{margin:0 0 10px; color:var(--text-main);}
+    .card p{
+      font-size:0.95rem;
+      color:var(--text-muted);
+      max-width:90%;
+      margin:0 auto;
+      line-height:1.4;
     }
 
     footer{
       text-align:center;
       padding:40px 0;
-      font-size:.8rem;
+      font-size:0.8rem;
       color:#aaa;
     }
   </style>
@@ -234,125 +328,123 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="/index.html"><img src="/images/logo.png" alt="RE/MAX"></a>
+      <a href="index.html" aria-label="Home">
+        <img src="/images/logo.png" alt="RE/MAX">
+      </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
+
     <div class="menu-button" id="menuButton">≡</div>
+
     <div class="menu-panel" id="menuPanel">
-      <a href="/index.html">Home</a>
-      <a href="/listings.html">Listings</a>
-      <a href="/events.html">Events</a>
-      <a href="/businesscard.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="listings.html">Listings</a>
+      <a href="events.html">Events</a>
+      <a href="businesscard.html">Contact</a>
     </div>
   </div>
 </header>
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Resort</div>
-    <h1 class="hero-title">Pescadero Resort</h1>
-    <p class="hero-sub">5 Bedrooms · 5 Bathrooms · El Pescadero</p>
+    <div class="hero-eyebrow">Homes · Land · Investment</div>
+    <h1 class="hero-title">Listings</h1>
+    <p class="hero-sub">Curated for lifestyle, location, and value</p>
   </div>
 </section>
 
-<section class="section">
+<section class="section" aria-label="Listings grid">
   <div class="tile">
-    <div class="slider">
-      <button class="arrow left" id="prev">&#10094;</button>
-      <img id="slide">
-      <button class="arrow right" id="next">&#10095;</button>
+    <p class="section-sub">Curated for lifestyle, location, and value</p>
+
+    <!-- SORTED HIGH -> LOW -->
+    <div class="grid">
+      <a class="card" href="listings/pescadero-resort/index.html" aria-label="Open Pescadero Resort listing">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg" alt="Pescadero Resort" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Pescadero Resort</h3>
+          <p>Resort<br>$1,650,000 USD<br>5 Bedrooms · 5 Bathrooms<br>El Pescadero</p>
+        </div>
+      </a>
+
+      <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
+        <img src="/images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Casa Sol y Luna</h3>
+          <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>El Pescadero · Gavilan</p>
+        </div>
+      </a>
+
+      <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
+        <img src="/images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Casa Vista</h3>
+          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>El Pescadero · Cerritos</p>
+        </div>
+      </a>
+
+      <a class="card" href="index.html" aria-label="Return to Home from Casa Costa">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg" alt="Casa Costa" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Casa Costa</h3>
+          <p>House<br>$610,000 USD<br>2 Bedrooms · 2 Bathrooms<br>El Pescadero · Cerritos</p>
+        </div>
+      </a>
+
+      <a class="card" href="listings/luna/villa/index.html" aria-label="Open Luna Villa listing">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg" alt="Luna Villa" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Luna Villa</h3>
+          <p>House<br>$399+ USD<br>3 Bedrooms · 2 Bath<br>El Pescadero</p>
+        </div>
+      </a>
+
+      <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
+        <img src="/images/IMG_0797.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Casa Lienzo C. Molusco</h3>
+          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Todos Santos · Las Tunas</p>
+        </div>
+      </a>
     </div>
-  </div>
-</section>
 
-<section class="section">
-  <div class="tile">
-    <h2 class="price">$1,650,000 USD</h2>
-    <p class="location">Resort · El Pescadero · Baja California Sur</p>
+    <div class="divider" role="separator" aria-hidden="true"></div>
 
-    <div class="stats">
-      <div class="stat">5 Bedrooms</div>
-      <div class="stat">5 Bathrooms</div>
-      <div class="stat">Seller Financing</div>
-      <div class="stat">Steps from the Beach</div>
-      <div class="stat">Development Potential</div>
+    <div class="grid">
+      <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
+        <img src="/images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Central Cerritos Lot</h3>
+          <p>$265,000 USD<br>El Pescadero · Cerritos</p>
+        </div>
+      </a>
     </div>
 
-    <p>
-      Seller financing available. This exceptional 2.4-acre (1-hectare) property in the heart of El Pescadero offers a rare opportunity for personal use, development, or investment.
-    </p>
-    <p>
-      Currently operating as a successful vacation resort with RV accommodations, Airbnb rentals, and expansive future potential.
-    </p>
-    <p>
-      Main house includes 2 bedrooms plus den, 2 bathrooms, kitchen, dining, living area, laundry, front porch, and rear patio with outdoor dining, kitchen, and BBQ.
-    </p>
-    <p>
-      Casita 1 offers 2 bedrooms, 2 bathrooms, kitchen, dining, living area, garage, and large patios.
-    </p>
-    <p>
-      Casita 2 is a 1-bedroom suite with large bathroom, kitchen, dining and living areas, located near the pool/hot tub with private sunset views.
-    </p>
   </div>
 </section>
 
 <footer>
+  Curated locally. Updated often.<br>
   © 2025 · RE/MAX Kenneth<br>
   Each office independently owned and operated
 </footer>
 
 <script>
-  const menuBtn = document.getElementById("menuButton");
-  const menuPanel = document.getElementById("menuPanel");
+(function(){
+  const btn = document.getElementById("menuButton");
+  const panel = document.getElementById("menuPanel");
 
-  menuBtn.onclick = e => {
+  btn.addEventListener("click", (e) => {
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
-  };
-  document.addEventListener("click", () => document.body.classList.remove("menu-open"));
-  menuPanel.onclick = e => e.stopPropagation();
+  });
 
-  const ORIGIN = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/";
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+  });
 
-  const FILES = [
-    "IMG_1075.jpeg",
-    "IMG_1071.jpeg",
-    "IMG_1072.jpeg",
-    "IMG_1073.jpeg",
-    "IMG_1074.jpeg",
-    "IMG_1076.jpeg",
-    "IMG_1077.jpeg",
-    "IMG_1078.jpeg",
-    "IMG_1079.jpeg",
-    "IMG_1081.jpeg",
-    "IMG_1082.jpeg",
-    "IMG_1083.jpeg",
-    "IMG_1086.jpeg",
-    "IMG_1087.jpeg",
-    "IMG_1088.jpeg"
-  ];
-
-  let index = 0;
-  const img = document.getElementById("slide");
-  const hero = document.getElementById("hero");
-
-  function show(i){
-    const src = ORIGIN + FILES[i];
-    img.src = src;
-    if(i === 0) hero.style.backgroundImage = `url('${src}')`;
-  }
-
-  document.getElementById("next").onclick = () => {
-    index = (index + 1) % FILES.length;
-    show(index);
-  };
-
-  document.getElementById("prev").onclick = () => {
-    index = (index - 1 + FILES.length) % FILES.length;
-    show(index);
-  };
-
-  show(index);
+  panel.addEventListener("click", (e) => e.stopPropagation());
+})();
 </script>
 
 </body>
