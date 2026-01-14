@@ -1,18 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Nueva Propiedad | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
-
-  <meta name="description" content="Propiedad en El Pescadero · Baja California Sur">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <meta name="theme-color" content="#003da5">
-
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Pescadero Resort | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+
+  <meta name="description" content="Pescadero Resort — 5 Bedrooms · 5 Bathrooms · El Pescadero · $1,650,000 USD">
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <meta name="theme-color" content="#003da5">
+
+  <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Pescadero Resort – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="5 Bedrooms · 5 Bathrooms · El Pescadero · $1,650,000 USD">
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://remaxkenneth.com/listings/pescadero-resort/index.html">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pescadero Resort – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="5 Bedrooms · 5 Bathrooms · El Pescadero · $1,650,000 USD">
+  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
+
+  <link rel="canonical" href="https://remaxkenneth.com/listings/pescadero-resort/index.html">
 
   <style>
     body{
@@ -22,13 +36,15 @@
       color:rgba(255,255,255,0.92);
     }
 
+    a{text-decoration:none;color:inherit;}
+
     header{
       position:sticky;
       top:0;
+      z-index:50;
       background:rgba(245,246,247,0.92);
       backdrop-filter:blur(12px);
       border-bottom:1px solid #e5e7eb;
-      z-index:50;
     }
 
     .nav{
@@ -36,6 +52,7 @@
       justify-content:space-between;
       align-items:center;
       padding:14px 5%;
+      position:relative;
     }
 
     .nav-left{
@@ -53,7 +70,7 @@
     }
 
     .menu-button{
-      font-size:28px;
+      font-size:30px;
       cursor:pointer;
       color:#000;
     }
@@ -71,7 +88,7 @@
       gap:16px;
       opacity:0;
       pointer-events:none;
-      transition:0.25s ease;
+      transition:.25s ease;
     }
 
     body.menu-open .menu-panel{
@@ -81,9 +98,8 @@
 
     .menu-panel a{
       color:#000;
-      text-decoration:none;
       font-size:14px;
-      letter-spacing:0.1em;
+      letter-spacing:.1em;
       text-transform:uppercase;
     }
 
@@ -101,23 +117,23 @@
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(130deg, rgba(0,14,53,0.7), rgba(0,0,0,0.3));
+      background:linear-gradient(130deg, rgba(0,14,53,.7), rgba(0,0,0,.3));
     }
 
     .hero-inner{
       position:relative;
       z-index:2;
-      width:92%;
       max-width:1200px;
+      width:92%;
       margin:auto;
       color:#fff;
     }
 
     .hero-eyebrow{
-      font-size:0.7rem;
-      letter-spacing:0.35em;
+      font-size:.7rem;
+      letter-spacing:.35em;
       text-transform:uppercase;
-      opacity:0.9;
+      opacity:.9;
     }
 
     .hero-title{
@@ -131,23 +147,23 @@
     }
 
     .section{
-      width:92%;
       max-width:1100px;
+      width:92%;
       margin:70px auto;
     }
 
     .tile{
-      background:rgba(0,0,0,0.55);
-      border:1px solid rgba(255,255,255,0.2);
+      background:rgba(0,0,0,.55);
+      border:1px solid rgba(255,255,255,.2);
       border-radius:26px;
       padding:40px;
     }
 
     .slider{
       position:relative;
-      overflow:hidden;
-      border-radius:18px;
       height:520px;
+      border-radius:18px;
+      overflow:hidden;
     }
 
     .slider img{
@@ -161,7 +177,7 @@
       top:50%;
       transform:translateY(-50%);
       font-size:28px;
-      background:rgba(0,0,0,0.5);
+      background:rgba(0,0,0,.5);
       color:#fff;
       border:none;
       padding:10px 14px;
@@ -182,9 +198,9 @@
       text-align:center;
       margin:10px 0 22px;
       text-transform:uppercase;
-      letter-spacing:0.1em;
-      font-size:0.85rem;
-      color:rgba(255,255,255,0.7);
+      letter-spacing:.1em;
+      font-size:.85rem;
+      color:rgba(255,255,255,.7);
     }
 
     .stats{
@@ -196,18 +212,18 @@
     }
 
     .stat{
-      border:1px solid rgba(255,255,255,0.25);
+      border:1px solid rgba(255,255,255,.25);
       border-radius:999px;
       padding:8px 14px;
-      font-size:0.8rem;
-      letter-spacing:0.08em;
+      font-size:.8rem;
+      letter-spacing:.08em;
       text-transform:uppercase;
     }
 
     footer{
       text-align:center;
       padding:40px 0;
-      font-size:0.8rem;
+      font-size:.8rem;
       color:#aaa;
     }
   </style>
@@ -233,9 +249,9 @@
 
 <section id="hero">
   <div class="hero-inner">
-    <div class="hero-eyebrow">Propiedad</div>
-    <h1 class="hero-title">Nueva Propiedad</h1>
-    <p class="hero-sub">El Pescadero · Baja California Sur</p>
+    <div class="hero-eyebrow">Resort</div>
+    <h1 class="hero-title">Pescadero Resort</h1>
+    <p class="hero-sub">5 Bedrooms · 5 Bathrooms · El Pescadero</p>
   </div>
 </section>
 
@@ -251,22 +267,38 @@
 
 <section class="section">
   <div class="tile">
-    <h2 class="price">$XXX,000 USD</h2>
-    <p class="location">El Pescadero</p>
+    <h2 class="price">$1,650,000 USD</h2>
+    <p class="location">Resort · El Pescadero · Baja California Sur</p>
 
     <div class="stats">
-      <div class="stat">X Recámaras</div>
-      <div class="stat">X Baños</div>
-      <div class="stat">Vista al mar</div>
+      <div class="stat">5 Bedrooms</div>
+      <div class="stat">5 Bathrooms</div>
+      <div class="stat">Seller Financing</div>
+      <div class="stat">Steps from the Beach</div>
+      <div class="stat">Development Potential</div>
     </div>
 
-    <p>Descripción de la propiedad aquí.</p>
+    <p>
+      Seller financing available. This exceptional 2.4-acre (1-hectare) property in the heart of El Pescadero offers a rare opportunity for personal use, development, or investment.
+    </p>
+    <p>
+      Currently operating as a successful vacation resort with RV accommodations, Airbnb rentals, and expansive future potential.
+    </p>
+    <p>
+      Main house includes 2 bedrooms plus den, 2 bathrooms, kitchen, dining, living area, laundry, front porch, and rear patio with outdoor dining, kitchen, and BBQ.
+    </p>
+    <p>
+      Casita 1 offers 2 bedrooms, 2 bathrooms, kitchen, dining, living area, garage, and large patios.
+    </p>
+    <p>
+      Casita 2 is a 1-bedroom suite with large bathroom, kitchen, dining and living areas, located near the pool/hot tub with private sunset views.
+    </p>
   </div>
 </section>
 
 <footer>
   © 2025 · RE/MAX Kenneth<br>
-  Cada oficina es de propiedad y operación independiente
+  Each office independently owned and operated
 </footer>
 
 <script>
@@ -280,14 +312,14 @@
   document.addEventListener("click", () => document.body.classList.remove("menu-open"));
   menuPanel.onclick = e => e.stopPropagation();
 
-  const ORIGIN_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/";
+  const ORIGIN = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/";
 
   const FILES = [
+    "IMG_1075.jpeg",
     "IMG_1071.jpeg",
     "IMG_1072.jpeg",
     "IMG_1073.jpeg",
     "IMG_1074.jpeg",
-    "IMG_1075.jpeg",
     "IMG_1076.jpeg",
     "IMG_1077.jpeg",
     "IMG_1078.jpeg",
@@ -305,7 +337,7 @@
   const hero = document.getElementById("hero");
 
   function show(i){
-    const src = ORIGIN_A + FILES[i];
+    const src = ORIGIN + FILES[i];
     img.src = src;
     if(i === 0) hero.style.backgroundImage = `url('${src}')`;
   }
