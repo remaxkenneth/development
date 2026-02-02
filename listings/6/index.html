@@ -7,29 +7,404 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Casa Pacific Dream | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <title>Breathtaking Gavilán View | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Casa Pacific Dream — 3 Bedrooms · 2 Bathrooms · 1,211 m² lot · Gavilan Hills Ocean Views · $990,000 USD">
+  <meta name="description" content="Breathtaking Gavilán View — 3 Bedrooms · 2 Bathrooms · 1,500 m² lot · Ocean & Mountain Views · $990,000 USD">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
 
-  <meta property="og:title" content="Casa Pacific Dream – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="3 Bedrooms · 2 Bathrooms · 1,211 m² lot · Gavilan Hills Ocean Views · $990,000 USD">
-  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/hero.jpeg">
+  <!-- social preview uses the hero image -->
+  <meta property="og:title" content="Breathtaking Gavilán View – RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="3 Bedrooms · 2 Bathrooms · 1,500 m² lot · Ocean & Mountain Views · $990,000 USD">
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/6/IMG_1325.jpeg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remaxkenneth.com/listings/6/">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Casa Pacific Dream – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="3 Bedrooms · 2 Bathrooms · 1,211 m² lot · Gavilan Hills Ocean Views · $990,000 USD">
-  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/hero.jpeg">
+  <meta name="twitter:title" content="Breathtaking Gavilán View – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="3 Bedrooms · 2 Bathrooms · 1,500 m² lot · Ocean & Mountain Views · $990,000 USD">
+  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/6/IMG_1325.jpeg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/6/">
 
   <link rel="canonical" href="https://remaxkenneth.com/listings/6/">
 
   <style>
-    /* KEEPING YOUR ORIGINAL CSS EXACTLY */
-    /* (truncated here in explanation — your full CSS continues unchanged) */
+    :root{
+      --remax-blue:#003da5;
+      --remax-red:#e4002b;
+      --remax-dark-blue:#000E35;
+
+      --text-main:rgba(255,255,255,0.92);
+      --text-muted:rgba(255,255,255,0.72);
+
+      --glass-a: rgba(0,0,0,0.58);
+      --glass-b: rgba(255,255,255,0.10);
+      --glass-border: rgba(255,255,255,0.20);
+      --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
+      --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
+
+      --chip-bg: rgba(255,255,255,0.18);
+      --chip-border: rgba(255,255,255,0.22);
+
+      /* JS will replace this with an optimized CDN URL */
+      --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/6/IMG_1325.jpeg');
+    }
+
+    *{box-sizing:border-box;}
+    html,body{height:100%;}
+
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      background:#020409;
+      color:var(--text-main);
+      position:relative;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    /* LUX BACKGROUND TEXTURE (match index) */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+
+      background-image:
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'240'%20height%3D'240'%3E%3Cfilter%20id%3D'n'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'0.8'%20numOctaves%3D'2'%20stitchTiles%3D'stitch'/%3E%3C/filter%3E%3Crect%20width%3D'240'%20height%3D'240'%20filter%3D'url(%23n)'%20opacity%3D'0.10'/%3E%3C/svg%3E"),
+        repeating-linear-gradient(0deg, rgba(255,255,255,0.030) 0px, rgba(255,255,255,0.030) 1px, rgba(0,0,0,0) 7px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.020) 0px, rgba(255,255,255,0.020) 1px, rgba(0,0,0,0) 9px),
+        radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
+        radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), rgba(0,0,0,0) 62%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
+
+      background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
+      background-size: 280px 280px, auto, auto, auto, auto, auto;
+      background-position: 0 0, 0 0, 0 0, center, center, center;
+
+      opacity:0.95;
+    }
+
+    body > *{position:relative; z-index:1;}
+
+    a{text-decoration:none; color:inherit;}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      background:rgba(245,246,247,0.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid #e5e7eb;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:14px 5%;
+      position:relative;
+    }
+
+    .nav-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .nav-left a{
+      display:inline-flex;
+      align-items:center;
+      line-height:0;
+    }
+
+    .nav-left img{height:32px;}
+
+    .nav-left span{
+      font-size:1rem;
+      font-weight:700;
+      letter-spacing:0.12em;
+      color:#000;
+      text-transform:uppercase;
+    }
+
+    .menu-button{
+      font-size:30px;
+      cursor:pointer;
+      color:#000;
+      user-select:none;
+      line-height:1;
+    }
+
+    .menu-panel{
+      position:absolute;
+      right:18px;
+      top:64px;
+      background:rgba(255,255,255,0.80);
+      backdrop-filter:blur(20px);
+      border-radius:22px;
+      padding:22px;
+      min-width:190px;
+      box-shadow:0 18px 40px rgba(0,0,0,0.18);
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+
+      opacity:0;
+      pointer-events:none;
+      transform:scale(0.95);
+      transition:0.25s ease;
+      color:#000;
+    }
+
+    body.menu-open .menu-panel{
+      opacity:1;
+      pointer-events:auto;
+      transform:scale(1);
+    }
+
+    .menu-panel a{
+      color:#000;
+      font-size:14px;
+      letter-spacing:0.1em;
+      text-transform:uppercase;
+    }
+
+    /* HERO (match index vibe) */
+    #hero{
+      position:relative;
+      min-height:360px;
+      display:flex;
+      align-items:center;
+
+      background-color:#020409;
+      background-image:var(--hero-bg);
+      background-position:50% 55%;
+      background-size:cover;
+      background-repeat:no-repeat;
+
+      color:#fff;
+      overflow:hidden;
+    }
+
+    #hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(130deg, rgba(0,14,53,0.70), rgba(0,0,0,0.30));
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      max-width:1200px;
+      width:92%;
+      margin:auto;
+      padding:48px 0;
+      color:#fff;
+    }
+
+    .hero-eyebrow{
+      font-size:0.7rem;
+      letter-spacing:0.35em;
+      text-transform:uppercase;
+      color:#e5e7eb;
+      opacity:0.92;
+    }
+
+    .hero-title{
+      font-size:2.6rem;
+      margin:14px 0 0;
+      font-weight:600;
+      line-height:1.1;
+    }
+
+    .hero-sub{
+      margin-top:12px;
+      max-width:620px;
+      color:#e5e7eb;
+    }
+
+    .section{
+      max-width:1100px;
+      width:92%;
+      margin:70px auto;
+    }
+    .section:first-of-type{margin-top:40px;}
+
+    /* GLASS (match index) */
+    .tile{
+      background:linear-gradient(135deg, rgba(0,0,0,0.58), rgba(255,255,255,0.10));
+      border:1px solid rgba(255,255,255,0.20);
+      backdrop-filter: blur(20px) saturate(140%);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.10);
+      border-radius:26px;
+      padding:40px;
+    }
+
+    .tile.details{ padding-top:56px; }
+
+    /* SLIDER */
+    .slider{
+      position:relative;
+      border-radius:18px;
+      overflow:hidden;
+      background:rgba(0,0,0,0.35);
+      border:1px solid rgba(255,255,255,0.14);
+      height:520px;
+    }
+
+    .slider img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .arrow{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      background:rgba(0,0,0,0.45);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.14);
+      font-size:28px;
+      padding:10px 14px;
+      cursor:pointer;
+      border-radius:14px;
+      z-index:6;
+      transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
+      user-select:none;
+    }
+    .arrow:hover{transform:translateY(-50%) translateY(-1px); filter:brightness(1.05); background:rgba(0,0,0,0.52);}
+    .arrow:active{transform:translateY(-50%) scale(0.98);}
+
+    .arrow.left{ left:14px; }
+    .arrow.right{ right:14px; }
+
+    .loader{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,0.30);
+      z-index:5;
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.18s ease;
+    }
+    .loader.active{ opacity:1; }
+
+    .spinner{
+      width:48px;
+      height:48px;
+      border:4px solid rgba(255,255,255,0.32);
+      border-top-color:#fff;
+      border-radius:50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin{ to{ transform: rotate(360deg); } }
+
+    /* MOBILE: slider becomes 16:9 tile, not thin */
+    @media (max-width:768px){
+      .slider{
+        height:auto;
+        aspect-ratio:16 / 9;
+      }
+      .slider img{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+      }
+    }
+
+    .price{
+      font-size:2.2rem;
+      text-align:center;
+      margin:0;
+      font-weight:500;
+      color:rgba(255,255,255,0.92);
+    }
+
+    .location{
+      text-align:center;
+      margin:10px 0 22px;
+      color:rgba(255,255,255,0.72);
+      text-transform:uppercase;
+      letter-spacing:0.10em;
+      font-size:0.85rem;
+    }
+
+    .stats{
+      display:flex;
+      justify-content:center;
+      gap:18px;
+      flex-wrap:wrap;
+      margin:28px 0 34px;
+    }
+
+    .stat-pill{
+      background:rgba(255,255,255,0.18);
+      border:1px solid rgba(255,255,255,0.22);
+      color:rgba(255,255,255,0.92);
+      border-radius:999px;
+      padding:8px 14px;
+      font-size:0.8rem;
+      text-align:center;
+      white-space:normal;
+      word-break:break-word;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+      line-height:1.2;
+    }
+
+    @media (max-width:520px){
+      .stats{
+        display:grid !important;
+        grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+        gap:10px !important;
+        align-items:stretch !important;
+      }
+      .stat-pill{
+        width:100% !important;
+        display:flex !important;
+        align-items:center !important;
+        justify-content:center !important;
+        padding:10px 10px !important;
+        font-size:0.70rem !important;
+        letter-spacing:0.12em !important;
+        min-height:44px !important;
+      }
+      /* last pill becomes a full-width bar */
+      .stats .stat-pill:last-child{
+        grid-column:1 / -1 !important;
+      }
+    }
+
+    .description p{
+      line-height:1.7;
+      color:rgba(255,255,255,0.72);
+      margin:0 0 14px;
+    }
+    .description p:first-child{ color:rgba(255,255,255,0.92); }
+
+    footer{
+      text-align:center;
+      padding:40px 0;
+      font-size:0.8rem;
+      color:#aaa;
+    }
+
+    /* PHONE spacing match */
+    @media (max-width:600px){
+      .section{width:94%; margin:54px auto;}
+      .tile{padding:26px 20px; border-radius:22px;}
+      #hero{background-position:50% 60%;}
+    }
   </style>
 </head>
 
@@ -38,12 +413,14 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="../../index.html">
-        <img src="../../images/logo.png">
+      <a href="../../index.html" aria-label="Home">
+        <img src="../../images/logo.png" alt="RE/MAX">
       </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
+
     <div class="menu-button" id="menuButton">≡</div>
+
     <div class="menu-panel" id="menuPanel">
       <a href="../../index.html">Home</a>
       <a href="../../listings.html">Listings</a>
@@ -56,15 +433,18 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Property Listing</div>
-    <h1 class="hero-title">Casa Pacific Dream</h1>
-    <p class="hero-sub">3 Bedrooms · 2 Bathrooms · Gavilan Hills / Cerritos Beach</p>
+    <h1 class="hero-title">Breathtaking Gavilán View</h1>
+    <p class="hero-sub">3 Bedrooms · 2 Bathrooms · Gavilán Hills · Ocean & Mountain Views</p>
   </div>
 </section>
 
 <section class="section">
   <div class="tile">
     <div class="slider">
-      <img id="slideImage" src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/hero.jpeg">
+      <div class="loader" id="loader"><div class="spinner"></div></div>
+      <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
+      <img id="slideImage" alt="Breathtaking Gavilán View">
+      <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
     </div>
   </div>
 </section>
@@ -72,30 +452,26 @@
 <section class="section">
   <div class="tile details">
     <h2 class="price">$990,000 USD</h2>
-    <p class="location">Hilltop Ocean View Home · Gavilan Hills, Baja California Sur</p>
+    <p class="location">Residential Home · Baja California Sur, Mexico</p>
 
     <div class="stats">
       <span class="stat-pill">3 Bedrooms</span>
       <span class="stat-pill">2 Bathrooms</span>
-      <span class="stat-pill">1,211 m² Lot</span>
-      <span class="stat-pill">196 m² Interior</span>
-      <span class="stat-pill">Oceanview Pool</span>
-      <span class="stat-pill">Solar + CFE</span>
-      <span class="stat-pill">Garage & Workshop</span>
+      <span class="stat-pill">1,500 m² Lot</span>
+      <span class="stat-pill">Ocean View</span>
+      <span class="stat-pill">Office + Pool</span>
     </div>
 
     <div class="description">
       <p>
-        Casa Pacific Dream sits at the top of Gavilan Hills with unobstructed panoramic Pacific Ocean views,
-        valley views, and mountain vistas. One of the most dramatic hilltop perspectives in Cerritos.
+        Breathtaking Gavilán View is a stunning hillside home in Gavilán Hills, overlooking Pescadero and the sparkling Pacific.
+        Designed for comfortable full-time living or high-end rental potential, with incredible ocean and mountain views.
       </p>
       <p>
-        Open concept living flows to the outdoor terrace and oceanview pool. A main-floor bedroom supports
-        horizontal living while upstairs suites enjoy private terraces and full horizon views.
+        The home offers an open, airy layout with an office, terraces for sunset views, and thoughtful indoor-outdoor flow.
       </p>
       <p>
-        Solar support, garage/workshop space, desert landscaping, and expansion potential. Elevated for privacy,
-        breeze, and sunsets — minutes from the beach.
+        Utilities include CFE power, trucked water, and septic. Title is held in a fideicomiso with Banorte.
       </p>
     </div>
   </div>
@@ -103,12 +479,181 @@
 
 <footer>
   Curated locally. Updated often.<br>
-  © 2026 · RE/MAX Kenneth<br>
+  © 2025 · RE/MAX Kenneth<br>
   Each office independently owned and operated
 </footer>
 
 <script>
-  /* YOUR ORIGINAL JS SLIDER + MENU SCRIPT GOES HERE UNCHANGED */
+  // MENU
+  const menuBtn = document.getElementById("menuButton");
+  const menuPanel = document.getElementById("menuPanel");
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    document.body.classList.toggle("menu-open");
+  });
+
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
+  });
+
+  menuPanel.addEventListener("click", (e) => e.stopPropagation());
+
+  // IMAGE DELIVERY (AUTO-SIZED, NO PRELOAD) + dual-base fallback
+  // NOTE: you're storing these in /videos/6/ so we point there.
+  // If you ALSO have a non-videos /6/ folder, you can set ORIGIN_A to that.
+  // Otherwise leaving ORIGIN_A = ORIGIN_B is the safest "doesn't 404" option.
+  const ORIGIN_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/6/";
+  const ORIGIN_A = ORIGIN_B;
+
+  const FILES = [
+    "IMG_1325.jpeg", // HERO (also first slide)
+    "IMG_1326.jpeg",
+    "IMG_1327.jpeg",
+    "IMG_1328.jpeg",
+    "IMG_1329.jpeg",
+    "IMG_1330.jpeg"
+  ];
+
+  function pickWidth() {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const target = Math.ceil(Math.max(window.innerWidth, 900) * dpr);
+    if (target <= 900) return 900;
+    if (target <= 1400) return 1400;
+    return 2000;
+  }
+
+  function wsrvFromBase(base, filename, w = pickWidth(), q = 75, format = "webp") {
+    const origin = encodeURIComponent(base + filename);
+    return `https://wsrv.nl/?url=${origin}&w=${w}&q=${q}&output=${format}`;
+  }
+
+  function rawFromBase(base, filename) {
+    return base + filename;
+  }
+
+  function dualOptimized(filename, w = pickWidth(), format = "webp") {
+    return {
+      optA: wsrvFromBase(ORIGIN_A, filename, w, 75, format),
+      optB: wsrvFromBase(ORIGIN_B, filename, w, 75, format),
+      rawA: rawFromBase(ORIGIN_A, filename),
+      rawB: rawFromBase(ORIGIN_B, filename),
+    };
+  }
+
+  // HERO: optimized + fallback; keeps CSS fallback if all fails
+  (function setHeroBg(){
+    const heroW = Math.max(1400, pickWidth());
+    const hero = dualOptimized("IMG_1325.jpeg", heroW, "jpg");
+    const try1 = new Image();
+    try1.onload = () => {
+      document.documentElement.style.setProperty("--hero-bg", `url('${try1.src}')`);
+    };
+    try1.onerror = () => {
+      const try2 = new Image();
+      try2.onload = () => {
+        document.documentElement.style.setProperty("--hero-bg", `url('${try2.src}')`);
+      };
+      try2.onerror = () => {
+        // last resort: raw
+        document.documentElement.style.setProperty("--hero-bg", `url('${hero.rawA}')`);
+      };
+      try2.src = hero.optB;
+    };
+    try1.src = hero.optA;
+  })();
+
+  let index = 0;
+  const img = document.getElementById("slideImage");
+  const loader = document.getElementById("loader");
+
+  function show(i) {
+    loader.classList.add("active");
+
+    const filename = FILES[i];
+    const asset = dualOptimized(filename);
+
+    let done = false;
+    const finish = (src) => {
+      if (done) return;
+      done = true;
+      img.src = src;
+      loader.classList.remove("active");
+    };
+
+    const HANG_TIMEOUT_MS = 6000;
+    const hangTimer = setTimeout(() => finish(asset.rawA), HANG_TIMEOUT_MS);
+
+    const t1 = new Image();
+    t1.onload = () => { clearTimeout(hangTimer); finish(t1.src); };
+    t1.onerror = () => {
+      const t2 = new Image();
+      t2.onload = () => { clearTimeout(hangTimer); finish(t2.src); };
+      t2.onerror = () => {
+        // raw fallback chain
+        const r1 = new Image();
+        r1.onload = () => { clearTimeout(hangTimer); finish(r1.src); };
+        r1.onerror = () => {
+          const r2 = new Image();
+          r2.onload = () => { clearTimeout(hangTimer); finish(r2.src); };
+          r2.onerror = () => { clearTimeout(hangTimer); loader.classList.remove("active"); };
+          r2.src = asset.rawB;
+        };
+        r1.src = asset.rawA;
+      };
+      t2.src = asset.optB;
+    };
+    t1.src = asset.optA;
+  }
+
+  function next() {
+    index = (index + 1) % FILES.length;
+    show(index);
+  }
+
+  function prev() {
+    index = (index - 1 + FILES.length) % FILES.length;
+    show(index);
+  }
+
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
+
+  let startX = 0;
+  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+  img.addEventListener("touchend", (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) next();
+    if (diff < -50) prev();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
+
+  // resize: regenerate hero + reload current slide
+  let resizeTimer = null;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      const heroW = Math.max(1400, pickWidth());
+      const hero = dualOptimized("IMG_1325.jpeg", heroW, "jpg");
+      const try1 = new Image();
+      try1.onload = () => document.documentElement.style.setProperty("--hero-bg", `url('${try1.src}')`);
+      try1.onerror = () => {
+        const try2 = new Image();
+        try2.onload = () => document.documentElement.style.setProperty("--hero-bg", `url('${try2.src}')`);
+        try2.onerror = () => document.documentElement.style.setProperty("--hero-bg", `url('${hero.rawA}')`);
+        try2.src = hero.optB;
+      };
+      try1.src = hero.optA;
+
+      show(index);
+    }, 250);
+  });
+
+  show(index);
 </script>
 
 </body>
