@@ -59,19 +59,26 @@
       -webkit-tap-highlight-color:transparent;
     }
 
+    /* background (UPDATED: luxury texture stack from homepage) */
     body::before{
       content:"";
       position:fixed;
       inset:0;
       z-index:0;
       pointer-events:none;
+
       background-image:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.10'/%3E%3C/svg%3E"),
+        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'240'%20height%3D'240'%3E%3Cfilter%20id%3D'n'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'0.8'%20numOctaves%3D'2'%20stitchTiles%3D'stitch'/%3E%3C/filter%3E%3Crect%20width%3D'240'%20height%3D'240'%20filter%3D'url(%23n)'%20opacity%3D'0.10'/%3E%3C/svg%3E"),
         repeating-linear-gradient(0deg, rgba(255,255,255,0.030) 0px, rgba(255,255,255,0.030) 1px, rgba(0,0,0,0) 7px),
         repeating-linear-gradient(90deg, rgba(255,255,255,0.020) 0px, rgba(255,255,255,0.020) 1px, rgba(0,0,0,0) 9px),
         radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
         radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), rgba(0,0,0,0) 62%),
         linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
+
+      background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
+      background-size: 280px 280px, auto, auto, auto, auto, auto;
+      background-position: 0 0, 0 0, 0 0, center, center, center;
+
       opacity:0.95;
     }
 
@@ -79,6 +86,7 @@
     a{text-decoration:none; color:inherit;}
     img{max-width:100%; display:block;}
 
+    /* header */
     header{
       position:sticky;
       top:0;
@@ -134,6 +142,7 @@
       display:flex;
       flex-direction:column;
       gap:16px;
+
       opacity:0;
       pointer-events:none;
       transform:scale(0.95);
@@ -154,12 +163,18 @@
       color:#000;
     }
 
+    /* hero */
     #hero{
       position:relative;
       min-height:360px;
       display:flex;
       align-items:center;
-      background:url('/images/sunsetcerritos.jpeg') center/cover no-repeat;
+      background-color:#020409;
+      background-image:url('/images/sunsetcerritos.jpeg');
+      background-position:50% 55%;
+      background-size:cover;
+      background-repeat:no-repeat;
+      color:#fff;
       overflow:hidden;
     }
 
@@ -179,11 +194,33 @@
       padding:48px 0;
     }
 
+    .hero-eyebrow{
+      letter-spacing:0.35em;
+      font-size:0.7rem;
+      opacity:0.92;
+      text-transform:uppercase;
+      color:#e5e7eb;
+    }
+
+    .hero-title{
+      font-size:2.6rem;
+      margin:14px 0;
+      font-weight:600;
+      line-height:1.1;
+    }
+
+    .hero-sub{
+      max-width:560px;
+      color:#e5e7eb;
+    }
+
+    /* section */
     .section{
       max-width:1100px;
       width:92%;
       margin:70px auto;
     }
+    .section:first-of-type{margin-top:40px;}
 
     .tile{
       border-radius:26px;
@@ -194,12 +231,41 @@
       backdrop-filter: blur(20px) saturate(140%);
     }
 
+    .section-sub{
+      text-align:center;
+      color:var(--text-muted);
+      text-transform:uppercase;
+      font-size:0.8rem;
+      letter-spacing:0.22em;
+      margin:0 0 34px 0;
+    }
+
+    .divider{
+      height:1px;
+      width:min(860px, 92%);
+      margin:34px auto;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    }
+
+    /* GRID: desktop 3 cols, tablet 2 cols, phone 1 col */
     .grid{
       display:grid;
       grid-template-columns:repeat(3, minmax(0, 1fr));
       gap:32px;
+      justify-content:stretch;
+      align-items:start;
+    }
+    @media (max-width:1024px){
+      .grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:22px; }
+    }
+    @media (max-width:600px){
+      .grid{ grid-template-columns:1fr; gap:18px; }
+      .section{width:94%; margin:54px auto;}
+      .tile{padding:26px 20px; border-radius:22px;}
+      #hero{background-position:50% 60%;}
     }
 
+    /* cards */
     .card{
       display:block;
       border-radius:26px;
@@ -207,9 +273,43 @@
       background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
       border:1px solid var(--glass-border);
       box-shadow:var(--glass-shadow), var(--glass-inset);
+      backdrop-filter: blur(20px) saturate(140%);
+      transition:transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+      color:var(--text-main);
+    }
+    .card:hover{
+      transform:translateY(-2px);
+      box-shadow:0 26px 60px rgba(0,0,0,0.40), var(--glass-inset);
+    }
+    .card:active{transform:translateY(-1px); filter:brightness(1.04);}
+
+    .card img{
+      width:100%;
+      aspect-ratio:16 / 9;
+      height:auto;
+      object-fit:cover;
+      object-position:center center;
+      display:block;
+      border-bottom:1px solid rgba(255,255,255,0.14);
+    }
+    @supports not (aspect-ratio: 1 / 1){
+      .card img{height:240px;}
     }
 
-    .card-content{padding:30px 26px; text-align:center;}
+    .card-content{
+      padding:30px 26px;
+      text-align:center;
+      background:transparent;
+    }
+
+    .card h3{margin:0 0 10px; color:var(--text-main);}
+    .card p{
+      font-size:0.95rem;
+      color:var(--text-muted);
+      max-width:90%;
+      margin:0 auto;
+      line-height:1.4;
+    }
 
     footer{
       text-align:center;
@@ -225,10 +325,14 @@
 <header>
   <div class="nav">
     <div class="nav-left">
-      <a href="index.html"><img src="/images/logo.png"></a>
+      <a href="index.html" aria-label="Home">
+        <img src="/images/logo.png" alt="RE/MAX">
+      </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
+
     <div class="menu-button" id="menuButton">≡</div>
+
     <div class="menu-panel" id="menuPanel">
       <a href="index.html">Home</a>
       <a href="listings.html">Listings</a>
@@ -238,37 +342,96 @@
   </div>
 </header>
 
-<section class="section">
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Homes · Land · Investment</div>
+    <h1 class="hero-title">Listings</h1>
+    <p class="hero-sub">Curated for lifestyle, location, and value</p>
+  </div>
+</section>
+
+<section class="section" aria-label="Listings grid">
   <div class="tile">
+    <p class="section-sub">Curated for lifestyle, location, and value</p>
+
+    <!-- SORTED HIGH -> LOW -->
     <div class="grid">
-
-      <!-- existing -->
-      <a class="card" href="listings/cw/1/index.html">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg">
-        <div class="card-content"><h3>Pescadero Resort</h3></div>
-      </a>
-
-      <a class="card" href="listings/1/index.html">
-        <img src="/images/IMG_0795.jpeg">
-        <div class="card-content"><h3>Casa Sol y Luna</h3></div>
-      </a>
-
-      <!-- NEW TILE INSERTED -->
-      <a class="card" href="listings/6/index.html">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/hero.jpeg">
+      <a class="card" href="listings/cw/1/index.html" aria-label="Open Pescadero Resort listing">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg" alt="Pescadero Resort" loading="lazy" decoding="async">
         <div class="card-content">
-          <h3>Casa Pacific Dream</h3>
-          <p>House<br>$990,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Gavilan Hills · Cerritos</p>
+          <h3>Pescadero Resort</h3>
+          <p>Resort<br>$1,650,000 USD<br>5 Bedrooms · 5 Bathrooms<br>El Pescadero</p>
         </div>
       </a>
 
+      <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
+        <img src="/images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Casa Sol y Luna</h3>
+          <p>House<br>$1,300,000 USD<br>5 Bedrooms · 5 Bathrooms<br>El Pescadero · Gavilan</p>
+        </div>
+      </a>
+
+      <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
+        <img src="/images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Casa Vista</h3>
+          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>El Pescadero · Cerritos</p>
+        </div>
+      </a>
+
+      <!-- NEW LISTING: Breathtaking Gavilán View -->
+      <a class="card" href="listings/6/index.html" aria-label="Open Breathtaking Gavilán View listing">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1325.jpeg" alt="Breathtaking Gavilán View" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Breathtaking Gavilán View</h3>
+          <p>House<br>$990,000 USD<br>3 Bedrooms · 2 Bathrooms<br>El Pescadero · Gavilan</p>
+        </div>
+      </a>
+
+      <a class="card" href="listings/5/index.html" aria-label="Return to Home from Casa Costa">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg" alt="Casa Costa" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Casa Costa</h3>
+          <p>House<br>$610,000 USD<br>2 Bedrooms · 2 Bathrooms<br>El Pescadero · Cerritos</p>
+        </div>
+      </a>
+
+      <a class="card" href="listings/luna/villa/index.html" aria-label="Open Luna Villa listing">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg" alt="Luna Villa" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Luna Villa</h3>
+          <p>House<br>$399+ USD<br>3 Bedrooms · 2 Bath<br>El Pescadero</p>
+        </div>
+      </a>
+
+      <a class="card" href="listings/3/index.html" aria-label="Open Casa Lienzo C. Molusco listing">
+        <img src="/images/IMG_0797.png" alt="Casa Lienzo C. Molusco" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Casa Lienzo C. Molusco</h3>
+          <p>House<br>$395,000 USD<br>3 Bedrooms · 2 Bathrooms<br>Todos Santos · Las Tunas</p>
+        </div>
+      </a>
+    </div>
+
+    <div class="divider" role="separator" aria-hidden="true"></div>
+
+    <div class="grid">
+      <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
+        <img src="/images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
+        <div class="card-content">
+          <h3>Central Cerritos Lot</h3>
+          <p>Plot of Land<br>$265,000 USD<br>El Pescadero · Cerritos</p>
+        </div>
+      </a>
     </div>
   </div>
 </section>
 
 <footer>
   Curated locally. Updated often.<br>
-  © 2025 · RE/MAX Kenneth
+  © 2025 · RE/MAX Kenneth<br>
+  Each office independently owned and operated
 </footer>
 
 <script>
