@@ -16,14 +16,14 @@
   <!-- social preview uses the hero image -->
   <meta property="og:title" content="Breathtaking Gavilán View – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="3 Bedrooms · 2 Bathrooms · 1,500 m² lot · Ocean & Mountain Views · $990,000 USD">
-  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/6/IMG_1325.jpeg">
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1325.jpeg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remaxkenneth.com/listings/6/">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Breathtaking Gavilán View – RE/MAX Cabo Sanctuary">
   <meta name="twitter:description" content="3 Bedrooms · 2 Bathrooms · 1,500 m² lot · Ocean & Mountain Views · $990,000 USD">
-  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/6/IMG_1325.jpeg">
+  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1325.jpeg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/6/">
 
   <link rel="canonical" href="https://remaxkenneth.com/listings/6/">
@@ -47,7 +47,7 @@
       --chip-border: rgba(255,255,255,0.22);
 
       /* JS will replace this with an optimized CDN URL */
-      --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/6/IMG_1325.jpeg');
+      --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1325.jpeg');
     }
 
     *{box-sizing:border-box;}
@@ -234,10 +234,10 @@
 
     /* GLASS (match index) */
     .tile{
-      background:linear-gradient(135deg, rgba(0,0,0,0.58), rgba(255,255,255,0.10));
-      border:1px solid rgba(255,255,255,0.20);
+      background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
+      border:1px solid var(--glass-border);
       backdrop-filter: blur(20px) saturate(140%);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.34), inset 0 1px 0 rgba(255,255,255,0.10);
+      box-shadow:var(--glass-shadow), var(--glass-inset);
       border-radius:26px;
       padding:40px;
     }
@@ -326,13 +326,13 @@
       text-align:center;
       margin:0;
       font-weight:500;
-      color:rgba(255,255,255,0.92);
+      color:var(--text-main);
     }
 
     .location{
       text-align:center;
       margin:10px 0 22px;
-      color:rgba(255,255,255,0.72);
+      color:var(--text-muted);
       text-transform:uppercase;
       letter-spacing:0.10em;
       font-size:0.85rem;
@@ -347,9 +347,9 @@
     }
 
     .stat-pill{
-      background:rgba(255,255,255,0.18);
-      border:1px solid rgba(255,255,255,0.22);
-      color:rgba(255,255,255,0.92);
+      background:var(--chip-bg);
+      border:1px solid var(--chip-border);
+      color:var(--text-main);
       border-radius:999px;
       padding:8px 14px;
       font-size:0.8rem;
@@ -387,10 +387,10 @@
 
     .description p{
       line-height:1.7;
-      color:rgba(255,255,255,0.72);
+      color:var(--text-muted);
       margin:0 0 14px;
     }
-    .description p:first-child{ color:rgba(255,255,255,0.92); }
+    .description p:first-child{ color:var(--text-main); }
 
     footer{
       text-align:center;
@@ -459,19 +459,21 @@
       <span class="stat-pill">2 Bathrooms</span>
       <span class="stat-pill">1,500 m² Lot</span>
       <span class="stat-pill">Ocean View</span>
-      <span class="stat-pill">Office + Pool</span>
+      <span class="stat-pill">Mountain View</span>
+      <span class="stat-pill">Pool · Office · Garage</span>
     </div>
 
     <div class="description">
       <p>
-        Breathtaking Gavilán View is a stunning hillside home in Gavilán Hills, overlooking Pescadero and the sparkling Pacific.
-        Designed for comfortable full-time living or high-end rental potential, with incredible ocean and mountain views.
+        Breathtaking Gavilán View is a hillside home in Gavilán Hills with sweeping views over Pescadero and the Pacific.
+        A strong option for full-time living or premium rental potential, with ocean-and-mountain vistas that hit hard at sunset.
       </p>
       <p>
-        The home offers an open, airy layout with an office, terraces for sunset views, and thoughtful indoor-outdoor flow.
+        The layout includes an office, multiple terraces, and comfortable indoor-outdoor flow. Utilities include CFE power,
+        trucked water, and septic.
       </p>
       <p>
-        Utilities include CFE power, trucked water, and septic. Title is held in a fideicomiso with Banorte.
+        Title is held in a fideicomiso with Banorte.
       </p>
     </div>
   </div>
@@ -500,14 +502,11 @@
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
   // IMAGE DELIVERY (AUTO-SIZED, NO PRELOAD) + dual-base fallback
-  // NOTE: you're storing these in /videos/6/ so we point there.
-  // If you ALSO have a non-videos /6/ folder, you can set ORIGIN_A to that.
-  // Otherwise leaving ORIGIN_A = ORIGIN_B is the safest "doesn't 404" option.
+  const ORIGIN_A = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/";
   const ORIGIN_B = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/6/";
-  const ORIGIN_A = ORIGIN_B;
 
   const FILES = [
-    "IMG_1325.jpeg", // HERO (also first slide)
+    "IMG_1325.jpeg",
     "IMG_1326.jpeg",
     "IMG_1327.jpeg",
     "IMG_1328.jpeg",
