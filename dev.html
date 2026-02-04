@@ -9,7 +9,7 @@
 
   <title>Casa Pasific Dream | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Breathtaking Gavilán View — 3 Bedrooms · 2 Bathrooms · 1,500 m² lot · Ocean & Mountain Views · $990,000 USD">
+  <meta name="description" content="Casa Pasific Dream — 3 Bedrooms · 2 Bathrooms · 1,500 m² lot · Ocean & Mountain Views · $990,000 USD">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
 
@@ -46,7 +46,7 @@
       --chip-bg: rgba(255,255,255,0.18);
       --chip-border: rgba(255,255,255,0.22);
 
-      /* JS will replace this with an optimized CDN URL */
+      /* CSS fallback hero (JS will override with wsrv optimized) */
       --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1363.jpeg');
     }
 
@@ -86,7 +86,6 @@
     }
 
     body > *{position:relative; z-index:1;}
-
     a{text-decoration:none; color:inherit;}
 
     header{
@@ -433,7 +432,7 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Property Listing</div>
-    <h1 class="hero-title">Casa Pasific Dreams</h1>
+    <h1 class="hero-title">Casa Pasific Dream</h1>
     <p class="hero-sub">3 Bedrooms · 2 Bathrooms · Gavilán Hills · Ocean & Mountain Views</p>
   </div>
 </section>
@@ -443,7 +442,7 @@
     <div class="slider">
       <div class="loader" id="loader"><div class="spinner"></div></div>
       <button class="arrow left" id="prev" type="button" aria-label="Previous image">&#10094;</button>
-      <img id="slideImage" alt="Breathtaking Gavilán View">
+      <img id="slideImage" alt="Casa Pasific Dream photo">
       <button class="arrow right" id="next" type="button" aria-label="Next image">&#10095;</button>
     </div>
   </div>
@@ -464,7 +463,7 @@
 
     <div class="description">
       <p>
-        Perched high in Gavilán Hills, Breathtaking Gavilán View is a 3-bedroom residence with an office, dipping pool, and garage—
+        Perched high in Gavilán Hills, Casa Pasific Dream is a 3-bedroom residence with an office, dipping pool, and garage—
         positioned for sweeping ocean views over Pescadero Beach and the Pacific.
       </p>
       <p>
@@ -490,6 +489,10 @@
 </footer>
 
 <script>
+  // ======= SINGLE SOURCE OF TRUTH =======
+  // Change THIS one filename if you ever want a different hero.
+  const HERO_FILE = "IMG_1363.jpeg";
+
   // MENU
   const menuBtn = document.getElementById("menuButton");
   const menuPanel = document.getElementById("menuPanel");
@@ -552,9 +555,10 @@
   }
 
   // HERO: optimized + fallback; keeps CSS fallback if all fails
-  (function setHeroBg(){
+  function setHeroBg(){
     const heroW = Math.max(1400, pickWidth());
-    const hero = dualOptimized("IMG_1359.jpeg", heroW, "jpg");
+    const hero = dualOptimized(HERO_FILE, heroW, "jpg");
+
     const try1 = new Image();
     try1.onload = () => {
       document.documentElement.style.setProperty("--hero-bg", `url('${try1.src}')`);
@@ -571,7 +575,8 @@
       try2.src = hero.optB;
     };
     try1.src = hero.optA;
-  })();
+  }
+  setHeroBg();
 
   let index = 0;
   const img = document.getElementById("slideImage");
@@ -647,18 +652,7 @@
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-      const heroW = Math.max(1400, pickWidth());
-      const hero = dualOptimized("IMG_1359.jpeg", heroW, "jpg");
-      const try1 = new Image();
-      try1.onload = () => document.documentElement.style.setProperty("--hero-bg", `url('${try1.src}')`);
-      try1.onerror = () => {
-        const try2 = new Image();
-        try2.onload = () => document.documentElement.style.setProperty("--hero-bg", `url('${try2.src}')`);
-        try2.onerror = () => document.documentElement.style.setProperty("--hero-bg", `url('${hero.rawA}')`);
-        try2.src = hero.optB;
-      };
-      try1.src = hero.optA;
-
+      setHeroBg();
       show(index);
     }, 250);
   });
