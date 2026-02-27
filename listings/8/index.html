@@ -9,23 +9,23 @@
 
   <title>Gavilán Heights | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Gavilán Heights — 2,000 m² lot · Ocean &amp; mountain views · Build-ready land in Cerritos, Baja California Sur.">
+  <meta name="description" content="Gavilán Heights — 1,500 m² elevated homesite · Pacific ocean views · Sierra de la Laguna backdrop · Cerritos, Baja California Sur.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
   <link rel="canonical" href="https://remaxkenneth.com/listings/8/index.html">
 
-  <!-- OG / Twitter (use auto-generated JPG so shares load fast + compatible) -->
+  <!-- OG / Twitter -->
   <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Gavilán Heights – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="2,000 m² corner lot · Ocean &amp; mountain views · Cerritos, Baja California Sur">
+  <meta property="og:description" content="1,500 m² elevated homesite · Pacific views · Sierra de la Laguna backdrop · Cerritos, BCS">
   <meta property="og:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F8%2FDrone-Still_2026-02-19-21h54m21s967.jpeg&w=1200&q=80&output=jpg">
   <meta property="og:url" content="https://remaxkenneth.com/listings/8/index.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Gavilán Heights – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="2,000 m² corner lot · Ocean &amp; mountain views · Cerritos, Baja California Sur">
+  <meta name="twitter:description" content="1,500 m² elevated homesite · Pacific views · Sierra de la Laguna backdrop · Cerritos, BCS">
   <meta name="twitter:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F8%2FDrone-Still_2026-02-19-21h54m21s967.jpeg&w=1200&q=80&output=jpg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/8/index.html">
 
@@ -47,7 +47,6 @@
       --chip-bg: rgba(255,255,255,0.18);
       --chip-border: rgba(255,255,255,0.22);
 
-      /* JS will replace this with an optimized CDN URL */
       --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/8/Drone-Still_2026-02-19-21h54m21s967.jpeg');
     }
 
@@ -111,12 +110,7 @@
       gap:10px;
     }
 
-    .nav-left a{
-      display:inline-flex;
-      align-items:center;
-      line-height:0;
-    }
-
+    .nav-left a{display:inline-flex; align-items:center; line-height:0;}
     .nav-left img{height:32px;}
 
     .nav-left span{
@@ -169,17 +163,18 @@
       text-transform:uppercase;
     }
 
-    /* HERO */
     #hero{
       position:relative;
       min-height:360px;
       display:flex;
       align-items:center;
+
       background-color:#020409;
       background-image:var(--hero-bg);
       background-position:50% 55%;
       background-size:cover;
       background-repeat:no-repeat;
+
       color:#fff;
       overflow:hidden;
     }
@@ -268,11 +263,9 @@
       cursor:pointer;
       border-radius:14px;
       z-index:6;
-      transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
       user-select:none;
     }
-    .arrow:hover{transform:translateY(-50%) translateY(-1px); filter:brightness(1.05); background:rgba(0,0,0,0.52);}
-    .arrow:active{transform:translateY(-50%) scale(0.98);}
+
     .arrow.left{ left:14px; }
     .arrow.right{ right:14px; }
 
@@ -338,8 +331,6 @@
       padding:8px 14px;
       font-size:0.8rem;
       text-align:center;
-      white-space:normal;
-      word-break:break-word;
       letter-spacing:0.08em;
       text-transform:uppercase;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
@@ -350,20 +341,10 @@
         display:grid !important;
         grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
         gap:10px !important;
-        align-items:stretch !important;
       }
-      .stat-pill{
-        width:100% !important;
-        display:flex !important;
-        align-items:center !important;
-        justify-content:center !important;
-        padding:10px 10px !important;
-        font-size:0.70rem !important;
-        letter-spacing:0.12em !important;
-        line-height:1.2 !important;
-        min-height:44px !important;
+      .stats .stat-pill:last-child{
+        grid-column:1 / -1 !important;
       }
-      .stats .stat-pill:last-child{ grid-column:1 / -1 !important; }
     }
 
     .description p{
@@ -378,12 +359,6 @@
       padding:40px 0;
       font-size:0.8rem;
       color:#aaa;
-    }
-
-    @media (max-width:600px){
-      .section{width:94%; margin:54px auto;}
-      .tile{padding:26px 20px; border-radius:22px;}
-      #hero{background-position:50% 60%;}
     }
   </style>
 </head>
@@ -414,7 +389,7 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Land Listing</div>
     <h1 class="hero-title">Gavilán Heights</h1>
-    <p class="hero-sub">2,000 m² · Ocean &amp; Mountain Views · Build-Ready Land in Cerritos</p>
+    <p class="hero-sub">1,500 m² · Pacific Ocean Views · Sierra de la Laguna Backdrop · Cerritos</p>
   </div>
 </section>
 
@@ -435,25 +410,21 @@
     <p class="location">Land · Baja California Sur, Mexico</p>
 
     <div class="stats">
-      <span class="stat-pill">2,000 m² Lot</span>
-      <span class="stat-pill">Corner Lot</span>
-      <span class="stat-pill">Ocean Views</span>
-      <span class="stat-pill">Mountain Views</span>
-      <span class="stat-pill">Ready to Build</span>
+      <span class="stat-pill">1,500 m² Lot</span>
+      <span class="stat-pill">Pacific Ocean Views</span>
+      <span class="stat-pill">Mountain Backdrop</span>
+      <span class="stat-pill">Established Neighborhood</span>
+      <span class="stat-pill">Residential Lot</span>
     </div>
 
     <div class="description">
       <p>
-        Prime corner lot in Cerritos with wide-open ocean and mountain views — the kind of canvas you buy
-        when you want your future build to hit hard from day one.
+        This elevated homesite with Pacific views and Sierra de la Laguna backdrop sits above the coastline
+        in an established neighborhood with modern homes nearby.
       </p>
       <p>
-        With 2,000 m² to work with, you’ve got room for a proper design: clean lines, outdoor living,
-        and that elevated Baja vibe that actually feels like Baja (not a cookie-cutter box).
-      </p>
-      <p>
-        Close to the Cerritos surf zone and the Pescadero/Todos Santos corridor, this is build-ready land
-        in one of the most desirable coastal pockets in Baja California Sur.
+        Build one level or two — a second story captures a wider ocean panorama. Easy access and room for a
+        serious modern build.
       </p>
     </div>
   </div>
@@ -504,7 +475,6 @@
   function pickWidth() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     const target = Math.ceil(Math.max(window.innerWidth, 900) * dpr);
-
     if (target <= 900) return 900;
     if (target <= 1400) return 1400;
     return 2000;
@@ -515,29 +485,25 @@
     return `https://wsrv.nl/?url=${origin}&w=${w}&q=75&output=${format}`;
   }
 
-  // Set hero background once (optimized) — chosen hero image (s967)
   (function setHeroBg(){
     const heroW = Math.max(1400, pickWidth());
     const heroUrl = optimizedUrl("Drone-Still_2026-02-19-21h54m21s967.jpeg", heroW, "jpg");
     document.documentElement.style.setProperty("--hero-bg", `url('${heroUrl}')`);
   })();
 
-  // Slider URLs (optimized)
   let images = FILES.map((f) => optimizedUrl(f));
-
   let index = 0;
+
   const img = document.getElementById("slideImage");
   const loader = document.getElementById("loader");
 
   function show(i, direction = 1, attempts = 0) {
     loader.classList.add("active");
-
     const temp = new Image();
     temp.onload = () => {
       img.src = temp.src;
       loader.classList.remove("active");
     };
-
     temp.onerror = () => {
       if (attempts < images.length - 1) {
         const nextIndex = (i + direction + images.length) % images.length;
@@ -547,7 +513,6 @@
       }
       loader.classList.remove("active");
     };
-
     temp.src = images[i];
   }
 
@@ -555,7 +520,6 @@
     index = (index + 1) % images.length;
     show(index, 1);
   }
-
   function prev() {
     index = (index - 1 + images.length) % images.length;
     show(index, -1);
@@ -565,10 +529,7 @@
   document.getElementById("prev").addEventListener("click", prev);
 
   let startX = 0;
-  img.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-  }, { passive: true });
-
+  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive:true });
   img.addEventListener("touchend", (e) => {
     const diff = startX - e.changedTouches[0].clientX;
     if (diff > 50) next();
@@ -580,7 +541,6 @@
     if (e.key === "ArrowLeft") prev();
   });
 
-  // Resize: regenerate optimized URLs
   let resizeTimer = null;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
