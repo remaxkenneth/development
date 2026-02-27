@@ -9,23 +9,22 @@
 
   <title>Gavilán Heights | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Gavilán Heights — 1,500 m² elevated homesite · Pacific ocean views · Sierra de la Laguna backdrop · Cerritos, Baja California Sur.">
+  <meta name="description" content="Gavilán Heights — 1,500 m² elevated homesite · Pacific ocean views · Established neighborhood · CFE power within ~1 meter.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
   <link rel="canonical" href="https://remaxkenneth.com/listings/8/index.html">
 
-  <!-- OG / Twitter -->
   <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Gavilán Heights – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="1,500 m² elevated homesite · Pacific views · Sierra de la Laguna backdrop · Cerritos, BCS">
+  <meta property="og:description" content="1,500 m² elevated homesite · Pacific views · Established neighborhood · CFE power within ~1 meter">
   <meta property="og:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F8%2FDrone-Still_2026-02-19-21h54m21s967.jpeg&w=1200&q=80&output=jpg">
   <meta property="og:url" content="https://remaxkenneth.com/listings/8/index.html">
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Gavilán Heights – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="1,500 m² elevated homesite · Pacific views · Sierra de la Laguna backdrop · Cerritos, BCS">
+  <meta name="twitter:description" content="1,500 m² elevated homesite · Pacific views · Established neighborhood · CFE power within ~1 meter">
   <meta name="twitter:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F8%2FDrone-Still_2026-02-19-21h54m21s967.jpeg&w=1200&q=80&output=jpg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/8/index.html">
 
@@ -334,6 +333,8 @@
       letter-spacing:0.08em;
       text-transform:uppercase;
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.10);
+      white-space:normal;
+      word-break:break-word;
     }
 
     @media (max-width:520px){
@@ -359,6 +360,12 @@
       padding:40px 0;
       font-size:0.8rem;
       color:#aaa;
+    }
+
+    @media (max-width:600px){
+      .section{width:94%; margin:54px auto;}
+      .tile{padding:26px 20px; border-radius:22px;}
+      #hero{background-position:50% 60%;}
     }
   </style>
 </head>
@@ -389,7 +396,7 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Land Listing</div>
     <h1 class="hero-title">Gavilán Heights</h1>
-    <p class="hero-sub">1,500 m² · Pacific Ocean Views · Sierra de la Laguna Backdrop · Cerritos</p>
+    <p class="hero-sub">1,500 m² · Pacific Ocean Views · Established Neighborhood · Cerritos</p>
   </div>
 </section>
 
@@ -412,19 +419,19 @@
     <div class="stats">
       <span class="stat-pill">1,500 m² Lot</span>
       <span class="stat-pill">Pacific Ocean Views</span>
-      <span class="stat-pill">Mountain Backdrop</span>
       <span class="stat-pill">Established Neighborhood</span>
       <span class="stat-pill">Residential Lot</span>
+      <span class="stat-pill">CFE Power Within ~1 Meter</span>
     </div>
 
     <div class="description">
       <p>
-        This elevated homesite with Pacific views and Sierra de la Laguna backdrop sits above the coastline
-        in an established neighborhood with modern homes nearby.
+        This elevated homesite with Pacific views sits above the coastline in an established neighborhood
+        with modern homes nearby.
       </p>
       <p>
-        Build one level or two — a second story captures a wider ocean panorama. Easy access and room for a
-        serious modern build.
+        Build one level or two — a second story captures a wider ocean panorama. CFE electricity is within
+        approximately one meter of the property line, keeping your utility hookup simple.
       </p>
     </div>
   </div>
@@ -500,10 +507,12 @@
   function show(i, direction = 1, attempts = 0) {
     loader.classList.add("active");
     const temp = new Image();
+
     temp.onload = () => {
       img.src = temp.src;
       loader.classList.remove("active");
     };
+
     temp.onerror = () => {
       if (attempts < images.length - 1) {
         const nextIndex = (i + direction + images.length) % images.length;
@@ -513,6 +522,7 @@
       }
       loader.classList.remove("active");
     };
+
     temp.src = images[i];
   }
 
@@ -520,6 +530,7 @@
     index = (index + 1) % images.length;
     show(index, 1);
   }
+
   function prev() {
     index = (index - 1 + images.length) % images.length;
     show(index, -1);
@@ -529,7 +540,10 @@
   document.getElementById("prev").addEventListener("click", prev);
 
   let startX = 0;
-  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive:true });
+  img.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
   img.addEventListener("touchend", (e) => {
     const diff = startX - e.changedTouches[0].clientX;
     if (diff > 50) next();
