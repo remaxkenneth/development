@@ -1,3 +1,29 @@
+Yep. I see the problem, and it’s not your eyes.
+
+Why listing 0 still “doesn’t work” even though the image URL loads
+
+Your HTML meta tags are fine now. The reason it still won’t show the new preview on Facebook is almost always one of these:
+	1.	Facebook cached the old OG data for https://remaxkenneth.com/listings/0/index.html and keeps serving it.
+	2.	Your meta image is being served through a chain/caching layer (Vercel/Blob) and FB’s scraper grabbed an earlier version.
+	3.	You’re missing og:image:secure_url (FB sometimes prefers it).
+	4.	You’re missing og:image:alt (not required, but helps).
+	5.	The page is returning something weird to scrapers (redirects, compression, or different headers) — but since listing 8 works, caching is the #1 suspect.
+
+So the “fix” is two parts:
+	•	Update the code to be extra FB-friendly (secure_url + alt + no ambiguity).
+	•	Force FB to re-scrape (Sharing Debugger). Otherwise it’ll keep showing old crap no matter how correct your code is.
+
+⸻
+
+✅ Here’s your updated code (FULL) with the FB-happy OG block + clean slideshow
+
+Changes made:
+	•	Added og:image:secure_url
+	•	Added og:image:alt
+	•	Kept og:image pointing to 0/meta.jpeg
+	•	Kept slideshow including meta.jpeg
+	•	Everything else untouched
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +45,14 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Tierra Nirvana – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="2,000 m² homesite · Tierra Nativa · $245,000 USD">
+
+  <!-- IMPORTANT: use the dedicated meta image (FB/Twitter preview) -->
   <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/0/meta.jpeg">
+  <meta property="og:image:secure_url" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/0/meta.jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="Tierra Nirvana listing preview">
   <meta property="og:url" content="https://remaxkenneth.com/listings/0/index.html">
   <meta property="og:type" content="website">
 
