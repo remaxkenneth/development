@@ -199,7 +199,6 @@ body.menu-open .menu-panel{
   background-color:#020409;
   background-image:url('images/sunsetcerritos.jpeg');
 
-  /* FIX: stop bottom getting eaten; even-ish top/bottom crop */
   background-position:50% 55%;
   background-size:cover;
   background-repeat:no-repeat;
@@ -244,14 +243,14 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA (DESKTOP/TABLET) — smaller, tighter, less empty side space */
+/* HERO CTA (DESKTOP/TABLET) */
 .hero-cta{
   position:absolute;
   top:48px;
   right:14px;
   z-index:3;
 
-  width:240px;            /* tighter footprint */
+  width:240px;
   max-width:90vw;
 
   display:flex;
@@ -260,17 +259,17 @@ body.menu-open .menu-panel{
   align-items:center;
 
   border-radius:18px;
-  padding:10px 10px;      /* less dead space */
+  padding:10px 10px;
 
   border-color:rgba(255,255,255,0.18);
   box-shadow:0 18px 50px rgba(0,0,0,0.36), inset 0 1px 0 rgba(255,255,255,0.10);
 
-  transform:none;         /* stop “scaled big card” look */
+  transform:none;
   text-align:center;
 }
 
 .cta-avatar{
-  width:56px;             /* smaller */
+  width:56px;
   height:56px;
   border-radius:999px;
   overflow:hidden;
@@ -288,7 +287,7 @@ body.menu-open .menu-panel{
 
 .cta-copy{min-width:0; text-align:center; width:100%;}
 .cta-kicker{
-  font-size:0.56rem;      /* tighter */
+  font-size:0.56rem;
   letter-spacing:0.22em;
   text-transform:uppercase;
   color:rgba(255,255,255,0.82);
@@ -296,7 +295,7 @@ body.menu-open .menu-panel{
   font-weight:800;
 }
 .cta-name{
-  font-size:0.90rem;      /* tighter */
+  font-size:0.90rem;
   letter-spacing:0.07em;
   text-transform:uppercase;
   font-weight:800;
@@ -314,9 +313,9 @@ body.menu-open .menu-panel{
 
 .btn{
   display:inline-block;
-  padding:9px 12px;       /* slightly smaller */
+  padding:9px 12px;
   border-radius:999px;
-  font-size:0.60rem;      /* slightly smaller */
+  font-size:0.60rem;
   letter-spacing:0.16em;
   text-transform:uppercase;
   transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
@@ -429,7 +428,6 @@ a.tile{display:block; cursor:pointer;}
 }
 .card:active{transform:translateY(-1px); filter:brightness(1.04);}
 
-/* LANDSCAPE LOOK FOR ALL CARD IMAGES (16:9 like video/featured) */
 .card img{
   width:100%;
   aspect-ratio:16 / 9;
@@ -440,7 +438,6 @@ a.tile{display:block; cursor:pointer;}
   border-bottom:1px solid rgba(255,255,255,0.14);
 }
 
-/* fallback if aspect-ratio isn't supported */
 @supports not (aspect-ratio: 1 / 1){
   .card img{height:240px;}
 }
@@ -481,7 +478,6 @@ a.tile{display:block; cursor:pointer;}
 }
 .cta-tile a{display:block;}
 
-/* CTA image auto-resizes to fit its own text/title (no cropping) */
 .cta-tile img{
   width:100%;
   height:auto;
@@ -533,7 +529,6 @@ a.tile{display:block; cursor:pointer;}
   background:rgba(0,0,0,0.25);
 }
 
-/* already fixed: no zoom */
 .agent-avatar img{
   width:100%;
   height:100%;
@@ -567,7 +562,6 @@ footer{
   .grid-cta-wrap{margin-top:18px;}
   .cta-tile{width:100%;}
 
-  /* Featured property: match video 16:9 */
   .featured-main{
     position:relative;
     width:100%;
@@ -585,12 +579,10 @@ footer{
     border-radius:0;
   }
 
-  /* HERO: nudge a hair more down on phones */
   #hero{
     background-position:50% 60%;
   }
 
-  /* HERO CTA on mobile (still stacked + centered) */
   .hero-cta{
     top:72px;
     right:calc(env(safe-area-inset-right, 0px) + 6px);
@@ -664,6 +656,14 @@ footer{
     margin-right:auto;
   }
 }
+
+/* SWAP (match listings page behavior) */
+.swap-text{
+  display:inline-block;
+  transition:opacity 220ms ease;
+  opacity:1;
+}
+.swap-text.is-fading{ opacity:0; }
 </style>
 </head>
 
@@ -746,7 +746,10 @@ footer{
         <h3 style="margin-top:0; color: var(--text-main);">Casa Sol y Luna · Gavilan</h3>
 
         <div style="color:var(--text-muted); font-weight:700; letter-spacing:0.08em; margin:10px 0 14px; text-transform:uppercase;">
-          $1,300,000 USD · FINANCING AVAILABLE
+          <span class="swap-text"
+                data-a="$1,300,000 USD"
+                data-b="FINANCING AVAILABLE"
+                data-interval="2200">$1,300,000 USD</span>
         </div>
 
         <p style="color:var(--text-muted); line-height:1.55;">
@@ -792,7 +795,6 @@ footer{
 
   </div>
 </section>
-
 
 <section class="section" id="agent">
   <div class="tile">
@@ -844,6 +846,25 @@ footer{
   });
 
   panel.addEventListener("click", e => e.stopPropagation());
+
+  const swaps = document.querySelectorAll(".swap-text");
+  swaps.forEach((el) => {
+    const a = el.getAttribute("data-a") || "";
+    const b = el.getAttribute("data-b") || "";
+    const interval = parseInt(el.getAttribute("data-interval") || "2200", 10);
+
+    let state = 0;
+    el.textContent = a;
+
+    setInterval(() => {
+      el.classList.add("is-fading");
+      setTimeout(() => {
+        state = (state + 1) % 2;
+        el.textContent = state === 0 ? a : b;
+        el.classList.remove("is-fading");
+      }, 230);
+    }, interval);
+  });
 })();
 </script>
 
