@@ -4,19 +4,20 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+  <link rel="preload" as="image" href="/images/sunsetcerritos.jpeg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Listings | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <title>Listings | Kenneth Gehlhoff | RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Homes, land, and investments across Baja Sur. Curated listings from Kenneth Gehlhoff – RE/MAX Cabo Sanctuary.">
+  <meta name="description" content="Homes, land, and investments across Baja Sur. Curated listings from Kenneth Gehlhoff | RE/MAX Cabo Sanctuary.">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
   <link rel="canonical" href="https://remaxkenneth.com/listings.html">
 
-  <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+  <meta property="og:site_name" content="Kenneth Gehlhoff | RE/MAX Cabo Sanctuary">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
+  <meta property="og:title" content="Baja Listings | RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
   <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta property="og:image:width" content="1200">
@@ -26,7 +27,7 @@
   <meta property="og:type" content="website">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Baja Listings – RE/MAX Cabo Sanctuary">
+  <meta name="twitter:title" content="Baja Listings | RE/MAX Cabo Sanctuary">
   <meta name="twitter:description" content="Homes, land, and investments across Baja Sur.">
   <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings.html">
@@ -216,7 +217,10 @@
       width:92%;
       margin:70px auto;
     }
-    .section:first-of-type{margin-top:40px;}
+
+    .section:first-of-type{
+      margin-top:40px;
+    }
 
     .tile{
       border-radius:26px;
@@ -250,14 +254,33 @@
       justify-content:stretch;
       align-items:start;
     }
+
     @media (max-width:1024px){
-      .grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:22px; }
+      .grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:22px;
+      }
     }
+
     @media (max-width:600px){
-      .grid{ grid-template-columns:1fr; gap:18px; }
-      .section{width:94%; margin:54px auto;}
-      .tile{padding:26px 20px; border-radius:22px;}
-      #hero{background-position:50% 60%;}
+      .grid{
+        grid-template-columns:1fr;
+        gap:18px;
+      }
+
+      .section{
+        width:94%;
+        margin:54px auto;
+      }
+
+      .tile{
+        padding:26px 20px;
+        border-radius:22px;
+      }
+
+      #hero{
+        background-position:50% 60%;
+      }
     }
 
     .card{
@@ -271,11 +294,16 @@
       transition:transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
       color:var(--text-main);
     }
+
     .card:hover{
       transform:translateY(-2px);
       box-shadow:0 26px 60px rgba(0,0,0,0.40), var(--glass-inset);
     }
-    .card:active{transform:translateY(-1px); filter:brightness(1.04);}
+
+    .card:active{
+      transform:translateY(-1px);
+      filter:brightness(1.04);
+    }
 
     .card img{
       width:100%;
@@ -286,8 +314,11 @@
       display:block;
       border-bottom:1px solid rgba(255,255,255,0.14);
     }
+
     @supports not (aspect-ratio: 1 / 1){
-      .card img{height:240px;}
+      .card img{
+        height:240px;
+      }
     }
 
     .card-content{
@@ -296,7 +327,11 @@
       background:transparent;
     }
 
-    .card h3{margin:0 0 10px; color:var(--text-main);}
+    .card h3{
+      margin:0 0 10px;
+      color:var(--text-main);
+    }
+
     .card p{
       font-size:0.95rem;
       color:var(--text-muted);
@@ -307,10 +342,26 @@
 
     .swap-text{
       display:inline-block;
-      transition:opacity 220ms ease;
       opacity:1;
+      color:inherit;
+      font-weight:inherit;
+      font-size:inherit;
+      line-height:inherit;
+      letter-spacing:inherit;
+      transition:opacity 320ms ease;
     }
-    .swap-text.is-fading{ opacity:0; }
+
+    .swap-text.is-fading{
+      opacity:0;
+    }
+
+    .swap-text.alt-state{
+      color:inherit;
+      font-weight:inherit;
+      font-size:inherit;
+      line-height:inherit;
+      letter-spacing:inherit;
+    }
 
     footer{
       text-align:center;
@@ -355,7 +406,6 @@
   <div class="tile">
     <p class="section-sub">Curated for lifestyle, location, and value</p>
 
-    <!-- HOUSES (SORTED HIGH -> LOW) -->
     <div class="grid">
       <a class="card" href="listings/cw/1/index.html" aria-label="Open Pescadero Resort listing">
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg" alt="Pescadero Resort" loading="lazy" decoding="async">
@@ -382,7 +432,7 @@
       </a>
 
       <a class="card" href="listings/6/index.html" aria-label="Open Casa Pacific Dream listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1363.jpeg" alt="Casa Pasific Dream" loading="lazy" decoding="async">
+        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1363.jpeg" alt="Casa Pacific Dream" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Pacific Dream</h3>
           <p>
@@ -401,11 +451,19 @@
         <img src="/images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Vista</h3>
-          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>El Pescadero · Cerritos</p>
+          <p>
+            House<br>
+            <span class="swap-text"
+                  data-a="$650,000 USD"
+                  data-b="New Price"
+                  data-interval="2600">$650,000 USD</span><br>
+            5 Bedrooms · 4 Bathrooms<br>
+            El Pescadero · Cerritos
+          </p>
         </div>
       </a>
 
-      <a class="card" href="listings/5/index.html" aria-label="Return to Home from Casa Costa">
+      <a class="card" href="listings/5/index.html" aria-label="Open Casa Costa listing">
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg" alt="Casa Costa" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Costa</h3>
@@ -425,14 +483,13 @@
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg" alt="Luna Villa" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Luna Villa</h3>
-          <p>House<br>$399,000 USD<br>3 Bedrooms · 2 Bath<br>El Pescadero · El Centro</p>
+          <p>House<br>$399,000 USD<br>3 Bedrooms · 2 Bathrooms<br>El Pescadero · El Centro</p>
         </div>
       </a>
     </div>
 
     <div class="divider" role="separator" aria-hidden="true"></div>
 
-    <!-- LOTS (SORTED HIGH -> LOW) -->
     <div class="grid">
       <a class="card" href="listings/8/index.html" aria-label="Open Gavilán Heights listing">
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/8/Drone-Still_2026-02-19-21h54m21s967.jpeg" alt="Gavilán Heights" loading="lazy" decoding="async">
@@ -457,7 +514,6 @@
         </div>
       </a>
 
-      <!-- NEW: TIERRA NIRVANA -->
       <a class="card" href="listings/0/index.html" aria-label="Open Tierra Nirvana listing">
         <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/0/Drone-Still_2026-02-19-21h15m37s316.jpeg" alt="Tierra Nirvana" loading="lazy" decoding="async">
         <div class="card-content">
@@ -479,7 +535,7 @@
 
 <footer>
   Curated locally. Updated often.<br>
-  © 2026 · RE/MAX Kenneth<br>
+  © 2026 Kenneth Gehlhoff | RE/MAX Cabo Sanctuary<br>
   Each office independently owned and operated
 </footer>
 
@@ -500,21 +556,26 @@
   panel.addEventListener("click", (e) => e.stopPropagation());
 
   const swaps = document.querySelectorAll(".swap-text");
+
   swaps.forEach((el) => {
     const a = el.getAttribute("data-a") || "";
     const b = el.getAttribute("data-b") || "";
     const interval = parseInt(el.getAttribute("data-interval") || "2200", 10);
+    const fadeDuration = 320;
 
-    let state = 0;
+    let showingA = true;
     el.textContent = a;
+    el.classList.remove("alt-state");
 
     setInterval(() => {
       el.classList.add("is-fading");
+
       setTimeout(() => {
-        state = (state + 1) % 2;
-        el.textContent = state === 0 ? a : b;
+        showingA = !showingA;
+        el.textContent = showingA ? a : b;
+        el.classList.toggle("alt-state", !showingA);
         el.classList.remove("is-fading");
-      }, 230);
+      }, fadeDuration);
     }, interval);
   });
 })();
