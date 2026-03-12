@@ -251,9 +251,11 @@
       justify-content:stretch;
       align-items:start;
     }
+
     @media (max-width:1024px){
       .grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:22px; }
     }
+
     @media (max-width:600px){
       .grid{ grid-template-columns:1fr; gap:18px; }
       .section{width:94%; margin:54px auto;}
@@ -272,11 +274,16 @@
       transition:transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
       color:var(--text-main);
     }
+
     .card:hover{
       transform:translateY(-2px);
       box-shadow:0 26px 60px rgba(0,0,0,0.40), var(--glass-inset);
     }
-    .card:active{transform:translateY(-1px); filter:brightness(1.04);}
+
+    .card:active{
+      transform:translateY(-1px);
+      filter:brightness(1.04);
+    }
 
     .card img{
       width:100%;
@@ -287,6 +294,7 @@
       display:block;
       border-bottom:1px solid rgba(255,255,255,0.14);
     }
+
     @supports not (aspect-ratio: 1 / 1){
       .card img{height:240px;}
     }
@@ -297,7 +305,11 @@
       background:transparent;
     }
 
-    .card h3{margin:0 0 10px; color:var(--text-main);}
+    .card h3{
+      margin:0 0 10px;
+      color:var(--text-main);
+    }
+
     .card p{
       font-size:0.95rem;
       color:var(--text-muted);
@@ -308,14 +320,19 @@
 
     .swap-text{
       display:inline-block;
-      transition:opacity 220ms ease, color 220ms ease;
+      color:var(--text-main);
+      font-weight:600;
       opacity:1;
+      transition:opacity 320ms ease, font-weight 320ms ease;
     }
 
-    .swap-text.is-fading{ opacity:0; }
+    .swap-text.is-fading{
+      opacity:0;
+    }
 
     .swap-text.alt-state{
-      color:var(--remax-red);
+      color:var(--text-main);
+      font-weight:700;
     }
 
     footer{
@@ -511,24 +528,26 @@
   panel.addEventListener("click", (e) => e.stopPropagation());
 
   const swaps = document.querySelectorAll(".swap-text");
+
   swaps.forEach((el) => {
     const a = el.getAttribute("data-a") || "";
     const b = el.getAttribute("data-b") || "";
     const interval = parseInt(el.getAttribute("data-interval") || "2200", 10);
+    const fadeDuration = 320;
 
-    let state = 0;
+    let showingA = true;
     el.textContent = a;
     el.classList.remove("alt-state");
 
     setInterval(() => {
       el.classList.add("is-fading");
+
       setTimeout(() => {
-        state = (state + 1) % 2;
-        const showingA = state === 0;
+        showingA = !showingA;
         el.textContent = showingA ? a : b;
         el.classList.toggle("alt-state", !showingA);
         el.classList.remove("is-fading");
-      }, 230);
+      }, fadeDuration);
     }, interval);
   });
 })();
