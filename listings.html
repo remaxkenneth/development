@@ -348,7 +348,7 @@
       font-size:inherit;
       line-height:inherit;
       letter-spacing:inherit;
-      transition:opacity 320ms ease;
+      transition:opacity 700ms ease;
     }
 
     .swap-text.is-fading{
@@ -423,8 +423,7 @@
             House<br>
             <span class="swap-text"
                   data-a="$1,300,000 USD"
-                  data-b="FINANCING AVAILABLE"
-                  data-interval="2200">$1,300,000 USD</span><br>
+                  data-b="FINANCING AVAILABLE">$1,300,000 USD</span><br>
             5 Bedrooms · 5 Bathrooms<br>
             El Pescadero · Gavilan
           </p>
@@ -439,8 +438,7 @@
             House<br>
             <span class="swap-text"
                   data-a="$990,000 USD"
-                  data-b="FINANCING AVAILABLE"
-                  data-interval="2200">$990,000 USD</span><br>
+                  data-b="FINANCING AVAILABLE">$990,000 USD</span><br>
             3 Bedrooms · 2 Bathrooms<br>
             El Pescadero · Gavilan
           </p>
@@ -455,8 +453,7 @@
             House<br>
             <span class="swap-text"
                   data-a="$650,000 USD"
-                  data-b="New Price"
-                  data-interval="2600">$650,000 USD</span><br>
+                  data-b="New Price">$650,000 USD</span><br>
             5 Bedrooms · 4 Bathrooms<br>
             El Pescadero · Cerritos
           </p>
@@ -499,8 +496,7 @@
             Plot of Land<br>
             <span class="swap-text"
                   data-a="$325,000 USD"
-                  data-b="FINANCING AVAILABLE"
-                  data-interval="2200">$325,000 USD</span><br>
+                  data-b="FINANCING AVAILABLE">$325,000 USD</span><br>
             Cerritos · Gavilan
           </p>
         </div>
@@ -555,29 +551,32 @@
 
   panel.addEventListener("click", (e) => e.stopPropagation());
 
-  const swaps = document.querySelectorAll(".swap-text");
+  const swaps = Array.from(document.querySelectorAll(".swap-text"));
+  const cycleTime = 3200;
+  const fadeTime = 700;
 
   swaps.forEach((el) => {
-    const a = el.getAttribute("data-a") || "";
-    const b = el.getAttribute("data-b") || "";
-    const interval = parseInt(el.getAttribute("data-interval") || "2200", 10);
-    const fadeDuration = 320;
-
-    let showingA = true;
-    el.textContent = a;
-    el.classList.remove("alt-state");
-
-    setInterval(() => {
-      el.classList.add("is-fading");
-
-      setTimeout(() => {
-        showingA = !showingA;
-        el.textContent = showingA ? a : b;
-        el.classList.toggle("alt-state", !showingA);
-        el.classList.remove("is-fading");
-      }, fadeDuration);
-    }, interval);
+    el.dataset.state = "a";
+    el.textContent = el.getAttribute("data-a") || "";
   });
+
+  setInterval(() => {
+    swaps.forEach((el) => {
+      el.classList.add("is-fading");
+    });
+
+    setTimeout(() => {
+      swaps.forEach((el) => {
+        const a = el.getAttribute("data-a") || "";
+        const b = el.getAttribute("data-b") || "";
+        const showingA = el.dataset.state !== "b";
+
+        el.textContent = showingA ? b : a;
+        el.dataset.state = showingA ? "b" : "a";
+        el.classList.remove("is-fading");
+      });
+    }, fadeTime);
+  }, cycleTime);
 })();
 </script>
 
