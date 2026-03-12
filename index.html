@@ -4,21 +4,22 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
+<link rel="preload" as="image" href="/images/sunsetcerritos.jpeg">
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>Kenneth Gehlhoff | RE/MAX Cabo Sanctuary | Luxury Real Estate in Cerritos, Todos Santos & Pescadero</title>
 
-<meta name="description" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary. Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero, Baja California Sur. Private villas, income properties, and beachfront homes for discerning buyers.">
+<meta name="description" content="Kenneth Gehlhoff | RE/MAX Cabo Sanctuary. Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero, Baja California Sur. Private villas, income properties, and beachfront homes for discerning buyers.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://remaxkenneth.com/">
 <meta name="author" content="Kenneth Gehlhoff">
 <meta name="theme-color" content="#003da5">
 <meta name="keywords" content="Cerritos real estate, Todos Santos real estate, Pescadero real estate, Baja California Sur real estate, luxury homes Baja, oceanview homes Mexico, beachfront property Baja, investment property Baja, RE/MAX Cabo Sanctuary, Kenneth Gehlhoff">
 
-<meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+<meta property="og:site_name" content="Kenneth Gehlhoff | RE/MAX Cabo Sanctuary">
 <meta property="og:locale" content="en_US">
-<meta property="og:title" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+<meta property="og:title" content="Kenneth Gehlhoff | RE/MAX Cabo Sanctuary">
 <meta property="og:description" content="Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero. Trusted local expertise in Baja California Sur.">
 <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
 <meta property="og:image:width" content="1200">
@@ -28,7 +29,7 @@
 <meta property="og:type" content="website">
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+<meta name="twitter:title" content="Kenneth Gehlhoff | RE/MAX Cabo Sanctuary">
 <meta name="twitter:description" content="Luxury oceanview real estate in Cerritos, Todos Santos, and Pescadero. Trusted local expertise in Baja California Sur.">
 <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
 <meta name="twitter:url" content="https://remaxkenneth.com/">
@@ -37,7 +38,7 @@
 {
   "@context": "https://schema.org",
   "@type": "RealEstateAgent",
-  "name": "Kenneth Gehlhoff – RE/MAX Cabo Sanctuary",
+  "name": "Kenneth Gehlhoff | RE/MAX Cabo Sanctuary",
   "url": "https://remaxkenneth.com/",
   "image": "https://remaxkenneth.com/images/sunsetcerritos.jpeg",
   "areaServed": ["Cerritos", "Todos Santos", "Pescadero", "Baja California Sur"],
@@ -78,7 +79,6 @@ body{
   -webkit-tap-highlight-color:transparent;
 }
 
-/* LUX BACKGROUND TEXTURE */
 body::before{
   content:"";
   position:fixed;
@@ -106,7 +106,6 @@ body > *{position:relative; z-index:1;}
 a{text-decoration:none; color:inherit;}
 img{max-width:100%; display:block;}
 
-/* HEADER */
 header{
   position:sticky;
   top:0;
@@ -128,6 +127,10 @@ header{
   display:flex;
   align-items:center;
   gap:10px;
+}
+.nav-left a{
+  display:inline-flex;
+  line-height:0;
 }
 .nav-left img{height:32px;}
 .nav-left span{
@@ -180,7 +183,6 @@ body.menu-open .menu-panel{
   color:#000;
 }
 
-/* GLASS */
 .tile,
 .card,
 .hero-cta{
@@ -190,7 +192,6 @@ body.menu-open .menu-panel{
   box-shadow:var(--glass-shadow), var(--glass-inset);
 }
 
-/* HERO */
 #hero{
   position:relative;
   min-height:360px;
@@ -198,11 +199,9 @@ body.menu-open .menu-panel{
   align-items:center;
   background-color:#020409;
   background-image:url('images/sunsetcerritos.jpeg');
-
   background-position:50% 55%;
   background-size:cover;
   background-repeat:no-repeat;
-
   color:#fff;
   overflow:hidden;
 }
@@ -243,7 +242,6 @@ body.menu-open .menu-panel{
   color:#e5e7eb;
 }
 
-/* HERO CTA (DESKTOP/TABLET) */
 .hero-cta{
   position:absolute;
   top:48px;
@@ -285,7 +283,11 @@ body.menu-open .menu-panel{
   object-position:50% 50%;
 }
 
-.cta-copy{min-width:0; text-align:center; width:100%;}
+.cta-copy{
+  min-width:0;
+  text-align:center;
+  width:100%;
+}
 .cta-kicker{
   font-size:0.56rem;
   letter-spacing:0.22em;
@@ -330,7 +332,6 @@ body.menu-open .menu-panel{
 .btn.primary:hover{transform:translateY(-1px); filter:brightness(0.98);}
 .btn.primary:active{transform:translateY(0) scale(0.98); filter:brightness(1.02);}
 
-/* SECTIONS */
 .section{
   max-width:1100px;
   width:92%;
@@ -342,8 +343,14 @@ body.menu-open .menu-panel{
   border-radius:26px;
   padding:40px;
 }
-a.tile{display:block; cursor:pointer;}
-.tile:active{transform:translateY(-1px); filter:brightness(1.04);}
+a.tile{
+  display:block;
+  cursor:pointer;
+}
+.tile:active{
+  transform:translateY(-1px);
+  filter:brightness(1.04);
+}
 
 .section-title{
   text-align:center;
@@ -363,7 +370,6 @@ a.tile{display:block; cursor:pointer;}
   margin:0 0 34px 0;
 }
 
-/* VIDEO */
 .video-wrapper{
   width:100%;
   overflow:hidden;
@@ -383,7 +389,6 @@ a.tile{display:block; cursor:pointer;}
 }
 #about-baja .tile{padding:34px;}
 
-/* FEATURED */
 .featured-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -400,7 +405,6 @@ a.tile{display:block; cursor:pointer;}
   border-radius:14px;
 }
 
-/* GRID/CARDS */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fill, minmax(280px, 360px));
@@ -456,7 +460,6 @@ a.tile{display:block; cursor:pointer;}
   line-height:1.4;
 }
 
-/* CTA TILE */
 .grid-cta-wrap{
   margin-top:28px;
   display:flex;
@@ -490,7 +493,6 @@ a.tile{display:block; cursor:pointer;}
   .cta-tile{width:min(100%, 720px);}
 }
 
-/* Bottom CTA tile */
 #contactTile{
   background: linear-gradient(135deg, var(--glass-strong-a), var(--glass-strong-b));
   border: 1px solid var(--glass-strong-border);
@@ -505,7 +507,6 @@ a.tile{display:block; cursor:pointer;}
   margin:0 auto 18px;
 }
 
-/* AGENT */
 .agent-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -545,7 +546,6 @@ footer{
   color:#aaa;
 }
 
-/* PHONE */
 @media (max-width:600px){
   .section{width:94%; margin:54px auto;}
   .tile{padding:26px 20px; border-radius:22px;}
@@ -624,7 +624,6 @@ footer{
   }
 }
 
-/* AGENT: centered halves */
 @media (min-width:900px){
   #agent .tile{padding:48px 56px;}
 
@@ -657,13 +656,28 @@ footer{
   }
 }
 
-/* SWAP (match listings page behavior) */
 .swap-text{
   display:inline-block;
-  transition:opacity 220ms ease;
   opacity:1;
+  color:inherit;
+  font-weight:inherit;
+  font-size:inherit;
+  line-height:inherit;
+  letter-spacing:inherit;
+  transition:opacity 700ms ease;
 }
-.swap-text.is-fading{ opacity:0; }
+
+.swap-text.is-fading{
+  opacity:0;
+}
+
+.swap-text.alt-state{
+  color:inherit;
+  font-weight:inherit;
+  font-size:inherit;
+  line-height:inherit;
+  letter-spacing:inherit;
+}
 </style>
 </head>
 
@@ -672,7 +686,9 @@ footer{
 <header>
   <div class="nav">
     <div class="nav-left">
-      <img src="images/logo.png" alt="RE/MAX Logo">
+      <a href="index.html" aria-label="Home">
+        <img src="images/logo.png" alt="RE/MAX Logo">
+      </a>
       <span>KENNETH GEHLHOFF</span>
     </div>
 
@@ -748,8 +764,7 @@ footer{
         <div style="color:var(--text-muted); font-weight:700; letter-spacing:0.08em; margin:10px 0 14px; text-transform:uppercase;">
           <span class="swap-text"
                 data-a="$1,300,000 USD"
-                data-b="FINANCING AVAILABLE"
-                data-interval="2200">$1,300,000 USD</span>
+                data-b="FINANCING AVAILABLE">$1,300,000 USD</span>
         </div>
 
         <p style="color:var(--text-muted); line-height:1.55;">
@@ -770,7 +785,14 @@ footer{
         <img src="images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
         <div class="card-content">
           <h3>Casa Vista</h3>
-          <p>House<br>$749,000 USD<br>5 Bedrooms · 4 Bathrooms<br>Cerritos, Mexico</p>
+          <p>
+            House<br>
+            <span class="swap-text"
+                  data-a="$650,000 USD"
+                  data-b="New Price">$650,000 USD</span><br>
+            5 Bedrooms · 4 Bathrooms<br>
+            Cerritos, Mexico
+          </p>
         </div>
       </a>
 
@@ -792,7 +814,6 @@ footer{
         </a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -827,7 +848,7 @@ footer{
 
 <footer>
   Curated locally. Updated often.<br>
-  <span>© 2026 · REMAX Kenneth<br></span>
+  © 2026 Kenneth Gehlhoff | RE/MAX Cabo Sanctuary<br>
   Each office independently owned and operated
 </footer>
 
@@ -836,7 +857,7 @@ footer{
   const btn = document.getElementById("menuButton");
   const panel = document.getElementById("menuPanel");
 
-  btn.addEventListener("click", e => {
+  btn.addEventListener("click", (e) => {
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
   });
@@ -845,26 +866,34 @@ footer{
     document.body.classList.remove("menu-open");
   });
 
-  panel.addEventListener("click", e => e.stopPropagation());
+  panel.addEventListener("click", (e) => e.stopPropagation());
 
-  const swaps = document.querySelectorAll(".swap-text");
+  const swaps = Array.from(document.querySelectorAll(".swap-text"));
+  const cycleTime = 3200;
+  const fadeTime = 700;
+
   swaps.forEach((el) => {
-    const a = el.getAttribute("data-a") || "";
-    const b = el.getAttribute("data-b") || "";
-    const interval = parseInt(el.getAttribute("data-interval") || "2200", 10);
-
-    let state = 0;
-    el.textContent = a;
-
-    setInterval(() => {
-      el.classList.add("is-fading");
-      setTimeout(() => {
-        state = (state + 1) % 2;
-        el.textContent = state === 0 ? a : b;
-        el.classList.remove("is-fading");
-      }, 230);
-    }, interval);
+    el.dataset.state = "a";
+    el.textContent = el.getAttribute("data-a") || "";
   });
+
+  setInterval(() => {
+    swaps.forEach((el) => {
+      el.classList.add("is-fading");
+    });
+
+    setTimeout(() => {
+      swaps.forEach((el) => {
+        const a = el.getAttribute("data-a") || "";
+        const b = el.getAttribute("data-b") || "";
+        const showingA = el.dataset.state !== "b";
+
+        el.textContent = showingA ? b : a;
+        el.dataset.state = showingA ? "b" : "a";
+        el.classList.remove("is-fading");
+      });
+    }, fadeTime);
+  }, cycleTime);
 })();
 </script>
 
