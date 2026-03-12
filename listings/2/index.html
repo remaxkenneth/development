@@ -7,24 +7,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Casa Vista | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
+  <title>Casa Vista | Kenneth Gehlhoff | RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="Casa Vista — 5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $749,000 USD">
+  <meta name="description" content="Casa Vista — 5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $650,000 USD">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
   <link rel="canonical" href="https://remaxkenneth.com/listings/2/index.html">
 
-  <meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
+  <meta property="og:site_name" content="Kenneth Gehlhoff | RE/MAX Cabo Sanctuary">
   <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Casa Vista – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $749,000 USD">
+  <meta property="og:title" content="Casa Vista | RE/MAX Cabo Sanctuary">
+  <meta property="og:description" content="5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $650,000 USD">
   <meta property="og:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F2%2FIMG_7829.JPG&w=1200&q=82&output=jpg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remaxkenneth.com/listings/2/index.html">
 
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Casa Vista – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $749,000 USD">
+  <meta name="twitter:title" content="Casa Vista | RE/MAX Cabo Sanctuary">
+  <meta name="twitter:description" content="5 Bedrooms · 4 Bathrooms · Cerritos / Pacific · $650,000 USD">
   <meta name="twitter:image" content="https://wsrv.nl/?url=https%3A%2F%2Fldepvcutqiyf3cw0.public.blob.vercel-storage.com%2F2%2FIMG_7829.JPG&w=1200&q=82&output=jpg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/2/index.html">
 
@@ -46,7 +46,6 @@
       --chip-bg: rgba(255,255,255,0.18);
       --chip-border: rgba(255,255,255,0.22);
 
-      /* fallback hero if optimizer ever fails */
       --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/2/IMG_0102.jpeg');
     }
 
@@ -62,7 +61,6 @@
       -webkit-tap-highlight-color:transparent;
     }
 
-    /* LUX BACKGROUND TEXTURE (match index) */
     body::before{
       content:"";
       position:fixed;
@@ -170,19 +168,16 @@
       text-transform:uppercase;
     }
 
-    /* HERO (match index vibe) */
     #hero{
       position:relative;
       min-height:360px;
       display:flex;
       align-items:center;
-
       background-color:#020409;
       background-image:var(--hero-bg);
       background-position:50% 55%;
       background-size:cover;
       background-repeat:no-repeat;
-
       color:#fff;
       overflow:hidden;
     }
@@ -230,9 +225,9 @@
       width:92%;
       margin:70px auto;
     }
+
     .section:first-of-type{margin-top:40px;}
 
-    /* GLASS (match index) */
     .tile{
       background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
       border:1px solid var(--glass-border);
@@ -244,7 +239,6 @@
 
     .tile.details{ padding-top:56px; }
 
-    /* SLIDER (DESKTOP/TABLET) */
     .slider{
       position:relative;
       border-radius:18px;
@@ -276,7 +270,13 @@
       transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
       user-select:none;
     }
-    .arrow:hover{transform:translateY(-50%) translateY(-1px); filter:brightness(1.05); background:rgba(0,0,0,0.52);}
+
+    .arrow:hover{
+      transform:translateY(-50%) translateY(-1px);
+      filter:brightness(1.05);
+      background:rgba(0,0,0,0.52);
+    }
+
     .arrow:active{transform:translateY(-50%) scale(0.98);}
 
     .arrow.left{ left:14px; }
@@ -294,6 +294,7 @@
       pointer-events:none;
       transition:opacity 0.18s ease;
     }
+
     .loader.active{ opacity:1; }
 
     .spinner{
@@ -305,14 +306,16 @@
       animation: spin 0.9s linear infinite;
     }
 
-    @keyframes spin{ to{ transform: rotate(360deg); } }
+    @keyframes spin{
+      to{ transform: rotate(360deg); }
+    }
 
-    /* MOBILE: slider becomes 16:9 tile, not thin */
     @media (max-width:768px){
       .slider{
         height:auto;
         aspect-ratio:16 / 9;
       }
+
       .slider img{
         position:absolute;
         inset:0;
@@ -381,7 +384,6 @@
         min-height:44px !important;
       }
 
-      /* last pill becomes a full-width bar */
       .stats .stat-pill:last-child{
         grid-column:1 / -1 !important;
       }
@@ -395,6 +397,29 @@
 
     .description p:first-child{ color:var(--text-main); }
 
+    .swap-text{
+      display:inline-block;
+      opacity:1;
+      color:inherit;
+      font-weight:inherit;
+      font-size:inherit;
+      line-height:inherit;
+      letter-spacing:inherit;
+      transition:opacity 700ms ease;
+    }
+
+    .swap-text.is-fading{
+      opacity:0;
+    }
+
+    .swap-text.alt-state{
+      color:inherit;
+      font-weight:inherit;
+      font-size:inherit;
+      line-height:inherit;
+      letter-spacing:inherit;
+    }
+
     footer{
       text-align:center;
       padding:40px 0;
@@ -402,7 +427,6 @@
       color:#aaa;
     }
 
-    /* PHONE spacing match */
     @media (max-width:600px){
       .section{width:94%; margin:54px auto;}
       .tile{padding:26px 20px; border-radius:22px;}
@@ -454,7 +478,11 @@
 
 <section class="section">
   <div class="tile details">
-    <h2 class="price">$749,000 USD</h2>
+    <h2 class="price">
+      <span class="swap-text"
+            data-a="$650,000 USD"
+            data-b="New Price">$650,000 USD</span>
+    </h2>
     <p class="location">Residential Home · Baja California Sur, Mexico</p>
 
     <div class="stats">
@@ -481,12 +509,11 @@
 
 <footer>
   Curated locally. Updated often.<br>
-  © 2025 · RE/MAX Kenneth<br>
+  © 2026 Kenneth Gehlhoff | RE/MAX Cabo Sanctuary<br>
   Each office independently owned and operated
 </footer>
 
 <script>
-  // MENU
   const menuBtn = document.getElementById("menuButton");
   const menuPanel = document.getElementById("menuPanel");
 
@@ -501,11 +528,10 @@
 
   menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  // IMAGES (Vercel Blob /2/ + wsrv resize + fallback, NO PRELOAD)
   const ORIGIN_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/2/";
 
   const FILES = [
-    "IMG_0058.jpeg", // HERO (kept in list)
+    "IMG_0058.jpeg",
     "IMG_0104.jpeg",
     "IMG_0090.jpeg",
     "IMG_0099.jpeg",
@@ -525,7 +551,6 @@
     return `https://wsrv.nl/?url=${origin}&w=${w}&q=${q}&output=jpg`;
   }
 
-  // set optimized hero bg (keeps the CSS fallback if it fails)
   (function setHeroBg(){
     const heroUrl = wsrvUrl("IMG_0102.jpeg", HERO_W, 82);
     document.documentElement.style.setProperty("--hero-bg", `url('${heroUrl}')`);
@@ -549,7 +574,6 @@
       loader.classList.remove("active");
     };
 
-    // If wsrv hangs (not erroring), bail out to original after X ms
     const HANG_TIMEOUT_MS = 6000;
     const hangTimer = setTimeout(() => {
       finish(originals[i]);
@@ -602,6 +626,33 @@
     if (e.key === "ArrowRight") next();
     if (e.key === "ArrowLeft") prev();
   });
+
+  const swaps = Array.from(document.querySelectorAll(".swap-text"));
+  const cycleTime = 3200;
+  const fadeTime = 700;
+
+  swaps.forEach((el) => {
+    el.dataset.state = "a";
+    el.textContent = el.getAttribute("data-a") || "";
+  });
+
+  setInterval(() => {
+    swaps.forEach((el) => {
+      el.classList.add("is-fading");
+    });
+
+    setTimeout(() => {
+      swaps.forEach((el) => {
+        const a = el.getAttribute("data-a") || "";
+        const b = el.getAttribute("data-b") || "";
+        const showingA = el.dataset.state !== "b";
+
+        el.textContent = showingA ? b : a;
+        el.dataset.state = showingA ? "b" : "a";
+        el.classList.remove("is-fading");
+      });
+    }, fadeTime);
+  }, cycleTime);
 
   show(index);
 </script>
