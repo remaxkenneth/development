@@ -15,14 +15,14 @@
 
   <meta property="og:title" content="New Villa – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="3 Bedrooms · 2 Bath · El Pescadero · Starting from $339k">
-  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1621.png">
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20(28).jpeg">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remaxkenneth.com/listings/new-villa/index.html">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="New Villa – RE/MAX Cabo Sanctuary">
   <meta name="twitter:description" content="3 Bedrooms · 2 Bath · 1,534.5 ft² · El Pescadero · Starting from $339k">
-  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1621.png">
+  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20(28).jpeg">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/new-villa/index.html">
 
   <link rel="canonical" href="https://remaxkenneth.com/listings/new-villa/index.html">
@@ -169,8 +169,8 @@
       align-items:center;
       background-color:#020409;
       background-image:var(--hero-bg);
-      background-position:center center;
-      background-size:contain;
+      background-position:50% 55%;
+      background-size:cover;
       background-repeat:no-repeat;
       color:#fff;
       overflow:hidden;
@@ -406,7 +406,7 @@
     @media (max-width:600px){
       .section{width:94%; margin:54px auto;}
       .tile{padding:26px 20px; border-radius:22px;}
-      #hero{background-position:center center;}
+      #hero{background-position:50% 50%;}
     }
   </style>
 </head>
@@ -508,10 +508,12 @@
   const img = document.getElementById("slideImage");
   const loader = document.getElementById("loader");
 
-  const BLOB_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/";
+  const HERO_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/";
+  const HERO_FILE = "Luna Villa-51 (28).jpeg";
 
+  const SLIDER_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/";
   const FILES = [
-    "IMG_1621.png",
+    "IMG_1631.png",
     "IMG_1622.png",
     "IMG_1623.png"
   ];
@@ -522,15 +524,32 @@
     return Math.min(2200, Math.max(900, Math.ceil(rectW * dpr)));
   }
 
-  function wsrv(filename, w, q = 82, fmt = "webp") {
-    return `https://wsrv.nl/?url=${encodeURIComponent(BLOB_BASE + filename)}&w=${w}&q=${q}&output=${fmt}&fit=contain&bg=0b1120`;
+  function wsrv(url, w, q = 82, fmt = "webp", fit = "contain", bg = "0b1120") {
+    return `https://wsrv.nl/?url=${encodeURIComponent(url)}&w=${w}&q=${q}&output=${fmt}&fit=${fit}&bg=${bg}`;
   }
 
-  function raw(filename) {
-    return `${BLOB_BASE}${filename}`;
+  function sliderRaw(filename) {
+    return `${SLIDER_BASE}${filename}`;
+  }
+
+  function heroRaw() {
+    return `${HERO_BASE}${HERO_FILE}`;
   }
 
   let index = 0;
+
+  function loadHero() {
+    const heroW = Math.min(2400, Math.round((window.innerWidth || 1600) * Math.min(2, window.devicePixelRatio || 1)));
+    const src = wsrv(heroRaw(), heroW, 84, "jpg", "cover", "0b1120");
+    const h1 = new Image();
+    h1.onload = () => {
+      heroEl.style.backgroundImage = `url('${h1.src}')`;
+    };
+    h1.onerror = () => {
+      heroEl.style.backgroundImage = `url('${heroRaw()}')`;
+    };
+    h1.src = src;
+  }
 
   function show(i) {
     loader.classList.add("active");
@@ -546,7 +565,9 @@
       loader.classList.remove("active");
     };
 
-    const hang = setTimeout(() => finish(raw(filename)), 6000);
+    const raw = sliderRaw(filename);
+    const optimized = wsrv(raw, w, 82, "webp", "contain", "0b1120");
+    const hang = setTimeout(() => finish(raw), 6000);
 
     const t1 = new Image();
     t1.onload = () => {
@@ -563,21 +584,9 @@
         clearTimeout(hang);
         loader.classList.remove("active");
       };
-      r1.src = raw(filename);
+      r1.src = raw;
     };
-    t1.src = wsrv(filename, w);
-
-    if (i === 0) {
-      const heroW = Math.min(2400, Math.round(w * 1.2));
-      const h1 = new Image();
-      h1.onload = () => {
-        heroEl.style.backgroundImage = `url('${h1.src}')`;
-      };
-      h1.onerror = () => {
-        heroEl.style.backgroundImage = `url('${raw(filename)}')`;
-      };
-      h1.src = wsrv(filename, heroW, 84, "jpg");
-    }
+    t1.src = optimized;
   }
 
   function next() {
@@ -612,9 +621,13 @@
   let resizeTimer = null;
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => show(index), 180);
+    resizeTimer = setTimeout(() => {
+      loadHero();
+      show(index);
+    }, 180);
   }, { passive: true });
 
+  loadHero();
   show(0);
 </script>
 
