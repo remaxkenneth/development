@@ -15,14 +15,14 @@
 
   <meta property="og:title" content="New Villa – RE/MAX Cabo Sanctuary">
   <meta property="og:description" content="3 Bedrooms · 3 Bath · El Pescadero · From $339k">
-  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/luna/newvilla/IMG_1621.png">
+  <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1621.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remaxkenneth.com/listings/new-villa/index.html">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="New Villa – RE/MAX Cabo Sanctuary">
   <meta name="twitter:description" content="3 Bedrooms · 3 Bath · 1,534.5 ft² · El Pescadero · From $339k">
-  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/luna/newvilla/IMG_1621.png">
+  <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1621.png">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/new-villa/index.html">
 
   <link rel="canonical" href="https://remaxkenneth.com/listings/new-villa/index.html">
@@ -66,7 +66,6 @@
       inset:0;
       z-index:0;
       pointer-events:none;
-
       background-image:
         url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'240'%20height%3D'240'%3E%3Cfilter%20id%3D'n'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'0.8'%20numOctaves%3D'2'%20stitchTiles%3D'stitch'/%3E%3C/filter%3E%3Crect%20width%3D'240'%20height%3D'240'%20filter%3D'url(%23n)'%20opacity%3D'0.10'/%3E%3C/svg%3E"),
         repeating-linear-gradient(0deg, rgba(255,255,255,0.030) 0px, rgba(255,255,255,0.030) 1px, rgba(0,0,0,0) 7px),
@@ -74,7 +73,6 @@
         radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
         radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), rgba(0,0,0,0) 62%),
         linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
-
       background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
       background-size: 280px 280px, auto, auto, auto, auto, auto;
       background-position: 0 0, 0 0, 0 0, center, center, center;
@@ -82,7 +80,6 @@
     }
 
     body > *{position:relative; z-index:1;}
-
     a{text-decoration:none; color:inherit;}
 
     header{
@@ -145,7 +142,6 @@
       display:flex;
       flex-direction:column;
       gap:16px;
-
       opacity:0;
       pointer-events:none;
       transform:scale(0.95);
@@ -171,13 +167,11 @@
       min-height:360px;
       display:flex;
       align-items:center;
-
       background-color:#020409;
       background-image:var(--hero-bg);
       background-position:50% 55%;
       background-size:cover;
       background-repeat:no-repeat;
-
       color:#fff;
       overflow:hidden;
     }
@@ -225,6 +219,7 @@
       width:92%;
       margin:70px auto;
     }
+
     .section:first-of-type{margin-top:40px;}
 
     .tile{
@@ -269,8 +264,16 @@
       transition:transform 0.15s ease, filter 0.15s ease, background 0.15s ease;
       user-select:none;
     }
-    .arrow:hover{transform:translateY(-50%) translateY(-1px); filter:brightness(1.05); background:rgba(0,0,0,0.52);}
-    .arrow:active{transform:translateY(-50%) scale(0.98);}
+
+    .arrow:hover{
+      transform:translateY(-50%) translateY(-1px);
+      filter:brightness(1.05);
+      background:rgba(0,0,0,0.52);
+    }
+
+    .arrow:active{
+      transform:translateY(-50%) scale(0.98);
+    }
 
     .arrow.left{ left:14px; }
     .arrow.right{ right:14px; }
@@ -287,6 +290,7 @@
       pointer-events:none;
       transition:opacity 0.18s ease;
     }
+
     .loader.active{ opacity:1; }
 
     .spinner{
@@ -298,13 +302,16 @@
       animation: spin 0.9s linear infinite;
     }
 
-    @keyframes spin{ to{ transform: rotate(360deg); } }
+    @keyframes spin{
+      to{ transform: rotate(360deg); }
+    }
 
     @media (max-width:768px){
       .slider{
         height:auto;
         aspect-ratio:16 / 9;
       }
+
       .slider img{
         position:absolute;
         inset:0;
@@ -361,6 +368,7 @@
         gap:10px !important;
         align-items:stretch !important;
       }
+
       .stat-pill{
         width:100% !important;
         display:flex !important;
@@ -371,6 +379,7 @@
         letter-spacing:0.12em !important;
         min-height:44px !important;
       }
+
       .stats .stat-pill:last-child{
         grid-column:1 / -1 !important;
       }
@@ -381,83 +390,9 @@
       color:var(--text-muted);
       margin:0 0 14px;
     }
-    .description p:first-child{ color:var(--text-main); }
 
-    /* FLOOR PLAN TABS */
-    .floor-plans{
-      margin-top:48px;
-      border-top:1px solid rgba(255,255,255,0.10);
-      padding-top:36px;
-    }
-
-    .floor-plans-eyebrow{
-      font-size:0.7rem;
-      letter-spacing:0.35em;
-      text-transform:uppercase;
-      color:#e5e7eb;
-      opacity:0.92;
-      margin:0 0 18px;
-      font-weight:400;
-    }
-
-    .floor-tabs{
-      display:flex;
-      gap:10px;
-      margin-bottom:22px;
-      flex-wrap:wrap;
-    }
-
-    .floor-tab{
-      background:var(--chip-bg);
-      border:1px solid var(--chip-border);
-      color:var(--text-muted);
-      border-radius:999px;
-      padding:8px 14px;
-      font-size:0.8rem;
-      letter-spacing:0.08em;
-      text-transform:uppercase;
-      cursor:pointer;
-      user-select:none;
-      transition:background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
-    }
-
-    .floor-tab.active,
-    .floor-tab:hover{
-      background:rgba(255,255,255,0.26);
-      border-color:rgba(255,255,255,0.38);
+    .description p:first-child{
       color:var(--text-main);
-    }
-
-    .floor-panel{ display:none; }
-    .floor-panel.active{ display:block; }
-
-    .floor-plan-wrap{
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,0.12);
-      background:rgba(0,0,0,0.20);
-    }
-
-    .floor-plan-wrap img{
-      width:100%;
-      height:auto;
-      display:block;
-    }
-
-    .floor-detail{
-      margin-top:14px;
-      color:var(--text-muted);
-      font-size:0.85rem;
-      line-height:1.7;
-    }
-
-    .floor-detail strong{
-      display:block;
-      color:var(--text-main);
-      letter-spacing:0.10em;
-      text-transform:uppercase;
-      font-size:0.7rem;
-      margin-bottom:4px;
     }
 
     footer{
@@ -541,52 +476,6 @@
         Second floor features two additional bedrooms, a shared bathroom, kitchen/breakfast bar, and two terraces. The rooftop azotea adds a roof garden above it all.
       </p>
     </div>
-
-    <div class="floor-plans">
-      <p class="floor-plans-eyebrow">Floor Plans</p>
-      <div class="floor-tabs">
-        <div class="floor-tab active" data-panel="floor1">First Floor</div>
-        <div class="floor-tab" data-panel="floor2">Second Floor</div>
-        <div class="floor-tab" data-panel="rooftop">Rooftop</div>
-      </div>
-
-      <div class="floor-panel active" id="floor1">
-        <div class="floor-plan-wrap">
-          <img
-            src="https://wsrv.nl/?url=ldepvcutqiyf3cw0.public.blob.vercel-storage.com%2Fvideos%2Fluna%2Fnewvilla%2FIMG_1621.png&w=1200&q=82&output=webp"
-            alt="New Villa – First Floor Plan" loading="lazy">
-        </div>
-        <p class="floor-detail">
-          <strong>First Floor · 95.34 m² | 1,026 ft²</strong>
-          Living Room, Dining Room, Kitchen, ½ Bathroom, Master Bedroom with Full Bathroom &amp; Walk-in Closet, Laundry Room, Storage, Private Patio / Tub, Terrace &amp; Pool.
-        </p>
-      </div>
-
-      <div class="floor-panel" id="floor2">
-        <div class="floor-plan-wrap">
-          <img
-            src="https://wsrv.nl/?url=ldepvcutqiyf3cw0.public.blob.vercel-storage.com%2Fvideos%2Fluna%2Fnewvilla%2FIMG_1622.png&w=1200&q=82&output=webp"
-            alt="New Villa – Second Floor Plan" loading="lazy">
-        </div>
-        <p class="floor-detail">
-          <strong>Second Floor · 47.22 m² | 508 ft²</strong>
-          Access Hallway, Kitchen / Breakfast Bar, Bathroom, Bedroom 2, Bedroom 3, and two Terraces.
-        </p>
-      </div>
-
-      <div class="floor-panel" id="rooftop">
-        <div class="floor-plan-wrap">
-          <img
-            src="https://wsrv.nl/?url=ldepvcutqiyf3cw0.public.blob.vercel-storage.com%2Fvideos%2Fluna%2Fnewvilla%2FIMG_1623.png&w=1200&q=82&output=webp"
-            alt="New Villa – Rooftop Plan" loading="lazy">
-        </div>
-        <p class="floor-detail">
-          <strong>Rooftop · 142.56 m² Total | 1,534.5 ft²</strong>
-          Roof Garden dining area and open Azotea leisure space.
-        </p>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -597,7 +486,6 @@
 </footer>
 
 <script>
-  // ===== MENU =====
   const menuBtn = document.getElementById("menuButton");
   const menuPanel = document.getElementById("menuPanel");
 
@@ -605,37 +493,31 @@
     e.stopPropagation();
     document.body.classList.toggle("menu-open");
   });
-  document.addEventListener("click", () => document.body.classList.remove("menu-open"));
-  menuPanel.addEventListener("click", (e) => e.stopPropagation());
 
-  // ===== FLOOR PLAN TABS =====
-  document.querySelectorAll(".floor-tab").forEach(tab => {
-    tab.addEventListener("click", () => {
-      document.querySelectorAll(".floor-tab").forEach(t => t.classList.remove("active"));
-      document.querySelectorAll(".floor-panel").forEach(p => p.classList.remove("active"));
-      tab.classList.add("active");
-      document.getElementById(tab.dataset.panel).classList.add("active");
-    });
+  document.addEventListener("click", () => {
+    document.body.classList.remove("menu-open");
   });
 
-  // ===== IMAGE SLIDER =====
-  // TODO: Update FILES array + BLOB_BASE once listing photos are uploaded
-  const heroEl   = document.getElementById("hero");
-  const sliderEl = document.getElementById("slider");
-  const img      = document.getElementById("slideImage");
-  const loader   = document.getElementById("loader");
+  menuPanel.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
 
-  const BLOB_BASE = "ldepvcutqiyf3cw0.public.blob.vercel-storage.com/videos/luna/newvilla/";
+  const heroEl = document.getElementById("hero");
+  const sliderEl = document.getElementById("slider");
+  const img = document.getElementById("slideImage");
+  const loader = document.getElementById("loader");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+
+  const BLOB_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/";
 
   const FILES = [
-    "IMG_1621.png",
-    "IMG_1622.png",
-    "IMG_1623.png",
+    "IMG_1621.png"
   ];
 
   function pickWidth() {
     const rectW = Math.max(1, Math.floor(sliderEl.clientWidth || 1200));
-    const dpr   = Math.min(2, window.devicePixelRatio || 1);
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
     return Math.min(2200, Math.max(900, Math.ceil(rectW * dpr)));
   }
 
@@ -644,16 +526,17 @@
   }
 
   function raw(filename) {
-    return `https://${BLOB_BASE}${filename}`;
+    return `${BLOB_BASE}${filename}`;
   }
 
   let index = 0;
 
   function show(i) {
     loader.classList.add("active");
-    const w        = pickWidth();
+
+    const w = pickWidth();
     const filename = FILES[i];
-    let done       = false;
+    let done = false;
 
     const finish = (src) => {
       if (done) return;
@@ -665,11 +548,20 @@
     const hang = setTimeout(() => finish(raw(filename)), 6000);
 
     const t1 = new Image();
-    t1.onload  = () => { clearTimeout(hang); finish(t1.src); };
+    t1.onload = () => {
+      clearTimeout(hang);
+      finish(t1.src);
+    };
     t1.onerror = () => {
       const r1 = new Image();
-      r1.onload  = () => { clearTimeout(hang); finish(r1.src); };
-      r1.onerror = () => { clearTimeout(hang); loader.classList.remove("active"); };
+      r1.onload = () => {
+        clearTimeout(hang);
+        finish(r1.src);
+      };
+      r1.onerror = () => {
+        clearTimeout(hang);
+        loader.classList.remove("active");
+      };
       r1.src = raw(filename);
     };
     t1.src = wsrv(filename, w);
@@ -677,30 +569,50 @@
     if (i === 0) {
       const heroW = Math.min(2400, Math.round(w * 1.2));
       const h1 = new Image();
-      h1.onload  = () => { heroEl.style.backgroundImage = `url('${h1.src}')`; };
-      h1.onerror = () => { heroEl.style.backgroundImage = `url('${raw(filename)}')`; };
+      h1.onload = () => {
+        heroEl.style.backgroundImage = `url('${h1.src}')`;
+      };
+      h1.onerror = () => {
+        heroEl.style.backgroundImage = `url('${raw(filename)}')`;
+      };
       h1.src = wsrv(filename, heroW, 78, "jpg");
     }
+
+    const singleImage = FILES.length <= 1;
+    prevBtn.style.display = singleImage ? "none" : "block";
+    nextBtn.style.display = singleImage ? "none" : "block";
   }
 
-  function next() { index = (index + 1) % FILES.length; show(index); }
-  function prev() { index = (index - 1 + FILES.length) % FILES.length; show(index); }
+  function next() {
+    index = (index + 1) % FILES.length;
+    show(index);
+  }
 
-  document.getElementById("next").addEventListener("click", next);
-  document.getElementById("prev").addEventListener("click", prev);
+  function prev() {
+    index = (index - 1 + FILES.length) % FILES.length;
+    show(index);
+  }
 
-  let startX = 0;
-  img.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
-  img.addEventListener("touchend",   (e) => {
-    const diff = startX - e.changedTouches[0].clientX;
-    if (diff >  50) next();
-    if (diff < -50) prev();
-  });
+  if (FILES.length > 1) {
+    nextBtn.addEventListener("click", next);
+    prevBtn.addEventListener("click", prev);
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") next();
-    if (e.key === "ArrowLeft")  prev();
-  });
+    let startX = 0;
+    img.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    img.addEventListener("touchend", (e) => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (diff > 50) next();
+      if (diff < -50) prev();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
+    });
+  }
 
   let resizeTimer = null;
   window.addEventListener("resize", () => {
@@ -713,4 +625,3 @@
 
 </body>
 </html>
-
