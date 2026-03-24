@@ -9,19 +9,19 @@
 
   <title>New Villa | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-  <meta name="description" content="New Villa — 3 Bedrooms · 3 Bath · 1,534.5 ft² · El Pescadero (between Cerritos & Todos Santos) · From $339k">
+  <meta name="description" content="New Villa — 3 Bedrooms · 2 Bath · 1,534.5 ft² · El Pescadero (between Cerritos & Todos Santos) · Starting from $339k">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <meta name="theme-color" content="#003da5">
 
   <meta property="og:title" content="New Villa – RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="3 Bedrooms · 3 Bath · El Pescadero · From $339k">
+  <meta property="og:description" content="3 Bedrooms · 2 Bath · El Pescadero · Starting from $339k">
   <meta property="og:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1621.png">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://remaxkenneth.com/listings/new-villa/index.html">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="New Villa – RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="3 Bedrooms · 3 Bath · 1,534.5 ft² · El Pescadero · From $339k">
+  <meta name="twitter:description" content="3 Bedrooms · 2 Bath · 1,534.5 ft² · El Pescadero · Starting from $339k">
   <meta name="twitter:image" content="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1621.png">
   <meta name="twitter:url" content="https://remaxkenneth.com/listings/new-villa/index.html">
 
@@ -169,8 +169,8 @@
       align-items:center;
       background-color:#020409;
       background-image:var(--hero-bg);
-      background-position:50% 55%;
-      background-size:cover;
+      background-position:center center;
+      background-size:contain;
       background-repeat:no-repeat;
       color:#fff;
       overflow:hidden;
@@ -245,7 +245,8 @@
     .slider img{
       width:100%;
       height:100%;
-      object-fit:cover;
+      object-fit:contain;
+      background:#0b1120;
       display:block;
     }
 
@@ -405,7 +406,7 @@
     @media (max-width:600px){
       .section{width:94%; margin:54px auto;}
       .tile{padding:26px 20px; border-radius:22px;}
-      #hero{background-position:50% 60%;}
+      #hero{background-position:center center;}
     }
   </style>
 </head>
@@ -436,7 +437,7 @@
   <div class="hero-inner">
     <div class="hero-eyebrow">Property Listing</div>
     <h1 class="hero-title">New Villa</h1>
-    <p class="hero-sub">3 Bedrooms · 3 Bath · El Pescadero</p>
+    <p class="hero-sub">3 Bedrooms · 2 Bath · El Pescadero</p>
   </div>
 </section>
 
@@ -453,27 +454,27 @@
 
 <section class="section">
   <div class="tile details">
-    <h2 class="price">From $339k</h2>
+    <h2 class="price">Starting from $339k</h2>
     <p class="location">Residential Villa · Baja California Sur, Mexico</p>
 
     <div class="stats">
       <span class="stat-pill">3 Bedrooms</span>
-      <span class="stat-pill">3 Bath</span>
+      <span class="stat-pill">2 Bath</span>
       <span class="stat-pill">1,534.5 ft²</span>
-      <span class="stat-pill">Private Pool</span>
+      <span class="stat-pill">142.56 m² Total</span>
+      <span class="stat-pill">Primary Suite Downstairs</span>
       <span class="stat-pill">Roof Garden</span>
-      <span class="stat-pill">Private Patio / Tub</span>
     </div>
 
     <div class="description">
       <p>
-        New Villa in El Pescadero offers single-level master living with a private pool and patio, plus two additional bedrooms upstairs — a compact, thoughtfully designed footprint for full-time living or rental income.
+        New Villa at Luna in El Pescadero offers a compact two level layout with a first floor primary suite, two upstairs bedrooms, and a rooftop garden above the main living footprint.
       </p>
       <p>
-        First floor includes the master bedroom with walk-in closet and full bath, a private patio with tub, open living and dining room, full kitchen, laundry, half bath, and storage — all opening to a private terrace and pool.
+        The first floor includes the living room, dining room, kitchen, laundry, storage, a guest powder room, and the primary bedroom with walk in closet and full bathroom.
       </p>
       <p>
-        Second floor features two additional bedrooms, a shared bathroom, kitchen/breakfast bar, and two terraces. The rooftop azotea adds a roof garden above it all.
+        Upstairs includes bedroom 2, bedroom 3, one full bathroom, and a kitchen or breakfast area, for a total construction area of 142.56 m² or 1,534.5 ft².
       </p>
     </div>
   </div>
@@ -481,7 +482,7 @@
 
 <footer>
   Curated locally. Updated often.<br>
-  © 2025 · RE/MAX Kenneth<br>
+  © 2026 · RE/MAX Kenneth<br>
   Each office independently owned and operated
 </footer>
 
@@ -506,13 +507,13 @@
   const sliderEl = document.getElementById("slider");
   const img = document.getElementById("slideImage");
   const loader = document.getElementById("loader");
-  const prevBtn = document.getElementById("prev");
-  const nextBtn = document.getElementById("next");
 
   const BLOB_BASE = "https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/";
 
   const FILES = [
-    "IMG_1621.png"
+    "IMG_1621.png",
+    "IMG_1622.png",
+    "IMG_1623.png"
   ];
 
   function pickWidth() {
@@ -521,8 +522,8 @@
     return Math.min(2200, Math.max(900, Math.ceil(rectW * dpr)));
   }
 
-  function wsrv(filename, w, q = 78, fmt = "webp") {
-    return `https://wsrv.nl/?url=${encodeURIComponent(BLOB_BASE + filename)}&w=${w}&q=${q}&output=${fmt}`;
+  function wsrv(filename, w, q = 82, fmt = "webp") {
+    return `https://wsrv.nl/?url=${encodeURIComponent(BLOB_BASE + filename)}&w=${w}&q=${q}&output=${fmt}&fit=contain&bg=0b1120`;
   }
 
   function raw(filename) {
@@ -575,12 +576,8 @@
       h1.onerror = () => {
         heroEl.style.backgroundImage = `url('${raw(filename)}')`;
       };
-      h1.src = wsrv(filename, heroW, 78, "jpg");
+      h1.src = wsrv(filename, heroW, 84, "jpg");
     }
-
-    const singleImage = FILES.length <= 1;
-    prevBtn.style.display = singleImage ? "none" : "block";
-    nextBtn.style.display = singleImage ? "none" : "block";
   }
 
   function next() {
@@ -593,26 +590,24 @@
     show(index);
   }
 
-  if (FILES.length > 1) {
-    nextBtn.addEventListener("click", next);
-    prevBtn.addEventListener("click", prev);
+  document.getElementById("next").addEventListener("click", next);
+  document.getElementById("prev").addEventListener("click", prev);
 
-    let startX = 0;
-    img.addEventListener("touchstart", (e) => {
-      startX = e.touches[0].clientX;
-    }, { passive: true });
+  let startX = 0;
+  img.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
 
-    img.addEventListener("touchend", (e) => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (diff > 50) next();
-      if (diff < -50) prev();
-    });
+  img.addEventListener("touchend", (e) => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 50) next();
+    if (diff < -50) prev();
+  });
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") next();
-      if (e.key === "ArrowLeft") prev();
-    });
-  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+  });
 
   let resizeTimer = null;
   window.addEventListener("resize", () => {
