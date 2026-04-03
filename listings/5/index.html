@@ -28,21 +28,9 @@
 
   <link rel="canonical" href="https://remaxkenneth.com/listings/5/">
 
+  <link rel="stylesheet" href="/style.css">
   <style>
     :root{
-      --remax-blue:#003da5;
-      --remax-red:#e4002b;
-      --remax-dark-blue:#000E35;
-
-      --text-main:rgba(255,255,255,0.92);
-      --text-muted:rgba(255,255,255,0.72);
-
-      --glass-a: rgba(0,0,0,0.58);
-      --glass-b: rgba(255,255,255,0.10);
-      --glass-border: rgba(255,255,255,0.20);
-      --glass-shadow: 0 18px 45px rgba(0,0,0,0.34);
-      --glass-inset: inset 0 1px 0 rgba(255,255,255,0.10);
-
       --chip-bg: rgba(255,255,255,0.18);
       --chip-border: rgba(255,255,255,0.22);
 
@@ -50,125 +38,7 @@
       --hero-bg: url('https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg');
     }
 
-    *{box-sizing:border-box;}
-    html,body{height:100%;}
-
-    body{
-      margin:0;
-      font-family:Arial,Helvetica,sans-serif;
-      background:#020409;
-      color:var(--text-main);
-      position:relative;
-      -webkit-tap-highlight-color:transparent;
-    }
-
     /* LUX BACKGROUND TEXTURE (match index) */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      z-index:0;
-      pointer-events:none;
-
-      background-image:
-        url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A//www.w3.org/2000/svg'%20width%3D'240'%20height%3D'240'%3E%3Cfilter%20id%3D'n'%3E%3CfeTurbulence%20type%3D'fractalNoise'%20baseFrequency%3D'0.8'%20numOctaves%3D'2'%20stitchTiles%3D'stitch'/%3E%3C/filter%3E%3Crect%20width%3D'240'%20height%3D'240'%20filter%3D'url(%23n)'%20opacity%3D'0.10'/%3E%3C/svg%3E"),
-        repeating-linear-gradient(0deg, rgba(255,255,255,0.030) 0px, rgba(255,255,255,0.030) 1px, rgba(0,0,0,0) 7px),
-        repeating-linear-gradient(90deg, rgba(255,255,255,0.020) 0px, rgba(255,255,255,0.020) 1px, rgba(0,0,0,0) 9px),
-        radial-gradient(900px 650px at 18% 10%, rgba(255,255,255,0.10), rgba(0,0,0,0) 60%),
-        radial-gradient(800px 600px at 88% 92%, rgba(255,255,255,0.08), rgba(0,0,0,0) 62%),
-        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(255,255,255,0.05));
-
-      background-repeat: repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
-      background-size: 280px 280px, auto, auto, auto, auto, auto;
-      background-position: 0 0, 0 0, 0 0, center, center, center;
-
-      opacity:0.95;
-    }
-
-    body > *{position:relative; z-index:1;}
-
-    a{text-decoration:none; color:inherit;}
-
-    header{
-      position:sticky;
-      top:0;
-      z-index:50;
-      background:rgba(245,246,247,0.92);
-      backdrop-filter:blur(12px);
-      border-bottom:1px solid #e5e7eb;
-    }
-
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:14px 5%;
-      position:relative;
-    }
-
-    .nav-left{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-
-    .nav-left a{
-      display:inline-flex;
-      align-items:center;
-      line-height:0;
-    }
-
-    .nav-left img{height:32px;}
-
-    .nav-left span{
-      font-size:1rem;
-      font-weight:700;
-      letter-spacing:0.12em;
-      color:#000;
-      text-transform:uppercase;
-    }
-
-    .menu-button{
-      font-size:30px;
-      cursor:pointer;
-      color:#000;
-      user-select:none;
-      line-height:1;
-    }
-
-    .menu-panel{
-      position:absolute;
-      right:18px;
-      top:64px;
-      background:rgba(255,255,255,0.80);
-      backdrop-filter:blur(20px);
-      border-radius:22px;
-      padding:22px;
-      min-width:190px;
-      box-shadow:0 18px 40px rgba(0,0,0,0.18);
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-
-      opacity:0;
-      pointer-events:none;
-      transform:scale(0.95);
-      transition:0.25s ease;
-      color:#000;
-    }
-
-    body.menu-open .menu-panel{
-      opacity:1;
-      pointer-events:auto;
-      transform:scale(1);
-    }
-
-    .menu-panel a{
-      color:#000;
-      font-size:14px;
-      letter-spacing:0.1em;
-      text-transform:uppercase;
-    }
 
     /* HERO (match index vibe) */
     #hero{
@@ -225,22 +95,7 @@
       color:#e5e7eb;
     }
 
-    .section{
-      max-width:1100px;
-      width:92%;
-      margin:70px auto;
-    }
-    .section:first-of-type{margin-top:40px;}
-
     /* GLASS (match index) */
-    .tile{
-      background:linear-gradient(135deg, var(--glass-a), var(--glass-b));
-      border:1px solid var(--glass-border);
-      backdrop-filter: blur(20px) saturate(140%);
-      box-shadow:var(--glass-shadow), var(--glass-inset);
-      border-radius:26px;
-      padding:40px;
-    }
 
     .tile.details{ padding-top:56px; }
 
@@ -252,13 +107,6 @@
       background:rgba(0,0,0,0.35);
       border:1px solid rgba(255,255,255,0.14);
       height:520px;
-    }
-
-    .slider img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
     }
 
     .arrow{
@@ -312,12 +160,6 @@
       .slider{
         height:auto;
         aspect-ratio:16 / 9;
-      }
-      .slider img{
-        position:absolute;
-        inset:0;
-        width:100%;
-        height:100%;
       }
     }
 
@@ -392,19 +234,7 @@
     }
     .description p:first-child{ color:var(--text-main); }
 
-    footer{
-      text-align:center;
-      padding:40px 0;
-      font-size:0.8rem;
-      color:#aaa;
-    }
-
     /* PHONE spacing match */
-    @media (max-width:600px){
-      .section{width:94%; margin:54px auto;}
-      .tile{padding:26px 20px; border-radius:22px;}
-      #hero{background-position:50% 60%;}
-    }
   </style>
 </head>
 
