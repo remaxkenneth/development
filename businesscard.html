@@ -10,140 +10,98 @@
 
 <title>Contact | Kenneth Gehlhoff – RE/MAX Cabo Sanctuary</title>
 
-<meta name="description" content="Direct contact with Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for Baja real estate guidance in Cerritos, Todos Santos, and Pescadero.">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-<meta name="theme-color" content="#003da5">
-<link rel="canonical" href="https://remaxkenneth.com/businesscard.html">
-
-<meta property="og:site_name" content="Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-<meta property="og:locale" content="en_US">
-<meta property="og:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-<meta property="og:description" content="Direct contact with Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for Baja real estate guidance.">
-<meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
-<meta property="og:url" content="https://remaxkenneth.com/businesscard.html">
-<meta property="og:type" content="website">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Contact Kenneth Gehlhoff – RE/MAX Cabo Sanctuary">
-<meta name="twitter:description" content="Direct contact with Kenneth Gehlhoff and team. Call, WhatsApp, Facebook, or email for Baja real estate guidance.">
-<meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
-
 <link rel="stylesheet" href="/style.css">
 
 <style>
-body::after{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-z-index:0;
-background:
-radial-gradient(1200px 900px at 50% 35%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%),
-radial-gradient(900px 700px at 15% 90%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%),
-radial-gradient(900px 700px at 85% 90%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%);
-opacity:0.75;
+
+.contacts-wrap{
+max-width:920px;
+margin:0 auto;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:28px;
-align-items:stretch;
-}
-
-.card{
-height:100%;
+.contacts-stack{
 display:flex;
 flex-direction:column;
-padding:28px;
-text-align:center;
-position:relative;
+gap:22px;
+margin-top:30px;
+}
+
+.contact-card{
 background:linear-gradient(135deg,var(--glass-b),var(--glass-a));
-border:1px solid rgba(255,255,255,0.18);
-border-radius:18px;
-backdrop-filter:blur(18px);
-box-shadow:var(--glass-shadow),var(--glass-inset),inset 0 -24px 40px rgba(0,0,0,0.22);
-transition:all .18s ease;
+border:1px solid rgba(255,255,255,.18);
+border-radius:20px;
+padding:28px;
+backdrop-filter:blur(14px);
+box-shadow:var(--glass-shadow);
+transition:.2s ease;
 }
 
-.card:hover{
+.contact-card:hover{
 transform:translateY(-2px);
-box-shadow:0 26px 60px rgba(0,0,0,0.44),var(--glass-inset);
+box-shadow:0 30px 70px rgba(0,0,0,.35);
 }
 
-.card.kenny{
-grid-column:1 / -1;
-width:min(520px,100%);
-justify-self:center;
-border-color:rgba(255,255,255,0.28);
-box-shadow:0 22px 60px rgba(0,0,0,0.50);
+.contact-primary{
+padding:34px;
+border:1px solid rgba(255,255,255,.28);
 }
 
-.card-top{
-display:flex;
-flex-direction:column;
-align-items:center;
-gap:6px;
-padding-bottom:12px;
+.contact-header{
+text-align:center;
+margin-bottom:20px;
 }
 
-.logo-top{
-height:52px;
-opacity:.95;
+.contact-header h3{
+font-size:1.35rem;
+letter-spacing:.02em;
+margin-bottom:4px;
 }
 
-.role{
-font-size:.70rem;
-letter-spacing:.24em;
+.contact-role{
+font-size:.72rem;
+letter-spacing:.25em;
 text-transform:uppercase;
 color:var(--text-muted);
 }
 
 .contact-actions{
+display:flex;
+flex-direction:column;
+gap:10px;
 margin-top:18px;
-display:grid;
-gap:12px;
 }
 
 .contact-actions a{
+height:48px;
 display:flex;
 align-items:center;
 justify-content:center;
-height:44px;
-border-radius:999px;
+border-radius:14px;
+font-size:.72rem;
+letter-spacing:.18em;
+text-transform:uppercase;
 background:linear-gradient(180deg,var(--btn-a),var(--btn-b));
 border:1px solid var(--btn-border);
-font-size:.70rem;
-letter-spacing:.16em;
-text-transform:uppercase;
-color:var(--text-main);
 transition:.15s ease;
 }
 
 .contact-actions a:hover{
 transform:translateY(-1px);
 filter:brightness(1.05);
-border-color:rgba(255,255,255,0.30);
-box-shadow:0 12px 30px rgba(0,0,0,0.28);
 }
 
-.card.kenny .contact-actions a{
-background:linear-gradient(180deg,rgba(255,255,255,0.28),rgba(255,255,255,0.12));
-border-color:rgba(255,255,255,0.26);
-}
-
-@media (max-width:900px){
-.card.kenny{
-width:100%;
-}
-}
-
-@media (max-width:600px){
-.grid{
-grid-template-columns:1fr;
+.team-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
 gap:18px;
 }
+
+@media (max-width:700px){
+.team-grid{
+grid-template-columns:1fr;
 }
+}
+
 </style>
 </head>
 
@@ -153,7 +111,7 @@ gap:18px;
 <div class="nav">
 <div class="nav-left">
 <a href="index.html">
-<img src="/images/logo.png" alt="RE/MAX">
+<img src="/images/logo.png">
 </a>
 <span>KENNETH GEHLHOFF</span>
 </div>
@@ -171,64 +129,64 @@ gap:18px;
 
 <section id="hero">
 <div class="hero-inner">
-<div class="hero-eyebrow">CONTACT · TEAM</div>
-<h1 class="hero-title">Direct. Local. Trusted.</h1>
-<p class="hero-sub">Tap once. You're talking to the right person.</p>
+<div class="hero-eyebrow">CONTACT</div>
+<h1 class="hero-title">Talk to the Right Person</h1>
+<p class="hero-sub">Direct lines. No gatekeepers.</p>
 </div>
 </section>
 
 <section class="section">
-<div class="tile">
+<div class="tile contacts-wrap">
 
-<h2 class="section-title">Team Contacts</h2>
-<p class="section-sub">Call · WhatsApp · Facebook · Email</p>
+<div class="contacts-stack">
 
-<div class="grid">
-
-<div class="card kenny">
-<div class="card-top">
-<img src="/images/logo.png" class="logo-top">
+<div class="contact-card contact-primary">
+<div class="contact-header">
 <h3>Kenneth Gehlhoff</h3>
-<div class="role">Realtor</div>
+<div class="contact-role">Realtor</div>
 </div>
 
 <div class="contact-actions">
-<a href="tel:+526122311639">Call Now</a>
-<a href="https://wa.me/526122311639" target="_blank">WhatsApp</a>
-<a href="https://www.facebook.com/profile.php?id=61584034062665" target="_blank">Facebook</a>
+<a href="tel:+526122311639">Call Kenneth</a>
+<a href="https://wa.me/526122311639">WhatsApp</a>
+<a href="https://www.facebook.com/profile.php?id=61584034062665">Facebook</a>
 <a href="mailto:remaxkenneth@gmail.com">Email</a>
 </div>
 </div>
 
-<div class="card">
-<div class="card-top">
+<div class="team-grid">
+
+<div class="contact-card">
+<div class="contact-header">
 <h3>Richard Gomez</h3>
-<div class="role">Construction Specialist</div>
+<div class="contact-role">Construction Specialist</div>
 </div>
 
 <div class="contact-actions">
 <a href="tel:+523781497632">Call</a>
-<a href="https://wa.me/523781497632" target="_blank">WhatsApp</a>
-<a href="https://www.facebook.com/richard.g.654694" target="_blank">Facebook</a>
+<a href="https://wa.me/523781497632">WhatsApp</a>
+<a href="https://www.facebook.com/richard.g.654694">Facebook</a>
 <a href="mailto:ricardogomez160622@gmail.com">Email</a>
 </div>
 </div>
 
-<div class="card">
-<div class="card-top">
+<div class="contact-card">
+<div class="contact-header">
 <h3>David Ray</h3>
-<div class="role">Operations · Marketing</div>
+<div class="contact-role">Operations · Marketing</div>
 </div>
 
 <div class="contact-actions">
 <a href="tel:+526121315839">Call</a>
-<a href="https://wa.me/526121315839" target="_blank">WhatsApp</a>
-<a href="https://www.facebook.com/profile.php?id=61581876812521" target="_blank">Facebook</a>
+<a href="https://wa.me/526121315839">WhatsApp</a>
+<a href="https://www.facebook.com/profile.php?id=61581876812521">Facebook</a>
 <a href="mailto:Bajaheat24x7@gmail.com">Email</a>
 </div>
 </div>
 
 </div>
+</div>
+
 </div>
 </section>
 
