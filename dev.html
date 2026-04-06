@@ -1,241 +1,1413 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
-  <link rel="preload" as="image" href="/images/sunsetcerritos.jpeg">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kenneth Gehlhoff | RE/MAX Cabo Sanctuary | Luxury Oceanview Real Estate</title>
 
-  <title>Listings | Kenneth Gehlhoff | RE/MAX Cabo Sanctuary</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <meta name="description" content="Homes, land, and investments across Baja Sur. Curated listings from Kenneth Gehlhoff | RE/MAX Cabo Sanctuary.">
-  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-  <meta name="theme-color" content="#003da5">
-  <link rel="canonical" href="https://remaxkenneth.com/listings.html">
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-black': '#000000',
+            'brand-white': '#ffffff',
+            'brand-gray': '#4c4c4c',
+            'brand-light': '#f4f4f4',
+            'brand-border': '#c0c0c0',
+          },
+          fontFamily: {
+            headline: ['"Tenor Sans"', 'serif'],
+            body: ['Montserrat', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 
-  <meta property="og:site_name" content="Kenneth Gehlhoff | RE/MAX Cabo Sanctuary">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:title" content="Baja Listings | RE/MAX Cabo Sanctuary">
-  <meta property="og:description" content="Homes, land, and investments across Baja Sur.">
-  <meta property="og:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:url" content="https://remaxkenneth.com/listings.html">
-  <meta property="og:type" content="website">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Baja Listings | RE/MAX Cabo Sanctuary">
-  <meta name="twitter:description" content="Homes, land, and investments across Baja Sur.">
-  <meta name="twitter:image" content="https://remaxkenneth.com/images/sunsetcerritos.jpeg">
-  <meta name="twitter:url" content="https://remaxkenneth.com/listings.html">
-
-  <link rel="stylesheet" href="/style.css">
   <style>
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:32px;
-      justify-content:stretch;
-      align-items:start;
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #000;
+      background: #fff;
+      overflow-x: hidden;
     }
-    @media (max-width:1024px){
-      .grid{grid-template-columns:repeat(2, minmax(0, 1fr)); gap:22px;}
+
+    /* NAV */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 900;
+      height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      background: rgba(255,255,255,0.97);
+      border-bottom: 1px solid #f4eded;
+      transition: background 0.3s ease, height 0.3s ease, border-color 0.3s ease;
     }
-    @media (max-width:600px){
-      .grid{grid-template-columns:1fr; gap:18px;}
+    #navbar.scrolled {
+      background: rgba(0,0,0,0.82) !important;
+      border-bottom-color: transparent;
+      height: 72px;
+    }
+    #navbar.scrolled .nav-link { color: #fff !important; }
+    #navbar.scrolled .nav-logo-text { color: #fff !important; }
+    #navbar.scrolled .nav-logo-sub { color: rgba(255,255,255,0.5) !important; }
+    #navbar.scrolled .nav-hamburger { color: #fff !important; }
+    #navbar.scrolled .nav-search-icon { color: #fff !important; }
+
+    /* Logo: circular monogram only (like reference) */
+    .nav-logo-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+      gap: 4px;
+    }
+    .nav-logo-monogram {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.3s;
+      flex-shrink: 0;
+    }
+    #navbar.scrolled .nav-logo-monogram { border-color: rgba(255,255,255,0.35); }
+    .nav-logo-initial {
+      font-family: 'Tenor Sans', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #000;
+      line-height: 1;
+      transition: color 0.3s;
+    }
+    #navbar.scrolled .nav-logo-initial { color: #fff; }
+    .nav-logo-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 7px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #aaa;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+    #navbar.scrolled .nav-logo-sub { color: rgba(255,255,255,0.35); }
+    .nav-hamburger {
+      color: #000;
+      cursor: pointer;
+      font-size: 22px;
+      line-height: 1;
+      transition: color 0.3s;
+      letter-spacing: -2px;
+    }
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 42px;
+    }
+    .nav-link {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #000;
+      text-decoration: none;
+      transition: opacity 0.2s, color 0.3s;
+    }
+    .nav-link:hover { opacity: 0.6; }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-search-icon {
+      color: #000;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .nav-contact-btn {
+      display: none;
+    }
+
+    /* HERO */
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      width: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://remaxkenneth.com/images/sunsetcerritos.jpeg');
+      background-size: cover;
+      background-position: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 8.33% 140px;
+      max-width: 860px;
+    }
+    .hero-pretitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .hero-title {
+      font-family: 'Tenor Sans', serif;
+      font-size: 80px;
+      font-weight: 400;
+      line-height: 1.0;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-agent-line {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 8px;
+    }
+    .hero-location-line {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 40px;
+    }
+    .btn-primary {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 20px 46px;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-primary:hover { background: #fff; color: #000; }
+    .btn-dark {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #000;
+      border: 1px solid #000;
+      padding: 20px 46px;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s;
+    }
+    .btn-dark:hover { background: #000; color: #fff; }
+
+    /* SEARCH BAR */
+    .search-bar {
+      position: sticky;
+      bottom: 0;
+      top: auto;
+      z-index: 800;
+      background: #fff;
+      border-top: 1px solid #e8e8e8;
+      height: 59px;
+      display: flex;
+      align-items: center;
+      padding: 0 0 0 40px;
+      /* Pulled up out of normal flow to sit at bottom of hero */
+      margin-top: -59px;
+    }
+    .search-input-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-right: 40px;
+    }
+    .search-input {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      color: #000;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      outline: none;
+      padding: 4px 0;
+      width: 50%;
+      background: transparent;
+    }
+    .search-input::placeholder { color: #aaa; }
+    .search-contact-btn {
+      height: 100%;
+      padding: 0 40px;
+      border-left: 1px solid #e0e0e0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #000;
+      background: transparent;
+      border-top: none;
+      border-right: none;
+      border-bottom: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .search-contact-btn:hover { background: #f9f9f9; }
+
+    /* CAROUSEL */
+    .carousel-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      overflow: hidden;
+    }
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.77,0,0.175,1);
+    }
+    .carousel-slide {
+      flex-shrink: 0;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-slide-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+    }
+    .carousel-slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.18);
+    }
+    .carousel-slide-content {
+      position: absolute;
+      bottom: 80px;
+      right: 80px;
+      text-align: right;
+      z-index: 2;
+      max-width: 520px;
+    }
+    .carousel-property-label {
+      display: inline-block;
+      background: #fff;
+      color: #000;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      margin-bottom: 16px;
+    }
+    .carousel-property-name {
+      font-family: 'Tenor Sans', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .carousel-property-details {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 8px;
+    }
+    .carousel-property-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 28px;
+    }
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .carousel-arrow {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(255,255,255,0.6);
+      background: transparent;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: all;
+      transition: background 0.2s, color 0.2s;
+      font-size: 16px;
+    }
+    .carousel-arrow:hover { background: #fff; color: #000; }
+    .carousel-dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 3;
+    }
+    .carousel-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.4);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .carousel-dot.active { background: #fff; }
+
+    /* GALLERY GRID */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .gallery-card {
+      position: relative;
+      height: 310px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+    .gallery-card:hover .gallery-card-bg { transform: scale(1.05); }
+    .gallery-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0) 55%);
+      transition: background 0.4s;
+    }
+    .gallery-card:hover .gallery-card-overlay {
+      background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.15) 55%);
+    }
+    .gallery-card-text {
+      position: absolute;
+      bottom: 22px;
+      left: 22px;
+      right: 22px;
+      transform: translateY(0);
+      transition: transform 0.35s ease;
+      z-index: 2;
+    }
+    .gallery-card:hover .gallery-card-text { transform: translateY(-28px); }
+    .gallery-card-title {
+      font-family: 'Tenor Sans', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .gallery-card-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ABOUT SECTION */
+    .about-section {
+      background: #fff;
+      padding: 96px 8.33%;
+    }
+    .about-section-title {
+      font-family: 'Tenor Sans', serif;
+      font-size: 43px;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 64px;
+      color: #000;
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      object-position: top;
+    }
+    .about-text-col {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .about-pretitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+    }
+    .about-heading {
+      font-family: 'Tenor Sans', serif;
+      font-size: 36px;
+      font-weight: 400;
+      color: #000;
+      line-height: 1.2;
+    }
+    .about-body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #4c4c4c;
+    }
+    .about-details {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #000;
+      line-height: 2.2;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+
+    /* STATS */
+    .stats-section {
+      background: #fff;
+      padding: 80px 8.33%;
+      border-top: 1px solid #f0f0f0;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto 60px;
+    }
+    .stat-value {
+      font-family: 'Tenor Sans', serif;
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1;
+      color: #000;
+      margin-bottom: 12px;
+    }
+    .stat-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #4c4c4c;
+    }
+    .stats-cta { text-align: center; }
+
+    /* DARK LISTINGS SECTION */
+    .listings-section {
+      background: #000;
+      padding: 100px 8.33%;
+    }
+    .listings-title {
+      font-family: 'Tenor Sans', serif;
+      font-size: 43px;
+      font-weight: 400;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .listings-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .listing-card {
+      position: relative;
+      min-height: 380px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .listing-card.full-width { grid-column: 1 / -1; min-height: 480px; }
+    .listing-card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.5s ease;
+    }
+    .listing-card:hover .listing-card-bg { transform: scale(1.04); }
+    .listing-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.42);
+      transition: background 0.3s;
+    }
+    .listing-card:hover .listing-card-overlay { background: rgba(0,0,0,0.28); }
+    .listing-card-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      min-height: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 36px;
+    }
+    .listing-card-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+    }
+    .listing-card-title {
+      font-family: 'Tenor Sans', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .listing-card-details {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 6px;
+    }
+    .listing-card-desc {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      opacity: 0;
+      max-height: 0;
+      transition: opacity 0.35s, max-height 0.35s;
+      margin-top: 10px;
+    }
+    .listing-card:hover .listing-card-desc { opacity: 1; max-height: 80px; }
+    .listing-card-btn {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.5);
+      padding: 14px 32px;
+      background: transparent;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .listing-card-btn:hover { background: #fff; color: #000; }
+
+    /* AREA / PARALLAX */
+    .area-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #000;
+    }
+    .area-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://remaxkenneth.com/images/IMG_0795.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .area-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.52);
+    }
+    .area-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 760px;
+      padding: 0 40px;
+    }
+    .area-pretitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 20px;
+    }
+    .area-title {
+      font-family: 'Tenor Sans', serif;
+      font-size: 56px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 28px;
+    }
+    .area-body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 36px;
+    }
+    .area-locations {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 40px;
+    }
+    .area-location {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      padding: 0 20px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+    .area-location:last-child { border-right: none; }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      background: #fff;
+      padding: 96px 8.33%;
+    }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .contact-info h2 {
+      font-family: 'Tenor Sans', serif;
+      font-size: 43px;
+      font-weight: 400;
+      color: #000;
+      margin-bottom: 36px;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .contact-detail-icon { width: 20px; flex-shrink: 0; margin-top: 2px; }
+    .contact-detail-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #4c4c4c;
+    }
+    .contact-detail-text strong {
+      display: block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #000;
+      margin-bottom: 4px;
+    }
+    .contact-form h3 {
+      font-family: 'Tenor Sans', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: #000;
+      margin-bottom: 32px;
+    }
+    .form-field { margin-bottom: 24px; }
+    .form-label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 10px 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: #000;
+      background: transparent;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-input:focus { border-bottom-color: #000; }
+    .form-textarea {
+      width: 100%;
+      border: 1px solid #ccc;
+      padding: 14px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: #000;
+      background: transparent;
+      outline: none;
+      resize: vertical;
+      min-height: 120px;
+      transition: border-color 0.2s;
+    }
+    .form-textarea:focus { border-color: #000; }
+
+    /* FOOTER */
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 80px 8.33% 32px;
+    }
+    .footer-main {
+      display: grid;
+      grid-template-columns: 57% 40%;
+      gap: 3%;
+      padding-bottom: 60px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 28px;
+    }
+    .footer-brand-name {
+      font-family: 'Tenor Sans', serif;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .footer-brand-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+    .footer-desc {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.55);
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+    .footer-contacts {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .footer-contact-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 4px;
+    }
+    .footer-contact-value {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+    }
+    .footer-contact-value:hover { color: #fff; }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .footer-social-btn:hover { background: #fff; color: #000; border-color: #fff; }
+    .footer-nav-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 20px;
+    }
+    .footer-nav-list { list-style: none; margin-bottom: 40px; }
+    .footer-nav-list li { margin-bottom: 12px; }
+    .footer-nav-list a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-nav-list a:hover { color: #fff; }
+    .footer-newsletter-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
+    }
+    .footer-newsletter-form {
+      display: flex;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+    }
+    .footer-newsletter-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      color: #fff;
+      padding: 8px 0;
+      outline: none;
+    }
+    .footer-newsletter-input::placeholder { color: rgba(255,255,255,0.3); }
+    .footer-newsletter-submit {
+      background: transparent;
+      border: none;
+      color: rgba(255,255,255,0.4);
+      cursor: pointer;
+      padding: 8px 0 8px 12px;
+      transition: color 0.2s;
+    }
+    .footer-newsletter-submit:hover { color: #fff; }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-copy {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-legal {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
     }
   </style>
 </head>
-
 <body>
 
-<header>
-  <div class="nav">
-    <div class="nav-left">
-      <a href="index.html" aria-label="Home">
-        <img src="/images/logo.png" alt="RE/MAX">
-      </a>
-      <span>KENNETH GEHLHOFF</span>
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <!-- Logo: circular monogram (matches target's F circle) -->
+    <a href="#" class="nav-logo-wrap">
+      <div class="nav-logo-monogram">
+        <span class="nav-logo-initial">K</span>
+      </div>
+      <span class="nav-logo-sub">RE/MAX</span>
+    </a>
+
+    <!-- Centered nav links -->
+    <div class="nav-center">
+      <a href="#" class="nav-link">International</a>
+      <a href="#about" class="nav-link">Team</a>
+      <a href="#listings-grid" class="nav-link">Properties</a>
+      <a href="#areas" class="nav-link">Media</a>
+      <a href="#contact" class="nav-link">Contact Us</a>
     </div>
 
-    <div class="menu-button" id="menuButton">≡</div>
-
-    <div class="menu-panel" id="menuPanel">
-      <a href="index.html">Home</a>
-      <a href="listings.html">Listings</a>
-      <a href="events.html">Events</a>
-      <a href="businesscard.html">Contact</a>
+    <!-- Right side: search + hamburger -->
+    <div class="nav-right">
+      <svg class="nav-search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <span class="nav-hamburger">&#9776;</span>
     </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-pretitle">Exceptional</p>
+      <h1 class="hero-title">LUXURY<br>OCEANVIEW<br>REAL ESTATE</h1>
+      <p class="hero-agent-line">Kenneth Gehlhoff &nbsp;|&nbsp; RE/MAX Cabo Sanctuary</p>
+      <p class="hero-agent-line" style="margin-bottom:40px;">Cerritos &nbsp;·&nbsp; Todos Santos &nbsp;·&nbsp; Pescadero &nbsp;·&nbsp; Baja California Sur</p>
+      <a href="#listings-grid" class="btn-primary">Our Properties</a>
+    </div>
+  </section>
+
+  <!-- SEARCH BAR -->
+  <div class="search-bar">
+    <div class="search-input-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#bbb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input class="search-input" type="text" placeholder="Search by Address or Area" />
+    </div>
+    <a href="#contact" class="search-contact-btn">Book an Appointment</a>
   </div>
-</header>
 
-<section id="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Homes · Land · Investment</div>
-    <h1 class="hero-title">Listings</h1>
-    <p class="hero-sub">Curated for lifestyle, location, and value</p>
-  </div>
-</section>
+  <!-- FEATURED PROPERTIES CAROUSEL -->
+  <section class="carousel-section">
+    <div class="carousel-track" id="carouselTrack">
 
-<section class="section" aria-label="Listings grid">
-  <div class="tile">
-    <p class="section-sub">Curated for lifestyle, location, and value</p>
-
-    <div class="grid">
-      <a class="card" href="listings/cw/1/index.html" aria-label="Open Pescadero Resort listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg" alt="Pescadero Resort" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Pescadero Resort</h3>
-          <p>House<br>$1,650,000 USD<br>5 Bedrooms · 5 Bathrooms<br>El Pescadero</p>
+      <div class="carousel-slide">
+        <div class="carousel-slide-bg" style="background-image: url('https://remaxkenneth.com/images/IMG_0795.jpeg')"></div>
+        <div class="carousel-slide-overlay"></div>
+        <div class="carousel-slide-content">
+          <span class="carousel-property-label">Featured</span>
+          <h2 class="carousel-property-name">Casa Sol y Luna</h2>
+          <p class="carousel-property-details">Gavilan &nbsp;&middot;&nbsp; 1,800 m&sup2; Lot &nbsp;&middot;&nbsp; 180&deg; Views</p>
+          <p class="carousel-property-details" style="margin-bottom:18px;">Casitas &nbsp;&middot;&nbsp; Endless Pool &nbsp;&middot;&nbsp; Sunset Studio</p>
+          <p class="carousel-property-price">$1,300,000 USD</p>
+          <a href="#contact" class="btn-primary" style="font-size:12px; padding:14px 36px;">Inquire</a>
         </div>
-      </a>
+      </div>
 
-      <a class="card" href="listings/1/index.html" aria-label="Open Casa Sol y Luna listing">
-        <img src="/images/IMG_0795.jpeg" alt="Casa Sol y Luna" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Sol y Luna</h3>
-          <p>
-            House<br>
-            <span class="swap-text"
-                  data-a="$1,300,000 USD"
-                  data-b="FINANCING AVAILABLE">$1,300,000 USD</span><br>
-            5 Bedrooms · 5 Bathrooms<br>
-            El Pescadero · Gavilan
-          </p>
+      <div class="carousel-slide">
+        <div class="carousel-slide-bg" style="background-image: url('https://remaxkenneth.com/images/IMG_0822.png')"></div>
+        <div class="carousel-slide-overlay"></div>
+        <div class="carousel-slide-content">
+          <span class="carousel-property-label">For Sale</span>
+          <h2 class="carousel-property-name">Casa Vista</h2>
+          <p class="carousel-property-details">Cerritos &nbsp;&middot;&nbsp; 5 Bed &nbsp;&middot;&nbsp; 4 Bath</p>
+          <p class="carousel-property-price">$650,000 USD</p>
+          <a href="#contact" class="btn-primary" style="font-size:12px; padding:14px 36px;">Inquire</a>
         </div>
-      </a>
+      </div>
 
-      <a class="card" href="listings/6/index.html" aria-label="Open Casa Pacific Dream listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/6/IMG_1363.jpeg" alt="Casa Pacific Dream" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Pacific Dream</h3>
-          <p>
-            House<br>
-            <span class="swap-text"
-                  data-a="$990,000 USD"
-                  data-b="FINANCING AVAILABLE">$990,000 USD</span><br>
-            3 Bedrooms · 2 Bathrooms<br>
-            El Pescadero · Gavilan
-          </p>
+      <div class="carousel-slide">
+        <div class="carousel-slide-bg" style="background-image: url('https://ldeppcutqiyf3cw0.public.blob.vercel-storage.com/3/IMG_0060.png'); background-color:#111;"></div>
+        <div class="carousel-slide-overlay"></div>
+        <div class="carousel-slide-content">
+          <span class="carousel-property-label">Sale Pending</span>
+          <h2 class="carousel-property-name">Casa Lienzo</h2>
+          <p class="carousel-property-details">Las Tunas &nbsp;&middot;&nbsp; 3 Bed &nbsp;&middot;&nbsp; 2 Bath</p>
+          <p class="carousel-property-price">Price Upon Request</p>
+          <a href="#contact" class="btn-primary" style="font-size:12px; padding:14px 36px;">Contact</a>
         </div>
-      </a>
+      </div>
 
-      <a class="card" href="listings/2/index.html" aria-label="Open Casa Vista listing">
-        <img src="/images/IMG_0822.png" alt="Casa Vista" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Vista</h3>
-          <p>
-            House<br>
-            <span class="swap-text"
-                  data-a="$650,000 USD"
-                  data-b="FINANCING AVAILABLE">$650,000 USD</span><br>
-            5 Bedrooms · 4 Bathrooms<br>
-            El Pescadero · Cerritos
-          </p>
-        </div>
-      </a>
-
-      <a class="card" href="listings/5/index.html" aria-label="Open Casa Costa listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/5/hero.jpeg" alt="Casa Costa" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa Costa</h3>
-          <p>House<br>$599,000 USD<br>2 Bedrooms · 2 Bathrooms<br>El Pescadero · Cerritos</p>
-        </div>
-      </a>
-
-      <a class="card" href="listings/3/index.html" aria-label="Open Casa L. C. Molusco listing">
-        <img src="/images/IMG_0797.png" alt="Casa L. C. Molusco" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Casa L. C. Molusco</h3>
-          <p>House<br>SALE PENDING<br>3 Bedrooms · 2 Bathrooms<br>Todos Santos · Las Tunas</p>
-        </div>
-      </a>
-
-      <a class="card" href="listings/luna/villa/index.html" aria-label="Open Luna Villa listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg" alt="Luna Villa" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Luna Villa</h3>
-          <p>
-            House<br>
-            <span class="swap-text"
-                  data-a="$399,000 USD"
-                  data-b="STARTING AT">$399,000 USD</span><br>
-            3 Bedrooms · 2 Bathrooms<br>
-            El Pescadero · El Centro
-          </p>
-        </div>
-      </a>
-
-      <a class="card" href="listings/luna/newvilla/index.html" aria-label="Open New Villa listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1623.png" alt="New Villa" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>New Villa</h3>
-          <p>
-            House<br>
-            <span class="swap-text"
-                  data-a="$339,000 USD"
-                  data-b="STARTING AT">$339,000 USD</span><br>
-            3 Bedrooms · 2 Bathrooms<br>
-            El Pescadero · El Centro
-          </p>
-        </div>
-      </a>
     </div>
 
-    <div class="divider" role="separator" aria-hidden="true"></div>
-
-    <div class="grid">
-      <a class="card" href="listings/8/index.html" aria-label="Open Gavilán Heights listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/8/Drone-Still_2026-02-19-21h54m21s967.jpeg" alt="Gavilán Heights" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Gavilán Heights</h3>
-          <p>
-            Plot of Land<br>
-            <span class="swap-text"
-                  data-a="$325,000 USD"
-                  data-b="FINANCING AVAILABLE">$325,000 USD</span><br>
-            Cerritos · Gavilan
-          </p>
-        </div>
-      </a>
-
-      <a class="card" href="listings/4/index.html" aria-label="Open Central Cerritos Lot listing">
-        <img src="/images/IMG_0798.jpeg" alt="Central Cerritos Lot" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Central Cerritos Lot</h3>
-          <p>Plot of Land<br>$265,000 USD<br>El Pescadero · Cerritos</p>
-        </div>
-      </a>
-
-      <a class="card" href="listings/0/index.html" aria-label="Open Tierra Nirvana listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/0/Drone-Still_2026-02-19-21h15m37s316.jpeg" alt="Tierra Nirvana" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Tierra Nirvana</h3>
-          <p>Plot of Land<br>$245,000 USD<br>El Pecadero · Cerritos</p>
-        </div>
-      </a>
-
-      <a class="card" href="listings/7/index.html" aria-label="Open Ocean & Summit Reserve listing">
-        <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/7/Drone-Still_2026-02-19-22h12m41s382.jpeg" alt="Ocean & Summit Reserve" loading="lazy" decoding="async">
-        <div class="card-content">
-          <h3>Ocean & Summit Reserve</h3>
-          <p>Plot of Land<br>$225,000 USD<br>El Pescadero · Cerritos</p>
-        </div>
-      </a>
+    <div class="carousel-controls">
+      <button class="carousel-arrow" onclick="changeSlide(-1)">&#8592;</button>
+      <button class="carousel-arrow" onclick="changeSlide(1)">&#8594;</button>
     </div>
-  </div>
-</section>
 
-<footer>
-  Curated locally. Updated often.<br>
-  © 2026 Kenneth Gehlhoff | RE/MAX Cabo Sanctuary<br>
-  Each office independently owned and operated
-</footer>
+    <div class="carousel-dots" id="carouselDots">
+      <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+      <div class="carousel-dot" onclick="goToSlide(1)"></div>
+      <div class="carousel-dot" onclick="goToSlide(2)"></div>
+    </div>
+  </section>
 
-<script src="/main.js"></script>
+  <!-- GALLERY GRID -->
+  <section>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <div class="gallery-card-bg" style="background-image: url('https://remaxkenneth.com/images/sunsetcerritos.jpeg')"></div>
+        <div class="gallery-card-overlay"></div>
+        <div class="gallery-card-text">
+          <div class="gallery-card-title">Cerritos</div>
+          <div class="gallery-card-sub">Beachfront Lifestyle</div>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-card-bg" style="background-image: url('https://remaxkenneth.com/images/IMG_0795.jpeg')"></div>
+        <div class="gallery-card-overlay"></div>
+        <div class="gallery-card-text">
+          <div class="gallery-card-title">Todos Santos</div>
+          <div class="gallery-card-sub">Luxury Villas</div>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-card-bg" style="background-image: url('https://remaxkenneth.com/images/IMG_0822.png')"></div>
+        <div class="gallery-card-overlay"></div>
+        <div class="gallery-card-text">
+          <div class="gallery-card-title">Pescadero</div>
+          <div class="gallery-card-sub">Private Estates</div>
+        </div>
+      </div>
+      <div class="gallery-card" style="cursor:pointer;">
+        <div class="gallery-card-bg" style="background-image: url('https://remaxkenneth.com/images/IMG_0795.jpeg'); filter:brightness(0.7) saturate(0.6);"></div>
+        <div class="gallery-card-overlay" style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 55%);"></div>
+        <div class="gallery-card-text">
+          <div class="gallery-card-title">View All Listings</div>
+          <div class="gallery-card-sub">See Full Portfolio</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="about-section" id="about">
+    <h2 class="about-section-title">Your Baja Real Estate Expert</h2>
+    <div class="about-grid">
+      <div>
+        <img class="about-img" src="https://remaxkenneth.com/images/kenneth.jpeg" alt="Kenneth Gehlhoff" />
+      </div>
+      <div class="about-text-col">
+        <p class="about-pretitle">About Kenneth</p>
+        <h3 class="about-heading">Kenneth Gehlhoff</h3>
+        <p class="about-body">With years of experience in the Todos Santos &amp; Cerritos corridor, Kenneth helps clients navigate Baja real estate with clarity, confidence, and trusted local expertise. From private villas to income properties and beachfront homes, Kenneth curates every transaction with care and deep knowledge of the region.</p>
+        <p class="about-body">Whether you are looking for your dream oceanview retreat or an investment property in Baja California Sur, Kenneth brings insider knowledge and a commitment to exceptional service to every deal.</p>
+        <div class="about-details">
+          <div>RE/MAX Cabo Sanctuary</div>
+          <div>Baja California Sur, Mexico</div>
+          <div>WhatsApp: +52 612 127 8834</div>
+        </div>
+        <div style="padding-top:8px;">
+          <a href="#contact" class="btn-dark">Contact Kenneth</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="stats-section">
+    <div class="stats-grid">
+      <div style="text-align:center;">
+        <div class="stat-value">3+</div>
+        <div class="stat-label">Active Listings</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Areas Served</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="stat-value">$1M+</div>
+        <div class="stat-label">Featured Property Value</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="stat-value">1</div>
+        <div class="stat-label">Trusted Brokerage</div>
+      </div>
+    </div>
+    <div class="stats-cta">
+      <a href="#contact" class="btn-dark">Schedule a Consultation</a>
+    </div>
+  </section>
+
+  <!-- DARK LISTINGS SECTION -->
+  <section class="listings-section" id="listings-grid">
+    <h2 class="listings-title">Featured Properties</h2>
+    <div class="listings-grid">
+
+      <div class="listing-card full-width">
+        <div class="listing-card-bg" style="background-image: url('https://remaxkenneth.com/images/IMG_0795.jpeg')"></div>
+        <div class="listing-card-overlay"></div>
+        <div class="listing-card-content">
+          <div class="listing-card-label">Gavilan, Baja California Sur</div>
+          <h3 class="listing-card-title">Casa Sol y Luna</h3>
+          <p class="listing-card-details">1,800 m&sup2; &nbsp;&middot;&nbsp; 180&deg; Ocean Views &nbsp;&middot;&nbsp; Endless Pool &nbsp;&middot;&nbsp; Casitas</p>
+          <p class="listing-card-desc">Where the desert meets the sea. Casa Sol y Luna sits on an 1,800 m&sup2; lot with 180&deg; views, casitas, an endless pool, and an upstairs sunset studio.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; flex-wrap:wrap; gap:16px;">
+            <span style="font-family:'Tenor Sans',serif; font-size:28px; color:#fff; font-weight:400;">$1,300,000 USD</span>
+            <a href="#contact" class="listing-card-btn">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-card-bg" style="background-image: url('https://remaxkenneth.com/images/IMG_0822.png')"></div>
+        <div class="listing-card-overlay"></div>
+        <div class="listing-card-content">
+          <div class="listing-card-label">Cerritos, Baja California Sur</div>
+          <h3 class="listing-card-title">Casa Vista</h3>
+          <p class="listing-card-details">5 Bedrooms &nbsp;&middot;&nbsp; 4 Bathrooms</p>
+          <p class="listing-card-desc">Stunning views and spacious living in the heart of Cerritos.</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; flex-wrap:wrap; gap:16px;">
+            <span style="font-family:'Tenor Sans',serif; font-size:24px; color:#fff; font-weight:400;">$650,000 USD</span>
+            <a href="#contact" class="listing-card-btn">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="listing-card">
+        <div class="listing-card-bg" style="background-image: url('https://ldeppcutqiyf3cw0.public.blob.vercel-storage.com/3/IMG_0060.png'); background-color:#111;"></div>
+        <div class="listing-card-overlay"></div>
+        <div class="listing-card-content">
+          <div class="listing-card-label">Las Tunas, Baja California Sur</div>
+          <h3 class="listing-card-title">Casa Lienzo</h3>
+          <p class="listing-card-details">3 Bedrooms &nbsp;&middot;&nbsp; 2 Bathrooms</p>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:20px; flex-wrap:wrap; gap:16px;">
+            <span style="font-family:'Montserrat',sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.55); font-weight:600;">Sale Pending</span>
+            <a href="#contact" class="listing-card-btn">Contact</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AREA / PARALLAX SECTION -->
+  <section class="area-section" id="areas">
+    <div class="area-bg"></div>
+    <div class="area-overlay"></div>
+    <div class="area-content">
+      <p class="area-pretitle">Baja California Sur, Mexico</p>
+      <h2 class="area-title">We're Living The Dream &mdash;<br>Come Join Us</h2>
+      <p class="area-body">The Todos Santos and Cerritos corridor is one of the most beautiful and sought-after stretches of coastline in Mexico. Discover your perfect piece of paradise with a trusted local guide.</p>
+      <div class="area-locations">
+        <span class="area-location">Cerritos</span>
+        <span class="area-location">Todos Santos</span>
+        <span class="area-location">Pescadero</span>
+      </div>
+      <a href="#contact" class="btn-primary">Explore The Area</a>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section" id="contact">
+    <div class="contact-inner">
+      <div class="contact-info">
+        <h2>Contact Me Today</h2>
+        <div class="contact-detail">
+          <svg class="contact-detail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.38 2 2 0 0 1 3.58 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 5.53 5.53l1.62-1.62a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div class="contact-detail-text">
+            <strong>Phone / WhatsApp</strong>
+            +52 612 127 8834
+          </div>
+        </div>
+        <div class="contact-detail">
+          <svg class="contact-detail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="contact-detail-text">
+            <strong>Service Area</strong>
+            Cerritos &nbsp;&middot;&nbsp; Todos Santos &nbsp;&middot;&nbsp; Pescadero<br>Baja California Sur, Mexico
+          </div>
+        </div>
+        <div class="contact-detail">
+          <svg class="contact-detail-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+          <div class="contact-detail-text">
+            <strong>Brokerage</strong>
+            RE/MAX Cabo Sanctuary<br>Each office independently owned and operated
+          </div>
+        </div>
+        <div style="margin-top:16px;">
+          <a href="https://wa.me/5216121278834" target="_blank" class="btn-dark">WhatsApp Kenneth</a>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <div class="form-field">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" placeholder="Full Name" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" type="tel" placeholder="+1 (555) 000-0000" />
+        </div>
+        <div class="form-field">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Tell me about the type of property you're looking for..."></textarea>
+        </div>
+        <button type="button" class="btn-dark" style="width:100%; text-align:center; cursor:pointer; font-family:'Montserrat',sans-serif; border:1px solid #000;">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-main">
+      <div>
+        <div class="footer-brand-name">Kenneth Gehlhoff</div>
+        <div class="footer-brand-sub">RE/MAX Cabo Sanctuary</div>
+        <p class="footer-desc">Curated locally. Updated often. Private villas, income properties, and beachfront homes along the Todos Santos &amp; Cerritos corridor of Baja California Sur.</p>
+        <div class="footer-contacts">
+          <div>
+            <div class="footer-contact-label">Phone / WhatsApp</div>
+            <a href="tel:+526121278834" class="footer-contact-value">+52 612 127 8834</a>
+          </div>
+          <div>
+            <div class="footer-contact-label">Location</div>
+            <span class="footer-contact-value">Baja California Sur, MX</span>
+          </div>
+          <div>
+            <div class="footer-contact-label">Brokerage</div>
+            <span class="footer-contact-value">RE/MAX Cabo Sanctuary</span>
+          </div>
+        </div>
+        <div class="footer-socials">
+          <a href="https://wa.me/5216121278834" target="_blank" class="footer-social-btn" title="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          </a>
+          <a href="#" class="footer-social-btn" title="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="footer-social-btn" title="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-nav-title">Navigation</p>
+        <ul class="footer-nav-list">
+          <li><a href="#">Home</a></li>
+          <li><a href="#listings-grid">Properties</a></li>
+          <li><a href="#areas">Areas</a></li>
+          <li><a href="#about">About Kenneth</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div>
+          <p class="footer-newsletter-label">Stay Updated</p>
+          <div class="footer-newsletter-form">
+            <input class="footer-newsletter-input" type="email" placeholder="Your email address" />
+            <button class="footer-newsletter-submit">&#8594;</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 Kenneth Gehlhoff | RE/MAX Cabo Sanctuary. Each office independently owned and operated.</p>
+      <p class="footer-legal">Curated locally. Updated often.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Sticky nav scroll behavior
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Carousel logic
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const track = document.getElementById('carouselTrack');
+
+    function updateCarousel() {
+      track.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+    }
+
+    function changeSlide(dir) {
+      currentSlide = (currentSlide + dir + slides.length) % slides.length;
+      updateCarousel();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateCarousel();
+    }
+
+    // Auto-advance carousel every 6 seconds
+    setInterval(() => changeSlide(1), 6000);
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
