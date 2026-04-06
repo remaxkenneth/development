@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -604,11 +604,25 @@
 
     /* STATS */
     .stats-section {
-      background: #fafafa;
+      position: relative;
       padding: 80px 8.33%;
-      border-top: 1px solid #f0f0f0;
+    }
+    .stats-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://remaxkenneth.com/images/sunsetcerritos.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .stats-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.62);
     }
     .stats-grid {
+      position: relative;
+      z-index: 2;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 40px;
@@ -620,7 +634,7 @@
       font-family: 'Tenor Sans', serif;
       font-size: 52px;
       line-height: 1;
-      color: #000;
+      color: #fff;
       margin-bottom: 12px;
     }
     .stat-label {
@@ -629,9 +643,9 @@
       font-weight: 500;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: #4c4c4c;
+      color: rgba(255,255,255,0.7);
     }
-    .stats-cta { text-align: center; }
+    .stats-cta { position: relative; z-index: 2; text-align: center; }
 
     /* DARK LISTINGS */
     .listings-section {
@@ -1314,26 +1328,28 @@
 
   <!-- STATS -->
   <section class="stats-section">
+    <div class="stats-bg"></div>
+    <div class="stats-overlay"></div>
     <div class="stats-grid">
       <div>
-        <div class="stat-value">3+</div>
-        <div class="stat-label">Active Listings</div>
+        <div class="stat-value">18</div>
+        <div class="stat-label">Years in Baja</div>
       </div>
       <div>
-        <div class="stat-value">3</div>
-        <div class="stat-label">Areas Served</div>
+        <div class="stat-value">8</div>
+        <div class="stat-label">Years in Real Estate</div>
+      </div>
+      <div>
+        <div class="stat-value">$6M+</div>
+        <div class="stat-label">Closed in 2025</div>
       </div>
       <div>
         <div class="stat-value">$1M+</div>
-        <div class="stat-label">Featured Property Value</div>
-      </div>
-      <div>
-        <div class="stat-value">1</div>
-        <div class="stat-label">Trusted Brokerage</div>
+        <div class="stat-label">Closed This Year</div>
       </div>
     </div>
     <div class="stats-cta">
-      <a href="businesscard.html" class="btn-dark">Schedule a Consultation</a>
+      <a href="businesscard.html" class="btn-primary">Schedule a Consultation</a>
     </div>
   </section>
 
@@ -1416,20 +1432,20 @@
       <a href="events.html" class="btn-dark" style="padding:14px 32px; font-size:12px;">All Events</a>
     </div>
     <div class="events-grid">
-      <a href="events.html" class="event-card">
-        <div class="event-date">Coming Soon</div>
-        <div class="event-name">Open House &mdash; Casa Sol y Luna</div>
-        <div class="event-loc">Gavilan, Baja California Sur</div>
+      <a href="https://www.bandsintown.com/c/todos-santos-mexico" target="_blank" rel="noopener" class="event-card">
+        <div class="event-date">Live Music</div>
+        <div class="event-name">Evenings in Baja</div>
+        <div class="event-loc">Music Calendar</div>
       </a>
-      <a href="events.html" class="event-card">
-        <div class="event-date">Coming Soon</div>
-        <div class="event-name">Baja Buyer's Tour</div>
-        <div class="event-loc">Cerritos Corridor</div>
+      <a href="https://gringogazette.com/event/" target="_blank" rel="noopener" class="event-card">
+        <div class="event-date">Community</div>
+        <div class="event-name">No Bad Days</div>
+        <div class="event-loc">Event Calendar</div>
       </a>
-      <a href="events.html" class="event-card">
-        <div class="event-date">Coming Soon</div>
-        <div class="event-name">Investor Info Night</div>
-        <div class="event-loc">Todos Santos</div>
+      <a href="https://setuesbcs.gob.mx/eventos-admin/calendario.php" target="_blank" rel="noopener" class="event-card">
+        <div class="event-date">Regional</div>
+        <div class="event-name">Official Events</div>
+        <div class="event-loc">Official Calendar</div>
       </a>
     </div>
   </section>
