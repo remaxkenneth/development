@@ -1776,54 +1776,75 @@
           <a href="businesscard.html" class="btn-dark" style="background:transparent;">Full Contact Card</a>
         </div>
       </div
- 
+ <--news-->
+<div style="
+  background:#111;
+  border-radius:14px;
+  padding:22px;
+  margin-top:30px;
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 12px 28px rgba(0,0,0,.35);
+">
+
+  <h3 style="
+    margin:0 0 15px 0;
+    color:#fff;
+    font-size:18px;
+  ">
+    Gringo Gazette
+  </h3>
+
+  <ul class="gg-feed" id="ggFeed" style="
+    list-style:none;
+    padding:0;
+    margin:0;
+  ">
+    <li style="color:#999;padding:8px 0;">Loading...</li>
+  </ul>
+
+</div>
 
 <script>
 fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.gringogazette.com%2Ffeed")
-.then(r => r.json())
-.then(data => {
-  const list = document.getElementById('ggFeed');
+  .then(r => r.json())
+  .then(data => {
+    const list = document.getElementById('ggFeed');
+    if (!data.items || !data.items.length) {
+      list.innerHTML = '<li style="color:#999;">No articles found.</li>';
+      return;
+    }
 
-  if (!data.items || !data.items.length) {
-    list.innerHTML = '<li style="color:#777;padding:10px 0;">No articles found.</li>';
-    return;
-  }
+    list.innerHTML = data.items.slice(0, 8).map(item => {
+      const date = new Date(item.pubDate).toLocaleDateString(undefined, {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
 
-  list.innerHTML = data.items.slice(0,8).map(item => {
-    const date = new Date(item.pubDate).toLocaleDateString(undefined,{
-      month:'short',
-      day:'numeric',
-      year:'numeric'
-    });
-
-    return `
-      <li style="
-        padding:12px 0;
-        border-bottom:1px solid rgba(255,255,255,0.06);
-        display:flex;
-        justify-content:space-between;
-        gap:12px;
-        align-items:center;
-      ">
-        <a href="${item.link}" target="_blank" rel="noopener"
-           style="color:#ddd;text-decoration:none;font-size:14px;flex:1;">
-           ${item.title}
-        </a>
-
-        <span style="color:#777;font-size:12px;white-space:nowrap;">
-          ${date}
-        </span>
-      </li>
-    `;
-  }).join('');
-})
-.catch(() => {
-  document.getElementById('ggFeed').innerHTML =
-  '<li style="color:#777;padding:10px 0;">Unable to load feed.</li>';
-});
+      return `
+        <li style="
+          padding:12px 0;
+          border-bottom:1px solid rgba(255,255,255,0.06);
+          display:flex;
+          justify-content:space-between;
+          gap:10px;
+        ">
+          <a href="${item.link}" target="_blank" rel="noopener"
+             style="color:#ddd;text-decoration:none;font-size:14px;">
+             ${item.title}
+          </a>
+          <span style="color:#777;font-size:12px;white-space:nowrap;">
+            ${date}
+          </span>
+        </li>
+      `;
+    }).join('');
+  })
+  .catch(() => {
+    document.getElementById('ggFeed').innerHTML =
+      '<li style="color:#999;">Unable to load feed.</li>';
+  });
 </script>
-    
-  </section>
 
   <!-- FOOTER -->
   <footer class="site-footer">
