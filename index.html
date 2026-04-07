@@ -1776,26 +1776,57 @@
           <a href="businesscard.html" class="btn-dark" style="background:transparent;">Full Contact Card</a>
         </div>
       </div>
+<div class="gg-tile">
+  <div class="gg-header">
+    <h3>Gringo Gazette</h3>
+  </div>
 
-      <div class="contact-form">
-        <h3>Gringo Gazette</h3>
-        <ul class="gg-feed" id="ggFeed"><li style="color:#999;">Loading...</li></ul>
-        <a href="https://www.gringogazette.com" target="_blank" rel="noopener" class="btn-dark" style="display:inline-block; margin-top:20px;">Visit Gringo Gazette</a>
-      </div>
-      <script>
-        fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.gringogazette.com%2Ffeed")
-          .then(r => r.json())
-          .then(data => {
-            const list = document.getElementById('ggFeed');
-            if (!data.items || !data.items.length) { list.innerHTML = '<li style="color:#999;">No articles found.</li>'; return; }
-            list.innerHTML = data.items.slice(0, 8).map(item => {
-              const date = new Date(item.pubDate).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
-              return `<li class="gg-item"><a href="${item.link}" target="_blank" rel="noopener">${item.title}</a><span class="gg-date">${date}</span></li>`;
-            }).join('');
-          })
-          .catch(() => { document.getElementById('ggFeed').innerHTML = '<li style="color:#999;">Unable to load feed.</li>'; });
-      </script>
-    </div>
+  <div class="gg-body">
+    <ul class="gg-feed" id="ggFeed">
+      <li class="gg-loading">Loading...</li>
+    </ul>
+  </div>
+
+  <div class="gg-footer">
+    <a href="https://www.gringogazette.com" target="_blank" rel="noopener" class="btn-dark">
+      Visit Gringo Gazette
+    </a>
+  </div>
+</div>
+
+<script>
+fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.gringogazette.com%2Ffeed")
+  .then(r => r.json())
+  .then(data => {
+    const list = document.getElementById('ggFeed');
+    if (!data.items || !data.items.length) {
+      list.innerHTML = '<li class="gg-loading">No articles found.</li>';
+      return;
+    }
+
+    list.innerHTML = data.items.slice(0, 8).map(item => {
+      const date = new Date(item.pubDate).toLocaleDateString(undefined, {
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+
+      return `
+        <li class="gg-item">
+          <a href="${item.link}" target="_blank" rel="noopener">
+            ${item.title}
+          </a>
+          <span class="gg-date">${date}</span>
+        </li>
+      `;
+    }).join('');
+  })
+  .catch(() => {
+    document.getElementById('ggFeed').innerHTML =
+      '<li class="gg-loading">Unable to load feed.</li>';
+  });
+</script>
+    
   </section>
 
   <!-- FOOTER -->
