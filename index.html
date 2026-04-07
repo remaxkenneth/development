@@ -1775,56 +1775,52 @@
           <a href="https://wa.me/5216121278834" target="_blank" rel="noopener" class="btn-dark">WhatsApp Kenneth</a>
           <a href="businesscard.html" class="btn-dark" style="background:transparent;">Full Contact Card</a>
         </div>
-      </div>
-<div class="gg-tile">
-  <div class="gg-header">
-    <h3>Gringo Gazette</h3>
-  </div>
-
-  <div class="gg-body">
-    <ul class="gg-feed" id="ggFeed">
-      <li class="gg-loading">Loading...</li>
-    </ul>
-  </div>
-
-  <div class="gg-footer">
-    <a href="https://www.gringogazette.com" target="_blank" rel="noopener" class="btn-dark">
-      Visit Gringo Gazette
-    </a>
-  </div>
-</div>
+      </div
+ 
 
 <script>
 fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.gringogazette.com%2Ffeed")
-  .then(r => r.json())
-  .then(data => {
-    const list = document.getElementById('ggFeed');
-    if (!data.items || !data.items.length) {
-      list.innerHTML = '<li class="gg-loading">No articles found.</li>';
-      return;
-    }
+.then(r => r.json())
+.then(data => {
+  const list = document.getElementById('ggFeed');
 
-    list.innerHTML = data.items.slice(0, 8).map(item => {
-      const date = new Date(item.pubDate).toLocaleDateString(undefined, {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric'
-      });
+  if (!data.items || !data.items.length) {
+    list.innerHTML = '<li style="color:#777;padding:10px 0;">No articles found.</li>';
+    return;
+  }
 
-      return `
-        <li class="gg-item">
-          <a href="${item.link}" target="_blank" rel="noopener">
-            ${item.title}
-          </a>
-          <span class="gg-date">${date}</span>
-        </li>
-      `;
-    }).join('');
-  })
-  .catch(() => {
-    document.getElementById('ggFeed').innerHTML =
-      '<li class="gg-loading">Unable to load feed.</li>';
-  });
+  list.innerHTML = data.items.slice(0,8).map(item => {
+    const date = new Date(item.pubDate).toLocaleDateString(undefined,{
+      month:'short',
+      day:'numeric',
+      year:'numeric'
+    });
+
+    return `
+      <li style="
+        padding:12px 0;
+        border-bottom:1px solid rgba(255,255,255,0.06);
+        display:flex;
+        justify-content:space-between;
+        gap:12px;
+        align-items:center;
+      ">
+        <a href="${item.link}" target="_blank" rel="noopener"
+           style="color:#ddd;text-decoration:none;font-size:14px;flex:1;">
+           ${item.title}
+        </a>
+
+        <span style="color:#777;font-size:12px;white-space:nowrap;">
+          ${date}
+        </span>
+      </li>
+    `;
+  }).join('');
+})
+.catch(() => {
+  document.getElementById('ggFeed').innerHTML =
+  '<li style="color:#777;padding:10px 0;">Unable to load feed.</li>';
+});
 </script>
     
   </section>
