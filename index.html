@@ -1776,12 +1776,14 @@
           <a href="businesscard.html" class="btn-dark" style="background:transparent;">Full Contact Card</a>
         </div>
       </div
- <--news-->
+
+        <!-- news -->
 <div style="
+  max-width:420px;
+  margin:30px auto;
   background:#111;
   border-radius:14px;
   padding:22px;
-  margin-top:30px;
   border:1px solid rgba(255,255,255,0.08);
   box-shadow:0 12px 28px rgba(0,0,0,.35);
 ">
@@ -1791,7 +1793,7 @@
     color:#fff;
     font-size:18px;
   ">
-    Gringo Gazette
+  Local News
   </h3>
 
   <ul class="gg-feed" id="ggFeed" style="
@@ -1845,7 +1847,6 @@ fetch("https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.gringogaze
       '<li style="color:#999;">Unable to load feed.</li>';
   });
 </script>
-
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-grid">
