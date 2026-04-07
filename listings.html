@@ -1,5 +1,8 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="/css/layout.css">
+
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +11,9 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,15 +22,15 @@
       theme: {
         extend: {
           colors: {
-            'site-black':   '#000000',
-            'site-dark':    '#0b0b0b',
-            'site-gray':    '#4c4c4c',
-            'site-silver':  '#c0c0c0',
-            'site-border':  '#f4eded',
-            'site-muted':   '#9d9aab',
+            'site-black': '#000000',
+            'site-dark': '#0b0b0b',
+            'site-gray': '#4c4c4c',
+            'site-silver': '#c0c0c0',
+            'site-border': '#f4eded',
+            'site-muted': '#9d9aab',
           },
           fontFamily: {
-            tenor:      ['"Tenor Sans"', 'serif'],
+            tenor: ['"Tenor Sans"', 'serif'],
             montserrat: ['Montserrat', 'sans-serif'],
           },
         },
@@ -35,35 +40,59 @@
 
   <style>
     /* Base */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Montserrat', sans-serif; color: #000; background: #fff; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    /* Navigation */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #000;
+      background: #fff;
+    }
+
+    /* ── NAV ── */
     .site-nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       height: 96px;
-      background: #fff;
+      background: rgba(255,255,255,0.97);
       border-bottom: 1px solid #f4eded;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 48px;
       z-index: 1000;
-      transition: height 0.3s ease;
+      transition: height 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     }
-    .site-nav.scrolled { height: 70px; }
-
-    .nav-logo { display: flex; flex-direction: column; text-decoration: none; }
-    .nav-logo-text {
+    .site-nav.scrolled {
+      height: 70px;
+      background: rgba(0,0,0,0.88) !important;
+      border-bottom-color: transparent;
+    }
+    .site-nav.scrolled .nav-brand-name { color: #fff; }
+    .site-nav.scrolled .nav-brand-sub  { color: rgba(255,255,255,0.5); }
+    .site-nav.scrolled .nav-menu-link  { color: #fff; }
+    .site-nav.scrolled .nav-cta-btn    { color: #fff; border-color: rgba(255,255,255,0.6); }
+    .site-nav.scrolled .nav-hamburger  { color: #fff !important; }
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .nav-brand-name {
       font-family: 'Tenor Sans', serif;
       font-size: 16px;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: #000;
       line-height: 1.2;
+      transition: color 0.3s;
     }
-    .nav-logo-sub {
+    .nav-brand-sub {
       font-family: 'Montserrat', sans-serif;
       font-size: 9px;
       font-weight: 500;
@@ -71,15 +100,18 @@
       text-transform: uppercase;
       color: #9d9aab;
       margin-top: 3px;
+      transition: color 0.3s;
     }
-
-    .nav-links {
+    .nav-menu {
       display: flex;
       align-items: center;
       gap: 40px;
       list-style: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
-    .nav-links a {
+    .nav-menu-link {
       font-family: 'Montserrat', sans-serif;
       font-size: 13px;
       font-weight: 400;
@@ -89,20 +121,25 @@
       text-decoration: none;
       position: relative;
       padding-bottom: 4px;
+      transition: color 0.3s;
     }
-    .nav-links a::after {
+    .nav-menu-link::after {
       content: '';
       position: absolute;
       bottom: 0; left: 0;
       width: 0;
       height: 1px;
-      background: #000;
+      background: currentColor;
       transition: width 0.3s ease;
     }
-    .nav-links a:hover::after { width: 115%; }
-    .nav-links a.active::after { width: 115%; }
-
-    .nav-contact-btn {
+    .nav-menu-link:hover::after,
+    .nav-menu-link.active::after { width: 115%; }
+    .nav-end {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-cta-btn {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
       font-weight: 600;
@@ -112,9 +149,202 @@
       border: 1px solid #000;
       padding: 11px 24px;
       text-decoration: none;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+      white-space: nowrap;
+    }
+    .nav-cta-btn:hover { background: #000; color: #fff; }
+    .nav-hamburger {
+      display: none;
+      font-size: 24px;
+      color: #000;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    /* Mobile Drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 950;
+      background: rgba(0,0,0,0.96);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      font-family: 'Tenor Sans', serif;
+      font-size: 28px;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      transition: opacity 0.2s;
+    }
+    .nav-drawer a:hover { opacity: 0.55; }
+    .nav-drawer-close {
+      position: absolute;
+      top: 32px; right: 40px;
+      color: rgba(255,255,255,0.6);
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    /* Footer */
+    .site-footer {
+      background: #000;
+      color: #fff;
+      padding: 80px 80px 42px;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      gap: 60px;
+      margin-bottom: 64px;
+    }
+    .footer-col-left  { flex: 0 0 52%; max-width: 52%; }
+    .footer-col-right { flex: 1; display: flex; gap: 60px; }
+    .f-brand-name {
+      font-family: 'Tenor Sans', serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .f-brand-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #9d9aab;
+      margin-bottom: 26px;
+    }
+    .f-body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      line-height: 1.8;
+      color: #c0c0c0;
+      max-width: 400px;
+      margin-bottom: 34px;
+    }
+    .f-nl-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .f-nl-form {
+      display: flex;
+      align-items: flex-end;
+      gap: 14px;
+      max-width: 380px;
+    }
+    .f-nl-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #c0c0c0;
+      padding: 8px 0;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      outline: none;
+    }
+    .f-nl-input::placeholder { color: #9d9aab; }
+    .f-nl-btn {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      background: transparent;
+      border: 1px solid #fff;
+      padding: 9px 20px;
+      cursor: pointer;
       transition: background 0.3s ease, color 0.3s ease;
     }
-    .nav-contact-btn:hover { background: #000; color: #fff; }
+    .f-nl-btn:hover { background: #fff; color: #000; }
+    .f-col h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 22px;
+    }
+    .f-col ul { list-style: none; }
+    .f-col ul li { margin-bottom: 10px; }
+    .f-col ul li a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: #c0c0c0;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .f-col ul li a:hover { color: #fff; text-decoration: underline; }
+    .f-col p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: #c0c0c0;
+      line-height: 1.75;
+      margin-bottom: 4px;
+    }
+    .f-col a { color: #c0c0c0; text-decoration: none; transition: color 0.2s; }
+    .f-col a:hover { color: #fff; }
+    .f-social-row { display: flex; gap: 10px; margin-top: 22px; }
+    .f-social-btn {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      flex-shrink: 0;
+    }
+    .f-social-btn:hover { background: #444; }
+    .f-bottom {
+      border-top: 1px solid #1a1a1a;
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .f-copy {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      color: #9d9aab;
+    }
+    .f-copy a { color: #9d9aab; text-decoration: none; }
+    .f-remax {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      color: #9d9aab;
+    }
+    @media (max-width: 768px) {
+      .site-nav { padding: 0 24px; }
+      .nav-menu { display: none; }
+      .nav-cta-btn { display: none; }
+      .nav-hamburger { display: block; }
+      .site-footer { padding: 60px 24px 36px; }
+      .footer-grid { flex-direction: column; gap: 40px; }
+      .footer-col-left { flex: none; max-width: 100%; }
+      .footer-col-right { flex-direction: column; gap: 32px; }
+      .f-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
 
     /* Hero */
     .hero {
@@ -128,6 +358,7 @@
       text-align: center;
       overflow: hidden;
     }
+
     .hero-bg {
       position: absolute;
       inset: 0;
@@ -135,18 +366,21 @@
       background-size: cover;
       background-position: center;
     }
+
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.52);
+      background: rgba(0, 0, 0, 0.52);
     }
+
     .hero-content {
       position: relative;
       z-index: 1;
       padding: 0 40px;
       max-width: 860px;
     }
+
     .hero-pretitle {
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
@@ -156,6 +390,7 @@
       color: #fff;
       margin-bottom: 22px;
     }
+
     .hero-title {
       font-family: 'Tenor Sans', serif;
       font-size: 70px;
@@ -165,6 +400,7 @@
       text-transform: uppercase;
       margin-bottom: 30px;
     }
+
     .hero-subtitle {
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
@@ -177,6 +413,7 @@
       justify-content: center;
       gap: 18px;
     }
+
     .hero-subtitle::before,
     .hero-subtitle::after {
       content: '';
@@ -185,6 +422,7 @@
       height: 1px;
       background: #c0c0c0;
     }
+
     .hero-body {
       font-family: 'Montserrat', sans-serif;
       font-size: 12px;
@@ -206,12 +444,14 @@
       background: #fff;
       min-height: 520px;
     }
+
     .featured-image {
       width: 50%;
       flex-shrink: 0;
       overflow: hidden;
       position: relative;
     }
+
     .featured-image img {
       width: 100%;
       height: 100%;
@@ -219,7 +459,11 @@
       display: block;
       transition: transform 0.6s ease;
     }
-    .featured-image:hover img { transform: scale(1.04); }
+
+    .featured-image:hover img {
+      transform: scale(1.04);
+    }
+
     .featured-text {
       width: 50%;
       display: flex;
@@ -227,6 +471,7 @@
       justify-content: center;
       padding: 60px 4.5vw 60px 5vw;
     }
+
     .featured-eyebrow {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
@@ -236,6 +481,7 @@
       color: #9d9aab;
       margin-bottom: 14px;
     }
+
     .featured-title {
       font-family: 'Tenor Sans', serif;
       font-size: 36px;
@@ -244,6 +490,7 @@
       margin-bottom: 10px;
       line-height: 1.15;
     }
+
     .featured-location {
       font-family: 'Montserrat', sans-serif;
       font-size: 13px;
@@ -253,6 +500,7 @@
       color: #4c4c4c;
       margin-bottom: 14px;
     }
+
     .featured-specs {
       font-family: 'Montserrat', sans-serif;
       font-size: 13px;
@@ -260,12 +508,14 @@
       letter-spacing: 0.5px;
       margin-bottom: 14px;
     }
+
     .featured-price {
       font-family: 'Tenor Sans', serif;
       font-size: 30px;
       color: #000;
       margin-bottom: 26px;
     }
+
     .featured-desc {
       font-family: 'Montserrat', sans-serif;
       font-size: 14px;
@@ -274,6 +524,7 @@
       margin-bottom: 34px;
       max-width: 460px;
     }
+
     .btn-outline-dark {
       display: inline-block;
       font-family: 'Montserrat', sans-serif;
@@ -287,17 +538,23 @@
       text-decoration: none;
       transition: background 0.3s ease, color 0.3s ease;
     }
-    .btn-outline-dark:hover { background: #000; color: #fff; }
+
+    .btn-outline-dark:hover {
+      background: #000;
+      color: #fff;
+    }
 
     /* Listings Grid Section */
     .listings-section {
-      background: rgba(11,11,11,1);
+      background: rgba(11, 11, 11, 1);
       padding: 96px 64px;
     }
+
     .listings-header {
       text-align: center;
       margin-bottom: 64px;
     }
+
     .listings-eyebrow {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
@@ -307,6 +564,7 @@
       color: #9d9aab;
       margin-bottom: 14px;
     }
+
     .listings-title {
       font-family: 'Tenor Sans', serif;
       font-size: 40px;
@@ -330,7 +588,13 @@
       gap: 20px;
       padding: 16px 0 4px;
     }
-    .grid-divider-line { flex: 1; height: 1px; background: #2a2a2a; }
+
+    .grid-divider-line {
+      flex: 1;
+      height: 1px;
+      background: #2a2a2a;
+    }
+
     .grid-divider-label {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
@@ -345,10 +609,13 @@
     .property-card {
       background: #fff;
       position: relative;
-      box-shadow: 2px 4px 12px -3px rgba(0,0,0,0.75);
+      box-shadow: 2px 4px 12px -3px rgba(0, 0, 0, 0.75);
       transition: transform 0.3s ease;
     }
-    .property-card:hover { transform: translateY(-4px); }
+
+    .property-card:hover {
+      transform: translateY(-4px);
+    }
 
     .card-img-wrap {
       position: relative;
@@ -357,6 +624,7 @@
       overflow: hidden;
       background: #888;
     }
+
     .card-img-wrap img {
       width: 100%;
       height: 100%;
@@ -364,12 +632,15 @@
       display: block;
       transition: transform 0.4s ease;
     }
-    .property-card:hover .card-img-wrap img { transform: scale(1.04); }
+
+    .property-card:hover .card-img-wrap img {
+      transform: scale(1.04);
+    }
 
     .card-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(255,255,255,0.78);
+      background: rgba(255, 255, 255, 0.78);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -377,7 +648,10 @@
       opacity: 0;
       transition: opacity 0.3s ease;
     }
-    .property-card:hover .card-overlay { opacity: 1; }
+
+    .property-card:hover .card-overlay {
+      opacity: 1;
+    }
 
     .card-overlay-btn {
       font-family: 'Montserrat', sans-serif;
@@ -393,7 +667,10 @@
       text-decoration: none;
       transition: background 0.2s ease;
     }
-    .card-overlay-btn:hover { background: #333; }
+
+    .card-overlay-btn:hover {
+      background: #333;
+    }
 
     .card-badge {
       position: absolute;
@@ -409,13 +686,17 @@
       padding: 6px 35px;
       z-index: 2;
     }
-    .card-badge.sale-pending { background: #555; }
+
+    .card-badge.sale-pending {
+      background: #555;
+    }
 
     .card-body {
       padding: 30px 20px 28px;
       background: #fff;
       text-align: center;
     }
+
     .card-name {
       font-family: 'Tenor Sans', serif;
       font-size: 22px;
@@ -424,6 +705,7 @@
       margin-bottom: 8px;
       line-height: 1.2;
     }
+
     .card-address {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
@@ -433,6 +715,7 @@
       text-transform: uppercase;
       margin-bottom: 8px;
     }
+
     .card-specs {
       font-family: 'Montserrat', sans-serif;
       font-size: 13px;
@@ -440,11 +723,13 @@
       margin-bottom: 10px;
       letter-spacing: 0.3px;
     }
+
     .card-price {
       font-family: 'Tenor Sans', serif;
       font-size: 22px;
       color: #000;
     }
+
     .card-price.pending {
       font-family: 'Montserrat', sans-serif;
       font-size: 11px;
@@ -454,166 +739,36 @@
       color: #555;
     }
 
-    /* Footer */
-    .site-footer {
-      background: #000;
-      color: #fff;
-      padding: 80px 80px 42px;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      gap: 60px;
-      margin-bottom: 64px;
-    }
-    .footer-left { flex: 0 0 55%; max-width: 55%; }
-    .footer-right { flex: 1; display: flex; gap: 60px; }
-
-    .footer-brand-name {
-      font-family: 'Tenor Sans', serif;
-      font-size: 20px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 4px;
-    }
-    .footer-brand-sub {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #9d9aab;
-      margin-bottom: 26px;
-    }
-    .footer-body {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      line-height: 1.8;
-      color: #c0c0c0;
-      max-width: 400px;
-      margin-bottom: 34px;
-    }
-    .footer-nl-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-    .footer-nl-form {
-      display: flex;
-      align-items: flex-end;
-      gap: 14px;
-      max-width: 380px;
-    }
-    .footer-nl-input {
-      flex: 1;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid #c0c0c0;
-      padding: 8px 0;
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      outline: none;
-    }
-    .footer-nl-input::placeholder { color: #9d9aab; }
-    .footer-nl-btn {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: #fff;
-      background: transparent;
-      border: 1px solid #fff;
-      padding: 9px 20px;
-      cursor: pointer;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-    .footer-nl-btn:hover { background: #fff; color: #000; }
-
-    .footer-col h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #fff;
-      margin-bottom: 22px;
-    }
-    .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 10px; }
-    .footer-col ul li a {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      color: #c0c0c0;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-    .footer-col ul li a:hover { color: #fff; text-decoration: underline; }
-    .footer-col p {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      color: #c0c0c0;
-      line-height: 1.75;
-      margin-bottom: 4px;
-    }
-
-    .social-row { display: flex; gap: 10px; margin-top: 22px; }
-    .social-btn {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: #1a1a1a;
-      display: flex; align-items: center; justify-content: center;
-      color: #fff;
-      text-decoration: none;
-      transition: background 0.3s ease;
-      flex-shrink: 0;
-    }
-    .social-btn:hover { background: #444; }
-
-    .footer-bottom {
-      border-top: 1px solid #1a1a1a;
-      padding-top: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .footer-copy {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      color: #9d9aab;
-    }
-    .footer-copy a { color: #9d9aab; text-decoration: none; }
-    .footer-remax-note {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      color: #9d9aab;
-    }
   </style>
 </head>
+
 <body>
 
-  <!-- NAV -->
-  <nav class="site-nav" id="siteNav">
-    <a href="/index.html" class="nav-logo">
-      <div class="nav-logo-text">Kenneth Gehlhoff</div>
-      <div class="nav-logo-sub">RE/MAX Cabo Sanctuary</div>
+  <!-- MOBILE DRAWER -->
+  <div class="nav-drawer" id="navDrawer">
+    <button class="nav-drawer-close" id="drawerClose">&#10005;</button>
+    <a href="index.html" onclick="closeDrawer()">Home</a>
+    <a href="listings.html" onclick="closeDrawer()">Properties</a>
+    <a href="events.html" onclick="closeDrawer()">Events</a>
+    <a href="#about" onclick="closeDrawer()">About</a>
+    <a href="businesscard.html" onclick="closeDrawer()">Contact</a>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav class="site-nav" id="navbar">
+    <a href="index.html" class="nav-brand">
+      <div class="nav-brand-name">Kenneth Gehlhoff</div>
+      <div class="nav-brand-sub">RE/MAX Cabo Sanctuary</div>
     </a>
-
-    <ul class="nav-links">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/listings.html" class="active">Listings</a></li>
-      <li><a href="/events.html">Events</a></li>
-      <li><a href="/businesscard.html">Contact</a></li>
+    <ul class="nav-menu">
+      <li><a href="index.html" class="nav-menu-link">Home</a></li>
+      <li><a href="listings.html" class="nav-menu-link active">Properties</a></li>
+      <li><a href="events.html" class="nav-menu-link">Events</a></li>
+      <li><a href="#about" class="nav-menu-link">About</a></li>
     </ul>
-
-    <div>
-      <a href="/businesscard.html" class="nav-contact-btn">Contact Us</a>
+    <div class="nav-end">
+      <a href="businesscard.html" class="nav-cta-btn">Contact Us</a>
+      <span class="nav-hamburger" id="hamburger">&#9776;</span>
     </div>
   </nav>
 
@@ -635,10 +790,8 @@
   <!-- FEATURED PROPERTY -->
   <section class="featured">
     <div class="featured-image">
-      <img
-        src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg"
-        alt="Pescadero Resort – El Pescadero"
-      />
+      <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/c1/IMG_1075.jpeg"
+        alt="Pescadero Resort – El Pescadero" />
     </div>
     <div class="featured-text">
       <p class="featured-eyebrow">Featured Property</p>
@@ -779,7 +932,8 @@
       <!-- 7. Luna Villa -->
       <div class="property-card">
         <div class="card-img-wrap">
-          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg" alt="Luna Villa" />
+          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/villa/Luna%20Villa-51%20%2828%29.jpeg"
+            alt="Luna Villa" />
           <div class="card-overlay">
             <a href="listings/luna/villa/index.html" class="card-overlay-btn">View Property</a>
           </div>
@@ -796,7 +950,8 @@
       <!-- 8. New Villa -->
       <div class="property-card">
         <div class="card-img-wrap">
-          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1623.png" alt="New Villa" />
+          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/luna/newvilla/IMG_1623.png"
+            alt="New Villa" />
           <div class="card-overlay">
             <a href="listings/luna/newvilla/index.html" class="card-overlay-btn">View Property</a>
           </div>
@@ -820,7 +975,8 @@
       <!-- 9. Gavilán Heights -->
       <div class="property-card">
         <div class="card-img-wrap">
-          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/8/Drone-Still_2026-02-19-21h54m21s967.jpeg" alt="Gavilán Heights" />
+          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/8/Drone-Still_2026-02-19-21h54m21s967.jpeg"
+            alt="Gavilán Heights" />
           <div class="card-overlay">
             <a href="listings/8/index.html" class="card-overlay-btn">View Property</a>
           </div>
@@ -854,7 +1010,8 @@
       <!-- 11. Tierra Nirvana -->
       <div class="property-card">
         <div class="card-img-wrap">
-          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/0/Drone-Still_2026-02-19-21h15m37s316.jpeg" alt="Tierra Nirvana" />
+          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/0/Drone-Still_2026-02-19-21h15m37s316.jpeg"
+            alt="Tierra Nirvana" />
           <div class="card-overlay">
             <a href="listings/0/index.html" class="card-overlay-btn">View Property</a>
           </div>
@@ -871,7 +1028,8 @@
       <!-- 12. Ocean & Summit Reserve -->
       <div class="property-card">
         <div class="card-img-wrap">
-          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/7/Drone-Still_2026-02-19-22h12m41s382.jpeg" alt="Ocean & Summit Reserve" />
+          <img src="https://ldepvcutqiyf3cw0.public.blob.vercel-storage.com/7/Drone-Still_2026-02-19-22h12m41s382.jpeg"
+            alt="Ocean & Summit Reserve" />
           <div class="card-overlay">
             <a href="listings/7/index.html" class="card-overlay-btn">View Property</a>
           </div>
@@ -890,70 +1048,75 @@
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-left">
-        <div class="footer-brand-name">Kenneth Gehlhoff</div>
-        <div class="footer-brand-sub">RE/MAX Cabo Sanctuary</div>
-        <p class="footer-body">
+    <div class="footer-grid">
+      <div class="footer-col-left">
+        <div class="f-brand-name">Kenneth Gehlhoff</div>
+        <div class="f-brand-sub">RE/MAX Cabo Sanctuary</div>
+        <p class="f-body">
           Curated locally. Updated often.<br />
           Homes &middot; Land &middot; Investment<br /><br />
           Specializing in luxury coastal properties across El Pescadero,
           Cerritos, Todos Santos, and the greater Los Cabos area of
           Baja California Sur, Mexico.
         </p>
-        <div class="footer-nl-label">Stay Updated</div>
-        <form class="footer-nl-form" onsubmit="return false;">
-          <input type="email" class="footer-nl-input" placeholder="Your email address" />
-          <button class="footer-nl-btn" type="submit">Subscribe</button>
+        <div class="f-nl-label">Stay Updated</div>
+        <form class="f-nl-form" onsubmit="return false;">
+          <input type="email" class="f-nl-input" placeholder="Your email address" />
+          <button class="f-nl-btn" type="submit">Subscribe</button>
         </form>
       </div>
 
-      <div class="footer-right">
-        <div class="footer-col">
+      <div class="footer-col-right">
+        <div class="f-col">
           <h4>Navigate</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Listings</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="listings.html">Properties</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="businesscard.html">Contact</a></li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div class="f-col">
           <h4>Contact</h4>
           <p>Kenneth Gehlhoff</p>
           <p>RE/MAX Cabo Sanctuary</p>
-          <p style="margin-top:12px;">+52 612 127 8834</p>
-          <p>remaxkenneth@gmail.com</p>
+          <p style="margin-top:12px;"><a href="tel:+526121278834">+52 612 127 8834</a></p>
           <p style="margin-top:12px;">El Pescadero &amp; Todos Santos<br />Baja California Sur, Mexico</p>
-          <div class="social-row">
-            <a href="#" class="social-btn" aria-label="Instagram">
-              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
-              </svg>
+          <div class="f-social-row">
+            <a href="https://wa.me/5216121278834" target="_blank" rel="noopener" class="f-social-btn" aria-label="WhatsApp">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
             </a>
-            <a href="#" class="social-btn" aria-label="Facebook">
-              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
+            <a href="#" class="f-social-btn" aria-label="Instagram">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="#" class="f-social-btn" aria-label="Facebook">
+              <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2026 Kenneth Gehlhoff | <a href="#">RE/MAX Cabo Sanctuary</a>. All rights reserved.</p>
-      <p class="footer-remax-note">RE/MAX Cabo Sanctuary &middot; Baja California Sur, Mexico</p>
+    <div class="f-bottom">
+      <p class="f-copy">&copy; 2026 Kenneth Gehlhoff | <a href="#">RE/MAX Cabo Sanctuary</a>. Each office independently owned and operated.</p>
+      <p class="f-remax">RE/MAX Cabo Sanctuary &middot; Baja California Sur, Mexico</p>
     </div>
   </footer>
 
   <script>
-    // Shrink nav on scroll
-    const nav = document.getElementById('siteNav');
+    // NAV SCROLL
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 60);
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
     });
+
+    // MOBILE DRAWER
+    const drawer = document.getElementById('navDrawer');
+    document.getElementById('hamburger').addEventListener('click', () => drawer.classList.add('open'));
+    document.getElementById('drawerClose').addEventListener('click', () => drawer.classList.remove('open'));
+    function closeDrawer() { drawer.classList.remove('open'); }
   </script>
 
 </body>
+
 </html>
